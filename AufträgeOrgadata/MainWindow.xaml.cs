@@ -99,7 +99,7 @@ namespace AufträgeOrgadata
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Close(); //Schließt das Fenster
         }
     }
 }
