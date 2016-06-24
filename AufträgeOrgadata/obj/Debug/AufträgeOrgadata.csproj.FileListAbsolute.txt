@@ -14,3 +14,4 @@ c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\Auft
 c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.pdb
 C:\Users\Praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\bin\Debug\MySql.Data.dll
 C:\Users\Praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\bin\Debug\MySql.Web.dll
+C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\AufträgeOrgadata.exe.config
