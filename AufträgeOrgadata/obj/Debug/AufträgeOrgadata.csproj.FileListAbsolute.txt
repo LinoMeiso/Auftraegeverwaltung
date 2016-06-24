@@ -1,0 +1,16 @@
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\bin\Debug\AufträgeOrgadata.exe.config
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\bin\Debug\AufträgeOrgadata.exe
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\bin\Debug\AufträgeOrgadata.pdb
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.csprojResolveAssemblyReference.cache
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\MainWindow.g.cs
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\App.g.cs
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\AufträgeOrgadata_MarkupCompile.cache
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\AufträgeOrgadata_MarkupCompile.lref
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\MainWindow.baml
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.g.resources
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.Properties.Resources.resources
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.csproj.GenerateResource.Cache
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.exe
+c:\users\praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.pdb
+C:\Users\Praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\bin\Debug\MySql.Data.dll
+C:\Users\Praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\AufträgeOrgadata\bin\Debug\MySql.Web.dll
