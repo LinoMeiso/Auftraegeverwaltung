@@ -157,4 +157,52 @@ namespace AufträgeOrgadata
         }
 
     }
+    public class TAusstattung
+    {
+        public int ID { get; set; }
+        public string Ausstatung { get; set; }
+    }
+
+    public class Ausstattung
+    {
+        public List<TAusstattung> Ausstattungsliste { get; set; }
+
+        public Ausstattung()
+        {
+            Ausstattungsliste = new List<TAusstattung>();
+            LoadProgramms();
+        }
+
+        public void LoadProgramms()
+        {
+            String connstring = "uid=root;" + "password=;" + "server=localhost;" + "database=auftraege";
+            MySqlConnection conn = new MySqlConnection(connstring);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM ausstatung");
+                cmd.Connection = conn;
+
+                using (MySqlDataReader Reader = cmd.ExecuteReader())
+                {
+                    while (Reader.Read())
+                    {
+                        TAusstattung Ausstattung = new TAusstattung();
+                        Ausstattung.ID = int.Parse(Reader["ID"].ToString());
+                        Ausstattung.Ausstatung = Reader["ausstatungName"].ToString();
+                        Ausstattungsliste.Add(Ausstattung);
+                    }
+                }
+                conn.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+
+        }
+    }
 }

@@ -29,7 +29,7 @@ namespace AufträgeOrgadata
         private void Program_Loaded(object sender, RoutedEventArgs e)
         {
             ProgrammName programme = new ProgrammName();
-            
+
             for (int i = 0; i < programme.ProgrammListe.Count; i++)
             {
                 CheckBox cb = new CheckBox();
@@ -66,8 +66,20 @@ namespace AufträgeOrgadata
                 cb.Content = stamm.StammListe[i].StammName;
                 wpanelStamm.Children.Add(cb);
             }
-        }
+            Ausstattung Auss = new Ausstattung();
 
+            for (int i = 0; i < Auss.Ausstattungsliste.Count; i++)
+            {
+                CheckBox cb = new CheckBox();
+                cb.Width = 200;
+                cb.Height = 15;
+                cb.VerticalAlignment = VerticalAlignment.Top;
+                cb.HorizontalAlignment = HorizontalAlignment.Left;
+                cb.Content = Auss.Ausstattungsliste[i].Ausstatung;
+                wpanelAusstattung.Children.Add(cb);
+            }
+
+        }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {

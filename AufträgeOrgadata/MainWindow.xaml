@@ -115,5 +115,12 @@
                 <WrapPanel x:Name="wpanelStamm" HorizontalAlignment="Left" Height="156" Margin="10,35,0,0" VerticalAlignment="Top" Width="1285"/>
             </Grid>
         </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height ="200" Margin= "0,603,0,0" VerticalAlignment ="Top" Width= "1305">
+            <Grid x:Name="gridAusstattung" HorizontalAlignment="Left" Height="200" Margin="0,0,0,0" VerticalAlignment="Top" Width="1305">
+                <Label x:Name="lblAusstattung" Content="Ausstattung" Height="28" Width="100" Margin="0,0,1205,172"/>
+                <Line Height="1" Margin="0,27,-10,172" X2="1310" Stroke="Black"/>
+                <WrapPanel x:Name="wpanelAusstattung" HorizontalAlignment="Left" Height="156" Margin="10,35,0,0" VerticalAlignment="Top" Width="1285"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
