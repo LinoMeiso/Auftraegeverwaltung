@@ -26,6 +26,12 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
+                <MenuItem x:Name="edit" Header="Bearbeiten" Height="25">
+                    <MenuItem x:Name="mkunde" Header="Kunde" Height="25"></MenuItem>
+                    <MenuItem x:Name="mprogramms" Header="Programme" Height="25"></MenuItem>
+                    <MenuItem x:Name="mstamm" Header="Stammdaten" Height="25"></MenuItem>
+                    <MenuItem x:Name="maustattung" Header="Austattung" Height="25"></MenuItem>
+                </MenuItem>
             <MenuItem Header="Einstellungen" Height="25" Width="90">
                 <MenuItem Header="Datenbank" Height="25" Width="150" Click="MenuItem_Click_2"/>
             </MenuItem>

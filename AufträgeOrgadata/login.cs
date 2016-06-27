@@ -46,7 +46,6 @@ namespace AufträgeOrgadata
                 lgn.server = node.SelectSingleNode("server").InnerText;
                 lgn.port = node.SelectSingleNode("port").InnerText;
                 lgn.db = node.SelectSingleNode("database").InnerText;
-                lgn.table = node.SelectSingleNode("table").InnerText;
             }
             lgnList.Add(lgn);
         }

@@ -29,38 +29,25 @@ namespace AufträgeOrgadata
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
-
-            /*
-            login lgn = new login();
-
-            MessageBox.Show(lgn.lgnList[0].uid);
-            MessageBox.Show(lgn.lgnList[0].pw);
-            MessageBox.Show(lgn.lgnList[0].server);
-            MessageBox.Show(lgn.lgnList[0].port);
-            MessageBox.Show(lgn.lgnList[0].db);
-            MessageBox.Show(lgn.lgnList[0].table);#
-            */
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
-            string uid, pw, server, port, database, table;
+            string uid, pw, server, port, database;
 
             uid = txtUid.Text;
             pw = txtPassword.Text;
             server = txtServer.Text;
             port = txtPort.Text;
             database = txtDatabase.Text;
-            table = txtTable.Text;
 
             XElement n = new XElement("AufträgeOrgadata",
                 new XElement("login",
-                new XElement("username",uid),
+                new XElement("username", uid),
                 new XElement("password", pw),
                 new XElement("server", server),
                 new XElement("port", port),
-                new XElement("database", database),
-                new XElement("table",table)));
+                new XElement("database", database)));
 
             n.Save("login.xml");
 
