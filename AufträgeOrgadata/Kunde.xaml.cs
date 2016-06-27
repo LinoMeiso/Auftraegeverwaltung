@@ -32,7 +32,7 @@ namespace AufträgeOrgadata
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            kunde kd = new kunde();
+            kundecs kd = new kundecs();
 
             for (int i = 0; i < kd.KundeListe.Count; i++)
             {

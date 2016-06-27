@@ -134,7 +134,9 @@ namespace AufträgeOrgadata
 
         private void mkunde_Click(object sender, RoutedEventArgs e)
         {
-            
+            Kunde kd = new Kunde();
+
+            kd.ShowDialog();
         }
     }
 }

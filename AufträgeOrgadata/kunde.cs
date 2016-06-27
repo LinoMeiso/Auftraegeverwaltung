@@ -20,11 +20,11 @@ namespace AufträgeOrgadata
         public string VertragsNr { get; set; } 
     }
 
-    public class kunde
+    public class kundecs
     {
         public List<TKunde> KundeListe { get; set; }
 
-        public kunde()
+        public kundecs()
         {
             KundeListe = new List<TKunde>();
             LoadKunde();
