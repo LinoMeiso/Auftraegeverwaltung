@@ -56,9 +56,7 @@ namespace AufträgeOrgadata
                 {
                     while (Reader.Read())
                     {
-
                         // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR
-
                         TKunde kunde = new TKunde();
                         kunde.ID = int.Parse(Reader["ID"].ToString());
                         kunde.Name = Reader["Name"].ToString();

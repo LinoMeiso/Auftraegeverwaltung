@@ -17,7 +17,7 @@
             </MenuItem>
         </Menu>
         
-        <ListView x:Name="lvKunde" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="498" Margin="0,25,0,0" ItemsSource="{Binding KundeListe}">
+        <ListView x:Name="lvKunde" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="498" Margin="0,30,0,0" ItemsSource="{Binding KundeListe}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
