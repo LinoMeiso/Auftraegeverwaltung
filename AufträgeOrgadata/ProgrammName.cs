@@ -38,9 +38,6 @@ namespace AufträgeOrgadata
             db = lgn.lgnList[0].db;
             table = lgn.lgnList[0].table;
 
-            //if (uid == null && pw == null && server == null && port == null && db == null && table == null)
-            //{
-
                 String connstring = "uid="+uid+";" + "password="+pw+";" + "server="+server+";" + "port="+port+";" + "database="+db+";" + "table="+table+";";
                 MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -67,11 +64,6 @@ namespace AufträgeOrgadata
                 {
                     MessageBox.Show(e.Message);
                 }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Keine Logindaten gefunden!");
-            //}
         }
     }
     public class TInstallationsart
@@ -101,9 +93,6 @@ namespace AufträgeOrgadata
             port = lgn.lgnList[0].port;
             db = lgn.lgnList[0].db;
             table = lgn.lgnList[0].table;
-
-            //if (uid == null && pw == null && server == null && port == null && db == null && table == null)
-            //{
 
             String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
@@ -164,9 +153,6 @@ namespace AufträgeOrgadata
             db = lgn.lgnList[0].db;
             table = lgn.lgnList[0].table;
 
-            //if (uid == null && pw == null && server == null && port == null && db == null && table == null)
-            //{
-
             String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -225,9 +211,6 @@ namespace AufträgeOrgadata
             port = lgn.lgnList[0].port;
             db = lgn.lgnList[0].db;
             table = lgn.lgnList[0].table;
-
-            //if (uid == null && pw == null && server == null && port == null && db == null && table == null)
-            //{
 
             String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
