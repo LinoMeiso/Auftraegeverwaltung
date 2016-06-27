@@ -1,0 +1,29 @@
+﻿<Window x:Class="AufträgeOrgadata.Kunde"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AufträgeOrgadata"
+        mc:Ignorable="d"
+        Title="Kunde" Height="310.805" Width="627.331" Loaded="Window_Loaded">
+    <Grid>
+        <Menu x:Name="menuKunde" Height="25" Margin="0,0,0,255" >
+            <MenuItem x:Name="data" Header="Datei" Height="25">
+                <MenuItem x:Name="add" Header="Eintrag Hinzufügen" Height="25"></MenuItem>
+                <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" Height="25"></MenuItem>
+                <MenuItem x:Name="delete" Header="Eintrag Löschen" Height="25"></MenuItem>
+                <Separator></Separator>
+                <MenuItem x:Name="close" Header="Schließen" Height="25" Click="close_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        
+        <ListView x:Name="lvKunde" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="498" Margin="0,25,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

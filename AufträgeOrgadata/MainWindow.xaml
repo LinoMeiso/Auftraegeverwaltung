@@ -27,7 +27,7 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem x:Name="edit" Header="Bearbeiten" Height="25">
-                    <MenuItem x:Name="mkunde" Header="Kunde" Height="25"></MenuItem>
+                    <MenuItem x:Name="mkunde" Header="Kunde" Height="25" Click="mkunde_Click"></MenuItem>
                     <MenuItem x:Name="mprogramms" Header="Programme" Height="25" Click="mprogramms_Click"></MenuItem>
                     <MenuItem x:Name="mstamm" Header="Stammdaten" Height="25"></MenuItem>
                     <MenuItem x:Name="maustattung" Header="Austattung" Height="25"></MenuItem>
