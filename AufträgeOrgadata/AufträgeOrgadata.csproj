@@ -72,6 +72,7 @@
     <Compile Include="database.xaml.cs">
       <DependentUpon>database.xaml</DependentUpon>
     </Compile>
+    <Compile Include="login.cs" />
     <Compile Include="mainclass.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -111,6 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\close_red.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\database.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

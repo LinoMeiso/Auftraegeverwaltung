@@ -29,6 +29,17 @@ namespace AufträgeOrgadata
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
             Close();
+
+            /*
+            login lgn = new login();
+
+            MessageBox.Show(lgn.lgnList[0].uid);
+            MessageBox.Show(lgn.lgnList[0].pw);
+            MessageBox.Show(lgn.lgnList[0].server);
+            MessageBox.Show(lgn.lgnList[0].port);
+            MessageBox.Show(lgn.lgnList[0].db);
+            MessageBox.Show(lgn.lgnList[0].table);#
+            */
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
@@ -43,13 +54,17 @@ namespace AufträgeOrgadata
             table = txtTable.Text;
 
             XElement n = new XElement("AufträgeOrgadata",
-                new XElement("Username",uid),
-                new XElement("Password", pw),
-                new XElement("Server", server),
-                new XElement("Port", port),
-                new XElement("Database", database),
-                new XElement("Table",table));
+                new XElement("login",
+                new XElement("username",uid),
+                new XElement("password", pw),
+                new XElement("server", server),
+                new XElement("port", port),
+                new XElement("database", database),
+                new XElement("table",table)));
 
+            n.Save("login.xml");
+
+            Close();
         }
     }
 }
