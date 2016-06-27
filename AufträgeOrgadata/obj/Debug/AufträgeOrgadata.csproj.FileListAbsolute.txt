@@ -17,8 +17,6 @@ C:\Users\Praktikant\documents\visual studio 2015\Projects\AufträgeOrgadata\Auft
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\AufträgeOrgadata.exe.config
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\AufträgeOrgadata.exe
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\AufträgeOrgadata.pdb
-C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\MySql.Data.dll
-C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\MySql.Web.dll
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.csprojResolveAssemblyReference.cache
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\MainWindow.g.cs
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\App.g.cs

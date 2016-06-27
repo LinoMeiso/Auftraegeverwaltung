@@ -1,0 +1,27 @@
+﻿<Window x:Name="database1" x:Class="AufträgeOrgadata.database"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AufträgeOrgadata"
+        mc:Ignorable="d"
+        Title="database1" Height="301.271" Width="297.458">
+    <Grid>
+        <Line Height="1" X2="300" Width="300" Margin="0,61,0,207" Stroke="Black"/>
+        <Label x:Name="lblDatenbank" Content="Datenbank" HorizontalAlignment="Left" Height="46" Margin="88,10,0,0" VerticalAlignment="Top" Width="125" FontSize="24"/>
+        <TextBox x:Name="txtUid" HorizontalAlignment="Left" Height="20" Margin="50,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+        <Label x:Name="lblUid" Content="Username:" HorizontalAlignment="Left" Height="26" Margin="50,75,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="20" Margin="165,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+        <Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" Height="26" Margin="165,75,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="txtServer" HorizontalAlignment="Left" Height="20" Margin="50,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+        <Label x:Name="lblServer" Content="Server:" HorizontalAlignment="Left" Height="26" Margin="50,126,0,0" VerticalAlignment="Top" Width="48"/>
+        <TextBox x:Name="txtPort" HorizontalAlignment="Left" Height="20" Margin="165,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+        <Label x:Name="lblPort" Content="Port:" HorizontalAlignment="Left" Height="26" Margin="165,126,0,0" VerticalAlignment="Top" Width="48"/>
+        <TextBox x:Name="txtDatabase" HorizontalAlignment="Left" Height="20" Margin="50,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+        <Label x:Name="lblDatabase" Content="Database:" HorizontalAlignment="Left" Height="26" Margin="50,177,0,0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="txtTable" HorizontalAlignment="Left" Height="20" Margin="165,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+        <Label x:Name="lblTable" Content="Label" HorizontalAlignment="Left" Height="26" Margin="165,177,0,0" VerticalAlignment="Top" Width="48"/>
+        <Button x:Name="btnClose" Content="Abbrechen" HorizontalAlignment="Left" Height="23" Margin="50,231,0,0" VerticalAlignment="Top" Width="70" Click="btnClose_Click"/>
+        <Button x:Name="btnOk" Content="OK" HorizontalAlignment="Left" Height="23" Margin="165,231,0,0" VerticalAlignment="Top" Width="70" Click="btnOk_Click"/>
+    </Grid>
+</Window>
