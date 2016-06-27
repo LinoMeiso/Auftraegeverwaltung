@@ -36,3 +36,5 @@ C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\My
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\MySql.Web.dll
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Kunde.g.cs
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Kunde.baml
+C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\add_edit.g.cs
+C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\add_edit.baml

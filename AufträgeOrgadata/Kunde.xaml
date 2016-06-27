@@ -9,7 +9,7 @@
     <Grid>
         <Menu x:Name="menuKunde" Height="25" Margin="0,0,0,255" >
             <MenuItem x:Name="data" Header="Datei" Height="25">
-                <MenuItem x:Name="add" Header="Eintrag Hinzufügen" Height="25"></MenuItem>
+                <MenuItem x:Name="add" Header="Eintrag Hinzufügen" Height="25" Click="add_Click"></MenuItem>
                 <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" Height="25"></MenuItem>
                 <MenuItem x:Name="delete" Header="Eintrag Löschen" Height="25"></MenuItem>
                 <Separator></Separator>
@@ -17,10 +17,16 @@
             </MenuItem>
         </Menu>
         
-        <ListView x:Name="lvKunde" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="498" Margin="0,25,0,0">
+        <ListView x:Name="lvKunde" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="498" Margin="0,25,0,0" ItemsSource="{Binding KundeListe}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Ort" DisplayMemberBinding="{Binding Ort}"/>
+                    <GridViewColumn Header="Str" DisplayMemberBinding="{Binding Str}"/>
+                    <GridViewColumn Header="PLZ" DisplayMemberBinding="{Binding PLZ}"/>
+                    <GridViewColumn Header="Ansprechpartner" DisplayMemberBinding="{Binding Ansprechpartner}"/>
+                    <GridViewColumn Header="VertragsNr" DisplayMemberBinding="{Binding VertragsNr}"/>
                 </GridView>
             </ListView.View>
         </ListView>

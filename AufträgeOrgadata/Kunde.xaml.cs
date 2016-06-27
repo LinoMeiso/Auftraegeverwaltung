@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace AufträgeOrgadata
 {
@@ -36,9 +37,17 @@ namespace AufträgeOrgadata
 
             for (int i = 0; i < kd.KundeListe.Count; i++)
             {
-                lvKunde.Items.Add(kd.KundeListe[i].ID);
-                //kd.KundeListe[i].ID;
+                // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR
+                lvKunde.Items.Add(new TKunde { ID = kd.KundeListe[i].ID, Name = kd.KundeListe[i].Name, Ort = kd.KundeListe[i].Ort,
+                    Str = kd.KundeListe[i].Str, PLZ = kd.KundeListe[i].PLZ, Ansprechpartner = kd.KundeListe[i].Ansprechpartner,
+                    VertragsNr = kd.KundeListe[i].VertragsNr});
             }
+        }
+
+        private void add_Click(object sender, RoutedEventArgs e)
+        {
+            add_edit aded = new add_edit();
+            aded.Show();
         }
     }
 }
