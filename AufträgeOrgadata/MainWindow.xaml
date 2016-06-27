@@ -11,6 +11,8 @@
             <ColumnDefinition Width="740*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="121" Margin="0,928,0,0" VerticalAlignment="Top" Width="325"/>
+        <CheckBox x:Name="checkBox1" Content="Express bis:  _______________________" Margin="38,959,1066,202" Checked="checkBox1_Checked"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="174" Margin="0,398,0,0" VerticalAlignment="Top" Width="1305"/>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1305">
             <MenuItem Header="Datei" Height="25" Width="50">
@@ -146,6 +148,11 @@
         <CheckBox x:Name="cbServerdongle" Content="Serverdongle - Anzahl der User&#xA;" HorizontalAlignment="Left" Margin="282,540,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtServerdongle" HorizontalAlignment="Left" Height="23" Margin="472,540,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" />
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,770,0,0" VerticalAlignment="Top" Width="1305"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="150" Margin="0,906,0,0" VerticalAlignment="Top" Width="1305"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,906,0,0" VerticalAlignment="Top" Width="1305"/>
+        <Label x:Name="label" Content="Was ist zu tun ?&#xA;" HorizontalAlignment="Left" Margin="0,906,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBox" Content="Versenden" HorizontalAlignment="Left" Margin="10,939,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBox2" Content="TNT" HorizontalAlignment="Left" Margin="38,981,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkBox3" Content="Mitarbeiter:" HorizontalAlignment="Left" Margin="38,1001,0,0" VerticalAlignment="Top"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="121" Margin="410,929,0,0" VerticalAlignment="Top" Width="426"/>
     </Grid>
 </Window>

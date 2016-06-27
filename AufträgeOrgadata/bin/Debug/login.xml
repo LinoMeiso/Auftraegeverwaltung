@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <AufträgeOrgadata>
   <login>
-    <username>1234</username>
-    <password>5678</password>
-    <server>abc</server>
-    <port>cba</port>
-    <database>000</database>
-    <table>852</table>
+    <username></username>
+    <password></password>
+    <server></server>
+    <port></port>
+    <database></database>
+    <table></table>
   </login>
 </AufträgeOrgadata>
