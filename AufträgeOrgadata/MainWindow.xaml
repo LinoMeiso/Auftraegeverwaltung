@@ -92,7 +92,7 @@
                         </TransformGroup>
                     </Line.RenderTransform>
                 </Line>
-                <WrapPanel x:Name="stackPanelInstallation" HorizontalAlignment="Left" Height="30" Margin="11,313,0,0" VerticalAlignment="Top" Width="89"/>
+                <WrapPanel x:Name="stackPanelInstallation" HorizontalAlignment="Left" Height="127" Margin="11,33,0,0" VerticalAlignment="Top" Width="351"/>
                 <TextBox x:Name="txtStk_USB" Height="28" Width="40" Margin="786,42,478,90"/>
                 <Label x:Name="lblStk_USB" Content="Stk USB-Dongle" Height="28" Width="100" Margin="831,42,373,90"/>
                 <TextBox x:Name="txtStk_Zeit" Height="28" Width="40" Margin="786,74,478,58"/>

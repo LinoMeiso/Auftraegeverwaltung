@@ -101,7 +101,7 @@ namespace AufträgeOrgadata
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Installationsart");
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM installationsart");
                 cmd.Connection = conn;
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
@@ -110,7 +110,7 @@ namespace AufträgeOrgadata
                     {
                         TInstallationsart installationsart = new TInstallationsart();
                         installationsart.ID = int.Parse(Reader["ID"].ToString());
-                        installationsart.Installationsart = Reader["Installationsart"].ToString();
+                        installationsart.Installationsart = Reader["installationsart"].ToString();
                         Installationsliste.Add(installationsart);
                     }
                 }
