@@ -28,36 +28,51 @@ namespace AufträgeOrgadata
 
         public void LoadProgramms()
         {
-            String connstring = "uid=root;" + "password=;" + "server=localhost;" + "database=auftraege";
-            MySqlConnection conn = new MySqlConnection(connstring);
+            login lgn = new login();
 
-            try
-            {
-                conn.Open();
+            string uid, pw, server, port, db, table;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
+            table = lgn.lgnList[0].table;
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM programm");
-                cmd.Connection = conn;
+            //if (uid == null && pw == null && server == null && port == null && db == null && table == null)
+            //{
 
-                using (MySqlDataReader Reader = cmd.ExecuteReader())
+                String connstring = "uid="+uid+";" + "password="+pw+";" + "server="+server+";" + "port="+port+";" + "database="+db+";" + "table="+table+";";
+                MySqlConnection conn = new MySqlConnection(connstring);
+
+                try
                 {
-                    while (Reader.Read())
+                    conn.Open();
+
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM programm");
+                    cmd.Connection = conn;
+
+                    using (MySqlDataReader Reader = cmd.ExecuteReader())
                     {
-                        TProgramm programm = new TProgramm();
-                        programm.ID = int.Parse(Reader["ID"].ToString());
-                        programm.Name = Reader["ProgrammName"].ToString();
-                        ProgrammListe.Add(programm);
+                        while (Reader.Read())
+                        {
+                            TProgramm programm = new TProgramm();
+                            programm.ID = int.Parse(Reader["ID"].ToString());
+                            programm.Name = Reader["ProgrammName"].ToString();
+                            ProgrammListe.Add(programm);
+                        }
                     }
+                    conn.Close();
                 }
-                conn.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-
-
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Keine Logindaten gefunden!");
+            //}
         }
-
     }
     public class TInstallationsart
     {
@@ -77,7 +92,20 @@ namespace AufträgeOrgadata
 
         public void LoadProgramms()
         {
-            String connstring = "uid=root;" + "password=;" + "server=localhost;" + "database=auftraege";
+            login lgn = new login();
+
+            string uid, pw, server, port, db, table;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
+            table = lgn.lgnList[0].table;
+
+            //if (uid == null && pw == null && server == null && port == null && db == null && table == null)
+            //{
+
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
@@ -126,7 +154,20 @@ namespace AufträgeOrgadata
 
         public void LoadStammdaten()
         {
-            String connstring = "uid=root;" + "password=;" + "server=localhost;" + "database=auftraege";
+            login lgn = new login();
+
+            string uid, pw, server, port, db, table;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
+            table = lgn.lgnList[0].table;
+
+            //if (uid == null && pw == null && server == null && port == null && db == null && table == null)
+            //{
+
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
