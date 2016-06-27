@@ -12,11 +12,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="121" Margin="0,928,0,0" VerticalAlignment="Top" Width="325"/>
-<<<<<<< .merge_file_a11164
-        <CheckBox x:Name="checkBox1" Content="Express bis:  _______________________" Margin="38,959,1066,202" />
-=======
         <CheckBox x:Name="checkBox1" Content="Express bis:  _______________________" Margin="38,959,1066,202"/>
->>>>>>> .merge_file_a13556
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="174" Margin="0,398,0,0" VerticalAlignment="Top" Width="1305"/>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1305">
             <MenuItem Header="Datei" Height="25" Width="50">
