@@ -11,8 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Xml.Linq;
-using System.IO;
 
 namespace AufträgeOrgadata
 {
@@ -24,32 +22,6 @@ namespace AufträgeOrgadata
         public database()
         {
             InitializeComponent();
-        }
-
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void btnOk_Click(object sender, RoutedEventArgs e)
-        {
-            string uid, pw, server, port, database, table;
-
-            uid = txtUid.Text;
-            pw = txtPassword.Text;
-            server = txtServer.Text;
-            port = txtPort.Text;
-            database = txtDatabase.Text;
-            table = txtTable.Text;
-
-            XElement n = new XElement("AufträgeOrgadata",
-                new XElement("Username",uid),
-                new XElement("Password", pw),
-                new XElement("Server", server),
-                new XElement("Port", port),
-                new XElement("Database", database),
-                new XElement("Table",table));
-
         }
     }
 }
