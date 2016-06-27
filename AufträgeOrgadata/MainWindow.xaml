@@ -22,7 +22,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="Einstellungen" Height="25" Width="90">
-                <MenuItem Header="Datenbank" Height="25" Width="150"></MenuItem>
+                <MenuItem Header="Datenbank" Height="25" Width="150" Click="MenuItem_Click_2"></MenuItem>
             </MenuItem>
         </Menu>
 
@@ -108,12 +108,12 @@
                 <TextBox x:Name="txtAustausch" HorizontalAlignment="Left"  Height="28" Margin="170,53,0,0" VerticalAlignment="Top" Width="1123" TextChanged="txtAustausch_TextChanged"/>
             </Grid>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height ="376" Margin= "0,404,0,0" VerticalAlignment ="Top" Width= "1305">
-            <Grid x:Name="gridStammdaten" HorizontalAlignment="Left" Height="375" Margin="0,0,0,0" VerticalAlignment="Top" Width="1305">
-                <Label x:Name="lblStammdaten" Content="Stammdaten" Height="28" Width="100" Margin="0,0,1203,347"></Label>
-                <Line Height="1" Width="1313" Margin="-12,27,0,347" X2="1313" Stroke="Black"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height ="200" Margin= "0,404,0,0" VerticalAlignment ="Top" Width= "1305">
+            <Grid x:Name="gridStammdaten" HorizontalAlignment="Left" Height="200" Margin="0,0,0,0" VerticalAlignment="Top" Width="1305">
+                <Label x:Name="lblStammdaten" Content="Stammdaten" Height="28" Width="100" Margin="0,0,1205,172"></Label>
+                <Line Height="1" Margin="0,27,-10,172" X2="1310" Stroke="Black"/>
+                <WrapPanel x:Name="wpanelStamm" HorizontalAlignment="Left" Height="156" Margin="10,35,0,0" VerticalAlignment="Top" Width="1285"/>
             </Grid>
         </Border>
-        <WrapPanel x:Name="wpanelStamm" HorizontalAlignment="Left" Height="166" Margin="0,440,0,0" VerticalAlignment="Top" Width="1305"/>
     </Grid>
 </Window>
