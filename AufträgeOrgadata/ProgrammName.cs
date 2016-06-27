@@ -216,7 +216,20 @@ namespace AufträgeOrgadata
 
         public void LoadProgramms()
         {
-            String connstring = "uid=root;" + "password=;" + "server=localhost;" + "database=auftraege";
+            login lgn = new login();
+
+            string uid, pw, server, port, db, table;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
+            table = lgn.lgnList[0].table;
+
+            //if (uid == null && pw == null && server == null && port == null && db == null && table == null)
+            //{
+
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try

@@ -30,3 +30,5 @@ C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Au
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.pdb
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\database.g.cs
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\database.baml
+C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\MySql.Data.dll
+C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\MySql.Web.dll
