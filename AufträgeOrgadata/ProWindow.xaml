@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="ProWindow" Height="300" Width="300" Loaded="PWindow_Loaded">
+        Title="ProWindow" Height="304.905" Width="573.842" Loaded="PWindow_Loaded">
     <Grid>
-        <ListView x:Name="lvProWindow" HorizontalAlignment="Left" Height="149" VerticalAlignment="Top" Width="292" Margin="1,23,-1,0">
+        <ListView x:Name="lvProWindow" HorizontalAlignment="Left" Height="251" VerticalAlignment="Top" Width="565" Margin="1,23,0,0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
@@ -15,14 +15,13 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Menu x:Name="menu" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="291" Margin="1,0,0,0">
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="565" Margin="1,0,0,0">
             <MenuItem Cursor="" Header="Data" RenderTransformOrigin="1.433,0.443">
-            </MenuItem>
-            <MenuItem x:Name="mClose" Header="Close"  Height="23" Width="53" Click ="btnMClose_Click" >
             </MenuItem>
             <MenuItem x:Name="mmDelete" Header="Delete"  Height="23" Width="53" Click ="btnMDelete_Click" >
             </MenuItem>
             <MenuItem x:Name="mAdd" Header="ADD"  Height="23" Width="53" Click="mAdd_Click" />
+            <MenuItem x:Name="mClose" Header="Close"  Height="23" Width="53" Click ="btnMClose_Click" />
         </Menu>
     </Grid>
 </Window>
