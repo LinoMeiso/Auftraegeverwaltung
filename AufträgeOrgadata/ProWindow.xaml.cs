@@ -143,6 +143,12 @@ namespace AufträgeOrgadata
                 MessageBox.Show(e1.Message);
             }
         }
+
+        private void mAdd_Click(object sender, RoutedEventArgs e)
+        {
+            PAddChange EditChange = new PAddChange();
+            EditChange.ShowDialog();
+        }
     }
 }
    

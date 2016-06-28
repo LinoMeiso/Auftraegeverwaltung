@@ -22,6 +22,7 @@
             </MenuItem>
             <MenuItem x:Name="mmDelete" Header="Delete"  Height="23" Width="53" Click ="btnMDelete_Click" >
             </MenuItem>
+            <MenuItem x:Name="mAdd" Header="ADD"  Height="23" Width="53" Click="mAdd_Click" />
         </Menu>
     </Grid>
 </Window>
