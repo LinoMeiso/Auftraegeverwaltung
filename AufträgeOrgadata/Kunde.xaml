@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Kunde" Height="310.805" Width="627.331" Loaded="Window_Loaded">
+        Title="Kunde" Height="325.292" Width="637.868" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Menu x:Name="menuKunde" Height="25" Margin="0,0,0,255" >
+        <Menu x:Name="menuKunde" Margin="0,2,0,267" Grid.ColumnSpan="2" >
             <MenuItem x:Name="data" Header="Datei" Height="25">
                 <MenuItem x:Name="add" Header="Eintrag Hinzufügen" Height="25" Click="add_Click"></MenuItem>
                 <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" Height="25" Click="edit_Click"></MenuItem>
@@ -16,11 +16,10 @@
                 <MenuItem x:Name="close" Header="Schließen" Height="25" Click="close_Click"></MenuItem>
             </MenuItem>
         </Menu>
-        
-        <ListView x:Name="lvKunde" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="498" Margin="0,30,0,0" ItemsSource="{Binding KundeListe}">
+
+        <ListView x:Name="lvKunde" Height="256" Width="619" Margin="8,35,3,3" ItemsSource="{Binding KundeListe}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Ort" DisplayMemberBinding="{Binding Ort}"/>
                     <GridViewColumn Header="Str" DisplayMemberBinding="{Binding Str}"/>
