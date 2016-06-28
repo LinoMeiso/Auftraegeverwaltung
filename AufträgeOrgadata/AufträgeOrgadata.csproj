@@ -57,6 +57,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PAddChange.xaml.cs">
+      <DependentUpon>PAddChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProWindow.xaml.cs">
+      <DependentUpon>ProWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="add_edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,15 +99,16 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Programme.xaml">
+    <Page Include="PAddChange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Programme.xaml.cs">
-      <DependentUpon>Programme.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ProgrammName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

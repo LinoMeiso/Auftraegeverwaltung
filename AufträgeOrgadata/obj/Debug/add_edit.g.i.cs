@@ -245,12 +245,6 @@ namespace AufträgeOrgadata {
             return;
             case 16:
             this.btnOK = ((System.Windows.Controls.Button)(target));
-            
-            #line 25 "..\..\add_edit.xaml"
-            this.btnOK.Click += new System.Windows.RoutedEventHandler(this.btnOK_Click);
-            
-            #line default
-            #line hidden
             return;
             }
             this._contentLoaded = true;
