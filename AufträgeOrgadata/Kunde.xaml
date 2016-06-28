@@ -7,17 +7,17 @@
         mc:Ignorable="d"
         Title="Kunde" Height="310.805" Width="627.331" Loaded="Window_Loaded">
     <Grid>
-        <Menu x:Name="menuKunde" Height="25" Margin="0,0,0,255" >
+        <Menu x:Name="menuKunde" Margin="0,0,0,0" >
             <MenuItem x:Name="data" Header="Datei" Height="25">
                 <MenuItem x:Name="add" Header="Eintrag Hinzufügen" Height="25" Click="add_Click"></MenuItem>
-                <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" Height="25"></MenuItem>
-                <MenuItem x:Name="delete" Header="Eintrag Löschen" Height="25"></MenuItem>
+                <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" Height="25" Click="edit_Click"></MenuItem>
+                <MenuItem x:Name="delete" Header="Eintrag Löschen" Height="25" Click="delete_Click"></MenuItem>
                 <Separator></Separator>
                 <MenuItem x:Name="close" Header="Schließen" Height="25" Click="close_Click"></MenuItem>
             </MenuItem>
         </Menu>
-        
-        <ListView x:Name="lvKunde" HorizontalAlignment="Left" Height="186" VerticalAlignment="Top" Width="498" Margin="0,30,0,0" ItemsSource="{Binding KundeListe}">
+
+        <ListView x:Name="lvKunde" HorizontalAlignment="Left" Height="255" VerticalAlignment="Top" Width="619" Margin="0,25,0,0" ItemsSource="{Binding KundeListe}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
