@@ -49,6 +49,7 @@ namespace AufträgeOrgadata
 
         public class TKundeDelete
         {
+            public string id { get; set; }
             public string name { get; set; }
             public string ort { get; set; }
             public string str { get; set; }
@@ -166,12 +167,42 @@ namespace AufträgeOrgadata
             }
         }
 
-        private void delete_Click(object sender, RoutedEventArgs e)
+        private void delete_Click_1(object sender, RoutedEventArgs e)
         {
-            var selectitem = (dynamic)lvKunde.SelectedItems[0];
 
-            TKundeDelete kddel = new TKundeDelete();
+            if(MessageBox.Show("Möchtest du den Eintrag löschen?", "Warnung!",
+                MessageBoxButton.YesNoCancel, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                var selectitem = (dynamic)lvKunde.SelectedItems[0];
 
+                TKundeDelete kddel = new TKundeDelete();
+                kddel.id = Convert.ToString(selectitem.ID);
+
+                kundecs kdcs = new kundecs();
+                kdcs.DeleteKunde(kddel);
+
+                //Refresh lvKunden
+                lvKunde.Items.Clear();
+                kundecs kd = new kundecs();
+                for (int i = 0; i < kd.KundeListe.Count; i++)
+                {
+                    // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR nbvh
+                    lvKunde.Items.Add(new TKunde
+                    {
+                        ID = kd.KundeListe[i].ID,
+                        Name = kd.KundeListe[i].Name,
+                        Ort = kd.KundeListe[i].Ort,
+                        Str = kd.KundeListe[i].Str,
+                        PLZ = kd.KundeListe[i].PLZ,
+                        Ansprechpartner = kd.KundeListe[i].Ansprechpartner,
+                        VertragsNr = kd.KundeListe[i].VertragsNr
+                    });
+                }
+            }
+            else
+            {
+
+            }
         }
     }
 }

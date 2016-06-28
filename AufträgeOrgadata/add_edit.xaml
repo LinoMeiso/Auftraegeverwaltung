@@ -22,7 +22,7 @@
         <Label x:Name="lblAnsprechpartner" Content="Ansprechpartner:" HorizontalAlignment="Left" Height="29" Margin="52,331,0,0" VerticalAlignment="Top" Width="102"/>
         <Label x:Name="lblVertragsNr" Content="Vertrags Nummer:" HorizontalAlignment="Left" Height="29" Margin="52,390,0,0" VerticalAlignment="Top" Width="104"/>
         <Button x:Name="btnClose" Content="Abbrechen" HorizontalAlignment="Left" Height="39" Margin="52,469,0,0" VerticalAlignment="Top" Width="150"/>
-        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Left" Height="39" Margin="232,469,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="btnOK" Content="OK" HorizontalAlignment="Left" Height="39" Margin="232,469,0,0" VerticalAlignment="Top" Width="150" Click="btnOK_Click"/>
 
 
     </Grid>

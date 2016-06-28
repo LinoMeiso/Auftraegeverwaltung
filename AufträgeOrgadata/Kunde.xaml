@@ -10,8 +10,8 @@
         <Menu x:Name="menuKunde" Height="25" Margin="0,0,0,255" >
             <MenuItem x:Name="data" Header="Datei" Height="25">
                 <MenuItem x:Name="add" Header="Eintrag Hinzufügen" Height="25" Click="add_Click"></MenuItem>
-                <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" Height="25"></MenuItem>
-                <MenuItem x:Name="delete" Header="Eintrag Löschen" Height="25"></MenuItem>
+                <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" Height="25" Click="edit_Click"></MenuItem>
+                <MenuItem x:Name="delete" Header="Eintrag Löschen" Height="25" Click="delete_Click_1"></MenuItem>
                 <Separator></Separator>
                 <MenuItem x:Name="close" Header="Schließen" Height="25" Click="close_Click"></MenuItem>
             </MenuItem>

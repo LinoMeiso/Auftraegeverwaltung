@@ -160,7 +160,7 @@ namespace AufträgeOrgadata
             }
         }
 
-        public void DeleteKunde()
+        public void DeleteKunde(TKundeDelete kunde)
         {
             login lgn = new login();
 
@@ -180,16 +180,12 @@ namespace AufträgeOrgadata
                 //string name, ort, str, plz, partner, vertrags;
                 conn.Open();
 
+                //DELETE FROM `kunden` WHERE `kunden`.`ID` = 16 
                 MySqlCommand cmd = new MySqlCommand();
-                string sql = "";
+                string sql = "DELETE FROM kunden WHERE kunden.ID= ?kundenid";
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("?Name", kunde.name);
-                cmd.Parameters.AddWithValue("?Ort", kunde.ort);
-                cmd.Parameters.AddWithValue("?Str", kunde.str);
-                cmd.Parameters.AddWithValue("?PLZ", kunde.plz);
-                cmd.Parameters.AddWithValue("?Ansprechpartner", kunde.partner);
-                cmd.Parameters.AddWithValue("?VertragsNr", kunde.vertrnr);
+                cmd.Parameters.AddWithValue("?kundenid", kunde.id);
 
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
