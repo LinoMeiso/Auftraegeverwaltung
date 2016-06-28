@@ -34,6 +34,7 @@
                 </MenuItem>
                 <MenuItem Header="Einstellungen" Height="25" Width="90">
                     <MenuItem Header="Datenbank" Height="25" Width="150" Click="MenuItem_Click_2"/>
+                    <MenuItem Header="Check " Height="25" Width="150" Margin="0,0,0,0" Click="mCheck_Click" />
                 </MenuItem>
             </Menu>
 
@@ -151,7 +152,7 @@
             <TextBox x:Name="txtVertragsnummern" HorizontalAlignment="Left" Height="23" Margin="10,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <CheckBox x:Name="cbRn" Content="Reservierte Nummern:&#xA;" HorizontalAlignment="Left" Margin="282,419,0,0" VerticalAlignment="Top" Width="212"/>
             <TextBox x:Name="txtRn" HorizontalAlignment="Left" Height="23" Margin="441,417,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="852"/>
-            <TextBox x:Name="txtRn2" HorizontalAlignment="Left" Height="23" Margin="441,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="852"/>
+            <TextBox x:Name="txtRn2" HorizontalAlignment="Left" Height="23" Margin="441,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="852" TextChanged="txtRn2_TextChanged"/>
             <TextBox x:Name="textRn3" HorizontalAlignment="Left" Height="23" Margin="282,447,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1011"/>
             <TextBox x:Name="textRn4" HorizontalAlignment="Left" Height="23" Margin="282,476,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1011" />
             <CheckBox x:Name="cbAutoProl" Content="auto prolongation" HorizontalAlignment="Left" Margin="1146,519,0,0" VerticalAlignment="Top" Width="137" Height="20" RenderTransformOrigin="1.139,0.5"/>

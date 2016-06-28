@@ -108,6 +108,42 @@ namespace AufträgeOrgadata
             else
                 cbAustausch.IsChecked = false;
         }
+        private void txtRn2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtRn2.Text.Length > 0)
+                cbRn.IsChecked = true;
+            else
+                cbRn.IsChecked = false;
+        }
+        private void textRn3_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtRn2.Text.Length > 0)
+                cbRn.IsChecked = true;
+            else
+                cbRn.IsChecked = false;
+        }
+        private void textRn4_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtRn2.Text.Length > 0)
+                cbRn.IsChecked = true;
+            else
+                cbRn.IsChecked = false;
+        }
+        private void textZeitDongle_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (textZeitDongle.Text.Length > 0)
+                cbZeitDongle.IsChecked = true;
+            else
+                cbZeitDongle.IsChecked = false;
+        }
+        private void txtServerdongle_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtServerdongle.Text.Length > 0)
+                cbServerdongle.IsChecked = true;
+            else
+                cbServerdongle.IsChecked = false;
+
+        }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
@@ -134,5 +170,24 @@ namespace AufträgeOrgadata
 
             kd.ShowDialog();
         }
+
+        private void mCheck_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtKundeName.Text == "" || txtKundeAnsprechPartner.Text == "" ||txtKundeLand.Text =="" || txtKundeOrt.Text =="" || txtKundePlz.Text =="" ) 
+
+                MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
+            else
+                if (txtKundeName.Text.Length < 3  || txtKundeAnsprechPartner.Text.Length < 3 || txtKundeLand.Text.Length < 3 || txtKundeOrt.Text.Length < 3 || txtKundePlz.Text.Length < 3)
+                MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
+            if (txtAnAdresseName.Text == "" || txtAnAdresseAnsprechPartner.Text == "" || txtAnAdresseLand.Text == "" || txtAnAdresseOrt.Text == "" || txtAnAdressePlz.Text == "")
+
+                MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
+            else
+            if (txtAnAdresseName.Text.Length < 3 || txtAnAdresseAnsprechPartner.Text.Length < 3 || txtAnAdresseLand.Text.Length < 3 || txtAnAdresseOrt.Text.Length < 3 || txtAnAdressePlz.Text.Length < 3)
+                MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
+
+
+        }
+
     }
 }
