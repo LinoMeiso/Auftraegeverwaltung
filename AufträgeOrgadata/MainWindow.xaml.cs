@@ -177,17 +177,15 @@ namespace AufträgeOrgadata
 
                 MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
             else
-                if (txtKundeName.Text.Length < 3  || txtKundeAnsprechPartner.Text.Length < 3 || txtKundeLand.Text.Length < 3 || txtKundeOrt.Text.Length < 3 || txtKundePlz.Text.Length < 3)
+            if (txtKundeName.Text.Length < 3  || txtKundeAnsprechPartner.Text.Length < 3 || txtKundeLand.Text.Length < 3 || txtKundeOrt.Text.Length < 3 || txtKundePlz.Text.Length < 3)
                 MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
-            if (txtAnAdresseName.Text == "" || txtAnAdresseAnsprechPartner.Text == "" || txtAnAdresseLand.Text == "" || txtAnAdresseOrt.Text == "" || txtAnAdressePlz.Text == "")
+            else if (txtAnAdresseName.Text == "" || txtAnAdresseAnsprechPartner.Text == "" || txtAnAdresseLand.Text == "" || txtAnAdresseOrt.Text == "" || txtAnAdressePlz.Text == "")
 
                 MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
             else
             if (txtAnAdresseName.Text.Length < 3 || txtAnAdresseAnsprechPartner.Text.Length < 3 || txtAnAdresseLand.Text.Length < 3 || txtAnAdresseOrt.Text.Length < 3 || txtAnAdressePlz.Text.Length < 3)
                 MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
-
-
-        }
+  }
 
     }
 }
