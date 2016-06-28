@@ -146,7 +146,7 @@ namespace AufträgeOrgadata
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-        {
+         {
             this.Close(); //Schließt das Fenster
 
         }
@@ -187,6 +187,7 @@ namespace AufträgeOrgadata
             if (txtAnAdresseName.Text.Length < 3 || txtAnAdresseAnsprechPartner.Text.Length < 3 || txtAnAdresseLand.Text.Length < 3 || txtAnAdresseOrt.Text.Length < 3 || txtAnAdressePlz.Text.Length < 3)
                     MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
 
+            //txtAnAdresseAnsprechPartner.Background = Brushes.Blue;
         }
 
     }
