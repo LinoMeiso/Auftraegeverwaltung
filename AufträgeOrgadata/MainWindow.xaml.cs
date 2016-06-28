@@ -161,7 +161,7 @@ namespace AufträgeOrgadata
         {
 
             ProWindow Pro = new ProWindow();
-                Pro.ShowDialog();
+            Pro.ShowDialog();
         }
 
         private void mkunde_Click(object sender, RoutedEventArgs e)
@@ -173,19 +173,22 @@ namespace AufträgeOrgadata
 
         private void mCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (txtKundeName.Text == "" || txtKundeAnsprechPartner.Text == "" ||txtKundeLand.Text =="" || txtKundeOrt.Text =="" || txtKundePlz.Text =="" ) 
+            if (txtKundeName.Text == "" || txtKundeAnsprechPartner.Text == "" || txtKundeLand.Text == "" || txtKundeOrt.Text == "" || txtKundePlz.Text == "")
 
-                MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
+                    MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
             else
-            if (txtKundeName.Text.Length < 3  || txtKundeAnsprechPartner.Text.Length < 3 || txtKundeLand.Text.Length < 3 || txtKundeOrt.Text.Length < 3 || txtKundePlz.Text.Length < 3)
-                MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
-            else if (txtAnAdresseName.Text == "" || txtAnAdresseAnsprechPartner.Text == "" || txtAnAdresseLand.Text == "" || txtAnAdresseOrt.Text == "" || txtAnAdressePlz.Text == "")
+            if (txtKundeName.Text.Length < 3 || txtKundeAnsprechPartner.Text.Length < 3 || txtKundeLand.Text.Length < 3 || txtKundeOrt.Text.Length < 3 || txtKundePlz.Text.Length < 3)
+                    MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
+            else 
+            if (txtAnAdresseName.Text == "" || txtAnAdresseAnsprechPartner.Text == "" || txtAnAdresseLand.Text == "" || txtAnAdresseOrt.Text == "" || txtAnAdressePlz.Text == "")
 
-                MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
+                    MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
             else
             if (txtAnAdresseName.Text.Length < 3 || txtAnAdresseAnsprechPartner.Text.Length < 3 || txtAnAdresseLand.Text.Length < 3 || txtAnAdresseOrt.Text.Length < 3 || txtAnAdressePlz.Text.Length < 3)
-                MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
-  }
+                    MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
+
+        }
 
     }
 }
+
