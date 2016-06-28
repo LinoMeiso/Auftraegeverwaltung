@@ -58,6 +58,17 @@ namespace AufträgeOrgadata
             public string vertrnr { get; set; }
         }
 
+        public class TKundeSearch
+        {
+            public string id { get; set; }
+            public string name { get; set; }
+            public string ort { get; set; }
+            public string str { get; set; }
+            public string plz { get; set; }
+            public string partner { get; set; }
+            public string vertrnr { get; set; }
+        }
+
 
         public List<TKundeEdit> KundeEditList { get; set; }
 
@@ -203,6 +214,30 @@ namespace AufträgeOrgadata
             {
 
             }
+        }
+
+        private void search_Click(object sender, RoutedEventArgs e)
+        {
+            add_edit aded = new add_edit();
+            aded.txtName.Clear();
+            aded.txtOrt.Clear();
+            aded.txtStr.Clear();
+            aded.txtPLZ.Clear();
+            aded.txtAnsrpechpartner.Clear();
+            aded.txtVertragsNr.Clear();
+
+            aded.ShowDialog();
+
+            TKundeSearch kdsearch = new TKundeSearch();
+            kdsearch.name = aded.txtName.Text;
+            kdsearch.ort = aded.txtOrt.Text;
+            kdsearch.str = aded.txtStr.Text;
+            kdsearch.plz = aded.txtPLZ.Text;
+            kdsearch.partner = aded.txtAnsrpechpartner.Text;
+            kdsearch.vertrnr = aded.txtVertragsNr.Text;
+
+            kundecs kdcs = new kundecs();
+            kdcs.SearchKunde(kdsearch);
         }
     }
 }

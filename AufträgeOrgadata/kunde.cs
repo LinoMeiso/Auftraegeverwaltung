@@ -20,10 +20,21 @@ namespace AufträgeOrgadata
         public string Ansprechpartner { get; set; }
         public string VertragsNr { get; set; }
     }
+    public class TKundeFind
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Ort { get; set; }
+        public string Str { get; set; }
+        public string PLZ { get; set; }
+        public string Ansprechpartner { get; set; }
+        public string VertragsNr { get; set; }
+    }
 
     public class kundecs
     {
         public List<TKunde> KundeListe { get; set; }
+        public List<TKundeFind> KundeSearchList { get; set; }
 
         public kundecs()
         {
@@ -190,6 +201,72 @@ namespace AufträgeOrgadata
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
 
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+       
+        public void SearchKunde(TKundeSearch kunde)
+        {
+            login lgn = new login();
+
+            string uid, pw, server, port, db;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
+
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+
+            MySqlConnection conn = new MySqlConnection(connstring);
+
+            try
+            {
+                //string name, ort, str, plz, partner, vertrags;
+                conn.Open();
+
+                //DELETE FROM `kunden` WHERE `kunden`.`ID` = 16 
+                // name=?Name, ort=?Ort, str=?Str, plz=?PLZ, ansprechpartner=?Ansprechpartner, vertragsnr=?VertragsNr
+                MySqlCommand cmd = new MySqlCommand();
+                string sql = "SELECT * FROM kunden WHERE ort LIKE '%?Ort%'";
+                cmd.CommandText = sql;
+
+                //cmd.Parameters.AddWithValue("?kundenid", kunde.id);
+                //cmd.Parameters.AddWithValue("?Name", kunde.name);
+                cmd.Parameters.AddWithValue("?Ort", kunde.ort);
+                //cmd.Parameters.AddWithValue("?Str", kunde.str);
+                //cmd.Parameters.AddWithValue("?PLZ", kunde.plz);
+                //cmd.Parameters.AddWithValue("?Ansprechpartner", kunde.partner);
+                //cmd.Parameters.AddWithValue("?VertragsNr", kunde.vertrnr);
+
+                cmd.Connection = conn;
+
+
+                MessageBox.Show(sql);
+
+                using (MySqlDataReader Reader = cmd.ExecuteReader())
+                {
+                    while (Reader.Read())
+                    {
+
+                        // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR
+                        TKundeFind kdfind = new TKundeFind();
+                        //kdfind.ID = int.Parse(Reader["ID"].ToString());
+                        kdfind.Name = Reader["Name"].ToString();
+                        kdfind.Ort = Reader["Ort"].ToString();
+                        kdfind.Str = Reader["Str"].ToString();
+                        kdfind.PLZ = Reader["PLZ"].ToString();
+                        kdfind.Ansprechpartner = Reader["Ansprechpartner"].ToString();
+                        kdfind.VertragsNr = Reader["VertragsNr"].ToString();
+                        //KundeSearchList.Add(kdfind);
+
+                        MessageBox.Show(Reader["Name"].ToString());
+                    }
+                }
                 conn.Close();
             }
             catch (Exception ex)
