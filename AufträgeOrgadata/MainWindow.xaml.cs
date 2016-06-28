@@ -124,12 +124,8 @@ namespace AufträgeOrgadata
         private void mprogramms_Click(object sender, RoutedEventArgs e)
         {
 
-            Programme Pro = new Programme();
-                Pro.Show();
-
-
-
-
+            ProWindow Pro = new ProWindow();
+                Pro.ShowDialog();
         }
 
         private void mkunde_Click(object sender, RoutedEventArgs e)
