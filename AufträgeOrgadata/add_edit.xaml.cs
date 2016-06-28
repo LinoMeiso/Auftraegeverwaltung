@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace AufträgeOrgadata
 {
@@ -24,9 +25,19 @@ namespace AufträgeOrgadata
             InitializeComponent();
         }
 
-        private void btnOK_Click(object sender, RoutedEventArgs e)
+        public class TAdEdKunde
         {
-            //Hinzufügen/Bearbeiten
+            public string Name { get; set; }
+            public string Ort { get; set; }
+            public string Str { get; set; }
+            public string PLZ { get; set; }
+            public string Ansprechpartner { get; set; }
+            public string VertragsNr { get; set; }
+        }
+
+        public void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

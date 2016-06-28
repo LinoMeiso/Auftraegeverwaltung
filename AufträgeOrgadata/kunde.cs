@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows;
+using static AufträgeOrgadata.Kunde;
 
 namespace AufträgeOrgadata
 {
@@ -17,7 +18,7 @@ namespace AufträgeOrgadata
         public string Str { get; set; }
         public string PLZ { get; set; }
         public string Ansprechpartner { get; set; }
-        public string VertragsNr { get; set; } 
+        public string VertragsNr { get; set; }
     }
 
     public class kundecs
@@ -34,15 +35,14 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            string uid, pw, server, port, db, table;
+            string uid, pw, server, port, db;
             uid = lgn.lgnList[0].uid;
             pw = lgn.lgnList[0].pw;
             server = lgn.lgnList[0].server;
             port = lgn.lgnList[0].port;
             db = lgn.lgnList[0].db;
-            table = lgn.lgnList[0].table;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
@@ -73,6 +73,132 @@ namespace AufträgeOrgadata
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+            }
+        }
+
+        public void EditKunde(TKundeEdit kunde)
+        {
+            login lgn = new login();
+
+            string uid, pw, server, port, db;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
+
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+
+            MySqlConnection conn = new MySqlConnection(connstring);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+                string sql = "UPDATE kunden SET Name=?Name,Ort=?Ort,Str=?Str,PLZ=?PLZ,Ansprechpartner=?Ansprechpartner,VertragsNR=?VertragsNr WHERE kunden.ID=?KundeID";
+                cmd.CommandText = sql;
+
+                cmd.Parameters.AddWithValue("?KundeID", kunde.id);
+                cmd.Parameters.AddWithValue("?Name", kunde.name);
+                cmd.Parameters.AddWithValue("?Ort", kunde.ort);
+                cmd.Parameters.AddWithValue("?Str", kunde.str);
+                cmd.Parameters.AddWithValue("?PLZ", kunde.plz);
+                cmd.Parameters.AddWithValue("?Ansprechpartner", kunde.partner);
+                cmd.Parameters.AddWithValue("?VertragsNr", kunde.vertrnr);
+
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void AddKunde(TKundeAdd kunde)
+        {
+            login lgn = new login();
+
+            string uid, pw, server, port, db;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
+
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+
+            MySqlConnection conn = new MySqlConnection(connstring);
+
+            try
+            {
+                //string name, ort, str, plz, partner, vertrags;
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+                string sql = "INSERT INTO kunden(name,ort,str,plz,ansprechpartner,vertragsnr) VALUES (?Name,?Ort,?Str,?PLZ,?Ansprechpartner,?VertragsNr)";
+                cmd.CommandText = sql;
+
+                cmd.Parameters.AddWithValue("?Name", kunde.name);
+                cmd.Parameters.AddWithValue("?Ort", kunde.ort);
+                cmd.Parameters.AddWithValue("?Str", kunde.str);
+                cmd.Parameters.AddWithValue("?PLZ", kunde.plz);
+                cmd.Parameters.AddWithValue("?Ansprechpartner", kunde.partner);
+                cmd.Parameters.AddWithValue("?VertragsNr", kunde.vertrnr);
+
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void DeleteKunde()
+        {
+            login lgn = new login();
+
+            string uid, pw, server, port, db;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
+
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+
+            MySqlConnection conn = new MySqlConnection(connstring);
+
+            try
+            {
+                //string name, ort, str, plz, partner, vertrags;
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+                string sql = "";
+                cmd.CommandText = sql;
+
+                cmd.Parameters.AddWithValue("?Name", kunde.name);
+                cmd.Parameters.AddWithValue("?Ort", kunde.ort);
+                cmd.Parameters.AddWithValue("?Str", kunde.str);
+                cmd.Parameters.AddWithValue("?PLZ", kunde.plz);
+                cmd.Parameters.AddWithValue("?Ansprechpartner", kunde.partner);
+                cmd.Parameters.AddWithValue("?VertragsNr", kunde.vertrnr);
+
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
