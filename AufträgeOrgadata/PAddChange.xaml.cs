@@ -99,7 +99,7 @@ namespace AufträgeOrgadata
             {
                 conn.Open();
 
-              MySqlCommand cmd = new MySqlCommand("Update programmm (?ItemClick) Values (TextFeldID) ");
+              MySqlCommand cmd = new MySqlCommand("Update programmm (?ItemClick) Values (TextFeldProgrammName) ");
                 //MySqlCommand cmd = new MySqlCommand("Delete from programm where ID = 50");
 
                 //var selectitem = (dynamic)lvProWindow.SelectedItems[0];
