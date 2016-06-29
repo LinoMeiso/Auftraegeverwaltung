@@ -23,6 +23,10 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Background" Value="#FF8C00">
+            </Setter>
+        </Style>
     </Window.Resources>
 
     <Grid>
@@ -59,7 +63,7 @@
 
         <ListView x:Name="lvKunde" Margin="0,25,0,0" 
                   ItemsSource="{Binding KundeListe}"
-                  AlternationCount="2">
+                  AlternationCount="2" FontSize="16" FontFamily="Time New Roman Bold">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>

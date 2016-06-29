@@ -292,8 +292,6 @@ namespace AufträgeOrgadata
                 
                 cmd.Connection = conn;
 
-                MessageBox.Show(sql);
-
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
                 {
                     while (Reader.Read())

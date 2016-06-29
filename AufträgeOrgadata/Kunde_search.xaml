@@ -5,9 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Kunde_search" Height="407.415" Width="729.661" ResizeMode="NoResize">
+        Title="Kunde Suche" Height="407.415" Width="729.661" ResizeMode="NoResize" Icon="Images/search.ico">
+    <Window.Resources>
+        <Style TargetType="{x:Type ListViewItem}">
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#FF8C00"/>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#FFFFFFFF"/>
+                </Trigger>
+                <Trigger Property="IsSelected" Value="true">
+                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type GridViewColumnHeader}">
+            <Setter Property="Background" Value="#FF8C00">
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        <ListView x:Name="lvKundeSearch" Margin="0,0,2,0" ItemsSource="{Binding KundeFindList}">
+        <ListView x:Name="lvKundeSearch" Margin="0,0,2,0" ItemsSource="{Binding KundeFindList}" AlternationCount="2" FontSize="16" FontFamily="Time New Roman Bold">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="edit" Header="Eintrag Bearbeiten"></MenuItem>
+                    <MenuItem x:Name="delete" Header="Eintrag Löschen"
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding NameFind}"/>
