@@ -6,37 +6,35 @@
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
         Title="MainWindow" Height="1208.969" Width="1347" Loaded="Program_Loaded" Icon="Images/assignment.ico">
-    <ScrollViewer>
+    <Grid>
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1305">
+            <MenuItem Header="Datei" Height="25" Width="50">
+                <MenuItem Header="Neu" Click="MenuItem_Click"/>
+                <MenuItem Header="Laden"/>
+                <MenuItem Header="Beenden" Click="MenuItem_Click_1">
+                    <MenuItem.Icon>
+                        <Image Height="16" Width="16" Source="Images\close_red.ico"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="edit" Header="Bearbeiten" Height="25">
+                <MenuItem x:Name="mkunde" Header="Kunde" Height="25" Click="mkunde_Click"></MenuItem>
+                <MenuItem x:Name="mprogramms" Header="Programme" Height="25" Click="mprogramms_Click"></MenuItem>
+                <MenuItem x:Name="mstamm" Header="Stammdaten" Height="25" Click="mstamm_Click"></MenuItem>
+                <MenuItem x:Name="maustattung" Header="Austattung" Height="25"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Einstellungen" Height="25" Width="90">
+                <MenuItem Header="Datenbank" Height="25" Width="150" Click="MenuItem_Click_2"/>
+                <MenuItem Header="Check " Height="25" Width="150" Margin="0,0,0,0" Click="mCheck_Click" />
+            </MenuItem>
+        </Menu>
+        <ScrollViewer>
         <Grid x:Name="mainGrid" Margin="0,0,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="740*"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="99" Margin="324,928,0,0" VerticalAlignment="Top" Width="426"/>
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="99" Margin="0,928,0,0" VerticalAlignment="Top" Width="325"/>
             <CheckBox x:Name="checkBox1" Content="Express bis:  _______________________" Margin="38,959,1066,202"/>
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="174" Margin="0,398,0,0" VerticalAlignment="Top" Width="1305"/>
-            <Menu x:Name="menu" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1305">
-                <MenuItem Header="Datei" Height="25" Width="50">
-                    <MenuItem Header="Neu" Click="MenuItem_Click"/>
-                    <MenuItem Header="Laden"/>
-                    <MenuItem Header="Beenden" Click="MenuItem_Click_1">
-                        <MenuItem.Icon>
-                            <Image Height="16" Width="16" Source="Images\close_red.ico"/>
-                        </MenuItem.Icon>
-                    </MenuItem>
-                </MenuItem>
-                <MenuItem x:Name="edit" Header="Bearbeiten" Height="25">
-                    <MenuItem x:Name="mkunde" Header="Kunde" Height="25" Click="mkunde_Click"></MenuItem>
-                    <MenuItem x:Name="mprogramms" Header="Programme" Height="25" Click="mprogramms_Click"></MenuItem>
-                    <MenuItem x:Name="mstamm" Header="Stammdaten" Height="25" Click="mstamm_Click"></MenuItem>
-                    <MenuItem x:Name="maustattung" Header="Austattung" Height="25"></MenuItem>
-                </MenuItem>
-                <MenuItem Header="Einstellungen" Height="25" Width="90">
-                    <MenuItem Header="Datenbank" Height="25" Width="150" Click="MenuItem_Click_2"/>
-                    <MenuItem Header="Check " Height="25" Width="150" Margin="0,0,0,0" Click="mCheck_Click" />
-                </MenuItem>
-            </Menu>
+            
 
 
 
@@ -146,7 +144,7 @@
                     <Label x:Name="lblAusstattung" Content="Ausstattung" Width="100" Margin="0,-25,54,100" RenderTransformOrigin="1.77,3.786" Grid.ColumnSpan="3"/>
                     <WrapPanel x:Name="wpanelAusstattung" HorizontalAlignment="Left" Height="98" Margin="10,12,0,-1" VerticalAlignment="Top" Width="1285" Grid.ColumnSpan="4"/>
                 </Grid>
-            </Border>      
+            </Border>
             <CheckBox x:Name="cbVertragsnummer" Content="Vertragsnummer(n)" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.127,-0.467" Width="127"/>
             <TextBox x:Name="txtKunden" HorizontalAlignment="Left" Height="23" Margin="10,497,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
             <TextBox x:Name="txtVertragsnummern" HorizontalAlignment="Left" Height="23" Margin="10,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -203,4 +201,5 @@
             <CheckBox x:Name="cballedesKunden" Content="alle des Kunden:" HorizontalAlignment="Left" Margin="10,419,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.31,-3.733"/>
         </Grid>
     </ScrollViewer>
+    </Grid>
 </Window>

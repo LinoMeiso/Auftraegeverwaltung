@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace AufträgeOrgadata
 {
@@ -22,6 +23,23 @@ namespace AufträgeOrgadata
         public Kunde_search()
         {
             InitializeComponent();
+        }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Möchtest du den Eintrag löschen?", "Warnung!",
+                MessageBoxButton.YesNoCancel, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                var selectitem = (dynamic)lvKundeSearch.SelectedItems[0];
+
+                Kunde.TKundeDelete kddel = new Kunde.TKundeDelete();
+                kddel.id = Convert.ToString(selectitem.IDFind);
+
+                kundecs kdcs = new kundecs();
+                kdcs.DeleteKunde(kddel);
+
+                lvKundeSearch.Items.Clear();
+            }
         }
     }
 }

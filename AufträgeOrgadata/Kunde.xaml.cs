@@ -180,7 +180,6 @@ namespace AufträgeOrgadata
 
         private void delete_Click_1(object sender, RoutedEventArgs e)
         {
-
             if(MessageBox.Show("Möchtest du den Eintrag löschen?", "Warnung!",
                 MessageBoxButton.YesNoCancel, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
@@ -240,7 +239,7 @@ namespace AufträgeOrgadata
             {
                 kdsearch.lvKundeSearch.Items.Add(new TKundeFind
                 {
-                    //IDFind = kdcs.KundeFindList[i].ID,
+                    IDFind = kdcs.KundeFindList[i].IDFind,
                     NameFind = kdcs.KundeFindList[i].NameFind,
                     OrtFind = kdcs.KundeFindList[i].OrtFind,
                     StrFind = kdcs.KundeFindList[i].StrFind,

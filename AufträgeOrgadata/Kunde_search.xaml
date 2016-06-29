@@ -33,8 +33,8 @@
         <ListView x:Name="lvKundeSearch" Margin="0,0,2,0" ItemsSource="{Binding KundeFindList}" AlternationCount="2" FontSize="16" FontFamily="Time New Roman Bold">
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="edit" Header="Eintrag Bearbeiten"></MenuItem>
-                    <MenuItem x:Name="delete" Header="Eintrag Löschen"
+                    <MenuItem x:Name="edit" Header="Eintrag Bearbeiten"/>
+                    <MenuItem x:Name="delete" Header="Eintrag Löschen" Click="delete_Click"></MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>
             <ListView.View>
