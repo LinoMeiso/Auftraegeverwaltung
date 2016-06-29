@@ -190,6 +190,11 @@ namespace AufträgeOrgadata
             //txtAnAdresseAnsprechPartner.Background = Brushes.Blue;
         }
 
+        private void mstamm_Click(object sender, RoutedEventArgs e)
+        {
+            Stammdaten stamm = new Stammdaten();
+            stamm.ShowDialog();
+        }
     }
 }
 

@@ -879,6 +879,12 @@ namespace AufträgeOrgadata {
             return;
             case 10:
             this.mstamm = ((System.Windows.Controls.MenuItem)(target));
+            
+            #line 32 "..\..\MainWindow.xaml"
+            this.mstamm.Click += new System.Windows.RoutedEventHandler(this.mstamm_Click);
+            
+            #line default
+            #line hidden
             return;
             case 11:
             this.maustattung = ((System.Windows.Controls.MenuItem)(target));
