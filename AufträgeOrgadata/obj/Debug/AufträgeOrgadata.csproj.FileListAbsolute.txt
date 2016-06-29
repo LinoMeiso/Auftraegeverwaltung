@@ -38,3 +38,9 @@ C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Pr
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\PAddChange.g.cs
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\PAddChange.baml
 C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.csprojResolveAssemblyReference.cache
+C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\MySql.Data.dll
+C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\MySql.Web.dll
+C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Stammdaten.g.cs
+C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Stammdaten.baml
+C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Kunde_search.g.cs
+C:\Users\Praktikant\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Kunde_search.baml

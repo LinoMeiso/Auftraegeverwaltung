@@ -57,11 +57,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Kunde_search.xaml.cs">
+      <DependentUpon>Kunde_search.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PAddChange.xaml.cs">
       <DependentUpon>PAddChange.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProWindow.xaml.cs">
       <DependentUpon>ProWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Stammdaten.xaml.cs">
+      <DependentUpon>Stammdaten.xaml</DependentUpon>
     </Compile>
     <Page Include="add_edit.xaml">
       <SubType>Designer</SubType>
@@ -72,6 +78,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Kunde.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kunde_search.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,6 +114,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Stammdaten.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

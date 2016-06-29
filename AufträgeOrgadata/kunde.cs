@@ -264,7 +264,7 @@ namespace AufträgeOrgadata
                         kdfind.VertragsNr = Reader["VertragsNr"].ToString();
                         //KundeSearchList.Add(kdfind);
 
-                        MessageBox.Show(Reader["Name"].ToString());
+                        //MessageBox.Show(Reader["Name"].ToString());
                     }
                 }
                 conn.Close();
