@@ -5,12 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Kunde_search" Height="313.983" Width="515.466">
+        Title="Kunde_search" Height="407.415" Width="729.661" ResizeMode="NoResize">
     <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="283" VerticalAlignment="Top" Width="507">
+        <ListView x:Name="lvKundeSearch" Margin="0,0,2,0" ItemsSource="{Binding KundeFindList}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding NameFind}"/>
+                    <GridViewColumn Header="Ort" DisplayMemberBinding="{Binding OrtFind}"/>
+                    <GridViewColumn Header="Str" DisplayMemberBinding="{Binding StrFind}"/>
+                    <GridViewColumn Header="PLZ" DisplayMemberBinding="{Binding PLZFind}"/>
+                    <GridViewColumn Header="Ansprechpartner" DisplayMemberBinding="{Binding AnsprechpartnerFind}"/>
+                    <GridViewColumn Header="VertragsNr" DisplayMemberBinding="{Binding VertragsNrFind}"/>
                 </GridView>
             </ListView.View>
         </ListView>

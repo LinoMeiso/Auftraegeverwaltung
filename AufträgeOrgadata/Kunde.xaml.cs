@@ -194,25 +194,20 @@ namespace AufträgeOrgadata
 
                 //Refresh lvKunden
                 lvKunde.Items.Clear();
-                kundecs kd = new kundecs();
-                for (int i = 0; i < kd.KundeListe.Count; i++)
+                for (int i = 0; i < kdcs.KundeListe.Count; i++)
                 {
                     // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR nbvh
                     lvKunde.Items.Add(new TKunde
                     {
-                        ID = kd.KundeListe[i].ID,
-                        Name = kd.KundeListe[i].Name,
-                        Ort = kd.KundeListe[i].Ort,
-                        Str = kd.KundeListe[i].Str,
-                        PLZ = kd.KundeListe[i].PLZ,
-                        Ansprechpartner = kd.KundeListe[i].Ansprechpartner,
-                        VertragsNr = kd.KundeListe[i].VertragsNr
+                        ID = kdcs.KundeListe[i].ID,
+                        Name = kdcs.KundeListe[i].Name,
+                        Ort = kdcs.KundeListe[i].Ort,
+                        Str = kdcs.KundeListe[i].Str,
+                        PLZ = kdcs.KundeListe[i].PLZ,
+                        Ansprechpartner = kdcs.KundeListe[i].Ansprechpartner,
+                        VertragsNr = kdcs.KundeListe[i].VertragsNr
                     });
                 }
-            }
-            else
-            {
-
             }
         }
 
@@ -228,16 +223,33 @@ namespace AufträgeOrgadata
 
             aded.ShowDialog();
 
-            TKundeSearch kdsearch = new TKundeSearch();
-            kdsearch.name = aded.txtName.Text;
-            kdsearch.ort = aded.txtOrt.Text;
-            kdsearch.str = aded.txtStr.Text;
-            kdsearch.plz = aded.txtPLZ.Text;
-            kdsearch.partner = aded.txtAnsrpechpartner.Text;
-            kdsearch.vertrnr = aded.txtVertragsNr.Text;
+            TKundeSearch tkdsearch = new TKundeSearch();
+            tkdsearch.name = aded.txtName.Text;
+            tkdsearch.ort = aded.txtOrt.Text;
+            tkdsearch.str = aded.txtStr.Text;
+            tkdsearch.plz = aded.txtPLZ.Text;
+            tkdsearch.partner = aded.txtAnsrpechpartner.Text;
+            tkdsearch.vertrnr = aded.txtVertragsNr.Text;
 
             kundecs kdcs = new kundecs();
-            kdcs.SearchKunde(kdsearch);
+            kdcs.SearchKunde(tkdsearch);
+
+            Kunde_search kdsearch = new Kunde_search();
+
+            for (int i = 0; i < kdcs.KundeFindList.Count; i++)
+            {
+                kdsearch.lvKundeSearch.Items.Add(new TKundeFind
+                {
+                    //IDFind = kdcs.KundeFindList[i].ID,
+                    NameFind = kdcs.KundeFindList[i].NameFind,
+                    OrtFind = kdcs.KundeFindList[i].OrtFind,
+                    StrFind = kdcs.KundeFindList[i].StrFind,
+                    PLZFind = kdcs.KundeFindList[i].PLZFind,
+                    AnsprechpartnerFind = kdcs.KundeFindList[i].AnsprechpartnerFind,
+                    VertragsNrFind = kdcs.KundeFindList[i].VertragsNrFind
+                });
+            }
+            kdsearch.ShowDialog();
         }
     }
 }
