@@ -233,17 +233,63 @@ namespace AufträgeOrgadata
                 //DELETE FROM `kunden` WHERE `kunden`.`ID` = 16 
                 // name=?Name, ort=?Ort, str=?Str, plz=?PLZ, ansprechpartner=?Ansprechpartner, vertragsnr=?VertragsNr
                 MySqlCommand cmd = new MySqlCommand();
-                string sql = "SELECT * FROM kunden WHERE ort LIKE ?Ort";
+                string sql = "SELECT * FROM kunden WHERE name LIKE ?Name OR ort LIKE ?Ort OR str LIKE ?Str OR plz LIKE ?PLZ OR ansprechpartner LIKE ?Ansprechpartner OR vertragsnr LIKE ?VertragsNr";
                 cmd.CommandText = sql;
 
-                //cmd.Parameters.AddWithValue("?kundenid", kunde.id);
-                //cmd.Parameters.AddWithValue("?Name", kunde.name);
-                cmd.Parameters.AddWithValue("?Ort", kunde.ort);
-                //cmd.Parameters.AddWithValue("?Str", kunde.str);
-                //cmd.Parameters.AddWithValue("?PLZ", kunde.plz);
-                //cmd.Parameters.AddWithValue("?Ansprechpartner", kunde.partner);
-                //cmd.Parameters.AddWithValue("?VertragsNr", kunde.vertrnr);
+                if (kunde.name != "")
+                {
+                    cmd.Parameters.AddWithValue("?Name", "%" + kunde.name + "%");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("?Name", "");
+                }
 
+                if(kunde.ort != "")
+                {
+                    cmd.Parameters.AddWithValue("?Ort", "%" + kunde.ort + "%");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("?Ort", "");
+                }
+
+                if(kunde.str != "")
+                {
+                    cmd.Parameters.AddWithValue("?Str", "%" + kunde.str + "%");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("?Str", "");
+                }
+                
+                if(kunde.plz != "")
+                {
+                    cmd.Parameters.AddWithValue("?PLZ", "%" + kunde.plz + "%");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("?PLZ", "");
+                }
+
+                if(kunde.partner != "")
+                {
+                    cmd.Parameters.AddWithValue("?Ansprechpartner", "%" + kunde.partner + "%");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("?Ansprechpartner", "");
+                }
+
+                if(kunde.vertrnr != "")
+                {
+                    cmd.Parameters.AddWithValue("?VertragsNr", "%" + kunde.vertrnr + "%");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("?VertragsNr", "");
+                }
+                
                 cmd.Connection = conn;
 
                 MessageBox.Show(sql);

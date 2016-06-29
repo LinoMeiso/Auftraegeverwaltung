@@ -6,24 +6,16 @@
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
         Title="Kunde_search" Height="407.415" Width="729.661" ResizeMode="NoResize">
-    <Grid Margin="0,0,-6,1">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="0*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="745*"/>
-            <ColumnDefinition Width="6*"/>
-        </Grid.ColumnDefinitions>
-        <ListView x:Name="lvKundeSearch" Margin="0,0,2,0" ItemsSource="{Binding KundeSearchListe}" Loaded="lvKundeSearch_Loaded">
+    <Grid>
+        <ListView x:Name="lvKundeSearch" Margin="0,0,2,0" ItemsSource="{Binding KundeFindList}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding NameSearch}"/>
-                    <GridViewColumn Header="Ort" DisplayMemberBinding="{Binding OrtSearch}"/>
-                    <GridViewColumn Header="Str" DisplayMemberBinding="{Binding StrSearch}"/>
-                    <GridViewColumn Header="PLZ" DisplayMemberBinding="{Binding PLZSearch}"/>
-                    <GridViewColumn Header="Ansprechpartner" DisplayMemberBinding="{Binding AnsprechpartnerSearch}"/>
-                    <GridViewColumn Header="VertragsNr" DisplayMemberBinding="{Binding VertragsNrSearch}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding NameFind}"/>
+                    <GridViewColumn Header="Ort" DisplayMemberBinding="{Binding OrtFind}"/>
+                    <GridViewColumn Header="Str" DisplayMemberBinding="{Binding StrFind}"/>
+                    <GridViewColumn Header="PLZ" DisplayMemberBinding="{Binding PLZFind}"/>
+                    <GridViewColumn Header="Ansprechpartner" DisplayMemberBinding="{Binding AnsprechpartnerFind}"/>
+                    <GridViewColumn Header="VertragsNr" DisplayMemberBinding="{Binding VertragsNrFind}"/>
                 </GridView>
             </ListView.View>
         </ListView>

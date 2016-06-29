@@ -23,24 +23,5 @@ namespace AufträgeOrgadata
         {
             InitializeComponent();
         }
-
-        private void lvKundeSearch_Loaded(object sender, RoutedEventArgs e)
-        {
-            kundecs kdcs = new kundecs();
-
-            for (int i = 0; i < kdcs.KundeFindList.Count; i++)
-            {
-                lvKundeSearch.Items.Add(new TKundeFind
-                {
-                    //IDFind = kdcs.KundeFindList[i].ID,
-                    NameFind = kdcs.KundeFindList[i].NameFind,
-                    OrtFind = kdcs.KundeFindList[i].OrtFind,
-                    StrFind = kdcs.KundeFindList[i].StrFind,
-                    PLZFind = kdcs.KundeFindList[i].PLZFind,
-                    AnsprechpartnerFind = kdcs.KundeFindList[i].AnsprechpartnerFind,
-                    VertragsNrFind = kdcs.KundeFindList[i].VertragsNrFind
-                });
-            }
-        }
     }
 }
