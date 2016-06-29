@@ -5,9 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Kunde" Height="386.628" Width="769.501" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Icon="Images/costumers.ico">
+        Title="Kunde" Height="440.628" Width="1017.501" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Icon="Images/costumers.ico">
+    <Window.Resources>
+        <Style TargetType="{x:Type ListViewItem}">
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#FF8C00"/>
+                </Trigger>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#FFFFFFFF"/>
+                </Trigger>
+                <Trigger Property="IsSelected" Value="true">
+                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <Grid>
-        <Menu x:Name="menuKunde" Margin="0,0,0,0" Height="25" Width="761" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Menu x:Name="menuKunde" Margin="0,0,0,0" Height="25" Width="1009" VerticalAlignment="Top" HorizontalAlignment="Left" Background="White">
             <MenuItem x:Name="data" Header="Datei" Height="25">
                 <MenuItem x:Name="add" Header="Eintrag Hinzufügen" Height="25" Click="add_Click">
                     <MenuItem.Icon>
@@ -39,16 +58,8 @@
         </Menu>
 
         <ListView x:Name="lvKunde" Margin="0,25,0,0" 
-                  ItemsSource="{Binding KundeListe}">
-            <ListView.Resources>
-                <Style TargetType="{x:Type ListViewItem}">
-                    <Style.Triggers>
-                        <DataTrigger Value="1">
-                            <Setter Property="Background" Value="Green"></Setter>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </ListView.Resources>
+                  ItemsSource="{Binding KundeListe}"
+                  AlternationCount="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
