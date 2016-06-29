@@ -29,6 +29,7 @@ namespace AufträgeOrgadata
         private void Program_Loaded(object sender, RoutedEventArgs e)
         {
             ProgrammName programme = new ProgrammName();
+            //Boolean CheckStatus;
 
             for (int i = 0; i < programme.ProgrammListe.Count; i++)
             {
@@ -40,6 +41,10 @@ namespace AufträgeOrgadata
                 cb.Content = programme.ProgrammListe[i].Name;
                 stackPanelPrograms.Children.Add(cb);
             }
+
+
+                
+
 
             Installationsart installationsart = new Installationsart();
 
@@ -176,6 +181,8 @@ namespace AufträgeOrgadata
             if (txtKundeName.Text == "" || txtKundeAnsprechPartner.Text == "" || txtKundeLand.Text == "" || txtKundeOrt.Text == "" || txtKundePlz.Text == "")
 
                     MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
+
+                   
             else
             if (txtKundeName.Text.Length < 3 || txtKundeAnsprechPartner.Text.Length < 3 || txtKundeLand.Text.Length < 3 || txtKundeOrt.Text.Length < 3 || txtKundePlz.Text.Length < 3)
                     MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
@@ -187,9 +194,83 @@ namespace AufträgeOrgadata
             if (txtAnAdresseName.Text.Length < 3 || txtAnAdresseAnsprechPartner.Text.Length < 3 || txtAnAdresseLand.Text.Length < 3 || txtAnAdresseOrt.Text.Length < 3 || txtAnAdressePlz.Text.Length < 3)
                     MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
 
-            //txtAnAdresseAnsprechPartner.Background = Brushes.Blue;
-        }
+            if (txtKundeName.Text == "" || txtKundeName.Text.Length < 3)
+                 txtKundeName.Background = Brushes.Red;
+            else
+                   txtKundeName.Background = Brushes.White;
 
+            if
+                (txtKundeAnsprechPartner.Text == "" || txtKundeAnsprechPartner.Text.Length < 3)
+                  txtKundeAnsprechPartner.Background = Brushes.Red;
+            else
+                    txtKundeAnsprechPartner.Background = Brushes.White;
+            if
+                (txtKundeLand.Text == "" || txtKundeLand.Text.Length < 3)
+                  txtKundeLand.Background = Brushes.Red;
+            else
+                    txtKundeLand.Background = Brushes.White;
+            if
+                (txtKundeOrt.Text == "" || txtKundeOrt.Text.Length < 3)
+                  txtKundeOrt.Background = Brushes.Red;
+            else
+                    txtKundeOrt.Background = Brushes.White;
+            if
+                (txtKundePlz.Text == "" || txtKundePlz.Text.Length < 3)
+                  txtKundePlz.Background = Brushes.Red;
+            else
+                    txtKundePlz.Background = Brushes.White;
+
+            if (txtAnAdresseName.Text == "" || txtAnAdresseName.Text.Length < 3)
+                  txtAnAdresseName.Background = Brushes.Red;
+            else
+                    txtAnAdresseName.Background = Brushes.White;
+
+            if (txtAnAdresseAnsprechPartner.Text == "" || txtAnAdresseAnsprechPartner.Text.Length < 3)
+                  txtAnAdresseAnsprechPartner.Background = Brushes.Red;
+            else
+                    txtAnAdresseAnsprechPartner.Background = Brushes.White;
+
+            if (txtAnAdresseLand.Text == "" || txtAnAdresseLand.Text.Length < 3)
+                  txtAnAdresseLand.Background = Brushes.Red;
+            else
+                    txtAnAdresseLand.Background = Brushes.White;
+
+            if (txtAnAdresseOrt.Text == "" || txtAnAdresseOrt.Text.Length < 3)
+                  txtAnAdresseOrt.Background = Brushes.Red;
+            else
+                    txtAnAdresseOrt.Background = Brushes.White;
+
+            if (txtAnAdressePlz.Text == "" || txtAnAdressePlz.Text.Length < 3)
+                  txtAnAdressePlz.Background = Brushes.Red;
+            else
+                    txtAnAdressePlz.Background = Brushes.White;
+
+          
+            ProgrammName PName = new ProgrammName();
+
+            bool atleastOneChecked = false;
+
+            for (int i = 0; i < PName.ProgrammListe.Count; i++)
+            {
+                CheckBox checkbox = (CheckBox)stackPanelPrograms.Children[i];
+                    
+                if (checkbox.IsChecked == true)
+                {
+                    atleastOneChecked = true;
+                    break;
+                }
+            }
+
+            if(atleastOneChecked == false)
+            {
+                MessageBox.Show("Kein Programm ausgewählt");
+                ProgrammGrid.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+            }
+
+            else
+                ProgrammGrid.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+
+        }
         private void mstamm_Click(object sender, RoutedEventArgs e)
         {
             Stammdaten stamm = new Stammdaten();
@@ -197,4 +278,3 @@ namespace AufträgeOrgadata
         }
     }
 }
-
