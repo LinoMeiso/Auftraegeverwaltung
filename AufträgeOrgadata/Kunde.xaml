@@ -5,28 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Kunde" Height="323.224" Width="638.557" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="Kunde" Height="386.628" Width="769.501" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Icon="Images/costumers.ico">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="209*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="48*"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Menu x:Name="menuKunde" Margin="0,2,0,261" Grid.ColumnSpan="2" >
+        <Menu x:Name="menuKunde" Margin="0,0,0,0" Height="25" Width="761" VerticalAlignment="Top" HorizontalAlignment="Left">
             <MenuItem x:Name="data" Header="Datei" Height="25">
-                <MenuItem x:Name="add" Header="Eintrag Hinzufügen" Height="25" Click="add_Click"></MenuItem>
-                <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" Height="25" Click="edit_Click"></MenuItem>
-                <MenuItem x:Name="delete" Header="Eintrag Löschen" Height="25" Click="delete_Click_1"></MenuItem>
-                <MenuItem x:Name="search" Header="Eintrag Suchen" Height="25" Click="search_Click"></MenuItem>
+                <MenuItem x:Name="add" Header="Eintrag Hinzufügen" Height="25" Click="add_Click">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Images\add.ico"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" Height="25" Click="edit_Click">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Images\edit.ico"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="delete" Header="Eintrag Löschen" Height="25" Click="delete_Click_1">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Images\delete.ico"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="search" Header="Eintrag Suchen" Height="25" Click="search_Click">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Images\search.ico"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator></Separator>
-                <MenuItem x:Name="close" Header="Schließen" Height="25" Click="close_Click"></MenuItem>
+                <MenuItem x:Name="close" Header="Schließen" Height="25" Click="close_Click">
+                    <MenuItem.Icon>
+                        <Image Width="16" Height="16" Source="Images\close_red.ico"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
 
-        <ListView x:Name="lvKunde" Height="256" Width="619" Margin="0,27,7.598,5" ItemsSource="{Binding KundeListe}">
+        <ListView x:Name="lvKunde" Margin="0,25,0,0" 
+                  ItemsSource="{Binding KundeListe}">
+            <ListView.Resources>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Style.Triggers>
+                        <DataTrigger Value="1">
+                            <Setter Property="Background" Value="Green"></Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.Resources>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
