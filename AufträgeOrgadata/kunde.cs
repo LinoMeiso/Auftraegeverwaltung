@@ -22,22 +22,23 @@ namespace AufträgeOrgadata
     }
     public class TKundeFind
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Ort { get; set; }
-        public string Str { get; set; }
-        public string PLZ { get; set; }
-        public string Ansprechpartner { get; set; }
-        public string VertragsNr { get; set; }
+        public int IDFind { get; set; }
+        public string NameFind { get; set; }
+        public string OrtFind { get; set; }
+        public string StrFind { get; set; }
+        public string PLZFind { get; set; }
+        public string AnsprechpartnerFind { get; set; }
+        public string VertragsNrFind { get; set; }
     }
 
     public class kundecs
     {
         public List<TKunde> KundeListe { get; set; }
-        public List<TKundeFind> KundeSearchList { get; set; }
+        public List<TKundeFind> KundeFindList { get; set; }
 
         public kundecs()
         {
+            KundeFindList = new List<TKundeFind>();
             KundeListe = new List<TKunde>();
             LoadKunde();
         }
@@ -232,7 +233,7 @@ namespace AufträgeOrgadata
                 //DELETE FROM `kunden` WHERE `kunden`.`ID` = 16 
                 // name=?Name, ort=?Ort, str=?Str, plz=?PLZ, ansprechpartner=?Ansprechpartner, vertragsnr=?VertragsNr
                 MySqlCommand cmd = new MySqlCommand();
-                string sql = "SELECT * FROM kunden WHERE ort LIKE '%?Ort%'";
+                string sql = "SELECT * FROM kunden WHERE ort LIKE ?Ort";
                 cmd.CommandText = sql;
 
                 //cmd.Parameters.AddWithValue("?kundenid", kunde.id);
@@ -245,26 +246,22 @@ namespace AufträgeOrgadata
 
                 cmd.Connection = conn;
 
-
                 MessageBox.Show(sql);
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
                 {
                     while (Reader.Read())
                     {
-
                         // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR
                         TKundeFind kdfind = new TKundeFind();
-                        //kdfind.ID = int.Parse(Reader["ID"].ToString());
-                        kdfind.Name = Reader["Name"].ToString();
-                        kdfind.Ort = Reader["Ort"].ToString();
-                        kdfind.Str = Reader["Str"].ToString();
-                        kdfind.PLZ = Reader["PLZ"].ToString();
-                        kdfind.Ansprechpartner = Reader["Ansprechpartner"].ToString();
-                        kdfind.VertragsNr = Reader["VertragsNr"].ToString();
-                        //KundeSearchList.Add(kdfind);
-
-                        //MessageBox.Show(Reader["Name"].ToString());
+                        kdfind.IDFind = int.Parse(Reader["ID"].ToString());
+                        kdfind.NameFind = Reader["Name"].ToString();
+                        kdfind.OrtFind = Reader["Ort"].ToString();
+                        kdfind.StrFind = Reader["Str"].ToString();
+                        kdfind.PLZFind = Reader["PLZ"].ToString();
+                        kdfind.AnsprechpartnerFind = Reader["Ansprechpartner"].ToString();
+                        kdfind.VertragsNrFind = Reader["VertragsNr"].ToString();
+                        KundeFindList.Add(kdfind);
                     }
                 }
                 conn.Close();

@@ -5,12 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Kunde_search" Height="313.983" Width="515.466">
-    <Grid>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="283" VerticalAlignment="Top" Width="507">
+        Title="Kunde_search" Height="407.415" Width="729.661" ResizeMode="NoResize">
+    <Grid Margin="0,0,-6,1">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="745*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="lvKundeSearch" Margin="0,0,2,0" ItemsSource="{Binding KundeSearchListe}" Loaded="lvKundeSearch_Loaded">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding NameSearch}"/>
+                    <GridViewColumn Header="Ort" DisplayMemberBinding="{Binding OrtSearch}"/>
+                    <GridViewColumn Header="Str" DisplayMemberBinding="{Binding StrSearch}"/>
+                    <GridViewColumn Header="PLZ" DisplayMemberBinding="{Binding PLZSearch}"/>
+                    <GridViewColumn Header="Ansprechpartner" DisplayMemberBinding="{Binding AnsprechpartnerSearch}"/>
+                    <GridViewColumn Header="VertragsNr" DisplayMemberBinding="{Binding VertragsNrSearch}"/>
                 </GridView>
             </ListView.View>
         </ListView>

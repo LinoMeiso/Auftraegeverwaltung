@@ -5,9 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Kunde" Height="325.292" Width="637.868" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="Kunde" Height="323.224" Width="638.557" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Menu x:Name="menuKunde" Margin="0,2,0,267" Grid.ColumnSpan="2" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="209*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="menuKunde" Margin="0,2,0,261" Grid.ColumnSpan="2" >
             <MenuItem x:Name="data" Header="Datei" Height="25">
                 <MenuItem x:Name="add" Header="Eintrag Hinzufügen" Height="25" Click="add_Click"></MenuItem>
                 <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" Height="25" Click="edit_Click"></MenuItem>
@@ -18,7 +26,7 @@
             </MenuItem>
         </Menu>
 
-        <ListView x:Name="lvKunde" Height="256" Width="619" Margin="8,35,3,3" ItemsSource="{Binding KundeListe}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.ColumnSpan="2">
+        <ListView x:Name="lvKunde" Height="256" Width="619" Margin="0,27,7.598,5" ItemsSource="{Binding KundeListe}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
