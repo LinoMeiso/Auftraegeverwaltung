@@ -58,6 +58,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Get_set.cs" />
+    <Compile Include="Kundeid.cs" />
+    <Compile Include="Kunde_anadresse.cs" />
     <Compile Include="Kunde_search.xaml.cs">
       <DependentUpon>Kunde_search.xaml</DependentUpon>
     </Compile>

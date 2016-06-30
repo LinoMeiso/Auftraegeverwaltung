@@ -10,6 +10,7 @@ namespace AufträgeOrgadata
     {
         public class TKundeAdresse
         {
+            public string id { get; set; }
             public string name { get; set; }
             public string land { get; set; }
             public string ort { get; set; }

@@ -64,6 +64,11 @@
         <ListView x:Name="lvKunde" Margin="0,25,0,0" 
                   ItemsSource="{Binding KundeListe}"
                   AlternationCount="2" FontSize="16" FontFamily="Time New Roman Bold">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="eintragen" Header="Eintrag eintragen"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"/>
