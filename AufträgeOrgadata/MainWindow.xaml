@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1162.969" Width="1347" Loaded="Program_Loaded" Icon="Images/assignment.ico">
+        Title="MainWindow" Height="1225.969" Width="1347" Loaded="Program_Loaded" Icon="Images/assignment.ico">
     <Grid>
 
         <DockPanel Height="25" Width="1305" VerticalAlignment="Top" HorizontalAlignment="Left">
