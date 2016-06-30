@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using static AufträgeOrgadata.Get_set;
 
 namespace AufträgeOrgadata
 {
@@ -132,7 +133,7 @@ namespace AufträgeOrgadata
         }
         private void textZeitDongle_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (textZeitDongle.Text.Length > 0)
+            if (txtZeitDongle.Text.Length > 0)
                 cbZeitDongle.IsChecked = true;
             else
                 cbZeitDongle.IsChecked = false;
@@ -271,6 +272,190 @@ namespace AufträgeOrgadata
         {
             Stammdaten stamm = new Stammdaten();
             stamm.ShowDialog();
+        }
+
+        private void mSave_Click(object sender, RoutedEventArgs e)
+        {
+            //Auslesen Kunden Daten
+            TKundeAdresse kdadresse = new TKundeAdresse();
+            kdadresse.name = txtKundeName.Text;
+            kdadresse.land = txtKundeLand.Text;
+            kdadresse.ort = txtKundeOrt.Text;
+            kdadresse.plz = txtKundePlz.Text;
+            kdadresse.ansprechpartner = txtKundeAnsprechPartner.Text;
+
+            //Auslesen An-Adresse
+            TAnAdresse anadresse = new TAnAdresse();
+            anadresse.name = txtAnAdresseName.Text;
+            anadresse.land = txtAnAdresseLand.Text;
+            anadresse.ort = txtAnAdresseOrt.Text;
+            anadresse.plz = txtAnAdressePlz.Text;
+            anadresse.ansprechpartner = txtAnAdresseAnsprechPartner.Text;
+
+            //Auslesen Programm Daten ID & Name
+            ProgrammName PName = new ProgrammName();
+            TProgramms tpro = new TProgramms();
+            tpro.ProList = new List<TProgramms>();
+            bool atleastOneChecked = false;
+
+            for (int i = 0; i < PName.ProgrammListe.Count; i++)
+            {
+                CheckBox checkbox = (CheckBox)stackPanelPrograms.Children[i];
+
+                if (checkbox.IsChecked == true)
+                {
+                    //Zuweisen der Programm Daten
+                    tpro.id = Convert.ToString(PName.ProgrammListe[i].ID);
+                    tpro.name = checkbox.Content.ToString();
+
+                    //Ausgelesende Daten in eine Liste hinzufügen
+                    tpro.ProList.Add(tpro);
+                    atleastOneChecked = true;
+                }
+            }
+
+            if (atleastOneChecked == false)
+            {
+
+            }
+
+            //Auslesen Installationsarten ID & Name
+            Installationsart art = new Installationsart();
+            TInstallArt installart = new TInstallArt();
+            installart.InstallList = new List<TInstallArt>();
+            bool atChecked = false;
+            for(int i = 0; i < art.Installationsliste.Count; i++)
+            {
+                CheckBox checkbox = (CheckBox)stackPanelInstallation.Children[i];
+
+                if (checkbox.IsChecked == true)
+                {
+                    //Zuweisen der Installationsarten
+                    installart.id = Convert.ToString(art.Installationsliste[i].ID);
+                    installart.installart = checkbox.Content.ToString();
+
+                    //Ausgelesende Daten in eine Liste hinzufügen
+                    installart.InstallList.Add(installart);
+                    atChecked = true;
+                }
+            }
+
+            if(atChecked == false)
+            {
+            }
+
+            //Zuweisen der Installationsarten
+            installart.tuerfuellung = txtTuer.Text;
+            installart.stkusb = txtStk_USB.Text;
+            installart.stkzeit = txtStk_Zeit.Text;
+            installart.server1 = cbServer1.IsChecked == true;
+            installart.server2 = cbServer2.IsChecked == true;
+
+            //Auslesen der Grund Daten
+            TGrund tgrund = new TGrund();
+            tgrund.grund = txtGrund.Text;
+            tgrund.austausch = txtAustausch.Text;
+
+            TVNummer vnummer = new TVNummer();
+            vnummer.adkunden = cballedesKunden.IsChecked == true;
+            vnummer.vnummer = txtKunden.Text + txtVertragsnummern.Text;
+            vnummer.rnummer = txtRn.Text;
+            vnummer.rnummer2 = txtRn2.Text;
+            vnummer.rnumemr3 = txtRn3.Text;
+            vnummer.serverdongle = txtServerdongle.Text;
+            vnummer.zeitdongle = txtZeitDongle.Text;
+            vnummer.autopro = cbAutoProl.IsChecked == true;
+
+
+            //Auslesen StammDaten ID & Name
+            StammName daten = new StammName();
+            Tstamm stamm = new Tstamm();
+            stamm.StammListUebergabe = new List<Tstamm>();
+            bool atCheckedStamm = false;
+            for (int i = 0; i < daten.StammListe.Count; i++)
+            {
+                CheckBox checkbox = (CheckBox)wpanelStamm.Children[i];
+
+                if (checkbox.IsChecked == true)
+                {
+                    //Zuweisen der Stammdaten
+                    stamm.id = Convert.ToString(daten.StammListe[i].ID);
+                    stamm.name = checkbox.Content.ToString();
+
+                    //Ausgelesende Daten in eine Liste hinzufügen
+                   stamm.StammListUebergabe.Add(stamm);
+                    atCheckedStamm = true;
+                }
+            }
+
+            if (atCheckedStamm == false)
+            {
+            }
+
+            Ausstattung aus = new Ausstattung();
+            TAusstattung_Data ausstattungdata = new TAusstattung_Data();
+            ausstattungdata.Ausstattung_DataList = new List<TAusstattung_Data>();
+
+            bool atCheckedAusstattung = false;
+            for(int i = 0; i < aus.Ausstattungsliste.Count; i++)
+            {
+                CheckBox checkbox = (CheckBox)wpanelAusstattung.Children[i];
+
+                if (checkbox.IsChecked == true)
+                {
+                    //Zuweisen der Ausstattung
+                    ausstattungdata.id = Convert.ToString(aus.Ausstattungsliste[i].ID);
+                    ausstattungdata.name = checkbox.Content.ToString();
+
+                    //Ausgelesende Daten in eine Liste hinzufügen
+                    ausstattungdata.Ausstattung_DataList.Add(ausstattungdata);
+                    atCheckedAusstattung = true;
+
+                }
+            
+            }
+
+            if (atCheckedAusstattung == false)
+            {
+            }
+
+            //Übergabe der WIZT Daten
+            Twizt twizt = new Twizt();
+            twizt.express = cbexpress.IsChecked == true;
+            twizt.tnt = cbtnt.IsChecked == true;
+            twizt.mitarbeiter = cbmitarbeiter.IsChecked == true;
+            twizt.anhaenger = cbanhaenger.IsChecked == true;
+            twizt.ewtest = cbewtest.IsChecked == true;
+
+            //Übergabe der Kontroll Daten
+            TKontroll kontroll = new TKontroll();
+            kontroll.donglegepr = cbgeprueft.IsChecked == true;
+            kontroll.verschickt = cbdelivered.IsChecked == true;
+            kontroll.geprkuerzel = combgeprueft.Text;
+            kontroll.delivkuerzel = combdelivered.Text;
+
+            //Übergabe der TAuftrag Daten
+            TAuftrag auftrag = new TAuftrag();
+            auftrag.kuerzel = combauftrag.Text;
+
+            //Übergabe der TAusgefuehrt Daten
+            TAusgefuehrt ausge = new TAusgefuehrt();
+            ausge.kuerzel = combausgefuehrt.Text;
+            ausge.date = txtausgefuehrt.Text;
+
+            //Übergabe der TPost Daten
+            TPost post = new TPost();
+            post.kuerzel = combpost.Text;
+            post.date = txtpost.Text;
+
+            //Übergabe der TAnschreiben Daten
+            TAnschreiben tanschreiben = new TAnschreiben();
+            tanschreiben.anschreiben = cbanschreiben.IsChecked == true;
+
+            //Übergabe der THandbuch Daten
+            THandbuch thandbuch = new THandbuch();
+            thandbuch.handbuch = cbhandbuch.IsChecked == true;
+
         }
     }
 }
