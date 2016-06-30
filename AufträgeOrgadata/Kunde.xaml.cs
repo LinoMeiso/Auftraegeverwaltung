@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using System.IO;
+using static AufträgeOrgadata.Get_set;
 
 namespace AufträgeOrgadata
 {
@@ -249,6 +250,27 @@ namespace AufträgeOrgadata
                 });
             }
             kdsearch.ShowDialog();
+        }
+
+        public void cmeintragen_Click(object sender, RoutedEventArgs e)
+        {
+            string id, name, ort, plz, partner;
+            var selectitem = (dynamic)lvKunde.SelectedItem;
+
+            id = Convert.ToString(selectitem.ID);
+            name = selectitem.Name;
+            //land = selectitem.Land;
+            ort = selectitem.Ort;
+            plz = selectitem.PLZ;
+            partner = selectitem.Ansprechpartner;
+
+            TGetCustomer getcust = new TGetCustomer();
+            getcust.name = name;
+            getcust.ort = ort;
+            getcust.plz = plz;
+            getcust.partner = partner;
+            
+            Close();
         }
     }
 }

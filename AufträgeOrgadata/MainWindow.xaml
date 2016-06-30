@@ -72,7 +72,7 @@
                         <Label x:Name="lblKundeName" Content="Name:" HorizontalAlignment="Left" Height="28" Margin="0,30,0,0" VerticalAlignment="Top" Width="100"/>
                         <TextBox x:Name="txtKundeName" HorizontalAlignment="Left" Height="28" Margin="50,30,0,0" VerticalAlignment="Top" Width="330"/>
                         <Label x:Name="lblKundeLand" Content="Land:" HorizontalAlignment="Left" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100"/>
-                        <TextBox x:Name="txtKundeLand" HorizontalAlignment="Left" Height="28" Margin="50,60,0,0" VerticalAlignment="Top" Width="100" />
+                        <TextBox x:Name="txtKundeLand" HorizontalAlignment="Left" Height="28" Margin="50,60,0,0" VerticalAlignment="Top" Width="100" Text="{Binding Path=TGetKunde.name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         <Label x:Name="lblKundePlz" Content="PLZ:" HorizontalAlignment="Left" Height="28" Margin="160,62,0,0" VerticalAlignment="Top" Width="100"/>
                         <TextBox x:Name="txtKundePlz" HorizontalAlignment="Left" Height="28" Margin="265,60,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="1.487,0.524"/>
                         <Label x:Name="lblKundeOrt" Content="Ort:" HorizontalAlignment="Left" Height="28" Margin="0,90,0,0" VerticalAlignment="Top" Width="50"/>

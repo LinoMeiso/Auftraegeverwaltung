@@ -171,6 +171,12 @@ namespace AufträgeOrgadata
             Kunde kd = new Kunde();
 
             kd.ShowDialog();
+
+            Get_set getset = new Get_set();
+            txtKundeName.Text = getset.name;
+            txtKundeOrt.Text = getset.ort;
+            txtKundePlz.Text = getset.plz;
+            txtKundeAnsprechPartner.Text = getset.partner;
         }
 
         private void mCheck_Click(object sender, RoutedEventArgs e)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AufträgeOrgadata
 {
-    class Get_set
+    public class Get_set
     {
         public class TKundeAdresse
         {
@@ -120,6 +120,14 @@ namespace AufträgeOrgadata
         public class THandbuch
         {
             public bool handbuch { get; set; }
+        }
+
+        public class TGetCustomer
+        {
+            public string name { get; set; }
+            public string ort { get; set; }
+            public string plz { get; set; }
+            public string partner { get; set; }
         }
     }
 }

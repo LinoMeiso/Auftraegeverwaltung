@@ -66,7 +66,7 @@
                   AlternationCount="2" FontSize="16" FontFamily="Time New Roman Bold">
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="eintragen" Header="Eintrag eintragen"/>
+                    <MenuItem x:Name="eintragen" Header="Eintrag eintragen" Click="cmeintragen_Click"/>
                 </ContextMenu>
             </ListView.ContextMenu>
             <ListView.View>
