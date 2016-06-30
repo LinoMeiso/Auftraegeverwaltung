@@ -42,10 +42,6 @@ namespace AufträgeOrgadata
                 stackPanelPrograms.Children.Add(cb);
             }
 
-
-                
-
-
             Installationsart installationsart = new Installationsart();
 
             for (int i = 0; i < installationsart.Installationsliste.Count; i++)

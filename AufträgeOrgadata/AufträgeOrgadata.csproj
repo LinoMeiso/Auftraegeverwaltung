@@ -57,6 +57,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Get_set.cs" />
     <Compile Include="Kunde_search.xaml.cs">
       <DependentUpon>Kunde_search.xaml</DependentUpon>
     </Compile>
