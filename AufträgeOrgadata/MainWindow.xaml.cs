@@ -115,21 +115,21 @@ namespace AufträgeOrgadata
         }
         private void txtRn2_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtRn2.Text.Length > 0)
+            if (txtRn.Text.Length > 0)
                 cbRn.IsChecked = true;
             else
                 cbRn.IsChecked = false;
         }
         private void textRn3_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtRn2.Text.Length > 0)
+            if (txtRn.Text.Length > 0)
                 cbRn.IsChecked = true;
             else
                 cbRn.IsChecked = false;
         }
         private void textRn4_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtRn2.Text.Length > 0)
+            if (txtRn.Text.Length > 0)
                 cbRn.IsChecked = true;
             else
                 cbRn.IsChecked = false;

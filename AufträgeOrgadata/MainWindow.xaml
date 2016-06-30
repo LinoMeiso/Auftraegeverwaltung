@@ -5,211 +5,216 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1208.969" Width="1347" Loaded="Program_Loaded" Icon="Images/assignment.ico">
+        Title="MainWindow" Height="1162.969" Width="1347" Loaded="Program_Loaded" Icon="Images/assignment.ico">
     <Grid>
-        <ScrollViewer>
-        <Grid x:Name="mainGrid" Margin="0,0,0,0">
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="99" Margin="324,928,0,0" VerticalAlignment="Top" Width="426"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="99" Margin="0,928,0,0" VerticalAlignment="Top" Width="325"/>
-            <CheckBox x:Name="checkBox1" Content="Express bis:  _______________________" Margin="38,959,1066,202"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="174" Margin="0,398,0,0" VerticalAlignment="Top" Width="1305"/>
 
-                <Menu x:Name="menu" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1305">
-                    <MenuItem Header="Datei" Height="25" Width="50">
-                        <MenuItem Header="Neu" Click="MenuItem_Click">
-                            <MenuItem.Icon>
-                                <Image Width="16" Height="16" Source="Images\add.ico"/>
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Header="Laden"/>
-                        <MenuItem Header="Beenden" Click="MenuItem_Click_1">
-                            <MenuItem.Icon>
-                                <Image Height="16" Width="16" Source="Images\close_red.ico"/>
-                            </MenuItem.Icon>
-                        </MenuItem>
+        <DockPanel Height="25" Width="1305" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Menu x:Name="menu" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1305">
+                <MenuItem Header="Datei" Height="25" Width="50">
+                    <MenuItem Header="Neu" Click="MenuItem_Click">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="Images\add.ico"/>
+                        </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem x:Name="edit" Header="Bearbeiten" Height="25">
-                        <MenuItem x:Name="mkunde" Header="Kunde" Height="25" Click="mkunde_Click">
-                            <MenuItem.Icon>
-                                <Image Width="16" Height="16" Source="Images\costumers.ico"/>
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem x:Name="mprogramms" Header="Programme" Height="25" Click="mprogramms_Click"></MenuItem>
-                        <MenuItem x:Name="mstamm" Header="Stammdaten" Height="25" Click="mstamm_Click"></MenuItem>
-                        <MenuItem x:Name="maustattung" Header="Austattung" Height="25"></MenuItem>
+                    <MenuItem Header="Laden"/>
+                    <MenuItem Header="Beenden" Click="MenuItem_Click_1">
+                        <MenuItem.Icon>
+                            <Image Height="16" Width="16" Source="Images\close_red.ico"/>
+                        </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="Einstellungen" Height="25" Width="90">
-                        <MenuItem Header="Datenbank" Height="25" Width="150" Click="MenuItem_Click_2">
-                            <MenuItem.Icon>
-                                <Image Width="16" Height="16" Source="Images\database.ico"/>
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <MenuItem Header="Check " Height="25" Width="150" Margin="0,0,0,0" Click="mCheck_Click" />
+                </MenuItem>
+                <MenuItem x:Name="edit" Header="Bearbeiten" Height="25">
+                    <MenuItem x:Name="mkunde" Header="Kunde" Height="25" Click="mkunde_Click">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="Images\costumers.ico"/>
+                        </MenuItem.Icon>
                     </MenuItem>
-                </Menu>
+                    <MenuItem x:Name="mprogramms" Header="Programme" Height="25" Click="mprogramms_Click"></MenuItem>
+                    <MenuItem x:Name="mstamm" Header="Stammdaten" Height="25" Click="mstamm_Click"></MenuItem>
+                    <MenuItem x:Name="maustattung" Header="Austattung" Height="25"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Einstellungen" Height="25" Width="90">
+                    <MenuItem Header="Datenbank" Height="25" Width="150" Click="MenuItem_Click_2">
+                        <MenuItem.Icon>
+                            <Image Width="16" Height="16" Source="Images\database.ico"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Check " Height="25" Width="150" Margin="0,0,0,0" Click="mCheck_Click" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
 
-                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="125" Margin="0,25,0,0" VerticalAlignment="Top" Width="190">
-                <Grid HorizontalAlignment="Left" Height="125" Margin="-1" VerticalAlignment="Top" Width="190">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="97*"/>
-                        <ColumnDefinition Width="93*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label x:Name="lblDate" Content="Date" HorizontalAlignment="Left" Height="28" Margin="26,54,0,0" VerticalAlignment="Top" Width="144" Grid.ColumnSpan="2"/>
-                    <Label x:Name="lblTime" Content="Time" HorizontalAlignment="Left" Height="28" Margin="26,87,0,0" VerticalAlignment="Top" Width="144" Grid.ColumnSpan="2"/>
-                    <Label x:Name="lblAuftrnr" Content="Auftrnr" HorizontalAlignment="Left" Height="28" Margin="26,21,0,0" VerticalAlignment="Top" Width="144" Grid.ColumnSpan="2"/>
-                </Grid>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="125" Margin="189,25,0,0" VerticalAlignment="Top" Width="384">
-                <Grid HorizontalAlignment="Left" Height="125" Margin="-1" VerticalAlignment="Top" Width="384">
-                    <Label x:Name="lblKunde1" Content="Kunde" HorizontalAlignment="Left" Height="28" Margin="0,0,0,0" VerticalAlignment="Top" Width="100"/>
-                    <Line Width="400" Height="1" Margin="0,-70,0,0" X2="384" Stroke="Black"/>
-                    <Label x:Name="lblKundeName" Content="Name:" HorizontalAlignment="Left" Height="28" Margin="0,30,0,0" VerticalAlignment="Top" Width="100"/>
-                    <TextBox x:Name="txtKundeName" HorizontalAlignment="Left" Height="28" Margin="50,30,0,0" VerticalAlignment="Top" Width="330"/>
-                    <Label x:Name="lblKundeLand" Content="Land:" HorizontalAlignment="Left" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100"/>
-                    <TextBox x:Name="txtKundeLand" HorizontalAlignment="Left" Height="28" Margin="50,60,0,0" VerticalAlignment="Top" Width="100" />
-                    <Label x:Name="lblKundePlz" Content="PLZ:" HorizontalAlignment="Left" Height="28" Margin="160,62,0,0" VerticalAlignment="Top" Width="100"/>
-                    <TextBox x:Name="txtKundePlz" HorizontalAlignment="Left" Height="28" Margin="265,60,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="1.487,0.524"/>
-                    <Label x:Name="lblKundeOrt" Content="Ort:" HorizontalAlignment="Left" Height="28" Margin="0,90,0,0" VerticalAlignment="Top" Width="50"/>
-                    <TextBox x:Name="txtKundeOrt" HorizontalAlignment="Left" Height ="28" Margin="50,90,0,0" VerticalAlignment="Top" Width="100"/>
-                    <Label x:Name="lblKundeAnsprechPartner" Content="Ansprechpartner:" HorizontalAlignment="Left" Height="28" Margin="160,90,0,0" VerticalAlignment="Top" Width="100"/>
-                    <TextBox x:Name="txtKundeAnsprechPartner" HorizontalAlignment ="Left" Height="28" Margin="265,90,0,0" VerticalAlignment="Top" Width="115"/>
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="125" Margin="383,0,-383,0" VerticalAlignment="Top" Width="384">
-                        <Grid HorizontalAlignment="Left" Height="125" Margin="-1" VerticalAlignment="Top" Width="384">
-                            <Label x:Name="lblAnAdresse" Content="An - Adresse" HorizontalAlignment="Left" Height="28" Margin="0,0,0,0" VerticalAlignment="Top" Width="100"/>
-                            <Line Width="400" Height="1" Margin="0,-70,0,0" X2="384" Stroke="Black"/>
-                            <Label x:Name="lblAnAdresseName" Content="Name:" HorizontalAlignment="Left" Height="28" Margin="0,30,0,0" VerticalAlignment="Top" Width="100"/>
-                            <TextBox x:Name="txtAnAdresseName" HorizontalAlignment="Left" Height="28" Margin="50,30,0,0" VerticalAlignment="Top" Width="330"/>
-                            <Label x:Name="lblAnAdresseLand" Content="Land:" HorizontalAlignment="Left" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100"/>
-                            <TextBox x:Name="txtAnAdresseLand" HorizontalAlignment="Left" Height="28" Margin="50,60,0,0" VerticalAlignment="Top" Width="100" />
-                            <Label x:Name="lblAnAdressePlz" Content="PLZ:" HorizontalAlignment="Left" Height="28" Margin="160,60,0,0" VerticalAlignment="Top" Width="50"/>
-                            <TextBox x:Name="txtAnAdressePlz" HorizontalAlignment="Left" Height="28" Margin="265,60,0,0" VerticalAlignment="Top" Width="115"/>
-                            <Label x:Name="lblAnAdresseOrt" Content="Ort:" HorizontalAlignment="Left" Height="28" Margin="0,90,0,0" VerticalAlignment="Top" Width="50"/>
-                            <TextBox x:Name="txtAnAdresseOrt" HorizontalAlignment="Left" Height ="28" Margin="50,90,0,0" VerticalAlignment="Top" Width="100"/>
-                            <Label x:Name="lblAnAdresseAnsprechPartner" Content="Ansprechpartner:" HorizontalAlignment="Left" Height="28" Margin="160,90,0,0" VerticalAlignment="Top" Width="100"/>
-                            <TextBox x:Name="txtAnAdresseAnsprechPartner" HorizontalAlignment ="Left" Height="28" Margin="265,90,0,0" VerticalAlignment="Top" Width="115"/>
-                        </Grid>
-                    </Border>
-                </Grid>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="125" Margin="955,25,0,0" VerticalAlignment="Top" Width="350">
-                <Grid x:Name="ProgrammGrid" HorizontalAlignment="Left" Height="125" Margin="-1" VerticalAlignment="Top" Width="350">
-                    <WrapPanel x:Name="stackPanelPrograms" HorizontalAlignment="Left" Height="93" Margin="4,30,0,0" VerticalAlignment="Top" Width="345"/>
-                    <Label x:Name="lblProgramme" Content="Programme:" HorizontalAlignment="Left" Height="28" Margin="0,0,0,0" VerticalAlignment="Top" Width="100"/>
-                    <Line Width="575" Height="1" Margin="0,-70,0,0" X2="575" Stroke="Black"/>
-                </Grid>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="160" Margin="0,149,0,0" VerticalAlignment="Top" Width="1305">
-                <Grid x:Name="InstallationGrid" HorizontalAlignment="Left" Height="160" Margin="-1,-1,0,-1" VerticalAlignment="Top" Width="1304">
-                    <TextBox x:Name="txtTuer" Height="28" Width="200" Margin="367,108,737,24"/>
-                    <Label x:Name="lblTürfüllung" Content="Türfüllung" Width="70" Margin="367,84,867,50"/>
-                    <Label x:Name="lblInstallationsart" Content="Installationsart:" HorizontalAlignment="Left" Height="28" Margin="0,0,0,0" VerticalAlignment="Top" Width="100"/>
-                    <Line Margin="0,25,-734,134" X2="1305" Stroke="Black" RenderTransformOrigin="0.5,0.5">
-                        <Line.RenderTransform>
+        <ScrollViewer Margin="0,25,0,0">
+            <Grid x:Name="mainGrid" Margin="0,0,0,0">
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="99" Margin="324,903,0,0" VerticalAlignment="Top" Width="426"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="99" Margin="0,903,0,0" VerticalAlignment="Top" Width="325"/>
+                <CheckBox x:Name="checkBox1" Content="Express bis:  _______________________" Margin="35,935,1069,226"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="174" Margin="0,373,0,0" VerticalAlignment="Top" Width="1305"/>
+
+
+
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="190">
+                    <Grid HorizontalAlignment="Left" Height="125" Margin="-1" VerticalAlignment="Top" Width="190">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="97*"/>
+                            <ColumnDefinition Width="93*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="lblDate" Content="Date" HorizontalAlignment="Left" Height="28" Margin="26,54,0,0" VerticalAlignment="Top" Width="144" Grid.ColumnSpan="2"/>
+                        <Label x:Name="lblTime" Content="Time" HorizontalAlignment="Left" Height="28" Margin="26,87,0,0" VerticalAlignment="Top" Width="144" Grid.ColumnSpan="2"/>
+                        <Label x:Name="lblAuftrnr" Content="Auftrnr" HorizontalAlignment="Left" Height="28" Margin="26,21,0,0" VerticalAlignment="Top" Width="144" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="125" Margin="189,0,0,0" VerticalAlignment="Top" Width="384">
+                    <Grid HorizontalAlignment="Left" Height="125" Margin="-1" VerticalAlignment="Top" Width="384">
+                        <Label x:Name="lblKunde1" Content="Kunde" HorizontalAlignment="Left" Height="28" Margin="0,0,0,0" VerticalAlignment="Top" Width="100"/>
+                        <Line Width="400" Height="1" Margin="0,-70,0,0" X2="384" Stroke="Black"/>
+                        <Label x:Name="lblKundeName" Content="Name:" HorizontalAlignment="Left" Height="28" Margin="0,30,0,0" VerticalAlignment="Top" Width="100"/>
+                        <TextBox x:Name="txtKundeName" HorizontalAlignment="Left" Height="28" Margin="50,30,0,0" VerticalAlignment="Top" Width="330"/>
+                        <Label x:Name="lblKundeLand" Content="Land:" HorizontalAlignment="Left" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100"/>
+                        <TextBox x:Name="txtKundeLand" HorizontalAlignment="Left" Height="28" Margin="50,60,0,0" VerticalAlignment="Top" Width="100" />
+                        <Label x:Name="lblKundePlz" Content="PLZ:" HorizontalAlignment="Left" Height="28" Margin="160,62,0,0" VerticalAlignment="Top" Width="100"/>
+                        <TextBox x:Name="txtKundePlz" HorizontalAlignment="Left" Height="28" Margin="265,60,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="1.487,0.524"/>
+                        <Label x:Name="lblKundeOrt" Content="Ort:" HorizontalAlignment="Left" Height="28" Margin="0,90,0,0" VerticalAlignment="Top" Width="50"/>
+                        <TextBox x:Name="txtKundeOrt" HorizontalAlignment="Left" Height ="28" Margin="50,90,0,0" VerticalAlignment="Top" Width="100"/>
+                        <Label x:Name="lblKundeAnsprechPartner" Content="Ansprechpartner:" HorizontalAlignment="Left" Height="28" Margin="160,90,0,0" VerticalAlignment="Top" Width="100"/>
+                        <TextBox x:Name="txtKundeAnsprechPartner" HorizontalAlignment ="Left" Height="28" Margin="265,90,0,0" VerticalAlignment="Top" Width="115"/>
+                        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="125" Margin="383,0,-383,0" VerticalAlignment="Top" Width="384">
+                            <Grid HorizontalAlignment="Left" Height="125" Margin="-1" VerticalAlignment="Top" Width="384">
+                                <Label x:Name="lblAnAdresse" Content="An - Adresse" HorizontalAlignment="Left" Height="28" Margin="0,0,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Line Width="400" Height="1" Margin="0,-70,0,0" X2="384" Stroke="Black"/>
+                                <Label x:Name="lblAnAdresseName" Content="Name:" HorizontalAlignment="Left" Height="28" Margin="0,30,0,0" VerticalAlignment="Top" Width="100"/>
+                                <TextBox x:Name="txtAnAdresseName" HorizontalAlignment="Left" Height="28" Margin="50,30,0,0" VerticalAlignment="Top" Width="330"/>
+                                <Label x:Name="lblAnAdresseLand" Content="Land:" HorizontalAlignment="Left" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100"/>
+                                <TextBox x:Name="txtAnAdresseLand" HorizontalAlignment="Left" Height="28" Margin="50,60,0,0" VerticalAlignment="Top" Width="100" />
+                                <Label x:Name="lblAnAdressePlz" Content="PLZ:" HorizontalAlignment="Left" Height="28" Margin="160,60,0,0" VerticalAlignment="Top" Width="50"/>
+                                <TextBox x:Name="txtAnAdressePlz" HorizontalAlignment="Left" Height="28" Margin="265,60,0,0" VerticalAlignment="Top" Width="115"/>
+                                <Label x:Name="lblAnAdresseOrt" Content="Ort:" HorizontalAlignment="Left" Height="28" Margin="0,90,0,0" VerticalAlignment="Top" Width="50"/>
+                                <TextBox x:Name="txtAnAdresseOrt" HorizontalAlignment="Left" Height ="28" Margin="50,90,0,0" VerticalAlignment="Top" Width="100"/>
+                                <Label x:Name="lblAnAdresseAnsprechPartner" Content="Ansprechpartner:" HorizontalAlignment="Left" Height="28" Margin="160,90,0,0" VerticalAlignment="Top" Width="100"/>
+                                <TextBox x:Name="txtAnAdresseAnsprechPartner" HorizontalAlignment ="Left" Height="28" Margin="265,90,0,0" VerticalAlignment="Top" Width="115"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="125" Margin="955,0,0,0" VerticalAlignment="Top" Width="350">
+                    <Grid x:Name="ProgrammGrid" HorizontalAlignment="Left" Height="125" Margin="-1" VerticalAlignment="Top" Width="350">
+                        <WrapPanel x:Name="stackPanelPrograms" HorizontalAlignment="Left" Height="93" Margin="4,30,0,0" VerticalAlignment="Top" Width="345"/>
+                        <Label x:Name="lblProgramme" Content="Programme:" HorizontalAlignment="Left" Height="28" Margin="0,0,0,0" VerticalAlignment="Top" Width="100"/>
+                        <Line Width="575" Height="1" Margin="0,-70,0,0" X2="575" Stroke="Black"/>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="160" Margin="0,124,0,0" VerticalAlignment="Top" Width="1305">
+                    <Grid x:Name="InstallationGrid" HorizontalAlignment="Left" Height="160" Margin="-1,-1,0,-1" VerticalAlignment="Top" Width="1304">
+                        <TextBox x:Name="txtTuer" Height="28" Width="200" Margin="367,108,737,24"/>
+                        <Label x:Name="lblTürfüllung" Content="Türfüllung" Width="70" Margin="367,84,867,50"/>
+                        <Label x:Name="lblInstallationsart" Content="Installationsart:" HorizontalAlignment="Left" Height="28" Margin="0,0,0,0" VerticalAlignment="Top" Width="100"/>
+                        <Line Margin="0,25,-734,134" X2="1305" Stroke="Black" RenderTransformOrigin="0.5,0.5">
+                            <Line.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleY="-1"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Line.RenderTransform>
+                        </Line>
+                        <WrapPanel x:Name="stackPanelInstallation" HorizontalAlignment="Left" Height="127" Margin="11,33,0,0" VerticalAlignment="Top" Width="351"/>
+                        <TextBox x:Name="txtStk_USB" Height="28" Width="40" Margin="786,42,478,90"/>
+                        <Label x:Name="lblStk_USB" Content="Stk USB-Dongle" Height="28" Width="100" Margin="831,42,373,90"/>
+                        <TextBox x:Name="txtStk_Zeit" Height="28" Width="40" Margin="786,74,478,58"/>
+                        <Label x:Name="lblStk_Zeit" Content="Stk Zeit-Dongle" Height="28" Width="100" Margin="831,74,373,58"/>
+                        <TextBox x:Name="txtAustausch_Dongle" Height="28" Width="40" Margin="786,108,478,24"/>
+                        <Label x:Name="lblAustausch_Dongle" Content="Austauschdongle" Height="28" Width="100" Margin="831,108,373,24"/>
+                        <CheckBox x:Name="cbServer1" Content="Server" Height="28" Width="80" Margin="1214,42,10,90"/>
+                        <CheckBox x:Name="cbServer2" Content="Server" Height="28" Width="80" Margin="1214,108,10,24"/>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height ="91" Margin= "0,283,0,0" VerticalAlignment ="Top" Width= "1305">
+                    <Grid x:Name="Anliegen" HorizontalAlignment="Left" Height="91" Margin="0,0,-732,-2" VerticalAlignment="Top" Width="1303">
+                        <CheckBox x:Name= "cbGrund" Content="Grund:" HorizontalAlignment="Left"  Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="73"/>
+                        <CheckBox x:Name= "cbAustausch" Content="Austausch für Dongle:" HorizontalAlignment ="Left" Height="28" Margin="10,53,0,0" VerticalAlignment="Top" Width="140" />
+                        <TextBox x:Name="txtGrund" HorizontalAlignment="Left"  Height="28" Margin="170,10,0,0" VerticalAlignment="Top" Width="1123" TextChanged="txtGrund_TextChanged"/>
+                        <TextBox x:Name="txtAustausch" HorizontalAlignment="Left"  Height="28" Margin="170,53,0,0" VerticalAlignment="Top" Width="1123" TextChanged="txtAustausch_TextChanged"/>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height ="200" Margin= "0,546,0,0" VerticalAlignment ="Top" Width= "1305">
+                    <Grid x:Name="gridStammdaten" HorizontalAlignment="Left" Height="200" Margin="0,0,0,0" VerticalAlignment="Top" Width="1305">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="677*"/>
+                            <ColumnDefinition Width="628*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="lblStammdaten" Content="Stammdaten" Height="28" Width="100" Margin="0,0,577,172"/>
+                        <Line Height="1" Margin="0,27,-10,172" X2="1310" Stroke="Black" Grid.ColumnSpan="2"/>
+                        <WrapPanel x:Name="wpanelStamm" HorizontalAlignment="Left" Height="156" Margin="10,35,0,0" VerticalAlignment="Top" Width="1285" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height ="115" Margin= "0,767,0,0" VerticalAlignment ="Top" Width= "1305">
+                    <Grid x:Name="gridAusstattung" HorizontalAlignment="Left" Height="109" Margin="0,0,-2,0" VerticalAlignment="Top" Width="1305">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="81*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="68*"/>
+                            <ColumnDefinition Width="1151*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label x:Name="lblAusstattung" Content="Ausstattung" Width="100" Margin="0,-25,54,100" RenderTransformOrigin="1.77,3.786" Grid.ColumnSpan="3"/>
+                        <WrapPanel x:Name="wpanelAusstattung" HorizontalAlignment="Left" Height="98" Margin="10,12,0,-1" VerticalAlignment="Top" Width="1285" Grid.ColumnSpan="4"/>
+                    </Grid>
+                </Border>
+                <CheckBox x:Name="cbVertragsnummer" Content="Vertragsnummer(n)" HorizontalAlignment="Left" Margin="10,438,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.127,-0.467" Width="127"/>
+                <TextBox x:Name="txtKunden" HorizontalAlignment="Left" Height="23" Margin="10,467,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="txtVertragsnummern" HorizontalAlignment="Left" Height="23" Margin="10,504,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <CheckBox x:Name="cbRn" Content="Reservierte Nummern:&#xA;" HorizontalAlignment="Left" Margin="282,394,0,0" VerticalAlignment="Top" Width="212"/>
+                <TextBox x:Name="txtRn" HorizontalAlignment="Left" Height="23" Margin="441,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="852" TextChanged="txtRn2_TextChanged"/>
+                <TextBox x:Name="textRn2" HorizontalAlignment="Left" Height="23" Margin="282,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1011"/>
+                <TextBox x:Name="textRn3" HorizontalAlignment="Left" Height="23" Margin="282,445,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1011" />
+                <CheckBox x:Name="cbAutoProl" Content="auto prolongation" HorizontalAlignment="Left" Margin="1138,476,0,0" VerticalAlignment="Top" Width="137" Height="20" RenderTransformOrigin="1.139,0.5"/>
+                <CheckBox x:Name="cbZeitDongle" Content="Zeit - Dongle gültig bis:" HorizontalAlignment="Left" Margin="282,478,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="textZeitDongle" HorizontalAlignment="Left" Height="23" Margin="441,473,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="678"/>
+                <CheckBox x:Name="cbServerdongle" Content="Serverdongle - Anzahl der User&#xA;" HorizontalAlignment="Left" Margin="282,504,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtServerdongle" HorizontalAlignment="Left" Height="23" Margin="472,504,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" />
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,745,0,0" VerticalAlignment="Top" Width="1305"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,881,0,0" VerticalAlignment="Top" Width="1305">
+                </Border>
+                <Label x:Name="label" Content="Was ist zu tun ?" HorizontalAlignment="Left" Margin="0,881,0,0" VerticalAlignment="Top" Height="28"/>
+                <CheckBox x:Name="checkBox" Content="Versenden" HorizontalAlignment="Left" Margin="7,915,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBox2" Content="TNT" HorizontalAlignment="Left" Margin="35,957,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBox3" Content="Mitarbeiter:" HorizontalAlignment="Left" Margin="35,977,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBox4" Content="Anhänger erstellen" HorizontalAlignment="Left" Margin="356,917,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBox5" Content="Erweitert Test" HorizontalAlignment="Left" Margin="356,947,0,0" VerticalAlignment="Top"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="121" Margin="749,881,0,0" VerticalAlignment="Top" Width="556">
+                    <Label x:Name="label2" Content="Kontrolliste&#xD;&#xA;" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
                             <TransformGroup>
-                                <ScaleTransform ScaleY="-1"/>
-                                <SkewTransform/>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.939"/>
                                 <RotateTransform/>
-                                <TranslateTransform/>
+                                <TranslateTransform X="0.984"/>
                             </TransformGroup>
-                        </Line.RenderTransform>
-                    </Line>
-                    <WrapPanel x:Name="stackPanelInstallation" HorizontalAlignment="Left" Height="127" Margin="11,33,0,0" VerticalAlignment="Top" Width="351"/>
-                    <TextBox x:Name="txtStk_USB" Height="28" Width="40" Margin="786,42,478,90"/>
-                    <Label x:Name="lblStk_USB" Content="Stk USB-Dongle" Height="28" Width="100" Margin="831,42,373,90"/>
-                    <TextBox x:Name="txtStk_Zeit" Height="28" Width="40" Margin="786,74,478,58"/>
-                    <Label x:Name="lblStk_Zeit" Content="Stk Zeit-Dongle" Height="28" Width="100" Margin="831,74,373,58"/>
-                    <TextBox x:Name="txtAustausch_Dongle" Height="28" Width="40" Margin="786,108,478,24"/>
-                    <Label x:Name="lblAustausch_Dongle" Content="Austauschdongle" Height="28" Width="100" Margin="831,108,373,24"/>
-                    <CheckBox x:Name="cbServer1" Content="Server" Height="28" Width="80" Margin="1214,42,10,90"/>
-                    <CheckBox x:Name="cbServer2" Content="Server" Height="28" Width="80" Margin="1214,108,10,24"/>
-                </Grid>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height ="91" Margin= "0,308,0,0" VerticalAlignment ="Top" Width= "1305">
-                <Grid x:Name="Anliegen" HorizontalAlignment="Left" Height="91" Margin="0,0,-732,-2" VerticalAlignment="Top" Width="1303">
-                    <CheckBox x:Name= "cbGrund" Content="Grund:" HorizontalAlignment="Left"  Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="73"/>
-                    <CheckBox x:Name= "cbAustausch" Content="Austausch für Dongle:" HorizontalAlignment ="Left" Height="28" Margin="10,53,0,0" VerticalAlignment="Top" Width="140" />
-                    <TextBox x:Name="txtGrund" HorizontalAlignment="Left"  Height="28" Margin="170,10,0,0" VerticalAlignment="Top" Width="1123" TextChanged="txtGrund_TextChanged"/>
-                    <TextBox x:Name="txtAustausch" HorizontalAlignment="Left"  Height="28" Margin="170,53,0,0" VerticalAlignment="Top" Width="1123" TextChanged="txtAustausch_TextChanged"/>
-                </Grid>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height ="200" Margin= "0,571,0,0" VerticalAlignment ="Top" Width= "1305">
-                <Grid x:Name="gridStammdaten" HorizontalAlignment="Left" Height="200" Margin="0,0,0,0" VerticalAlignment="Top" Width="1305">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="677*"/>
-                        <ColumnDefinition Width="628*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label x:Name="lblStammdaten" Content="Stammdaten" Height="28" Width="100" Margin="0,0,577,172"/>
-                    <Line Height="1" Margin="0,27,-10,172" X2="1310" Stroke="Black" Grid.ColumnSpan="2"/>
-                    <WrapPanel x:Name="wpanelStamm" HorizontalAlignment="Left" Height="156" Margin="10,35,0,0" VerticalAlignment="Top" Width="1285" Grid.ColumnSpan="2"/>
-                </Grid>
-            </Border>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height ="115" Margin= "0,792,0,0" VerticalAlignment ="Top" Width= "1305">
-                <Grid x:Name="gridAusstattung" HorizontalAlignment="Left" Height="109" Margin="0,0,-2,0" VerticalAlignment="Top" Width="1305">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="81*"/>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="68*"/>
-                        <ColumnDefinition Width="1151*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label x:Name="lblAusstattung" Content="Ausstattung" Width="100" Margin="0,-25,54,100" RenderTransformOrigin="1.77,3.786" Grid.ColumnSpan="3"/>
-                    <WrapPanel x:Name="wpanelAusstattung" HorizontalAlignment="Left" Height="98" Margin="10,12,0,-1" VerticalAlignment="Top" Width="1285" Grid.ColumnSpan="4"/>
-                </Grid>
-            </Border>
-            <CheckBox x:Name="cbVertragsnummer" Content="Vertragsnummer(n)" HorizontalAlignment="Left" Margin="10,460,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.127,-0.467" Width="127"/>
-            <TextBox x:Name="txtKunden" HorizontalAlignment="Left" Height="23" Margin="10,497,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="txtVertragsnummern" HorizontalAlignment="Left" Height="23" Margin="10,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <CheckBox x:Name="cbRn" Content="Reservierte Nummern:&#xA;" HorizontalAlignment="Left" Margin="282,419,0,0" VerticalAlignment="Top" Width="212"/>
-            <TextBox x:Name="txtRn" HorizontalAlignment="Left" Height="23" Margin="441,417,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="852"/>
-            <TextBox x:Name="txtRn2" HorizontalAlignment="Left" Height="23" Margin="441,417,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="852" TextChanged="txtRn2_TextChanged"/>
-            <TextBox x:Name="textRn3" HorizontalAlignment="Left" Height="23" Margin="282,447,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1011"/>
-            <TextBox x:Name="textRn4" HorizontalAlignment="Left" Height="23" Margin="282,476,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="1011" />
-            <CheckBox x:Name="cbAutoProl" Content="auto prolongation" HorizontalAlignment="Left" Margin="1146,519,0,0" VerticalAlignment="Top" Width="137" Height="20" RenderTransformOrigin="1.139,0.5"/>
-            <CheckBox x:Name="cbZeitDongle" Content="Zeit - Dongle gültig bis:" HorizontalAlignment="Left" Margin="282,512,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="textZeitDongle" HorizontalAlignment="Left" Height="23" Margin="441,510,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="678"/>
-            <CheckBox x:Name="cbServerdongle" Content="Serverdongle - Anzahl der User&#xA;" HorizontalAlignment="Left" Margin="282,540,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtServerdongle" HorizontalAlignment="Left" Height="23" Margin="472,540,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" />
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,770,0,0" VerticalAlignment="Top" Width="1305"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,906,0,0" VerticalAlignment="Top" Width="1305"/>
-            <Label x:Name="label" Content="Was ist zu tun ?&#xA;" HorizontalAlignment="Left" Margin="0,906,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="checkBox" Content="Versenden" HorizontalAlignment="Left" Margin="10,939,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="checkBox2" Content="TNT" HorizontalAlignment="Left" Margin="38,981,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="checkBox3" Content="Mitarbeiter:" HorizontalAlignment="Left" Margin="38,1001,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="checkBox4" Content="Anhänger erstellen" HorizontalAlignment="Left" Margin="356,939,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="checkBox5" Content="Erweitert Test" HorizontalAlignment="Left" Margin="356,969,0,0" VerticalAlignment="Top"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="121" Margin="749,906,0,0" VerticalAlignment="Top" Width="556">
-                <Label x:Name="label2" Content="Label" Margin="0,0,0,-1" RenderTransformOrigin="0.5,0.5">
-                    <Label.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleX="0.939"/>
-                            <RotateTransform/>
-                            <TranslateTransform X="0.984"/>
-                        </TransformGroup>
-                    </Label.RenderTransform>
-                </Label>
-            </Border>
-            <CheckBox x:Name="checkBox6" Content="Dongle geprüft" HorizontalAlignment="Left" Margin="804,939,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="checkBox7" Content="delivered" HorizontalAlignment="Left" Margin="804,969,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.056,-8.2"/>
-            <Label x:Name="label1" Content="Kürzel&#xD;&#xA;" HorizontalAlignment="Left" Margin="942,930,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label3" Content="Kürzel" HorizontalAlignment="Left" Margin="942,963,0,0" VerticalAlignment="Top"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="18" Margin="0,1026,0,0" VerticalAlignment="Top" Width="325"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="18" Margin="324,1026,0,0" VerticalAlignment="Top" Width="426"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="18" Margin="749,1026,0,0" VerticalAlignment="Top" Width="556"/>
-            <Label x:Name="label4" Content="Auftrag&#xD;&#xA;" HorizontalAlignment="Left" Margin="4,1022,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label5" Content="Ausgeführt" HorizontalAlignment="Left" Margin="330,1021,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label6" Content="In die Post" HorizontalAlignment="Left" Margin="755,1021,0,0" VerticalAlignment="Top"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="34" Margin="0,1043,0,0" VerticalAlignment="Top" Width="325"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="34" Margin="324,1043,0,0" VerticalAlignment="Top" Width="426"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="34" Margin="749,1043,0,0" VerticalAlignment="Top" Width="556"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,1076,0,0" VerticalAlignment="Top" Width="750"/>
-            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="749,1076,0,0" VerticalAlignment="Top" Width="556"/>
-            <CheckBox x:Name="checkBox8" Content="Bitte beiliegendes Anschreiben verwenden!" HorizontalAlignment="Left" Margin="10,1081,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="checkBox9" Content="Handbuch (&quot;erste Schritte&quot;)" HorizontalAlignment="Left" Margin="756,1080,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label7" Content="Kürzel / Datum" HorizontalAlignment="Left" Margin="101,1047,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label7_Copy" Content="Kürzel / Datum" HorizontalAlignment="Left" Margin="484,1046,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label7_Copy1" Content="Kürzel / Datum" HorizontalAlignment="Left" Margin="990,1046,0,0" VerticalAlignment="Top"/>
-            <CheckBox x:Name="cballedesKunden" Content="alle des Kunden:" HorizontalAlignment="Left" Margin="10,419,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.31,-3.733"/>
-        </Grid>
-    </ScrollViewer>
+                        </Label.RenderTransform>
+                    </Label>
+                </Border>
+                <CheckBox x:Name="checkBox6" Content="Dongle geprüft" HorizontalAlignment="Left" Margin="804,939,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBox7" Content="delivered" HorizontalAlignment="Left" Margin="804,969,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.056,-8.2"/>
+                <Label x:Name="label1" Content="Kürzel&#xD;&#xA;" HorizontalAlignment="Left" Margin="942,930,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label3" Content="Kürzel" HorizontalAlignment="Left" Margin="942,963,0,0" VerticalAlignment="Top"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="18" Margin="0,1001,0,0" VerticalAlignment="Top" Width="325"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="18" Margin="324,1001,0,0" VerticalAlignment="Top" Width="426"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="18" Margin="749,1001,0,0" VerticalAlignment="Top" Width="556"/>
+                <Label x:Name="label4" Content="Auftrag&#xD;&#xA;" HorizontalAlignment="Left" Margin="3,998,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label5" Content="Ausgeführt" HorizontalAlignment="Left" Margin="329,997,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label6" Content="In die Post" HorizontalAlignment="Left" Margin="756,997,0,0" VerticalAlignment="Top"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="34" Margin="0,1018,0,0" VerticalAlignment="Top" Width="325"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="34" Margin="324,1018,0,0" VerticalAlignment="Top" Width="426"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="34" Margin="749,1018,0,0" VerticalAlignment="Top" Width="556"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,1051,0,0" VerticalAlignment="Top" Width="750"/>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="749,1051,0,0" VerticalAlignment="Top" Width="556"/>
+                <CheckBox x:Name="checkBox8" Content="Bitte beiliegendes Anschreiben verwenden!" HorizontalAlignment="Left" Margin="7,1057,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="checkBox9" Content="Handbuch (&quot;erste Schritte&quot;)" HorizontalAlignment="Left" Margin="755,1057,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label7" Content="Kürzel / Datum" HorizontalAlignment="Left" Margin="101,1022,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label7_Copy" Content="Kürzel / Datum" HorizontalAlignment="Left" Margin="484,1024,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="label7_Copy1" Content="Kürzel / Datum" HorizontalAlignment="Left" Margin="989,1024,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="cballedesKunden" Content="alle des Kunden:" HorizontalAlignment="Left" Margin="10,394,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.31,-3.733"/>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Window>
