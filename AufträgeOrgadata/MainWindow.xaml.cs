@@ -22,6 +22,12 @@ namespace AufträgeOrgadata
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string customerid = null;
+        private TDateTime set = null;
+        private TGrund setgrund = null;
+        private TAuftrag setauftrag = null;
+        private TAusgefuehrt setausgefuehrt = null;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -83,6 +89,26 @@ namespace AufträgeOrgadata
 
         }
 
+        public Get_set.TDateTime GetDateTimeSet()
+        {
+            return set;
+        }
+
+        public Get_set.TGrund GetGrundSet()
+        {
+            return setgrund;
+        }
+
+        public Get_set.TAuftrag GetAuftragSet()
+        {
+            return setauftrag;
+        }
+
+        public Get_set.TAusgefuehrt GetAusgefuehrtSet()
+        {
+            return setausgefuehrt;
+        }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             //Datum und Zeit Ausgabe
@@ -110,6 +136,7 @@ namespace AufträgeOrgadata
             else
                 cbAustausch.IsChecked = false;
         }
+
         private void txtRn2_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtRn.Text.Length > 0)
@@ -117,6 +144,7 @@ namespace AufträgeOrgadata
             else
                 cbRn.IsChecked = false;
         }
+
         private void textRn3_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtRn.Text.Length > 0)
@@ -124,6 +152,7 @@ namespace AufträgeOrgadata
             else
                 cbRn.IsChecked = false;
         }
+
         private void textRn4_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtRn.Text.Length > 0)
@@ -131,6 +160,7 @@ namespace AufträgeOrgadata
             else
                 cbRn.IsChecked = false;
         }
+
         private void textZeitDongle_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtZeitDongle.Text.Length > 0)
@@ -138,6 +168,7 @@ namespace AufträgeOrgadata
             else
                 cbZeitDongle.IsChecked = false;
         }
+
         private void txtServerdongle_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (txtServerdongle.Text.Length > 0)
@@ -165,33 +196,38 @@ namespace AufträgeOrgadata
             ProWindow Pro = new ProWindow();
             Pro.ShowDialog();
         }
-
-
+        
         private void mkunde_Click(object sender, RoutedEventArgs e)
         {
             Kunde kd = new Kunde();
-            kd.ShowDialog();
-            Get_set.TGetCustomer customer = kd.GetCustomerSet();
-            //if (customer == null)
-            //{
 
-            //}
-            
-            txtKundeName.Text = customer.name;
-            txtKundeOrt.Text = customer.ort;
-            txtKundePlz.Text = customer.plz;
-            txtKundeAnsprechPartner.Text = customer.partner;
+            kd.ShowDialog();
+
+            Get_set.TGetCustomer customer = kd.GetCustomerSet();
+            if (customer == null)
+            {
+                MessageBox.Show("Es wurde kein Kunde ausgewählt.");
+            }
+            else
+            {
+                customerid = customer.id;
+                txtKundeName.Text = customer.name;
+                txtKundeOrt.Text = customer.ort;
+                txtKundeStr.Text = customer.str;
+                txtKundePlz.Text = customer.plz;
+                txtKundeAnsprechPartner.Text = customer.partner;
+            }
         }
 
         private void mCheck_Click(object sender, RoutedEventArgs e)
         {
-            if (txtKundeName.Text == "" || txtKundeAnsprechPartner.Text == "" || txtKundeLand.Text == "" || txtKundeOrt.Text == "" || txtKundePlz.Text == "")
+            if (txtKundeName.Text == "" || txtKundeAnsprechPartner.Text == "" || txtKundeStr.Text == "" || txtKundeOrt.Text == "" || txtKundePlz.Text == "")
 
                     MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
 
                    
             else
-            if (txtKundeName.Text.Length < 3 || txtKundeAnsprechPartner.Text.Length < 3 || txtKundeLand.Text.Length < 3 || txtKundeOrt.Text.Length < 3 || txtKundePlz.Text.Length < 3)
+            if (txtKundeName.Text.Length < 3 || txtKundeAnsprechPartner.Text.Length < 3 || txtKundeStr.Text.Length < 3 || txtKundeOrt.Text.Length < 3 || txtKundePlz.Text.Length < 3)
                     MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
             else 
             if (txtAnAdresseName.Text == "" || txtAnAdresseAnsprechPartner.Text == "" || txtAnAdresseLand.Text == "" || txtAnAdresseOrt.Text == "" || txtAnAdressePlz.Text == "")
@@ -212,10 +248,10 @@ namespace AufträgeOrgadata
             else
                     txtKundeAnsprechPartner.Background = Brushes.White;
             if
-                (txtKundeLand.Text == "" || txtKundeLand.Text.Length < 3)
-                  txtKundeLand.Background = Brushes.Red;
+                (txtKundeStr.Text == "" || txtKundeStr.Text.Length < 3)
+                  txtKundeStr.Background = Brushes.Red;
             else
-                    txtKundeLand.Background = Brushes.White;
+                    txtKundeStr.Background = Brushes.White;
             if
                 (txtKundeOrt.Text == "" || txtKundeOrt.Text.Length < 3)
                   txtKundeOrt.Background = Brushes.Red;
@@ -278,6 +314,7 @@ namespace AufträgeOrgadata
                 ProgrammGrid.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
 
         }
+
         private void mstamm_Click(object sender, RoutedEventArgs e)
         {
             Stammdaten stamm = new Stammdaten();
@@ -289,7 +326,7 @@ namespace AufträgeOrgadata
             //Auslesen Kunden Daten
             TKundeAdresse kdadresse = new TKundeAdresse();
             kdadresse.name = txtKundeName.Text;
-            kdadresse.land = txtKundeLand.Text;
+            kdadresse.land = txtKundeStr.Text;
             kdadresse.ort = txtKundeOrt.Text;
             kdadresse.plz = txtKundePlz.Text;
             kdadresse.ansprechpartner = txtKundeAnsprechPartner.Text;
@@ -362,9 +399,9 @@ namespace AufträgeOrgadata
             installart.server2 = cbServer2.IsChecked == true;
 
             //Auslesen der Grund Daten
-            TGrund tgrund = new TGrund();
-            tgrund.grund = txtGrund.Text;
-            tgrund.austausch = txtAustausch.Text;
+            setgrund = new TGrund();
+            setgrund.grund = txtGrund.Text;
+            setgrund.austausch = txtAustausch.Text;
 
             TVNummer vnummer = new TVNummer();
             vnummer.adkunden = cballedesKunden.IsChecked == true;
@@ -445,18 +482,18 @@ namespace AufträgeOrgadata
             kontroll.delivkuerzel = combdelivered.Text;
 
             //Übergabe der TAuftrag Daten
-            TAuftrag auftrag = new TAuftrag();
-            auftrag.kuerzel = combauftrag.Text;
+            setauftrag = new TAuftrag();
+            setauftrag.kuerzel = txtauftrag.Text;
 
             //Übergabe der TAusgefuehrt Daten
-            TAusgefuehrt ausge = new TAusgefuehrt();
-            ausge.kuerzel = combausgefuehrt.Text;
-            ausge.date = txtausgefuehrt.Text;
+            setausgefuehrt = new TAusgefuehrt();
+            setausgefuehrt.kuerzel = txtausgefuehrt.Text;
+            setausgefuehrt.date = txtausgefuehrtdate.Text;
 
             //Übergabe der TPost Daten
             TPost post = new TPost();
-            post.kuerzel = combpost.Text;
-            post.date = txtpost.Text;
+            post.kuerzel = txtpost.Text;
+            post.date = txtpostdate.Text;
 
             //Übergabe der TAnschreiben Daten
             TAnschreiben tanschreiben = new TAnschreiben();
@@ -466,6 +503,16 @@ namespace AufträgeOrgadata
             THandbuch thandbuch = new THandbuch();
             thandbuch.handbuch = cbhandbuch.IsChecked == true;
 
+            set = new TDateTime();
+            DateTime date = DateTime.Now;
+            string date1 = date.ToString();
+            string dateOnly = date1.Substring(0, 10);
+            string timeOnly = DateTime.Now.ToShortTimeString();
+            set.date = dateOnly;
+            set.timer = timeOnly;
+
+            Main_auftrag mainauftrag = new Main_auftrag();
+            mainauftrag.Kunde();       
         }
     }
 }

@@ -71,8 +71,8 @@
                         <Line Width="400" Height="1" Margin="0,-70,0,0" X2="384" Stroke="Black"/>
                         <Label x:Name="lblKundeName" Content="Name:" HorizontalAlignment="Left" Height="28" Margin="0,30,0,0" VerticalAlignment="Top" Width="100"/>
                         <TextBox x:Name="txtKundeName" HorizontalAlignment="Left" Height="28" Margin="50,30,0,0" VerticalAlignment="Top" Width="330"/>
-                        <Label x:Name="lblKundeLand" Content="Land:" HorizontalAlignment="Left" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100"/>
-                        <TextBox x:Name="txtKundeLand" HorizontalAlignment="Left" Height="28" Margin="50,60,0,0" VerticalAlignment="Top" Width="100" Text="{Binding Path=TGetKunde.name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        <Label x:Name="lblKundeStr" Content="Land:" HorizontalAlignment="Left" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100"/>
+                        <TextBox x:Name="txtKundeStr" HorizontalAlignment="Left" Height="28" Margin="50,60,0,0" VerticalAlignment="Top" Width="100" Text="{Binding Path=TGetKunde.name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         <Label x:Name="lblKundePlz" Content="PLZ:" HorizontalAlignment="Left" Height="28" Margin="160,62,0,0" VerticalAlignment="Top" Width="100"/>
                         <TextBox x:Name="txtKundePlz" HorizontalAlignment="Left" Height="28" Margin="265,60,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="1.487,0.524"/>
                         <Label x:Name="lblKundeOrt" Content="Ort:" HorizontalAlignment="Left" Height="28" Margin="0,90,0,0" VerticalAlignment="Top" Width="50"/>
@@ -199,19 +199,18 @@
                 <Label x:Name="label5" Content="Ausgeführt" HorizontalAlignment="Left" Margin="329,997,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="label6" Content="In die Post" HorizontalAlignment="Left" Margin="756,997,0,0" VerticalAlignment="Top"/>
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="34" Margin="0,1018,0,0" VerticalAlignment="Top" Width="325">
-
-                    <ComboBox x:Name="combauftrag" HorizontalAlignment="Left" Height="24" Margin="118,4,0,0" VerticalAlignment="Top" Width="102"/>
+                    <TextBox x:Name="txtauftrag" HorizontalAlignment="Left" Height="24" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="100,4,0,0"/>
                 </Border>
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="34" Margin="324,1018,0,0" VerticalAlignment="Top" Width="426">
                     <Grid HorizontalAlignment="Left" Height="33" Margin="0,-1,0,0" VerticalAlignment="Top" Width="419">
-                        <ComboBox x:Name="combausgefuehrt" HorizontalAlignment="Left" Height="24" Margin="118,4,0,0" VerticalAlignment="Top" Width="102"/>
-                        <TextBox x:Name="txtausgefuehrt" HorizontalAlignment="Left" Height="24" Margin="234,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="txtausgefuehrt" HorizontalAlignment="Left" Height="24" Margin="75,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="txtausgefuehrtdate" HorizontalAlignment="Left" Height="24" Margin="230,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     </Grid>
                 </Border>
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="34" Margin="749,1018,0,0" VerticalAlignment="Top" Width="556">
                     <Grid HorizontalAlignment="Left" Height="34" Margin="-1" VerticalAlignment="Top" Width="556">
-                        <ComboBox x:Name="combpost" HorizontalAlignment="Left" Height="24" Margin="180,5,0,0" VerticalAlignment="Top" Width="102"/>
-                        <TextBox x:Name="txtpost" HorizontalAlignment="Left" Height="24" Margin="296,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="txtpostdate" HorizontalAlignment="Left" Height="24" Margin="296,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="txtpost" HorizontalAlignment="Left" Height="24" Margin="129,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     </Grid>
                 </Border>
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,1051,0,0" VerticalAlignment="Top" Width="750"/>

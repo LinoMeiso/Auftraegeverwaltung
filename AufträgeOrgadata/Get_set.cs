@@ -125,10 +125,18 @@ namespace AufträgeOrgadata
 
         public class TGetCustomer
         {
+            public string id { get; set; }
             public string name { get; set; }
             public string ort { get; set; }
             public string plz { get; set; }
+            public string str { get; set; }
             public string partner { get; set; }
+        }
+
+        public class TDateTime
+        {
+            public string date { get; set; }
+            public string timer { get; set; }
         }
     }
 }

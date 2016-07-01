@@ -260,27 +260,24 @@ namespace AufträgeOrgadata
 
         public void cmeintragen_Click(object sender, RoutedEventArgs e)
         {
-            string id, name, ort, plz, partner;
+            string id, name, ort, plz, str, partner;
             var selectitem = (dynamic)lvKunde.SelectedItem;
 
             id = Convert.ToString(selectitem.ID);
             name = selectitem.Name;
             ort = selectitem.Ort;
             plz = selectitem.PLZ;
+            str = selectitem.Str;
             partner = selectitem.Ansprechpartner;
 
             set = new TGetCustomer();
+            set.id = id;
             set.name = name;
             set.ort = ort;
             set.plz = plz;
+            set.str = str;
             set.partner = partner;
 
-            //MainWindow main = Application.Current.MainWindow as MainWindow;
-            //main.txtKundeName.Text = name;
-            //main.txtKundeOrt.Text = ort;
-            //main.txtKundePlz.Text = plz;
-            //main.txtKundeAnsprechPartner.Text = partner;
-            
             Close();
         }
     }

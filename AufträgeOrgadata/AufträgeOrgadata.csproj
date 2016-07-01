@@ -107,7 +107,7 @@
       <DependentUpon>Kunde.xaml</DependentUpon>
     </Compile>
     <Compile Include="login.cs" />
-    <Compile Include="mainclass.cs" />
+    <Compile Include="Main_auftrag.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
