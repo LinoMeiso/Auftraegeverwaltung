@@ -166,17 +166,21 @@ namespace AufträgeOrgadata
             Pro.ShowDialog();
         }
 
+
         private void mkunde_Click(object sender, RoutedEventArgs e)
         {
             Kunde kd = new Kunde();
-
             kd.ShowDialog();
+            Get_set.TGetCustomer customer = kd.GetCustomerSet();
+            //if (customer == null)
+            //{
 
-            Get_set getset = new Get_set();
-            txtKundeName.Text = getset.name;
-            txtKundeOrt.Text = getset.ort;
-            txtKundePlz.Text = getset.plz;
-            txtKundeAnsprechPartner.Text = getset.partner;
+            //}
+            
+            txtKundeName.Text = customer.name;
+            txtKundeOrt.Text = customer.ort;
+            txtKundePlz.Text = customer.plz;
+            txtKundeAnsprechPartner.Text = customer.partner;
         }
 
         private void mCheck_Click(object sender, RoutedEventArgs e)

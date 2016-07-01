@@ -20,6 +20,7 @@ namespace AufträgeOrgadata
         public string Ansprechpartner { get; set; }
         public string VertragsNr { get; set; }
     }
+
     public class TKundeFind
     {
         public int IDFind { get; set; }

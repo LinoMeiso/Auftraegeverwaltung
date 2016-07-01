@@ -22,6 +22,8 @@ namespace AufträgeOrgadata
     /// </summary>
     public partial class Kunde : Window
     {
+        private TGetCustomer set = null;
+
         public Kunde()
         {
             InitializeComponent();
@@ -70,6 +72,10 @@ namespace AufträgeOrgadata
             public string vertrnr { get; set; }
         }
 
+        public Get_set.TGetCustomer GetCustomerSet()
+        {
+            return set;
+        }
 
         public List<TKundeEdit> KundeEditList { get; set; }
 
@@ -259,16 +265,21 @@ namespace AufträgeOrgadata
 
             id = Convert.ToString(selectitem.ID);
             name = selectitem.Name;
-            //land = selectitem.Land;
             ort = selectitem.Ort;
             plz = selectitem.PLZ;
             partner = selectitem.Ansprechpartner;
 
-            TGetCustomer getcust = new TGetCustomer();
-            getcust.name = name;
-            getcust.ort = ort;
-            getcust.plz = plz;
-            getcust.partner = partner;
+            set = new TGetCustomer();
+            set.name = name;
+            set.ort = ort;
+            set.plz = plz;
+            set.partner = partner;
+
+            //MainWindow main = Application.Current.MainWindow as MainWindow;
+            //main.txtKundeName.Text = name;
+            //main.txtKundeOrt.Text = ort;
+            //main.txtKundePlz.Text = plz;
+            //main.txtKundeAnsprechPartner.Text = partner;
             
             Close();
         }
