@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Stammdaten" Height="300" Width="300">
+        Title="Stammdaten" Height="325.08" Width="651.125" WindowStartupLocation="CenterScreen" Icon="Images\costumers.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="17*"/>
             <ColumnDefinition Width="275*"/>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="lvStammDaten" HorizontalAlignment="Left" Height="244" Margin="0,20,0,0" VerticalAlignment="Top" Width="292" Grid.ColumnSpan="2">
+        <ListView x:Name="lvStammDaten" HorizontalAlignment="Left" Height="274" Margin="0,20,0,0" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
@@ -20,7 +20,7 @@
             </ListView.View>
         </ListView>
 
-        <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="292" Grid.ColumnSpan="2" Loaded="PWindow_Loaded">
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="2" Loaded="PWindow_Loaded">
             <MenuItem Header="Datei" Height="21" Width="39">
                 <MenuItem Header="Close" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click" Margin="10,0,-10,0"/>
                 <MenuItem x:Name="mDelete" Header="Delete&#xD;&#xA;" HorizontalAlignment="Left" Width="140" Margin="6,0,-6,0" Click="mDelete_Click"/>

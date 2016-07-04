@@ -130,7 +130,7 @@ namespace AufträgeOrgadata
 
                cmd.Parameters.AddWithValue("?ItemClick", selectitem.ID);
 
-                MessageBox.Show(Convert.ToString(selectitem.ID));
+                MessageBox.Show("Programm: "+(Convert.ToString(selectitem.ProgrammName)+ (" erfolgreich gelöscht!")));
                
 
                 cmd.Connection = conn;
