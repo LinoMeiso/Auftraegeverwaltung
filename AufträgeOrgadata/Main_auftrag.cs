@@ -87,7 +87,7 @@ namespace AufträgeOrgadata
                 cmd.Parameters.AddWithValue("?Anschreiben", anschreiben.anschreiben);
                 cmd.Parameters.AddWithValue("?Handbuch", handbuch.handbuch);
                 cmd.Parameters.AddWithValue("?AnAdresseName", anadresse.name);
-                cmd.Parameters.AddWithValue("?AnAdresseLand", "1");
+                cmd.Parameters.AddWithValue("?AnAdresseStr", anadresse.str);
                 cmd.Parameters.AddWithValue("?AnAdresseOrt", anadresse.ort);
                 cmd.Parameters.AddWithValue("?AnAdressePartner", anadresse.ansprechpartner);
                 cmd.Parameters.AddWithValue("?AnAdressePLZ", anadresse.plz);
@@ -98,8 +98,8 @@ namespace AufträgeOrgadata
                 /* Mehrere möglich */cmd.Parameters.AddWithValue("?AusstattungsID", ausstattung.id);
                 cmd.Parameters.AddWithValue("?Anhaenger", twizt.anhaenger);
                 cmd.Parameters.AddWithValue("?Test", twizt.ewtest);
-                cmd.Parameters.AddWithValue("?Geprueft", "1");
-                cmd.Parameters.AddWithValue("?Verschickt", "1");
+                cmd.Parameters.AddWithValue("?Geprueft", 1);
+                cmd.Parameters.AddWithValue("?Verschickt", 1);
                 /* Mehrere möglich */cmd.Parameters.AddWithValue("?DongleID", ldongle.id);
 
                 cmd.Connection = conn;
@@ -231,10 +231,9 @@ namespace AufträgeOrgadata
                 //Datum,Time,Anliegen,Austausch,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName,
                 //AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID
                 //VersandID,AustattungID,Anhänger,Test,Geprüft,Verschickt,DongleStammdatenID
-                string sql = "INSERT INTO donglestammdaten(DongleID) VALUES (?DonlgeID)";
+                string sql = "INSERT INTO donglestammdaten(DongleID,StammdatenID) VALUES (?DonlgeID,?StammdatenID)";
                 cmd.CommandText = sql;
-
-
+                
                 Get_set.TLastIdentityDongle ldongle = GetLastDongle();
                 cmd.Parameters.AddWithValue("?DongleID", ldongle.id);
                 cmd.Parameters.AddWithValue("?StammdatenID", stamm.id);

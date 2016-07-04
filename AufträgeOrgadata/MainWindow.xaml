@@ -87,7 +87,7 @@
                         <Line Width="400" Height="1" Margin="0,-70,0,0" X2="384" Stroke="Black"/>
                         <Label x:Name="lblKundeName" Content="Name:" HorizontalAlignment="Left" Height="28" Margin="0,30,0,0" VerticalAlignment="Top" Width="100"/>
                         <TextBox x:Name="txtKundeName" HorizontalAlignment="Left" Height="28" Margin="50,30,0,0" VerticalAlignment="Top" Width="330"/>
-                        <Label x:Name="lblKundeStr" Content="Land:" HorizontalAlignment="Left" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100"/>
+                        <Label x:Name="lblKundeStr" Content="Straße:" HorizontalAlignment="Left" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100"/>
                         <TextBox x:Name="txtKundeStr" HorizontalAlignment="Left" Height="28" Margin="50,60,0,0" VerticalAlignment="Top" Width="100" Text="{Binding Path=TGetKunde.name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         <Label x:Name="lblKundePlz" Content="PLZ:" HorizontalAlignment="Left" Height="28" Margin="160,62,0,0" VerticalAlignment="Top" Width="100"/>
                         <TextBox x:Name="txtKundePlz" HorizontalAlignment="Left" Height="28" Margin="265,60,0,0" VerticalAlignment="Top" Width="115" RenderTransformOrigin="1.487,0.524"/>
@@ -101,8 +101,8 @@
                                 <Line Width="400" Height="1" Margin="0,-70,0,0" X2="384" Stroke="Black"/>
                                 <Label x:Name="lblAnAdresseName" Content="Name:" HorizontalAlignment="Left" Height="28" Margin="0,30,0,0" VerticalAlignment="Top" Width="100"/>
                                 <TextBox x:Name="txtAnAdresseName" HorizontalAlignment="Left" Height="28" Margin="50,30,0,0" VerticalAlignment="Top" Width="330"/>
-                                <Label x:Name="lblAnAdresseLand" Content="Land:" HorizontalAlignment="Left" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100"/>
-                                <TextBox x:Name="txtAnAdresseLand" HorizontalAlignment="Left" Height="28" Margin="50,60,0,0" VerticalAlignment="Top" Width="100" />
+                                <Label x:Name="lblAnAdresseStr" Content="Straße:" HorizontalAlignment="Left" Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100"/>
+                                <TextBox x:Name="txtAnAdresseStr" HorizontalAlignment="Left" Height="28" Margin="50,60,0,0" VerticalAlignment="Top" Width="100" />
                                 <Label x:Name="lblAnAdressePlz" Content="PLZ:" HorizontalAlignment="Left" Height="28" Margin="160,60,0,0" VerticalAlignment="Top" Width="50"/>
                                 <TextBox x:Name="txtAnAdressePlz" HorizontalAlignment="Left" Height="28" Margin="265,60,0,0" VerticalAlignment="Top" Width="115"/>
                                 <Label x:Name="lblAnAdresseOrt" Content="Ort:" HorizontalAlignment="Left" Height="28" Margin="0,90,0,0" VerticalAlignment="Top" Width="50"/>

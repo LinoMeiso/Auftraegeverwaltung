@@ -13,7 +13,7 @@ namespace AufträgeOrgadata
         {
             public string id { get; set; }
             public string name { get; set; }
-            public string land { get; set; }
+            public string str { get; set; }
             public string ort { get; set; }
             public string plz { get; set; }
             public string ansprechpartner { get; set; }
@@ -22,7 +22,7 @@ namespace AufträgeOrgadata
         public class TAnAdresse
         {
             public string name { get; set; }
-            public string land { get; set; }
+            public string str { get; set; }
             public string ort { get; set; }
             public string plz { get; set; }
             public string ansprechpartner { get; set; }
