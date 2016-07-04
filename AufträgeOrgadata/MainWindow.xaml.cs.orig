@@ -12,6 +12,7 @@ namespace AufträgeOrgadata
     /// </summary>
     public partial class MainWindow
     {
+<<<<<<< HEAD
         public string customerid;
         private TDateTime set;
         private TGrund setgrund;
@@ -24,8 +25,22 @@ namespace AufträgeOrgadata
         private TInstallArt setinstallart;
         private Twizt settwizt;
         private TAusstattung_Data setausstattung;
-        private TVNummer setvnummer;
-        private Tstamm setstamm;
+=======
+        public string customerid = null;
+        private TDateTime set = null;
+        private TGrund setgrund = null;
+        private TAuftrag setauftrag = null;
+        private TAusgefuehrt setausgefuehrt = null;
+        private TAnschreiben setanschreiben = null;
+        private THandbuch sethandbuch = null;
+        private TAnAdresse setanadresse = null;
+        private TProgramms setpro = null;
+        private TInstallArt setinstallart = null;
+        private Twizt settwizt = null;
+        private TAusstattung_Data setausstattung = null;
+        private TVNummer setvnummer = null;
+        private Tstamm setstamm = null;
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
 
         public MainWindow()
         {
@@ -386,11 +401,16 @@ namespace AufträgeOrgadata
             setinstallart.server2 = cbServer2.IsChecked == true;
 
             //Auslesen der Grund Daten
+<<<<<<< HEAD
             setgrund = new TGrund
             {
                 grund = txtGrund.Text,
                 austausch = txtAustausch.Text
             };
+=======
+            setgrund = new TGrund();
+            setgrund.grund = txtGrund.Text;
+            setgrund.austausch = txtAustausch.Text;
 
             setvnummer = new TVNummer();
             setvnummer.adkunden = cballedesKunden.IsChecked == true;
@@ -401,14 +421,33 @@ namespace AufträgeOrgadata
             setvnummer.serverdongle = txtServerdongle.Text;
             setvnummer.zeitdongle = txtZeitDongle.Text;
             setvnummer.autopro = cbAutoProl.IsChecked == true;
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
 
+            var vnummer = new TVNummer
+            {
+                adkunden = cballedesKunden.IsChecked == true,
+                vnummer = txtKunden.Text + txtVertragsnummern.Text,
+                rnummer = txtRn.Text,
+                rnummer2 = txtRn2.Text,
+                rnumemr3 = txtRn3.Text,
+                serverdongle = txtServerdongle.Text,
+                zeitdongle = txtZeitDongle.Text,
+                autopro = cbAutoProl.IsChecked == true
+            };
 
             //Auslesen StammDaten ID & Name
+<<<<<<< HEAD
+            var daten = new StammName();
+            var stamm = new Tstamm { StammListUebergabe = new List<Tstamm>() };
+            var atCheckedStamm = false;
+            for (var i = 0; i < daten.StammListe.Count; i++)
+=======
             StammName daten = new StammName();
             setstamm = new Tstamm();
             setstamm.StammListUebergabe = new List<Tstamm>();
             bool atCheckedStamm = false;
             for (int i = 0; i < daten.StammListe.Count; i++)
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
             {
                 var checkbox = (CheckBox)wpanelStamm.Children[i];
 
@@ -419,7 +458,11 @@ namespace AufträgeOrgadata
                     setstamm.name = checkbox.Content.ToString();
 
                     //Ausgelesende Daten in eine Liste hinzufügen
-                   stamm.StammListUebergabe.Add(stamm);
+<<<<<<< HEAD
+                    stamm.StammListUebergabe.Add(stamm);
+=======
+                    setstamm.StammListUebergabe.Add(setstamm);
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
                     atCheckedStamm = true;
                 }
             }

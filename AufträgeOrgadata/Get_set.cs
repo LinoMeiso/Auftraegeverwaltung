@@ -133,5 +133,10 @@ namespace AufträgeOrgadata
             public string date { get; set; }
             public string timer { get; set; }
         }
+
+        public class TLastIdentityDongle
+        {
+            public int id { get; set; }
+        }
     }
 }

@@ -3,22 +3,68 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
+<<<<<<< HEAD
+        Title="Stammdaten" 
+        Height="300"
+        Width="300">
+=======
         Title="Stammdaten" Height="325.08" Width="651.125" WindowStartupLocation="CenterScreen" Icon="Images\costumers.ico">
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="17*"/>
-            <ColumnDefinition Width="275*"/>
+            <ColumnDefinition Width="17*" />
+            <ColumnDefinition Width="275*" />
         </Grid.ColumnDefinitions>
+<<<<<<< HEAD
+        <ListView 
+            x:Name="lvStammDaten"
+            HorizontalAlignment="Left" 
+            Height="244" 
+            Margin="0,20,0,0"
+            VerticalAlignment="Top"
+            Width="292"
+            Grid.ColumnSpan="2">
+=======
         <ListView x:Name="lvStammDaten" HorizontalAlignment="Left" Height="274" Margin="0,20,0,0" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="2">
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
-                    <GridViewColumn Header="StammName" DisplayMemberBinding ="{Binding StammName}"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" />
+                    <GridViewColumn Header="StammName" DisplayMemberBinding ="{Binding StammName}" />
                 </GridView>
             </ListView.View>
         </ListView>
+<<<<<<< HEAD
+
+        <Menu 
+            x:Name="menu" 
+            HorizontalAlignment="Left"
+            Height="20"
+            VerticalAlignment="Top"
+            Width="292"
+            Grid.ColumnSpan="2"
+            Loaded="PWindow_Loaded">
+            <MenuItem 
+                Header="Datei"
+                Height="21"
+                Width="39">
+                <MenuItem 
+                    Header="Close" 
+                    HorizontalAlignment="Left" 
+                    Width="140" 
+                    Click="MenuItem_Click"/>
+                <MenuItem 
+                    x:Name="mDelete"
+                    Header="Delete&#xD;&#xA;"
+                    HorizontalAlignment="Left" 
+                    Width="140"
+                    Click="mDelete_Click" />
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>
+=======
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="2" Loaded="PWindow_Loaded" >
             <MenuItem Header="Datei" Height="21" Width="39">
                 <MenuItem x:Name="mAdd" Header="Stammdaten hinzufügen" HorizontalAlignment="Left" Width="230"  >
@@ -51,3 +97,4 @@
     </Grid>
 </Window>
    
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004

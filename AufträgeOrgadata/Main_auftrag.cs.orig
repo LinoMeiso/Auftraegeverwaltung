@@ -9,6 +9,28 @@ namespace AufträgeOrgadata
     {
         //Dongle: ReservierteNummer,Zeit,ServerDongle,auto_proglongation,AuftragNR
         //donglestammdaten: DongleID,StammdatenID
+<<<<<<< HEAD
+
+        public void Kunde()
+        {
+            var kd = Application.Current.MainWindow as Kunde;
+            var main = Application.Current.MainWindow as MainWindow;
+            var dt = main.GetDateTimeSet();
+            var grund = main.GetGrundSet();
+            var auftrag = main.GetAuftragSet();
+            var ausgefuehrt = main.GetAusgefuehrtSet();
+            var anschreiben = main.GetAnschreibenSet();
+            var handbuch = main.GetHandbuchSet();
+            var anadresse = main.GetAnAdresseSet();
+            var programms = main.GetProgrammsSet();
+            var installart = main.GetInstallArtSet();
+            var ausstattung = main.GetAusstattungSet();
+            var twizt = main.GetTwiztSet();
+
+            MessageBox.Show(grund.grund);
+
+            var lgn = new login();
+=======
         private TLastIdentityDongle lastdongle = null;
         private Tstamm stamm = null;
         public Main_auftrag()
@@ -44,8 +66,7 @@ namespace AufträgeOrgadata
             Get_set.TLastIdentityDongle ldongle = GetLastDongle();
             
             login lgn = new login();
-
-            var lgn = new login();
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
 
             var uid = lgn.lgnList[0].uid;
             var pw = lgn.lgnList[0].pw;
@@ -74,6 +95,7 @@ namespace AufträgeOrgadata
                     "?AnAdresseLand,?AnAdresseOrt,?AnAdressePartner,?AnAdressePLZ,?KundenID,?ProgrammID,?InstallationsartID,?VersandID,?AusstattungsID," +
                     "?Anhaenger,?Test,?Geprueft,?Verschickt,?DongleID)";
                 cmd.CommandText = sql;
+<<<<<<< HEAD
 
                 new TKundeAdresse();
                 if (cmd.Parameters != null)
@@ -106,6 +128,34 @@ namespace AufträgeOrgadata
                     cmd.Parameters.AddWithValue("?Verschickt", "1");
                     /* Mehrere möglich */
                     cmd.Parameters.AddWithValue("?DongleStammdatenID", "1");
+                }
+=======
+                
+                TKundeAdresse kdadresse = new TKundeAdresse();
+                cmd.Parameters.AddWithValue("?Date", dt.date);
+                cmd.Parameters.AddWithValue("?Time", dt.timer);
+                cmd.Parameters.AddWithValue("?Grund", grund.grund);
+                cmd.Parameters.AddWithValue("?Austausch", grund.austausch);
+                cmd.Parameters.AddWithValue("?Erteilt", auftrag.kuerzel);
+                /*Mit einer kleinen Anwendung*/cmd.Parameters.AddWithValue("?Ausgeführt", ausgefuehrt.kuerzel);
+                /*Mit einer kleinen Anwendung*/cmd.Parameters.AddWithValue("?Post", "1");
+                cmd.Parameters.AddWithValue("?Anschreiben", anschreiben.anschreiben);
+                cmd.Parameters.AddWithValue("?Handbuch", handbuch.handbuch);
+                cmd.Parameters.AddWithValue("?AnAdresseName", anadresse.name);
+                cmd.Parameters.AddWithValue("?AnAdresseLand", "1");
+                cmd.Parameters.AddWithValue("?AnAdresseOrt", anadresse.ort);
+                cmd.Parameters.AddWithValue("?AnAdressePartner", anadresse.ansprechpartner);
+                cmd.Parameters.AddWithValue("?AnAdressePLZ", anadresse.plz);
+                cmd.Parameters.AddWithValue("?KundenID", main.customerid);
+                cmd.Parameters.AddWithValue("?ProgrammID", programms.id);
+                cmd.Parameters.AddWithValue("?InstallationsartID", installart.id);
+                cmd.Parameters.AddWithValue("?VersandID", "1");
+                /* Mehrere möglich */cmd.Parameters.AddWithValue("?AusstattungsID", ausstattung.id);
+                cmd.Parameters.AddWithValue("?Anhaenger", twizt.anhaenger);
+                cmd.Parameters.AddWithValue("?Test", twizt.ewtest);
+                cmd.Parameters.AddWithValue("?Geprueft", "1");
+                cmd.Parameters.AddWithValue("?Verschickt", "1");
+                /* Mehrere möglich */cmd.Parameters.AddWithValue("?DongleID", ldongle.id);
 
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
@@ -147,6 +197,7 @@ namespace AufträgeOrgadata
                 string sql = "INSERT INTO Dongle(ReservierteNummer1,ReservierteNummer2,ReservierteNummer3,Zeit,ServerDongle,auto prolongation,AuftragNR)" +
                     "VALUES (?RNummer1,?RNummer2,?RNummer3,?Zeit,?ServerDongle,?autoprolo,?AuftrNr)";
                 cmd.CommandText = sql;
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
 
                 cmd.Parameters.AddWithValue("?RNummer1", vnummer.rnummer);
                 cmd.Parameters.AddWithValue("?RNummer2", vnummer.rnummer2);

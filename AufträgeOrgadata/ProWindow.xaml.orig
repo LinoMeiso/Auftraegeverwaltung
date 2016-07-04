@@ -3,18 +3,66 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
+<<<<<<< HEAD
+        Title="ProWindow"
+        Height="305"
+        Width="575"
+        Loaded="PWindow_Loaded">
+    <Grid>
+        <ListView
+            x:Name="lvProWindow"
+            HorizontalAlignment="Left"
+            Height="251" VerticalAlignment="Top"
+            Width="565"
+            Margin="1,23,0,0">
+=======
         Title="Programme" Height="325.53" Width="650.965" Loaded="PWindow_Loaded" WindowStartupLocation="CenterScreen" Icon="Images\costumers.ico">
     <Grid>
         <ListView x:Name="lvProWindow" HorizontalAlignment="Left" Height="272" VerticalAlignment="Top" Width="642" Margin="1,23,0,0">
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
-                    <GridViewColumn Header="ProgrammName" DisplayMemberBinding ="{Binding ProgrammName}"/>
+                    <GridViewColumn
+                        Header="ID"
+                        DisplayMemberBinding="{Binding ID}" />
+                    <GridViewColumn
+                        Header="ProgrammName"
+                        DisplayMemberBinding ="{Binding ProgrammName}" />
                 </GridView>
             </ListView.View>
         </ListView>
+<<<<<<< HEAD
+        <Menu
+            x:Name="menu"
+            HorizontalAlignment="Left"
+            Height="23"
+            VerticalAlignment="Top"
+            Width="565">
+            <MenuItem
+                Header="Data" />
+            <MenuItem
+                x:Name="mmDelete"
+                Header="Delete"
+                Height="23"
+                Width="53"
+                Click ="btnMDelete_Click" />
+            <MenuItem
+                x:Name="mAdd"
+                Header="ADD"
+                Height="23"
+                Width="53"
+                Click="mAdd_Click" />
+            <MenuItem
+                x:Name="mClose"
+                Header="Close"
+                Height="23"
+                Width="53"
+                Click ="btnMClose_Click" />
+        </Menu>
+    </Grid>
+</Window>
+=======
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="2" Loaded="PWindow_Loaded">
             <MenuItem Header="Datei" Height="21" Width="60">
                 <MenuItem.Icon>
@@ -46,3 +94,4 @@
 </Window>
 
 
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004

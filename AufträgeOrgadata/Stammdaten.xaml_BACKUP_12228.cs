@@ -44,11 +44,20 @@ namespace AufträgeOrgadata
             {
                 conn.Open();
 
+<<<<<<< HEAD
                 using (var cmd = new MySqlCommand("Delete from  stammdaten where ID = ?ItemClick"))
                 {
                     cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
 
                     MessageBox.Show(Convert.ToString(selectitem.ID));
+=======
+                MySqlCommand cmd = new MySqlCommand("Delete from stammdaten where StammName = ?ItemClick");
+  
+
+                cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
+
+                MessageBox.Show("Projekt: "+ (Convert.ToString(selectitem.StammName)+(" erfolgreich gelöscht!")));
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
 
                     cmd.Connection = conn;
                     cmd.ExecuteNonQuery();
@@ -61,6 +70,26 @@ namespace AufträgeOrgadata
                 MessageBox.Show(e1.Message);
             }
         }
+<<<<<<< HEAD
+=======
+
+        private void mAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void mClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+    }
+    }
+
+
+
+
+
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
 
         public class TStammDaten
         {
@@ -98,48 +127,25 @@ namespace AufträgeOrgadata
                     conn.Open();
                     var cmd = new MySqlCommand("SELECT * FROM stammdaten") { Connection = conn };
 
-                MySqlCommand cmd = new MySqlCommand("Delete from stammdaten where StammName = ?ItemClick");
-  
-
-                cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
-
-                MessageBox.Show("Projekt: "+ (Convert.ToString(selectitem.StammName)+(" erfolgreich gelöscht!")));
-
-                
-                cmd.Connection = conn;
-                cmd.ExecuteNonQuery();
-
-                conn.Close();
+                    using (var Reader = cmd.ExecuteReader())
+                    {
+                        while (Reader.Read())
+                        {
+                            var StammN = new TStammDaten
+                            {
+                                ID = int.Parse(Reader["ID"].ToString()),
+                                StammName = Reader["StammName"].ToString()
+                            };
+                            StammDatenliste.Add(StammN);
+                        }
+                    }
+                    conn.Close();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
-            catch (Exception e1)
-            {
-                MessageBox.Show(e1.Message);
-            }
-
-
-        }
-
-        private void mAdd_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void mClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

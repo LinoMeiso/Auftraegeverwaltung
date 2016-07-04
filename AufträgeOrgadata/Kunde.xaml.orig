@@ -14,7 +14,11 @@
         <Style TargetType="{x:Type ListViewItem}">
             <Style.Triggers>
                 <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+<<<<<<< HEAD
+                    <Setter Property="Background" Value="#FF8C00" />
+=======
                     <Setter Property="Background" Value="#FFFFCF94"/>
+>>>>>>> 34164b00cafe1eb4ed0b669d00a0a6d43f6d1004
                 </Trigger>
                 <Trigger Property="ItemsControl.AlternationIndex" Value="0">
                     <Setter Property="Background" Value="#FFFFFFFF" />

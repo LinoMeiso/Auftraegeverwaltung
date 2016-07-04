@@ -1,41 +1,45 @@
-﻿<Window x:Class="AufträgeOrgadata.ProWindow"
+﻿<Window x:Class="AufträgeOrgadata.AusstattungWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Programme" Height="325.53" Width="650.965" Loaded="PWindow_Loaded" WindowStartupLocation="CenterScreen" Icon="Images\costumers.ico">
-    <Grid>
-        <ListView x:Name="lvProWindow" HorizontalAlignment="Left" Height="272" VerticalAlignment="Top" Width="642" Margin="1,23,0,0">
+        Title="Ausstattung" Height="325.08" Width="651.125" Loaded="AWindow_Loaded">
+    <Grid Margin="0,0,-22,-6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="91*"/>
+            <RowDefinition Height="59*"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="641" Margin="0,-1,0,0"/>
+        <ListView x:Name="lvAusstattung" HorizontalAlignment="Left" Height="269" Margin="0,21,0,0" VerticalAlignment="Top" Width="641" Grid.RowSpan="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
-                    <GridViewColumn Header="ProgrammName" DisplayMemberBinding ="{Binding ProgrammName}"/>
+                    <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="2" Loaded="PWindow_Loaded">
+        <Menu x:Name="menu2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="2">
             <MenuItem Header="Datei" Height="21" Width="60">
                 <MenuItem.Icon>
                     <Image Width="16" Height="16" Source="Images\assignment.ico"></Image>
                 </MenuItem.Icon>
-                <MenuItem x:Name="mDelete" Header="Programm löschen" HorizontalAlignment="Left" Width="210" Click="btnMDelete_Click" >
+                <MenuItem x:Name="mDelete" Header="Ausstatung löschen" HorizontalAlignment="Left" Width="210" Click="mDelete_Click" >
                     <MenuItem.Icon>
                         <Image Width="16" Height="16" Source="Images\delete.ico"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="mAdd" Header="Programm hinzufügen" HorizontalAlignment="Left" Width="210" Click="mAdd_Click" >
+                <MenuItem x:Name="mAdd" Header="Ausstatung hinzufügen" HorizontalAlignment="Left" Width="210" Click="mAdd_Click"  >
                     <MenuItem.Icon>
                         <Image Width="16" Height="16" Source="Images\add.ico"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="mChange" Header="Programm bearbeiten" HorizontalAlignment="Left" Width="210" Click="mAdd_Click" >
+                <MenuItem x:Name="mEdit" Header="Ausstatung bearbeiten" HorizontalAlignment="Left" Width="210" Click="mEdit_Click"  >
                     <MenuItem.Icon>
                         <Image Width="16" Height="16" Source="Images\edit.ico"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="mClose" Header="Close" HorizontalAlignment="Left" Width="140" Click="btnMClose_Click" >
+                <MenuItem x:Name="mClose" Header="Close" HorizontalAlignment="Left" Width="211" Margin="0,0,-1,0" Click="mClose_Click"  >
                     <MenuItem.Icon>
                         <Image Width="16" Height="16" Source="Images\close_red.ico"></Image>
                     </MenuItem.Icon>
@@ -44,5 +48,3 @@
         </Menu>
     </Grid>
 </Window>
-
-

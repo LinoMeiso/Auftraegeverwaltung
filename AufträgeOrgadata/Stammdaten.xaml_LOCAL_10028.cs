@@ -98,48 +98,25 @@ namespace AufträgeOrgadata
                     conn.Open();
                     var cmd = new MySqlCommand("SELECT * FROM stammdaten") { Connection = conn };
 
-                MySqlCommand cmd = new MySqlCommand("Delete from stammdaten where StammName = ?ItemClick");
-  
-
-                cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
-
-                MessageBox.Show("Projekt: "+ (Convert.ToString(selectitem.StammName)+(" erfolgreich gelöscht!")));
-
-                
-                cmd.Connection = conn;
-                cmd.ExecuteNonQuery();
-
-                conn.Close();
+                    using (var Reader = cmd.ExecuteReader())
+                    {
+                        while (Reader.Read())
+                        {
+                            var StammN = new TStammDaten
+                            {
+                                ID = int.Parse(Reader["ID"].ToString()),
+                                StammName = Reader["StammName"].ToString()
+                            };
+                            StammDatenliste.Add(StammN);
+                        }
+                    }
+                    conn.Close();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
-            catch (Exception e1)
-            {
-                MessageBox.Show(e1.Message);
-            }
-
-
-        }
-
-        private void mAdd_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void mClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
