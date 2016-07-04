@@ -117,12 +117,12 @@ namespace AufträgeOrgadata
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("Delete from stammdaten where StammName = ?ItemClick");
+                MySqlCommand cmd = new MySqlCommand("Delete from  stammdaten where ID = ?ItemClick");
   
 
                 cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
 
-                MessageBox.Show("Projekt: "+ (Convert.ToString(selectitem.StammName)+(" erfolgreich gelöscht!")));
+                MessageBox.Show(Convert.ToString(selectitem.ID));
 
                 
                 cmd.Connection = conn;
