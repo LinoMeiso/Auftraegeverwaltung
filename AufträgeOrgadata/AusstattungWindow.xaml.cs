@@ -71,7 +71,6 @@ namespace AufträgeOrgadata
                             Ausstattung.AusstattungName = Reader["AusstattungName"].ToString();
                             Ausstattungsliste.Add(Ausstattung);
                         }
-
                     }
                     conn.Close();
                 }

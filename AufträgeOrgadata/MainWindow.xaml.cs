@@ -81,6 +81,7 @@ namespace AufträgeOrgadata
                 cb.Content = stamm.StammListe[i].StammName;
                 wpanelStamm.Children.Add(cb);
             }
+
             Ausstattung Auss = new Ausstattung();
 
             for (int i = 0; i < Auss.Ausstattungsliste.Count; i++)

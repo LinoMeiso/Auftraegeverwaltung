@@ -221,7 +221,7 @@ namespace AufträgeOrgadata
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM ausstatung");
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM ausstattung");
                 cmd.Connection = conn;
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
@@ -230,7 +230,7 @@ namespace AufträgeOrgadata
                     {
                         TAusstattung Ausstattung = new TAusstattung();
                         Ausstattung.ID = int.Parse(Reader["ID"].ToString());
-                        Ausstattung.Ausstatung = Reader["ausstatungName"].ToString();
+                        Ausstattung.Ausstatung = Reader["ausstattungName"].ToString();
                         Ausstattungsliste.Add(Ausstattung);
                     }
                 }

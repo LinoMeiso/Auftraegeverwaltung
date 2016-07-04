@@ -12,10 +12,11 @@
             <RowDefinition Height="59*"/>
         </Grid.RowDefinitions>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="641" Margin="0,-1,0,0"/>
-        <ListView x:Name="lvAusstattung" HorizontalAlignment="Left" Height="269" Margin="0,21,0,0" VerticalAlignment="Top" Width="641" Grid.RowSpan="2">
+        <ListView x:Name="lvAusstattung" HorizontalAlignment="Left" Height="269" Margin="0,21,0,0" VerticalAlignment="Top" Width="641" Grid.RowSpan="2" ItemsSource="{Binding AusstattungsListe}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Header="Ort" DisplayMemberBinding="{Binding AusstattungName}"/>
                 </GridView>
             </ListView.View>
         </ListView>
