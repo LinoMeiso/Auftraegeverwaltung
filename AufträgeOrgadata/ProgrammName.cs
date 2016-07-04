@@ -127,8 +127,6 @@ namespace AufträgeOrgadata
 
     public class TStamm
     {
-        internal string id;
-
         public int ID { get; set; }
         public string StammName { get; set; }
     }

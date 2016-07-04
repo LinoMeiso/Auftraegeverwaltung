@@ -273,11 +273,11 @@ namespace AufträgeOrgadata
             if (txtKundeName.Text.Length < 3 || txtKundeAnsprechPartner.Text.Length < 3 || txtKundeStr.Text.Length < 3 || txtKundeOrt.Text.Length < 3 || txtKundePlz.Text.Length < 3)
                 MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
             else
-            if (txtAnAdresseName.Text == "" || txtAnAdresseAnsprechPartner.Text == "" || txtAnAdresseLand.Text == "" || txtAnAdresseOrt.Text == "" || txtAnAdressePlz.Text == "")
+            if (txtAnAdresseName.Text == "" || txtAnAdresseAnsprechPartner.Text == "" || txtAnAdresseStr.Text == "" || txtAnAdresseOrt.Text == "" || txtAnAdressePlz.Text == "")
 
                 MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
             else
-            if (txtAnAdresseName.Text.Length < 3 || txtAnAdresseAnsprechPartner.Text.Length < 3 || txtAnAdresseLand.Text.Length < 3 || txtAnAdresseOrt.Text.Length < 3 || txtAnAdressePlz.Text.Length < 3)
+            if (txtAnAdresseName.Text.Length < 3 || txtAnAdresseAnsprechPartner.Text.Length < 3 || txtAnAdresseStr.Text.Length < 3 || txtAnAdresseOrt.Text.Length < 3 || txtAnAdressePlz.Text.Length < 3)
                 MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
 
             if (txtKundeName.Text == "" || txtKundeName.Text.Length < 3)
@@ -316,10 +316,10 @@ namespace AufträgeOrgadata
             else
                 txtAnAdresseAnsprechPartner.Background = Brushes.White;
 
-            if (txtAnAdresseLand.Text == "" || txtAnAdresseLand.Text.Length < 3)
-                txtAnAdresseLand.Background = Brushes.Red;
+            if (txtAnAdresseStr.Text == "" || txtAnAdresseStr.Text.Length < 3)
+                txtAnAdresseStr.Background = Brushes.Red;
             else
-                txtAnAdresseLand.Background = Brushes.White;
+                txtAnAdresseStr.Background = Brushes.White;
 
             if (txtAnAdresseOrt.Text == "" || txtAnAdresseOrt.Text.Length < 3)
                 txtAnAdresseOrt.Background = Brushes.Red;
@@ -369,7 +369,7 @@ namespace AufträgeOrgadata
             //Auslesen Kunden Daten
             TKundeAdresse kdadresse = new TKundeAdresse();
             kdadresse.name = txtKundeName.Text;
-            kdadresse.land = txtKundeStr.Text;
+            kdadresse.str = txtKundeStr.Text;
             kdadresse.ort = txtKundeOrt.Text;
             kdadresse.plz = txtKundePlz.Text;
             kdadresse.ansprechpartner = txtKundeAnsprechPartner.Text;
@@ -377,7 +377,7 @@ namespace AufträgeOrgadata
             //Auslesen An-Adresse
             setanadresse = new TAnAdresse();
             setanadresse.name = txtAnAdresseName.Text;
-            setanadresse.land = txtAnAdresseLand.Text;
+            setanadresse.str = txtAnAdresseStr.Text;
             setanadresse.ort = txtAnAdresseOrt.Text;
             setanadresse.plz = txtAnAdressePlz.Text;
             setanadresse.ansprechpartner = txtAnAdresseAnsprechPartner.Text;

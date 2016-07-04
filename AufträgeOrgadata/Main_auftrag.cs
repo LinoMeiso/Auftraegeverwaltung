@@ -82,8 +82,8 @@ namespace AufträgeOrgadata
                 cmd.Parameters.AddWithValue("?Grund", grund.grund);
                 cmd.Parameters.AddWithValue("?Austausch", grund.austausch);
                 cmd.Parameters.AddWithValue("?Erteilt", auftrag.kuerzel);
-                /*Mit einer kleinen Anwendung*/cmd.Parameters.AddWithValue("?Ausgeführt", ausgefuehrt.kuerzel);
-                /*Mit einer kleinen Anwendung*/cmd.Parameters.AddWithValue("?Post", "1");
+                ///*Mit einer kleinen Anwendung*/cmd.Parameters.AddWithValue("?Ausgeführt", ausgefuehrt.kuerzel);
+                ///*Mit einer kleinen Anwendung*/cmd.Parameters.AddWithValue("?Post", "1");
                 cmd.Parameters.AddWithValue("?Anschreiben", anschreiben.anschreiben);
                 cmd.Parameters.AddWithValue("?Handbuch", handbuch.handbuch);
                 cmd.Parameters.AddWithValue("?AnAdresseName", anadresse.name);
