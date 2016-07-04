@@ -49,8 +49,12 @@
             <Grid x:Name="mainGrid" Margin="0,0,0,0">
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="99" Margin="324,903,0,0" VerticalAlignment="Top" Width="426"/>
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="99" Margin="0,903,0,0" VerticalAlignment="Top" Width="325"/>
+                <WrapPanel x:Name="wrapPanelsVersand" HorizontalAlignment="Left" Height="93" Margin="0,906,0,0" VerticalAlignment="Top" Width="320"/>
                 <CheckBox x:Name="cbexpress" Content="Express bis:  _______________________" Margin="35,935,1069,226"/>
-                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="174" Margin="0,373,0,0" VerticalAlignment="Top" Width="1305"/>
+                    <CheckBox x:Name="cbversenden" Content="Versenden" HorizontalAlignment="Left" Margin="7,915,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="cbtnt" Content="TNT" HorizontalAlignment="Left" Margin="35,957,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="cbmitarbeiter" Content="Mitarbeiter:" HorizontalAlignment="Left" Margin="35,977,0,0" VerticalAlignment="Top"/>
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="174" Margin="0,373,0,0" VerticalAlignment="Top" Width="1305"/>
 
 
 
@@ -177,9 +181,7 @@
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,881,0,0" VerticalAlignment="Top" Width="1305">
                 </Border>
                 <Label x:Name="label" Content="Was ist zu tun ?" HorizontalAlignment="Left" Margin="0,881,0,0" VerticalAlignment="Top" Height="28"/>
-                <CheckBox x:Name="cbversenden" Content="Versenden" HorizontalAlignment="Left" Margin="7,915,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="cbtnt" Content="TNT" HorizontalAlignment="Left" Margin="35,957,0,0" VerticalAlignment="Top"/>
-                <CheckBox x:Name="cbmitarbeiter" Content="Mitarbeiter:" HorizontalAlignment="Left" Margin="35,977,0,0" VerticalAlignment="Top"/>
+
                 <CheckBox x:Name="cbanhaenger" Content="Anhänger erstellen" HorizontalAlignment="Left" Margin="356,917,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="cbewtest" Content="Erweitert Test" HorizontalAlignment="Left" Margin="356,947,0,0" VerticalAlignment="Top"/>
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="121" Margin="749,881,0,0" VerticalAlignment="Top" Width="556">

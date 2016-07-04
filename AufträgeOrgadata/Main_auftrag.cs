@@ -26,6 +26,13 @@ namespace AufträgeOrgadata
             Get_set.TGrund grund = main.GetGrundSet();
             Get_set.TAuftrag auftrag = main.GetAuftragSet();
             Get_set.TAusgefuehrt ausgefuehrt = main.GetAusgefuehrtSet();
+            Get_set.TAnschreiben anschreiben = main.GetAnschreibenSet();
+            Get_set.THandbuch handbuch = main.GetHandbuchSet();
+            Get_set.TAnAdresse anadresse = main.GetAnAdresseSet();
+            Get_set.TProgramms programms = main.GetProgrammsSet();
+            Get_set.TInstallArt installart = main.GetInstallArtSet();
+            Get_set.TAusstattung_Data ausstattung = main.GetAusstattungSet();
+            Get_set.Twizt twizt = main.GetTwiztSet();
 
             MessageBox.Show(grund.grund);
 
@@ -66,25 +73,25 @@ namespace AufträgeOrgadata
                 cmd.Parameters.AddWithValue("?Grund", grund.grund);
                 cmd.Parameters.AddWithValue("?Austausch", grund.austausch);
                 cmd.Parameters.AddWithValue("?Erteilt", auftrag.kuerzel);
-                cmd.Parameters.AddWithValue("?Ausgeführt", ausgefuehrt.kuerzel);
-                cmd.Parameters.AddWithValue("?Post", "1");
-                cmd.Parameters.AddWithValue("?Anschreiben", "1");
-                cmd.Parameters.AddWithValue("?Handbuch", "1");
-                cmd.Parameters.AddWithValue("?AnAdresseName", "1");
+                /*Mit einer kleinen Anwendung*/cmd.Parameters.AddWithValue("?Ausgeführt", ausgefuehrt.kuerzel);
+                /*Mit einer kleinen Anwendung*/cmd.Parameters.AddWithValue("?Post", "1");
+                cmd.Parameters.AddWithValue("?Anschreiben", anschreiben.anschreiben);
+                cmd.Parameters.AddWithValue("?Handbuch", handbuch.handbuch);
+                cmd.Parameters.AddWithValue("?AnAdresseName", anadresse.name);
                 cmd.Parameters.AddWithValue("?AnAdresseLand", "1");
-                cmd.Parameters.AddWithValue("?AnAdresseOrt", "1");
-                cmd.Parameters.AddWithValue("?AnAdressePartner", "1");
-                cmd.Parameters.AddWithValue("?AnAdressePLZ", "1");
+                cmd.Parameters.AddWithValue("?AnAdresseOrt", anadresse.ort);
+                cmd.Parameters.AddWithValue("?AnAdressePartner", anadresse.ansprechpartner);
+                cmd.Parameters.AddWithValue("?AnAdressePLZ", anadresse.plz);
                 cmd.Parameters.AddWithValue("?KundenID", main.customerid);
-                cmd.Parameters.AddWithValue("?ProgrammID", "1");
-                cmd.Parameters.AddWithValue("?InstallationsartID", "1");
+                cmd.Parameters.AddWithValue("?ProgrammID", programms.id);
+                cmd.Parameters.AddWithValue("?InstallationsartID", installart.id);
                 cmd.Parameters.AddWithValue("?VersandID", "1");
-                cmd.Parameters.AddWithValue("?AusstattungsID", "1");
-                cmd.Parameters.AddWithValue("?Anhaenger", "1");
-                cmd.Parameters.AddWithValue("?Test", "1");
+                /* Mehrere möglich */cmd.Parameters.AddWithValue("?AusstattungsID", ausstattung.id);
+                cmd.Parameters.AddWithValue("?Anhaenger", twizt.anhaenger);
+                cmd.Parameters.AddWithValue("?Test", twizt.ewtest);
                 cmd.Parameters.AddWithValue("?Geprueft", "1");
                 cmd.Parameters.AddWithValue("?Verschickt", "1");
-                cmd.Parameters.AddWithValue("?DongleStammdatenID", "1");
+                /* Mehrere möglich */cmd.Parameters.AddWithValue("?DongleStammdatenID", "1");
 
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
