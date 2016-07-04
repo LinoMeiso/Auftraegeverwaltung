@@ -34,6 +34,7 @@ namespace AufträgeOrgadata
         private TInstallArt setinstallart = null;
         private Twizt settwizt = null;
         private TAusstattung_Data setausstattung = null;
+        private Tstamm setstamm = null;
 
         public MainWindow()
         {
@@ -152,15 +153,20 @@ namespace AufträgeOrgadata
             return setausstattung;
         }
 
+        public Get_set.Tstamm GetStammSet()
+        {
+            return setstamm;
+        }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             //Datum und Zeit Ausgabe
             DateTime date = DateTime.Now;
-            string date1 = date.ToString();
+            string date1 = date.ToString("yyyy-MM-dd");
             string dateOnly = date1.Substring(0, 10);
             string timeOnly = DateTime.Now.ToShortTimeString();
 
-            lblDate.Content = dateOnly;
+            lblDate.Content = dateOnly.ToString();
             lblTime.Content = timeOnly;
         }
 
@@ -459,8 +465,8 @@ namespace AufträgeOrgadata
 
             //Auslesen StammDaten ID & Name
             StammName daten = new StammName();
-            Tstamm stamm = new Tstamm();
-            stamm.StammListUebergabe = new List<Tstamm>();
+            setstamm = new Tstamm();
+            setstamm.StammListUebergabe = new List<Tstamm>();
             bool atCheckedStamm = false;
             for (int i = 0; i < daten.StammListe.Count; i++)
             {
@@ -469,11 +475,11 @@ namespace AufträgeOrgadata
                 if (checkbox.IsChecked == true)
                 {
                     //Zuweisen der Stammdaten
-                    stamm.id = Convert.ToString(daten.StammListe[i].ID);
-                    stamm.name = checkbox.Content.ToString();
+                    setstamm.id = Convert.ToString(daten.StammListe[i].ID);
+                    setstamm.name = checkbox.Content.ToString();
 
                     //Ausgelesende Daten in eine Liste hinzufügen
-                    stamm.StammListUebergabe.Add(stamm);
+                    setstamm.StammListUebergabe.Add(setstamm);
                     atCheckedStamm = true;
                 }
             }
@@ -566,6 +572,11 @@ namespace AufträgeOrgadata
             set.timer = timeOnly;
 
             Main_auftrag mainauftrag = new Main_auftrag();
+
+            mainauftrag.dongle();
+
+            mainauftrag.dongleIndetity();
+            mainauftrag.donglestamm();
             mainauftrag.Kunde();
         }
 
@@ -573,9 +584,6 @@ namespace AufträgeOrgadata
         {
             AusstattungWindow AusstattungWin = new AusstattungWindow();
             AusstattungWin.ShowDialog();
-
-
-
         }
     }
 }//Ende

@@ -29,7 +29,7 @@ namespace AufträgeOrgadata
             return stamm;
         }
 
-        //3.
+        //4.
         public void Kunde()
         {
             Kunde kd = Application.Current.MainWindow as Kunde;
@@ -95,7 +95,7 @@ namespace AufträgeOrgadata
                 cmd.Parameters.AddWithValue("?ProgrammID", programms.id);
                 cmd.Parameters.AddWithValue("?InstallationsartID", installart.id);
                 cmd.Parameters.AddWithValue("?VersandID", "1");
-                /* Mehrere möglich */cmd.Parameters.AddWithValue("?AusstattungsID", ausstattung.id);
+                ///* Mehrere möglich */cmd.Parameters.AddWithValue("?AusstattungsID", ausstattung.id);
                 cmd.Parameters.AddWithValue("?Anhaenger", twizt.anhaenger);
                 cmd.Parameters.AddWithValue("?Test", twizt.ewtest);
                 cmd.Parameters.AddWithValue("?Geprueft", 1);
@@ -139,10 +139,14 @@ namespace AufträgeOrgadata
                 //Datum,Time,Anliegen,Austausch,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName,
                 //AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID
                 //VersandID,AustattungID,Anhänger,Test,Geprüft,Verschickt,DongleStammdatenID
-                string sql = "INSERT INTO Dongle(ReservierteNummer1,ReservierteNummer2,ReservierteNummer3,Zeit,ServerDongle,auto prolongation,AuftragNR)" +
-                    "VALUES (?RNummer1,?RNummer2,?RNummer3,?Zeit,?ServerDongle,?autoprolo,?AuftrNr)";
-                cmd.CommandText = sql;
 
+                //INSERT INTO dongle(ReservierteNummer1, ReservierteNummer2, ReservierteNummer3, Zeit, ServerDongle, autoprolongation)
+                //VALUES(987654, NULL, NULL, '2016-07-04', 123, 1)
+
+                string sql = "INSERT INTO dongle(ReservierteNummer1, ReservierteNummer2, ReservierteNummer3, Zeit, ServerDongle, autoprolongation)" +
+                    "VALUES(?RNummer1,?RNummer2,?RNummer3,?Zeit,?ServerDongle,?autoprolo)";
+                cmd.CommandText = sql;
+                
                 cmd.Parameters.AddWithValue("?RNummer1", vnummer.rnummer);
                 cmd.Parameters.AddWithValue("?RNummer2", vnummer.rnummer2);
                 cmd.Parameters.AddWithValue("?RNummer3", vnummer.rnumemr3);
@@ -205,10 +209,11 @@ namespace AufträgeOrgadata
                 MessageBox.Show(ex.Message);
             }
         }
-
+        //3.
         public void donglestamm()
         {
             Get_set.Tstamm stamm = null;
+            Get_set.TAusstattung_Data ausstattung = null;
 
             login lgn = new login();
 
@@ -231,12 +236,16 @@ namespace AufträgeOrgadata
                 //Datum,Time,Anliegen,Austausch,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName,
                 //AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID
                 //VersandID,AustattungID,Anhänger,Test,Geprüft,Verschickt,DongleStammdatenID
-                string sql = "INSERT INTO donglestammdaten(DongleID,StammdatenID) VALUES (?DonlgeID,?StammdatenID)";
+                string sql = "INSERT INTO donglestammdaten(DongleID,StammdatenID,AusstattungID) VALUES (?DonlgeID,?StammdatenID,?AusstattungID)";
                 cmd.CommandText = sql;
                 
                 Get_set.TLastIdentityDongle ldongle = GetLastDongle();
-                cmd.Parameters.AddWithValue("?DongleID", ldongle.id);
-                cmd.Parameters.AddWithValue("?StammdatenID", stamm.id);
+                for (int i = 0; i < stamm.StammListUebergabe.Count; i++)
+                {
+                    cmd.Parameters.AddWithValue("?DongleID", ldongle.id);
+                    cmd.Parameters.AddWithValue("?StammdatenID", stamm.id);
+                    cmd.Parameters.AddWithValue("?AusstattungID",ausstattung.id);
+                }
 
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
