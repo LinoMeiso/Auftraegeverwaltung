@@ -1,82 +1,50 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace AufträgeOrgadata
 {
     /// <summary>
-    ///     Interaktionslogik für Stammdaten.xaml
+    /// Interaktionslogik für Stammdaten.xaml
     /// </summary>
-    public partial class Stammdaten
+    public partial class Stammdaten : Window
     {
         public Stammdaten()
         {
             InitializeComponent();
         }
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        public void PWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            var SName = new StammdatenCs();
-
-            foreach (var t in SName.StammDatenliste)
-            {
-                lvStammDaten.Items.Add(new TStammDaten
-                {
-                    ID = t.ID,
-                    StammName = t.StammName
-                });
-            }
-        }
-
-        public void mDelete_Click(object sender, RoutedEventArgs e)
-        {
-            var selectitem = (dynamic)lvStammDaten.SelectedItems[0];
-            var connstring = "Server = localhost; database = auftraege; uid = root ";
-            var conn = new MySqlConnection(connstring);
-
-            try
-            {
-                conn.Open();
-
-                using (var cmd = new MySqlCommand("Delete from  stammdaten where ID = ?ItemClick"))
-                {
-                    cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
-
-                    MessageBox.Show(Convert.ToString(selectitem.ID));
-
-                    cmd.Connection = conn;
-                    cmd.ExecuteNonQuery();
-                }
-
-                conn.Close();
-            }
-            catch (Exception e1)
-            {
-                MessageBox.Show(e1.Message);
-            }
-        }
-
         public class TStammDaten
         {
             public int ID { get; set; }
-            public string StammName { get; set; }
+            public String StammName { get; set; }
         }
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+
+        }  
+
 
         public class StammdatenCs
         {
+            public List<TStammDaten> StammDatenliste { get; set; }
+
             public StammdatenCs()
             {
                 StammDatenliste = new List<TStammDaten>();
                 LoadStammdaten();
             }
-
-            public List<TStammDaten> StammDatenliste { get; set; }
 
             public void LoadStammdaten()
             {
@@ -120,15 +88,67 @@ namespace AufträgeOrgadata
             }
         }
 
-
-        private void mAdd_Click(object sender, RoutedEventArgs e)
+        public void PWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            StammdatenCs SName = new StammdatenCs();
 
+            for (int i = 0; i < SName.StammDatenliste.Count; i++)
+            {
+                lvStammDaten.Items.Add(new TStammDaten
+                {
+                    ID = SName.StammDatenliste[i].ID,
+                    StammName = SName.StammDatenliste[i].StammName
+
+                });
+            }
         }
 
-        private void mClose_Click(object sender, RoutedEventArgs e)
+        public void mDelete_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+
+            var selectitem = (dynamic)lvStammDaten.SelectedItems[0];
+
+            String connstring = "Server = localhost; database = auftraege; uid = root ";
+
+            MySqlConnection conn = new MySqlConnection(connstring);
+
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand cmd = new MySqlCommand("Delete from  stammdaten where ID = ?ItemClick");
+  
+
+                cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
+
+                MessageBox.Show(Convert.ToString(selectitem.ID));
+
+                
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+            catch (Exception e1)
+            {
+                MessageBox.Show(e1.Message);
+            }
+
+
         }
     }
-}
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+

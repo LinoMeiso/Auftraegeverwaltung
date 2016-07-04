@@ -1,19 +1,26 @@
-﻿namespace AufträgeOrgadata
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
+
+namespace AufträgeOrgadata
 {
-    internal class Kundeid
+    class Kundeid
     {
         //public void KIDAbfrage()
         //{
         //    login lgn = new login();
 
-        //    var uid = lgn.lgnList[0].uid;
-        //    var pw = lgn.lgnList[0].pw;
-        //    var server = lgn.lgnList[0].server;
-        //    var port = lgn.lgnList[0].port;
-        //    var db = lgn.lgnList[0].db;
+        //    string uid, pw, server, port, db;
+        //    uid = lgn.lgnList[0].uid;
+        //    pw = lgn.lgnList[0].pw;
+        //    server = lgn.lgnList[0].server;
+        //    port = lgn.lgnList[0].port;
+        //    db = lgn.lgnList[0].db;
 
-        //    string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port +
-        //                        ";" + "database=" + db + ";";
+        //    String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
         //    MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -23,8 +30,7 @@
         //        conn.Open();
 
         //        MySqlCommand cmd = new MySqlCommand();
-        //        string sql =
-        //            "INSERT INTO kunden(name,ort,str,plz,ansprechpartner,vertragsnr) VALUES (?Name,?Ort,?Str,?PLZ,?Ansprechpartner,?VertragsNr)";
+        //        string sql = "INSERT INTO kunden(name,ort,str,plz,ansprechpartner,vertragsnr) VALUES (?Name,?Ort,?Str,?PLZ,?Ansprechpartner,?VertragsNr)";
         //        cmd.CommandText = sql;
 
         //        cmd.Parameters.AddWithValue("?Name", kunde.name);
@@ -44,5 +50,6 @@
         //        MessageBox.Show(ex.Message);
         //    }
         //}
+
     }
 }

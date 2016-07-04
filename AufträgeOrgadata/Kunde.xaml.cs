@@ -1,16 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
+using System.IO;
 using static AufträgeOrgadata.Get_set;
 
 namespace AufträgeOrgadata
 {
     /// <summary>
-    ///     Interaktionslogik für Kunde.xaml
+    /// Interaktionslogik für Kunde.xaml
     /// </summary>
     public partial class Kunde : Window
     {
-        private TGetCustomer set;
+        private TGetCustomer set = null;
 
         public Kunde()
         {
@@ -60,7 +72,7 @@ namespace AufträgeOrgadata
             public string vertrnr { get; set; }
         }
 
-        public TGetCustomer GetCustomerSet()
+        public Get_set.TGetCustomer GetCustomerSet()
         {
             return set;
         }
@@ -74,55 +86,55 @@ namespace AufträgeOrgadata
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var kd = new kundecs();
+            kundecs kd = new kundecs();
 
-            foreach (var t in kd.KundeListe)
+            for (int i = 0; i < kd.KundeListe.Count; i++)
             {
+                // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR
                 lvKunde.Items.Add(new TKunde
                 {
-                    ID = t.ID,
-                    Name = t.Name,
-                    Ort = t.Ort,
-                    Str = t.Str,
-                    PLZ = t.PLZ,
-                    Ansprechpartner = t.Ansprechpartner,
-                    VertragsNr = t.VertragsNr
+                    ID = kd.KundeListe[i].ID,
+                    Name = kd.KundeListe[i].Name,
+                    Ort = kd.KundeListe[i].Ort,
+                    Str = kd.KundeListe[i].Str,
+                    PLZ = kd.KundeListe[i].PLZ,
+                    Ansprechpartner = kd.KundeListe[i].Ansprechpartner,
+                    VertragsNr = kd.KundeListe[i].VertragsNr
                 });
             }
         }
 
         private void add_Click(object sender, RoutedEventArgs e)
         {
-            var aded = new add_edit();
+            add_edit aded = new add_edit();
             aded.ShowDialog();
 
-            var kdadd = new TKundeAdd
-            {
-                name = aded.txtName.Text,
-                ort = aded.txtOrt.Text,
-                str = aded.txtStr.Text,
-                plz = aded.txtPLZ.Text,
-                partner = aded.txtAnsrpechpartner.Text,
-                vertrnr = aded.txtVertragsNr.Text
-            };
+            TKundeAdd kdadd = new TKundeAdd();
+            kdadd.name = aded.txtName.Text;
+            kdadd.ort = aded.txtOrt.Text;
+            kdadd.str = aded.txtStr.Text;
+            kdadd.plz = aded.txtPLZ.Text;
+            kdadd.partner = aded.txtAnsrpechpartner.Text;
+            kdadd.vertrnr = aded.txtVertragsNr.Text;
 
-            var kdcs = new kundecs();
+            kundecs kdcs = new kundecs();
             kdcs.AddKunde(kdadd);
 
             //Refresh lvKunden
             lvKunde.Items.Clear();
-            var kd = new kundecs();
-            foreach (var t in kd.KundeListe)
+            kundecs kd = new kundecs();
+            for (int i = 0; i < kd.KundeListe.Count; i++)
             {
+                // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR
                 lvKunde.Items.Add(new TKunde
                 {
-                    ID = t.ID,
-                    Name = t.Name,
-                    Ort = t.Ort,
-                    Str = t.Str,
-                    PLZ = t.PLZ,
-                    Ansprechpartner = t.Ansprechpartner,
-                    VertragsNr = t.VertragsNr
+                    ID = kd.KundeListe[i].ID,
+                    Name = kd.KundeListe[i].Name,
+                    Ort = kd.KundeListe[i].Ort,
+                    Str = kd.KundeListe[i].Str,
+                    PLZ = kd.KundeListe[i].PLZ,
+                    Ansprechpartner = kd.KundeListe[i].Ansprechpartner,
+                    VertragsNr = kd.KundeListe[i].VertragsNr
                 });
             }
         }
@@ -131,17 +143,16 @@ namespace AufträgeOrgadata
         {
             var selectitem = (dynamic)lvKunde.SelectedItems[0];
 
-            var kdedit = new TKundeEdit { id = Convert.ToString(selectitem.ID) };
+            TKundeEdit kdedit = new TKundeEdit();
+            kdedit.id = Convert.ToString(selectitem.ID);
 
-            var aded = new add_edit
-            {
-                txtName = { Text = selectitem.Name },
-                txtOrt = { Text = selectitem.Ort },
-                txtStr = { Text = selectitem.Str },
-                txtPLZ = { Text = selectitem.PLZ },
-                txtAnsrpechpartner = { Text = selectitem.Ansprechpartner },
-                txtVertragsNr = { Text = selectitem.VertragsNr }
-            };
+            add_edit aded = new add_edit();
+            aded.txtName.Text = selectitem.Name;
+            aded.txtOrt.Text = selectitem.Ort;
+            aded.txtStr.Text = selectitem.Str;
+            aded.txtPLZ.Text = selectitem.PLZ;
+            aded.txtAnsrpechpartner.Text = selectitem.Ansprechpartner;
+            aded.txtVertragsNr.Text = selectitem.VertragsNr;
 
             aded.ShowDialog();
 
@@ -152,58 +163,63 @@ namespace AufträgeOrgadata
             kdedit.partner = aded.txtAnsrpechpartner.Text;
             kdedit.vertrnr = aded.txtVertragsNr.Text;
 
-            var kdcs = new kundecs();
+            kundecs kdcs = new kundecs();
             kdcs.EditKunde(kdedit);
 
             //Refresh lvKunden
             lvKunde.Items.Clear();
-            var kd = new kundecs();
-            foreach (var t in kd.KundeListe)
+            kundecs kd = new kundecs();
+            for (int i = 0; i < kd.KundeListe.Count; i++)
             {
+                // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR nbvh
                 lvKunde.Items.Add(new TKunde
                 {
-                    ID = t.ID,
-                    Name = t.Name,
-                    Ort = t.Ort,
-                    Str = t.Str,
-                    PLZ = t.PLZ,
-                    Ansprechpartner = t.Ansprechpartner,
-                    VertragsNr = t.VertragsNr
+                    ID = kd.KundeListe[i].ID,
+                    Name = kd.KundeListe[i].Name,
+                    Ort = kd.KundeListe[i].Ort,
+                    Str = kd.KundeListe[i].Str,
+                    PLZ = kd.KundeListe[i].PLZ,
+                    Ansprechpartner = kd.KundeListe[i].Ansprechpartner,
+                    VertragsNr = kd.KundeListe[i].VertragsNr
                 });
             }
         }
 
         private void delete_Click_1(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("Möchtest du den Eintrag löschen?", "Warnung!",
-                MessageBoxButton.YesNoCancel, MessageBoxImage.Warning) != MessageBoxResult.Yes) return;
-            var selectitem = (dynamic)lvKunde.SelectedItems[0];
-
-            var kddel = new TKundeDelete { id = Convert.ToString(selectitem.ID) };
-
-            var kdcs = new kundecs();
-            kdcs.DeleteKunde(kddel);
-
-            //Refresh lvKunden
-            lvKunde.Items.Clear();
-            foreach (var t in kdcs.KundeListe)
+            if(MessageBox.Show("Möchtest du den Eintrag löschen?", "Warnung!",
+                MessageBoxButton.YesNoCancel, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-                lvKunde.Items.Add(new TKunde
+                var selectitem = (dynamic)lvKunde.SelectedItems[0];
+
+                TKundeDelete kddel = new TKundeDelete();
+                kddel.id = Convert.ToString(selectitem.ID);
+
+                kundecs kdcs = new kundecs();
+                kdcs.DeleteKunde(kddel);
+
+                //Refresh lvKunden
+                lvKunde.Items.Clear();
+                for (int i = 0; i < kdcs.KundeListe.Count; i++)
                 {
-                    ID = t.ID,
-                    Name = t.Name,
-                    Ort = t.Ort,
-                    Str = t.Str,
-                    PLZ = t.PLZ,
-                    Ansprechpartner = t.Ansprechpartner,
-                    VertragsNr = t.VertragsNr
-                });
+                    // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR nbvh
+                    lvKunde.Items.Add(new TKunde
+                    {
+                        ID = kdcs.KundeListe[i].ID,
+                        Name = kdcs.KundeListe[i].Name,
+                        Ort = kdcs.KundeListe[i].Ort,
+                        Str = kdcs.KundeListe[i].Str,
+                        PLZ = kdcs.KundeListe[i].PLZ,
+                        Ansprechpartner = kdcs.KundeListe[i].Ansprechpartner,
+                        VertragsNr = kdcs.KundeListe[i].VertragsNr
+                    });
+                }
             }
         }
 
         private void search_Click(object sender, RoutedEventArgs e)
         {
-            var aded = new add_edit();
+            add_edit aded = new add_edit();
             aded.txtName.Clear();
             aded.txtOrt.Clear();
             aded.txtStr.Clear();
@@ -213,32 +229,30 @@ namespace AufträgeOrgadata
 
             aded.ShowDialog();
 
-            var tkdsearch = new TKundeSearch
-            {
-                name = aded.txtName.Text,
-                ort = aded.txtOrt.Text,
-                str = aded.txtStr.Text,
-                plz = aded.txtPLZ.Text,
-                partner = aded.txtAnsrpechpartner.Text,
-                vertrnr = aded.txtVertragsNr.Text
-            };
+            TKundeSearch tkdsearch = new TKundeSearch();
+            tkdsearch.name = aded.txtName.Text;
+            tkdsearch.ort = aded.txtOrt.Text;
+            tkdsearch.str = aded.txtStr.Text;
+            tkdsearch.plz = aded.txtPLZ.Text;
+            tkdsearch.partner = aded.txtAnsrpechpartner.Text;
+            tkdsearch.vertrnr = aded.txtVertragsNr.Text;
 
-            var kdcs = new kundecs();
+            kundecs kdcs = new kundecs();
             kdcs.SearchKunde(tkdsearch);
 
-            var kdsearch = new Kunde_search();
+            Kunde_search kdsearch = new Kunde_search();
 
-            foreach (var t in kdcs.KundeFindList)
+            for (int i = 0; i < kdcs.KundeFindList.Count; i++)
             {
                 kdsearch.lvKundeSearch.Items.Add(new TKundeFind
                 {
-                    IDFind = t.IDFind,
-                    NameFind = t.NameFind,
-                    OrtFind = t.OrtFind,
-                    StrFind = t.StrFind,
-                    PLZFind = t.PLZFind,
-                    AnsprechpartnerFind = t.AnsprechpartnerFind,
-                    VertragsNrFind = t.VertragsNrFind
+                    IDFind = kdcs.KundeFindList[i].IDFind,
+                    NameFind = kdcs.KundeFindList[i].NameFind,
+                    OrtFind = kdcs.KundeFindList[i].OrtFind,
+                    StrFind = kdcs.KundeFindList[i].StrFind,
+                    PLZFind = kdcs.KundeFindList[i].PLZFind,
+                    AnsprechpartnerFind = kdcs.KundeFindList[i].AnsprechpartnerFind,
+                    VertragsNrFind = kdcs.KundeFindList[i].VertragsNrFind
                 });
             }
             kdsearch.ShowDialog();
@@ -246,24 +260,23 @@ namespace AufträgeOrgadata
 
         public void cmeintragen_Click(object sender, RoutedEventArgs e)
         {
+            string id, name, ort, plz, str, partner;
             var selectitem = (dynamic)lvKunde.SelectedItem;
 
-            string id = Convert.ToString(selectitem.ID);
-            string name = selectitem.Name;
-            string ort = selectitem.Ort;
-            string plz = selectitem.PLZ;
-            string str = selectitem.Str;
-            string partner = selectitem.Ansprechpartner;
+            id = Convert.ToString(selectitem.ID);
+            name = selectitem.Name;
+            ort = selectitem.Ort;
+            plz = selectitem.PLZ;
+            str = selectitem.Str;
+            partner = selectitem.Ansprechpartner;
 
-            set = new TGetCustomer
-            {
-                id = id,
-                name = name,
-                ort = ort,
-                plz = plz,
-                str = str,
-                partner = partner
-            };
+            set = new TGetCustomer();
+            set.id = id;
+            set.name = name;
+            set.ort = ort;
+            set.plz = plz;
+            set.str = str;
+            set.partner = partner;
 
             Close();
         }

@@ -57,9 +57,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AusstattungWindow.xaml.cs">
-      <DependentUpon>AusstattungWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Get_set.cs" />
     <Compile Include="Kundeid.cs" />
     <Compile Include="Kunde_anadresse.cs" />
@@ -76,10 +73,6 @@
       <DependentUpon>Stammdaten.xaml</DependentUpon>
     </Compile>
     <Page Include="add_edit.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AusstattungWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

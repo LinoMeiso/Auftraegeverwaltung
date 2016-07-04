@@ -1,38 +1,51 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace AufträgeOrgadata
 {
     /// <summary>
-    ///     Interaktionslogik für Kunde.xaml
+    /// Interaktionslogik für Kunde.xaml
     /// </summary>
-    public partial class ProWindow
+    public partial class ProWindow : Window
     {
         public ProWindow()
         {
             InitializeComponent();
         }
 
+
         private void PWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            var PG = new ProWindowCs();
+            ProWindowCs PG = new ProWindowCs();
 
-            foreach (var t in PG.ProgramListe)
+            for (int i = 0; i < PG.ProgramListe.Count; i++)
             {
                 lvProWindow.Items.Add(new TProgram
                 {
-                    ID = t.ID,
-                    ProgrammName = t.ProgrammName
+                    ID = PG.ProgramListe[i].ID,
+                    ProgrammName = PG.ProgramListe[i].ProgrammName
                 });
             }
         }
+
 
         public class TProgram
         {
             public int ID { get; set; }
             public string ProgrammName { get; set; }
+
         }
 
         public class ProWindowCs
@@ -47,34 +60,34 @@ namespace AufträgeOrgadata
 
             public void LoadProgram()
             {
-                var lgn = new login();
+                login lgn = new login();
 
-                var uid = lgn.lgnList[0].uid;
-                var pw = lgn.lgnList[0].pw;
-                var server = lgn.lgnList[0].server;
-                var port = lgn.lgnList[0].port;
-                var db = lgn.lgnList[0].db;
-                var table = lgn.lgnList[0].table;
+                string uid, pw, server, port, db, table;
+                uid = lgn.lgnList[0].uid;
+                pw = lgn.lgnList[0].pw;
+                server = lgn.lgnList[0].server;
+                port = lgn.lgnList[0].port;
+                db = lgn.lgnList[0].db;
+                table = lgn.lgnList[0].table;
 
-                var connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" +
-                                 port + ";" + "database=" + db + ";" + "table=" + table + ";";
-                var conn = new MySqlConnection(connstring);
+                String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+                MySqlConnection conn = new MySqlConnection(connstring);
 
                 try
                 {
                     conn.Open();
 
-                    var cmd = new MySqlCommand("SELECT * FROM programm") { Connection = conn };
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM programm");
+                    cmd.Connection = conn;
 
-                    using (var Reader = cmd.ExecuteReader())
+                    using (MySqlDataReader Reader = cmd.ExecuteReader())
                     {
                         while (Reader.Read())
                         {
-                            var ProgramName = new TProgram
-                            {
-                                ID = int.Parse(Reader["ID"].ToString()),
-                                ProgrammName = Reader["ProgrammName"].ToString()
-                            };
+
+                            TProgram ProgramName = new TProgram();
+                            ProgramName.ID = int.Parse(Reader["ID"].ToString());
+                            ProgramName.ProgrammName = Reader["ProgrammName"].ToString();
                             ProgramListe.Add(ProgramName);
                         }
                     }
@@ -89,33 +102,40 @@ namespace AufträgeOrgadata
 
         private void btnMClose_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void btnMDelete_Click(object sender, RoutedEventArgs e)
+            
         {
+
             //string ItemClick;
             // ItemClick = ((TProgram)lvProWindow.SelectedItem).ProgrammName;
             var selectitem = (dynamic)lvProWindow.SelectedItems[0];
+            
+            
+                               
+            string connstring = "Server = localhost; database = auftraege; uid = root ";
+        
 
-            var connstring = "Server = localhost; database = auftraege; uid = root ";
-            var conn = new MySqlConnection(connstring);
+
+            MySqlConnection conn = new MySqlConnection(connstring);
 
             try
             {
                 conn.Open();
 
-                var cmd = new MySqlCommand("Delete from  programm where ID = ?ItemClick");
-                //MySqlCommand cmd = new MySqlCommand("Delete from programm where ID = 50");
+                 MySqlCommand cmd = new MySqlCommand("Delete from  programm where ID = ?ItemClick");
+               //MySqlCommand cmd = new MySqlCommand("Delete from programm where ID = 50");
 
-                cmd.Parameters.AddWithValue("?ItemClick", selectitem.ID);
+               cmd.Parameters.AddWithValue("?ItemClick", selectitem.ID);
 
-                MessageBox.Show("Programm: "+(Convert.ToString(selectitem.ProgrammName)+ (" erfolgreich gelöscht!")));
+                MessageBox.Show(Convert.ToString(selectitem.ID));
                
 
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
-
+            
                 conn.Close();
             }
             catch (Exception e1)
@@ -126,8 +146,9 @@ namespace AufträgeOrgadata
 
         private void mAdd_Click(object sender, RoutedEventArgs e)
         {
-            var EditChange = new PAddChange();
+            PAddChange EditChange = new PAddChange();
             EditChange.ShowDialog();
         }
     }
 }
+   

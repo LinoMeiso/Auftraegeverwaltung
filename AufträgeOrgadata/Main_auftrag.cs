@@ -1,11 +1,15 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 using static AufträgeOrgadata.Get_set;
+using System.Windows;
 
 namespace AufträgeOrgadata
 {
-    internal class Main_auftrag
+    class Main_auftrag
     {
         //Dongle: ReservierteNummer,Zeit,ServerDongle,auto_proglongation,AuftragNR
         //donglestammdaten: DongleID,StammdatenID
@@ -42,74 +46,66 @@ namespace AufträgeOrgadata
             Get_set.TAusstattung_Data ausstattung = main.GetAusstattungSet();
             Get_set.Twizt twizt = main.GetTwiztSet();
             Get_set.TLastIdentityDongle ldongle = GetLastDongle();
-           
-            var lgn = new login();
+            
+            login lgn = new login();
 
-            var uid = lgn.lgnList[0].uid;
-            var pw = lgn.lgnList[0].pw;
-            var server = lgn.lgnList[0].server;
-            var port = lgn.lgnList[0].port;
-            var db = lgn.lgnList[0].db;
+            string uid, pw, server, port, db;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
 
-            var connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port +
-                             ";" + "database=" + db + ";";
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
-            var conn = new MySqlConnection(connstring);
+            MySqlConnection conn = new MySqlConnection(connstring);
 
             try
             {
                 conn.Open();
-
-                var cmd = new MySqlCommand();
+                
+                MySqlCommand cmd = new MySqlCommand();
                 //Datum,Time,Anliegen,Austausch,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName,
                 //AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID
                 //VersandID,AustattungID,Anhänger,Test,Geprüft,Verschickt,DongleStammdatenID
-                var sql =
-                    "INSERT INTO auftrag(Datum,Time,Anliegen,Grund,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName," +
+                string sql = "INSERT INTO auftrag(Datum,Time,Anliegen,Grund,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName," +
                     "AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID,VersandID,AusstattungsID," +
                     "Anhänger,Test,Geprüft,Verschickt,DongleID)" +
                     "VALUES (?Date,?Time,?Anliegen,?Grund,?Erteilt,?Ausgeführt,?Post,?Anschreiben,?Handbuch,?AnAdresseName," +
                     "?AnAdresseLand,?AnAdresseOrt,?AnAdressePartner,?AnAdressePLZ,?KundenID,?ProgrammID,?InstallationsartID,?VersandID,?AusstattungsID," +
                     "?Anhaenger,?Test,?Geprueft,?Verschickt,?DongleID)";
                 cmd.CommandText = sql;
+                
+                TKundeAdresse kdadresse = new TKundeAdresse();
+                cmd.Parameters.AddWithValue("?Date", dt.date);
+                cmd.Parameters.AddWithValue("?Time", dt.timer);
+                cmd.Parameters.AddWithValue("?Grund", grund.grund);
+                cmd.Parameters.AddWithValue("?Austausch", grund.austausch);
+                cmd.Parameters.AddWithValue("?Erteilt", auftrag.kuerzel);
+                /*Mit einer kleinen Anwendung*/cmd.Parameters.AddWithValue("?Ausgeführt", ausgefuehrt.kuerzel);
+                /*Mit einer kleinen Anwendung*/cmd.Parameters.AddWithValue("?Post", "1");
+                cmd.Parameters.AddWithValue("?Anschreiben", anschreiben.anschreiben);
+                cmd.Parameters.AddWithValue("?Handbuch", handbuch.handbuch);
+                cmd.Parameters.AddWithValue("?AnAdresseName", anadresse.name);
+                cmd.Parameters.AddWithValue("?AnAdresseLand", "1");
+                cmd.Parameters.AddWithValue("?AnAdresseOrt", anadresse.ort);
+                cmd.Parameters.AddWithValue("?AnAdressePartner", anadresse.ansprechpartner);
+                cmd.Parameters.AddWithValue("?AnAdressePLZ", anadresse.plz);
+                cmd.Parameters.AddWithValue("?KundenID", main.customerid);
+                cmd.Parameters.AddWithValue("?ProgrammID", programms.id);
+                cmd.Parameters.AddWithValue("?InstallationsartID", installart.id);
+                cmd.Parameters.AddWithValue("?VersandID", "1");
+                /* Mehrere möglich */cmd.Parameters.AddWithValue("?AusstattungsID", ausstattung.id);
+                cmd.Parameters.AddWithValue("?Anhaenger", twizt.anhaenger);
+                cmd.Parameters.AddWithValue("?Test", twizt.ewtest);
+                cmd.Parameters.AddWithValue("?Geprueft", "1");
+                cmd.Parameters.AddWithValue("?Verschickt", "1");
+                /* Mehrere möglich */cmd.Parameters.AddWithValue("?DongleID", ldongle.id);
 
-                new TKundeAdresse();
-                if (cmd.Parameters != null)
-                {
-                    cmd.Parameters.AddWithValue("?Date", dt.date);
-                    cmd.Parameters.AddWithValue("?Time", dt.timer);
-                    cmd.Parameters.AddWithValue("?Grund", grund.grund);
-                    cmd.Parameters.AddWithValue("?Austausch", grund.austausch);
-                    cmd.Parameters.AddWithValue("?Erteilt", auftrag.kuerzel);
-                    /*Mit einer kleinen Anwendung*/
-                    cmd.Parameters.AddWithValue("?Ausgeführt", ausgefuehrt.kuerzel);
-                    /*Mit einer kleinen Anwendung*/
-                    cmd.Parameters.AddWithValue("?Post", "1");
-                    cmd.Parameters.AddWithValue("?Anschreiben", anschreiben.anschreiben);
-                    cmd.Parameters.AddWithValue("?Handbuch", handbuch.handbuch);
-                    cmd.Parameters.AddWithValue("?AnAdresseName", anadresse.name);
-                    cmd.Parameters.AddWithValue("?AnAdresseLand", "1");
-                    cmd.Parameters.AddWithValue("?AnAdresseOrt", anadresse.ort);
-                    cmd.Parameters.AddWithValue("?AnAdressePartner", anadresse.ansprechpartner);
-                    cmd.Parameters.AddWithValue("?AnAdressePLZ", anadresse.plz);
-                    cmd.Parameters.AddWithValue("?KundenID", main.customerid);
-                    cmd.Parameters.AddWithValue("?ProgrammID", programms.id);
-                    cmd.Parameters.AddWithValue("?InstallationsartID", installart.id);
-                    cmd.Parameters.AddWithValue("?VersandID", "1");
-                    /* Mehrere möglich */
-                    cmd.Parameters.AddWithValue("?AusstattungsID", ausstattung.id);
-                    cmd.Parameters.AddWithValue("?Anhaenger", twizt.anhaenger);
-                    cmd.Parameters.AddWithValue("?Test", twizt.ewtest);
-                    cmd.Parameters.AddWithValue("?Geprueft", "1");
-                    cmd.Parameters.AddWithValue("?Verschickt", "1");
-                    /* Mehrere möglich */
-                    cmd.Parameters.AddWithValue("?DongleStammdatenID", "1");
+                cmd.Connection = conn;
+                cmd.ExecuteNonQuery();
 
-                    cmd.Connection = conn;
-                    cmd.ExecuteNonQuery();
-
-                    conn.Close();
-                }
+                conn.Close();
             }
             catch (Exception ex)
             {
