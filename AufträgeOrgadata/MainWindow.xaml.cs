@@ -34,8 +34,6 @@ namespace AufträgeOrgadata
         private TInstallArt setinstallart = null;
         private Twizt settwizt = null;
         private TAusstattung_Data setausstattung = null;
-        private TVNummer setvnummer = null;
-        private Tstamm setstamm = null;
 
         public MainWindow()
         {
@@ -122,7 +120,7 @@ namespace AufträgeOrgadata
         {
             return setanschreiben;
         }
-        
+
         public Get_set.THandbuch GetHandbuchSet()
         {
             return sethandbuch;
@@ -153,16 +151,6 @@ namespace AufträgeOrgadata
             return setausstattung;
         }
 
-        public Get_set.TVNummer GetVNummerSet()
-        {
-            return setvnummer;
-        }
-
-        public Get_set.Tstamm GetStammSet()
-        {
-            return setstamm;
-        }
-
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             //Datum und Zeit Ausgabe
@@ -173,9 +161,6 @@ namespace AufträgeOrgadata
 
             lblDate.Content = dateOnly;
             lblTime.Content = timeOnly;
-
-            Main_auftrag mauftr = new Main_auftrag();
-            //mauftr.auftr_neu();
         }
 
         private void txtGrund_TextChanged(object sender, TextChangedEventArgs e)
@@ -236,7 +221,7 @@ namespace AufträgeOrgadata
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
-         {
+        {
             this.Close(); //Schließt das Fenster
 
         }
@@ -253,7 +238,7 @@ namespace AufträgeOrgadata
             ProWindow Pro = new ProWindow();
             Pro.ShowDialog();
         }
-        
+
         private void mkunde_Click(object sender, RoutedEventArgs e)
         {
             Kunde kd = new Kunde();
@@ -280,72 +265,72 @@ namespace AufträgeOrgadata
         {
             if (txtKundeName.Text == "" || txtKundeAnsprechPartner.Text == "" || txtKundeStr.Text == "" || txtKundeOrt.Text == "" || txtKundePlz.Text == "")
 
-                    MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
+                MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
 
-                   
+
             else
             if (txtKundeName.Text.Length < 3 || txtKundeAnsprechPartner.Text.Length < 3 || txtKundeStr.Text.Length < 3 || txtKundeOrt.Text.Length < 3 || txtKundePlz.Text.Length < 3)
-                    MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
-            else 
+                MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
+            else
             if (txtAnAdresseName.Text == "" || txtAnAdresseAnsprechPartner.Text == "" || txtAnAdresseLand.Text == "" || txtAnAdresseOrt.Text == "" || txtAnAdressePlz.Text == "")
 
-                    MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
+                MessageBox.Show("Es wurden keine Angaben zum Kunden getätigt! - Bitte korrigieren! ");
             else
             if (txtAnAdresseName.Text.Length < 3 || txtAnAdresseAnsprechPartner.Text.Length < 3 || txtAnAdresseLand.Text.Length < 3 || txtAnAdresseOrt.Text.Length < 3 || txtAnAdressePlz.Text.Length < 3)
-                    MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
+                MessageBox.Show("Ihre Eingabe war Fehlerhaft. .Bitte tätigen sie eine Eingabe mit min. 3 Buchstaben ein!");
 
             if (txtKundeName.Text == "" || txtKundeName.Text.Length < 3)
-                 txtKundeName.Background = Brushes.Red;
+                txtKundeName.Background = Brushes.Red;
             else
-                   txtKundeName.Background = Brushes.White;
+                txtKundeName.Background = Brushes.White;
 
             if
                 (txtKundeAnsprechPartner.Text == "" || txtKundeAnsprechPartner.Text.Length < 3)
-                  txtKundeAnsprechPartner.Background = Brushes.Red;
+                txtKundeAnsprechPartner.Background = Brushes.Red;
             else
-                    txtKundeAnsprechPartner.Background = Brushes.White;
+                txtKundeAnsprechPartner.Background = Brushes.White;
             if
                 (txtKundeStr.Text == "" || txtKundeStr.Text.Length < 3)
-                  txtKundeStr.Background = Brushes.Red;
+                txtKundeStr.Background = Brushes.Red;
             else
-                    txtKundeStr.Background = Brushes.White;
+                txtKundeStr.Background = Brushes.White;
             if
                 (txtKundeOrt.Text == "" || txtKundeOrt.Text.Length < 3)
-                  txtKundeOrt.Background = Brushes.Red;
+                txtKundeOrt.Background = Brushes.Red;
             else
-                    txtKundeOrt.Background = Brushes.White;
+                txtKundeOrt.Background = Brushes.White;
             if
                 (txtKundePlz.Text == "" || txtKundePlz.Text.Length < 3)
-                  txtKundePlz.Background = Brushes.Red;
+                txtKundePlz.Background = Brushes.Red;
             else
-                    txtKundePlz.Background = Brushes.White;
+                txtKundePlz.Background = Brushes.White;
 
             if (txtAnAdresseName.Text == "" || txtAnAdresseName.Text.Length < 3)
-                  txtAnAdresseName.Background = Brushes.Red;
+                txtAnAdresseName.Background = Brushes.Red;
             else
-                    txtAnAdresseName.Background = Brushes.White;
+                txtAnAdresseName.Background = Brushes.White;
 
             if (txtAnAdresseAnsprechPartner.Text == "" || txtAnAdresseAnsprechPartner.Text.Length < 3)
-                  txtAnAdresseAnsprechPartner.Background = Brushes.Red;
+                txtAnAdresseAnsprechPartner.Background = Brushes.Red;
             else
-                    txtAnAdresseAnsprechPartner.Background = Brushes.White;
+                txtAnAdresseAnsprechPartner.Background = Brushes.White;
 
             if (txtAnAdresseLand.Text == "" || txtAnAdresseLand.Text.Length < 3)
-                  txtAnAdresseLand.Background = Brushes.Red;
+                txtAnAdresseLand.Background = Brushes.Red;
             else
-                    txtAnAdresseLand.Background = Brushes.White;
+                txtAnAdresseLand.Background = Brushes.White;
 
             if (txtAnAdresseOrt.Text == "" || txtAnAdresseOrt.Text.Length < 3)
-                  txtAnAdresseOrt.Background = Brushes.Red;
+                txtAnAdresseOrt.Background = Brushes.Red;
             else
-                    txtAnAdresseOrt.Background = Brushes.White;
+                txtAnAdresseOrt.Background = Brushes.White;
 
             if (txtAnAdressePlz.Text == "" || txtAnAdressePlz.Text.Length < 3)
-                  txtAnAdressePlz.Background = Brushes.Red;
+                txtAnAdressePlz.Background = Brushes.Red;
             else
-                    txtAnAdressePlz.Background = Brushes.White;
+                txtAnAdressePlz.Background = Brushes.White;
 
-          
+
             ProgrammName PName = new ProgrammName();
 
             bool atleastOneChecked = false;
@@ -353,7 +338,7 @@ namespace AufträgeOrgadata
             for (int i = 0; i < PName.ProgrammListe.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)stackPanelPrograms.Children[i];
-                    
+
                 if (checkbox.IsChecked == true)
                 {
                     atleastOneChecked = true;
@@ -361,7 +346,7 @@ namespace AufträgeOrgadata
                 }
             }
 
-            if(atleastOneChecked == false)
+            if (atleastOneChecked == false)
             {
                 MessageBox.Show("Kein Programm ausgewählt");
                 ProgrammGrid.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
@@ -428,7 +413,7 @@ namespace AufträgeOrgadata
             setinstallart = new TInstallArt();
             setinstallart.InstallList = new List<TInstallArt>();
             bool atChecked = false;
-            for(int i = 0; i < art.Installationsliste.Count; i++)
+            for (int i = 0; i < art.Installationsliste.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)stackPanelInstallation.Children[i];
 
@@ -444,7 +429,7 @@ namespace AufträgeOrgadata
                 }
             }
 
-            if(atChecked == false)
+            if (atChecked == false)
             {
             }
 
@@ -460,21 +445,21 @@ namespace AufträgeOrgadata
             setgrund.grund = txtGrund.Text;
             setgrund.austausch = txtAustausch.Text;
 
-            setvnummer = new TVNummer();
-            setvnummer.adkunden = cballedesKunden.IsChecked == true;
-            setvnummer.vnummer = txtKunden.Text + txtVertragsnummern.Text;
-            setvnummer.rnummer = txtRn.Text;
-            setvnummer.rnummer2 = txtRn2.Text;
-            setvnummer.rnumemr3 = txtRn3.Text;
-            setvnummer.serverdongle = txtServerdongle.Text;
-            setvnummer.zeitdongle = txtZeitDongle.Text;
-            setvnummer.autopro = cbAutoProl.IsChecked == true;
+            TVNummer vnummer = new TVNummer();
+            vnummer.adkunden = cballedesKunden.IsChecked == true;
+            vnummer.vnummer = txtKunden.Text + txtVertragsnummern.Text;
+            vnummer.rnummer = txtRn.Text;
+            vnummer.rnummer2 = txtRn2.Text;
+            vnummer.rnumemr3 = txtRn3.Text;
+            vnummer.serverdongle = txtServerdongle.Text;
+            vnummer.zeitdongle = txtZeitDongle.Text;
+            vnummer.autopro = cbAutoProl.IsChecked == true;
 
 
             //Auslesen StammDaten ID & Name
             StammName daten = new StammName();
-            setstamm = new Tstamm();
-            setstamm.StammListUebergabe = new List<Tstamm>();
+            Tstamm stamm = new Tstamm();
+            stamm.StammListUebergabe = new List<Tstamm>();
             bool atCheckedStamm = false;
             for (int i = 0; i < daten.StammListe.Count; i++)
             {
@@ -483,11 +468,11 @@ namespace AufträgeOrgadata
                 if (checkbox.IsChecked == true)
                 {
                     //Zuweisen der Stammdaten
-                    setstamm.id = Convert.ToString(daten.StammListe[i].ID);
-                    setstamm.name = checkbox.Content.ToString();
+                    stamm.id = Convert.ToString(daten.StammListe[i].ID);
+                    stamm.name = checkbox.Content.ToString();
 
                     //Ausgelesende Daten in eine Liste hinzufügen
-                    setstamm.StammListUebergabe.Add(setstamm);
+                    stamm.StammListUebergabe.Add(stamm);
                     atCheckedStamm = true;
                 }
             }
@@ -501,7 +486,7 @@ namespace AufträgeOrgadata
             setausstattung.Ausstattung_DataList = new List<TAusstattung_Data>();
 
             bool atCheckedAusstattung = false;
-            for(int i = 0; i < aus.Ausstattungsliste.Count; i++)
+            for (int i = 0; i < aus.Ausstattungsliste.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)wpanelAusstattung.Children[i];
 
@@ -516,7 +501,7 @@ namespace AufträgeOrgadata
                     atCheckedAusstattung = true;
 
                 }
-            
+
             }
 
             if (atCheckedAusstattung == false)
@@ -526,11 +511,11 @@ namespace AufträgeOrgadata
             //Übergabe der WIZT Daten
             settwizt = new Twizt();
 
-            for(int i = 0; i < wrapPanelsVersand.Children.Count; i++)
+            for (int i = 0; i < wrapPanelsVersand.Children.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)wrapPanelsVersand.Children[i];
 
-                if(checkbox.IsChecked == true)
+                if (checkbox.IsChecked == true)
                 {
 
                     settwizt.express = cbexpress.IsChecked == true;
@@ -580,7 +565,16 @@ namespace AufträgeOrgadata
             set.timer = timeOnly;
 
             Main_auftrag mainauftrag = new Main_auftrag();
-            mainauftrag.Kunde();       
+            mainauftrag.Kunde();
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            AusstattungWindow AusstattungWin = new AusstattungWindow();
+            AusstattungWin.ShowDialog();
+
+
+
         }
     }
-}
+}//Ende
