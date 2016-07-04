@@ -13,40 +13,34 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 
+
 namespace AufträgeOrgadata
 {
     /// <summary>
-    /// Interaktionslogik für Stammdaten.xaml
+    /// Interaktionslogik für AusstattungWindow.xaml
     /// </summary>
-    public partial class Stammdaten : Window
+    public partial class AusstattungWindow : Window
     {
-        public Stammdaten()
+        public AusstattungWindow()
         {
             InitializeComponent();
         }
-        public class TStammDaten
+        public class TAusstattung
         {
             public int ID { get; set; }
-            public String StammName { get; set; }
+            public String AusstattungName { get; set; }
         }
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        public class AusstattungCs
         {
-            this.Close();
+            public List<TAusstattung> Ausstattungsliste { get; set; }
 
-        }  
-
-
-        public class StammdatenCs
-        {
-            public List<TStammDaten> StammDatenliste { get; set; }
-
-            public StammdatenCs()
+            public AusstattungCs()
             {
-                StammDatenliste = new List<TStammDaten>();
-                LoadStammdaten();
+                Ausstattungsliste = new List<TAusstattung>();
+                LoadAusstattung();
             }
 
-            public void LoadStammdaten()
+            public void LoadAusstattung()
             {
                 login lgn = new login();
 
@@ -64,7 +58,7 @@ namespace AufträgeOrgadata
                 try
                 {
                     conn.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM stammdaten");
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM ausstattung");
                     cmd.Connection = conn;
 
                     using (MySqlDataReader Reader = cmd.ExecuteReader())
@@ -72,11 +66,12 @@ namespace AufträgeOrgadata
                         while (Reader.Read())
                         {
 
-                            TStammDaten StammN = new TStammDaten();
-                            StammN.ID = int.Parse(Reader["ID"].ToString());
-                            StammN.StammName = Reader["StammName"].ToString();
-                            StammDatenliste.Add(StammN);
+                            TAusstattung Ausstattung = new TAusstattung();
+                            Ausstattung.ID = int.Parse(Reader["ID"].ToString());
+                            Ausstattung.AusstattungName = Reader["AusstattungName"].ToString();
+                            Ausstattungsliste.Add(Ausstattung);
                         }
+                            
                     }
                     conn.Close();
                 }
@@ -88,16 +83,16 @@ namespace AufträgeOrgadata
             }
         }
 
-        public void PWindow_Loaded(object sender, RoutedEventArgs e)
+        public void AWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            StammdatenCs SName = new StammdatenCs();
+            AusstattungCs AS = new AusstattungCs();
 
-            for (int i = 0; i < SName.StammDatenliste.Count; i++)
+            for (int i = 0; i < AS.Ausstattungsliste.Count; i++)
             {
-                lvStammDaten.Items.Add(new TStammDaten
+                lvAusstattung.Items.Add(new TAusstattung
                 {
-                    ID = SName.StammDatenliste[i].ID,
-                    StammName = SName.StammDatenliste[i].StammName
+                    ID = AS.Ausstattungsliste[i].ID,
+                    AusstattungName = AS.Ausstattungsliste[i].AusstattungName
 
                 });
             }
@@ -106,7 +101,7 @@ namespace AufträgeOrgadata
         public void mDelete_Click(object sender, RoutedEventArgs e)
         {
 
-            var selectitem = (dynamic)lvStammDaten.SelectedItems[0];
+            var selectitem = (dynamic)lvAusstattung.SelectedItems[0];
 
             String connstring = "Server = localhost; database = auftraege; uid = root ";
 
@@ -117,14 +112,14 @@ namespace AufträgeOrgadata
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("Delete from stammdaten where StammName = ?ItemClick");
-  
+                MySqlCommand cmd = new MySqlCommand("Delete from ausstattung where Ausstattung = ?ItemClick");
 
-                cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
 
-                MessageBox.Show("Projekt: "+ (Convert.ToString(selectitem.StammName)+(" erfolgreich gelöscht!")));
+                cmd.Parameters.AddWithValue("?ItemClick", selectitem.AusstattungName);
 
-                
+                MessageBox.Show("Ausstattung: " + (Convert.ToString(selectitem.AusstattungName) + (" erfolgreich gelöscht!")));
+
+
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
 
@@ -138,7 +133,13 @@ namespace AufträgeOrgadata
 
         }
 
+
         private void mAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void mEdit_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -146,19 +147,7 @@ namespace AufträgeOrgadata
         private void mClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+
         }
     }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

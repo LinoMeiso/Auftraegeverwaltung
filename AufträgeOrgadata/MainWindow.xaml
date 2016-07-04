@@ -39,7 +39,7 @@
                             <Image Width="16" Height="16" Source="Images\costumers.ico"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem  Header="Austattung" Height="25" >
+                    <MenuItem  Header="Austattung" Height="25" Click="MenuItem_Click_3" >
                         <MenuItem.Icon>
                             <Image Width="16" Height="16" Source="Images\costumers.ico"/>
                         </MenuItem.Icon>
