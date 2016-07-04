@@ -80,44 +80,46 @@ namespace AufträgeOrgadata
 
             public void LoadStammdaten()
             {
-                var lgn = new login();
+                login lgn = new login();
 
-                var uid = lgn.lgnList[0].uid;
-                var pw = lgn.lgnList[0].pw;
-                var server = lgn.lgnList[0].server;
-                var port = lgn.lgnList[0].port;
-                var db = lgn.lgnList[0].db;
-                var table = lgn.lgnList[0].table;
+                string uid, pw, server, port, db, table;
+                uid = lgn.lgnList[0].uid;
+                pw = lgn.lgnList[0].pw;
+                server = lgn.lgnList[0].server;
+                port = lgn.lgnList[0].port;
+                db = lgn.lgnList[0].db;
+                table = lgn.lgnList[0].table;
 
-                var connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port +
-                                 ";" + "database=" + db + ";" + "table=" + table + ";";
-                var conn = new MySqlConnection(connstring);
+                String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+                MySqlConnection conn = new MySqlConnection(connstring);
 
                 try
                 {
                     conn.Open();
-                    var cmd = new MySqlCommand("SELECT * FROM stammdaten") { Connection = conn };
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM stammdaten");
+                    cmd.Connection = conn;
 
-                MySqlCommand cmd = new MySqlCommand("Delete from stammdaten where StammName = ?ItemClick");
-  
+                    using (MySqlDataReader Reader = cmd.ExecuteReader())
+                    {
+                        while (Reader.Read())
+                        {
 
-                cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
+                            TStammDaten StammN = new TStammDaten();
+                            StammN.ID = int.Parse(Reader["ID"].ToString());
+                            StammN.StammName = Reader["StammName"].ToString();
+                            StammDatenliste.Add(StammN);
+                        }
+                    }
+                    conn.Close();
+                }
 
-                MessageBox.Show("Projekt: "+ (Convert.ToString(selectitem.StammName)+(" erfolgreich gelöscht!")));
-
-                
-                cmd.Connection = conn;
-                cmd.ExecuteNonQuery();
-
-                conn.Close();
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }
-            catch (Exception e1)
-            {
-                MessageBox.Show(e1.Message);
-            }
-
-
         }
+
 
         private void mAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -129,17 +131,4 @@ namespace AufträgeOrgadata
             this.Close();
         }
     }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

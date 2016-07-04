@@ -103,3 +103,6 @@ C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Aufträ
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.csproj.GenerateResource.Cache
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.exe
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.pdb
+C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AusstattungWindow.g.cs
+C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata_MarkupCompile.lref
+C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AusstattungWindow.baml

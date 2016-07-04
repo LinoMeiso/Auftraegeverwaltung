@@ -419,7 +419,7 @@ namespace AufträgeOrgadata
                     setstamm.name = checkbox.Content.ToString();
 
                     //Ausgelesende Daten in eine Liste hinzufügen
-                   stamm.StammListUebergabe.Add(stamm);
+                   setstamm.StammListUebergabe.Add(setstamm);
                     atCheckedStamm = true;
                 }
             }

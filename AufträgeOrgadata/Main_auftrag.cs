@@ -42,9 +42,7 @@ namespace AufträgeOrgadata
             Get_set.TAusstattung_Data ausstattung = main.GetAusstattungSet();
             Get_set.Twizt twizt = main.GetTwiztSet();
             Get_set.TLastIdentityDongle ldongle = GetLastDongle();
-            
-            login lgn = new login();
-
+           
             var lgn = new login();
 
             var uid = lgn.lgnList[0].uid;
@@ -107,10 +105,11 @@ namespace AufträgeOrgadata
                     /* Mehrere möglich */
                     cmd.Parameters.AddWithValue("?DongleStammdatenID", "1");
 
-                cmd.Connection = conn;
-                cmd.ExecuteNonQuery();
+                    cmd.Connection = conn;
+                    cmd.ExecuteNonQuery();
 
-                conn.Close();
+                    conn.Close();
+                }
             }
             catch (Exception ex)
             {
