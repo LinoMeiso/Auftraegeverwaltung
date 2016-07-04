@@ -33,6 +33,7 @@ namespace AufträgeOrgadata
         private TProgramms setpro = null;
         private TInstallArt setinstallart = null;
         private Twizt settwizt = null;
+        private TAusstattung_Data setausstattung = null;
 
         public MainWindow()
         {
@@ -143,6 +144,11 @@ namespace AufträgeOrgadata
         public Get_set.Twizt GetTwiztSet()
         {
             return settwizt;
+        }
+
+        public Get_set.TAusstattung_Data GetAusstattungSet()
+        {
+            return setausstattung;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -476,8 +482,8 @@ namespace AufträgeOrgadata
             }
 
             Ausstattung aus = new Ausstattung();
-            TAusstattung_Data ausstattungdata = new TAusstattung_Data();
-            ausstattungdata.Ausstattung_DataList = new List<TAusstattung_Data>();
+            setausstattung = new TAusstattung_Data();
+            setausstattung.Ausstattung_DataList = new List<TAusstattung_Data>();
 
             bool atCheckedAusstattung = false;
             for(int i = 0; i < aus.Ausstattungsliste.Count; i++)
@@ -487,11 +493,11 @@ namespace AufträgeOrgadata
                 if (checkbox.IsChecked == true)
                 {
                     //Zuweisen der Ausstattung
-                    ausstattungdata.id = Convert.ToString(aus.Ausstattungsliste[i].ID);
-                    ausstattungdata.name = checkbox.Content.ToString();
+                    setausstattung.id = Convert.ToString(aus.Ausstattungsliste[i].ID);
+                    setausstattung.name = checkbox.Content.ToString();
 
                     //Ausgelesende Daten in eine Liste hinzufügen
-                    ausstattungdata.Ausstattung_DataList.Add(ausstattungdata);
+                    setausstattung.Ausstattung_DataList.Add(setausstattung);
                     atCheckedAusstattung = true;
 
                 }
