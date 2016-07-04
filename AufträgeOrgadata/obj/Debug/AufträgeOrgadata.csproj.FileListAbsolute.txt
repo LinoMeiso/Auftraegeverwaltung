@@ -90,7 +90,6 @@ C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\ProWind
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Stammdaten.g.cs
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\App.g.cs
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata_MarkupCompile.cache
-C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata_MarkupCompile.lref
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\add_edit.baml
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\database.baml
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Kunde.baml
@@ -104,5 +103,6 @@ C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Aufträ
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.csproj.GenerateResource.Cache
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.exe
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.pdb
-C:\Users\Praktikant\Documents\Neuer Ordner\AufträgeOrgadata\obj\Debug\AusstattungWindow.g.cs
-C:\Users\Praktikant\Documents\Neuer Ordner\AufträgeOrgadata\obj\Debug\AusstattungWindow.baml
+C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AusstattungWindow.g.cs
+C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata_MarkupCompile.lref
+C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AusstattungWindow.baml
