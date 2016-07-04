@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using System.Collections.Generic;
 using System.Xml;
-using System.IO;
-using System.Windows;
-using System.Data;
 
 namespace AufträgeOrgadata
 {
@@ -28,25 +20,26 @@ namespace AufträgeOrgadata
         public login()
         {
             lgnList = new List<TLogin>();
-            loadLogin();
+            LoadLogin();
         }
 
-        public void loadLogin()
+        public void LoadLogin()
         {
-            TLogin lgn = new TLogin();
+            var lgn = new TLogin();
 
-            XmlDocument doc = new XmlDocument();
+            var doc = new XmlDocument();
             doc.Load("login.xml");
-            XmlNodeList ndList = doc.DocumentElement.SelectNodes("/AufträgeOrgadata/login");
-            
-            foreach(XmlNode node in ndList)
-            {
-                lgn.uid = node.SelectSingleNode("username").InnerText;
-                lgn.pw = node.SelectSingleNode("password").InnerText;
-                lgn.server = node.SelectSingleNode("server").InnerText;
-                lgn.port = node.SelectSingleNode("port").InnerText;
-                lgn.db = node.SelectSingleNode("database").InnerText;
-            }
+            var ndList = doc.DocumentElement.SelectNodes("/AufträgeOrgadata/login");
+
+            if (ndList != null)
+                foreach (XmlNode node in ndList)
+                {
+                    lgn.uid = node.SelectSingleNode("username").InnerText;
+                    lgn.pw = node.SelectSingleNode("password").InnerText;
+                    lgn.server = node.SelectSingleNode("server").InnerText;
+                    lgn.port = node.SelectSingleNode("port").InnerText;
+                    lgn.db = node.SelectSingleNode("database").InnerText;
+                }
             lgnList.Add(lgn);
         }
     }

@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using static AufträgeOrgadata.Get_set;
-using System.Windows;
-
-namespace AufträgeOrgadata
+﻿namespace AufträgeOrgadata
 {
     public class Kunde_anadresse
     {

@@ -3,51 +3,58 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Kunde Suche" Height="407.415" Width="729.661" ResizeMode="NoResize" Icon="Images/search.ico">
+        Title="Kunde Suche"
+        Height="407.415"
+        Width="729.661"
+        ResizeMode="NoResize"
+        Icon="Images/search.ico">
     <Window.Resources>
         <Style TargetType="{x:Type ListViewItem}">
             <Style.Triggers>
                 <Trigger Property="ItemsControl.AlternationIndex" Value="1">
-                    <Setter Property="Background" Value="#FF8C00"/>
+                    <Setter Property="Background" Value="#FF8C00" />
                 </Trigger>
                 <Trigger Property="ItemsControl.AlternationIndex" Value="0">
-                    <Setter Property="Background" Value="#FFFFFFFF"/>
+                    <Setter Property="Background" Value="#FFFFFFFF" />
                 </Trigger>
                 <Trigger Property="IsSelected" Value="true">
-                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                    <Setter Property="BorderBrush" Value="Black" />
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="true">
-                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                    <Setter Property="BorderBrush" Value="Black" />
                 </Trigger>
             </Style.Triggers>
         </Style>
         <Style TargetType="{x:Type GridViewColumnHeader}">
-            <Setter Property="Background" Value="#FF8C00">
-            </Setter>
+            <Setter Property="Background" Value="#FF8C00" />
         </Style>
     </Window.Resources>
 
     <Grid>
-        <ListView x:Name="lvKundeSearch" Margin="0,0,2,0" ItemsSource="{Binding KundeFindList}" AlternationCount="2" FontSize="16" FontFamily="Time New Roman Bold">
+        <ListView
+            x:Name="lvKundeSearch"
+            Margin="0,0,2,0"
+            ItemsSource="{Binding KundeFindList}"
+            AlternationCount="2"
+            FontSize="16"
+            FontFamily="Time New Roman Bold">
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="edit" Header="Eintrag Bearbeiten"/>
-                    <MenuItem x:Name="delete" Header="Eintrag Löschen" Click="delete_Click"></MenuItem>
+                    <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" />
+                    <MenuItem x:Name="delete" Header="Eintrag Löschen" Click="delete_Click" />
                 </ContextMenu>
             </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding NameFind}"/>
-                    <GridViewColumn Header="Ort" DisplayMemberBinding="{Binding OrtFind}"/>
-                    <GridViewColumn Header="Str" DisplayMemberBinding="{Binding StrFind}"/>
-                    <GridViewColumn Header="PLZ" DisplayMemberBinding="{Binding PLZFind}"/>
-                    <GridViewColumn Header="Ansprechpartner" DisplayMemberBinding="{Binding AnsprechpartnerFind}"/>
-                    <GridViewColumn Header="VertragsNr" DisplayMemberBinding="{Binding VertragsNrFind}"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding NameFind}" />
+                    <GridViewColumn Header="Ort" DisplayMemberBinding="{Binding OrtFind}" />
+                    <GridViewColumn Header="Str" DisplayMemberBinding="{Binding StrFind}" />
+                    <GridViewColumn Header="PLZ" DisplayMemberBinding="{Binding PLZFind}" />
+                    <GridViewColumn Header="Ansprechpartner" DisplayMemberBinding="{Binding AnsprechpartnerFind}" />
+                    <GridViewColumn Header="VertragsNr" DisplayMemberBinding="{Binding VertragsNrFind}" />
                 </GridView>
             </ListView.View>
         </ListView>
-
     </Grid>
 </Window>
