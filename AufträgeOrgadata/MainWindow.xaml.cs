@@ -34,6 +34,8 @@ namespace AufträgeOrgadata
         private TInstallArt setinstallart = null;
         private Twizt settwizt = null;
         private TAusstattung_Data setausstattung = null;
+        private TVNummer setvnummer = null;
+        private Tstamm setstamm = null;
 
         public MainWindow()
         {
@@ -151,6 +153,16 @@ namespace AufträgeOrgadata
             return setausstattung;
         }
 
+        public Get_set.TVNummer GetVNummerSet()
+        {
+            return setvnummer;
+        }
+
+        public Get_set.Tstamm GetStammSet()
+        {
+            return setstamm;
+        }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             //Datum und Zeit Ausgabe
@@ -161,6 +173,9 @@ namespace AufträgeOrgadata
 
             lblDate.Content = dateOnly;
             lblTime.Content = timeOnly;
+
+            Main_auftrag mauftr = new Main_auftrag();
+            //mauftr.auftr_neu();
         }
 
         private void txtGrund_TextChanged(object sender, TextChangedEventArgs e)
@@ -445,21 +460,21 @@ namespace AufträgeOrgadata
             setgrund.grund = txtGrund.Text;
             setgrund.austausch = txtAustausch.Text;
 
-            TVNummer vnummer = new TVNummer();
-            vnummer.adkunden = cballedesKunden.IsChecked == true;
-            vnummer.vnummer = txtKunden.Text + txtVertragsnummern.Text;
-            vnummer.rnummer = txtRn.Text;
-            vnummer.rnummer2 = txtRn2.Text;
-            vnummer.rnumemr3 = txtRn3.Text;
-            vnummer.serverdongle = txtServerdongle.Text;
-            vnummer.zeitdongle = txtZeitDongle.Text;
-            vnummer.autopro = cbAutoProl.IsChecked == true;
+            setvnummer = new TVNummer();
+            setvnummer.adkunden = cballedesKunden.IsChecked == true;
+            setvnummer.vnummer = txtKunden.Text + txtVertragsnummern.Text;
+            setvnummer.rnummer = txtRn.Text;
+            setvnummer.rnummer2 = txtRn2.Text;
+            setvnummer.rnumemr3 = txtRn3.Text;
+            setvnummer.serverdongle = txtServerdongle.Text;
+            setvnummer.zeitdongle = txtZeitDongle.Text;
+            setvnummer.autopro = cbAutoProl.IsChecked == true;
 
 
             //Auslesen StammDaten ID & Name
             StammName daten = new StammName();
-            Tstamm stamm = new Tstamm();
-            stamm.StammListUebergabe = new List<Tstamm>();
+            setstamm = new Tstamm();
+            setstamm.StammListUebergabe = new List<Tstamm>();
             bool atCheckedStamm = false;
             for (int i = 0; i < daten.StammListe.Count; i++)
             {
@@ -468,11 +483,11 @@ namespace AufträgeOrgadata
                 if (checkbox.IsChecked == true)
                 {
                     //Zuweisen der Stammdaten
-                    stamm.id = Convert.ToString(daten.StammListe[i].ID);
-                    stamm.name = checkbox.Content.ToString();
+                    setstamm.id = Convert.ToString(daten.StammListe[i].ID);
+                    setstamm.name = checkbox.Content.ToString();
 
                     //Ausgelesende Daten in eine Liste hinzufügen
-                   stamm.StammListUebergabe.Add(stamm);
+                    setstamm.StammListUebergabe.Add(setstamm);
                     atCheckedStamm = true;
                 }
             }
