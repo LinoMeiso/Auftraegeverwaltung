@@ -208,6 +208,7 @@ namespace AufträgeOrgadata
         private void search_Click(object sender, RoutedEventArgs e)
         {
             Kunde_search kdsearch = new Kunde_search();
+            kundecs kdcs = new kundecs();
 
             foreach (TKundeFind t in kdcs.KundeFindList)
             {
