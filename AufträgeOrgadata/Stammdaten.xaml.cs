@@ -24,17 +24,17 @@ namespace AufträgeOrgadata
         {
             InitializeComponent();
         }
+
         public class TStammDaten
         {
             public int ID { get; set; }
             public String StammName { get; set; }
         }
+
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-
-        }  
-
+            Close();
+        }
 
         public class StammdatenCs
         {
@@ -50,31 +50,32 @@ namespace AufträgeOrgadata
             {
                 login lgn = new login();
 
-                string uid, pw, server, port, db, table;
-                uid = lgn.lgnList[0].uid;
-                pw = lgn.lgnList[0].pw;
-                server = lgn.lgnList[0].server;
-                port = lgn.lgnList[0].port;
-                db = lgn.lgnList[0].db;
-                table = lgn.lgnList[0].table;
+                var uid = lgn.lgnList[0].uid;
+                var pw = lgn.lgnList[0].pw;
+                var server = lgn.lgnList[0].server;
+                var port = lgn.lgnList[0].port;
+                var db = lgn.lgnList[0].db;
+                var table = lgn.lgnList[0].table;
 
-                String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+                var connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port +
+                                 ";" + "database=" + db + ";" + "table=" + table + ";";
                 MySqlConnection conn = new MySqlConnection(connstring);
 
                 try
                 {
                     conn.Open();
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM stammdaten");
-                    cmd.Connection = conn;
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM stammdaten") {Connection = conn};
 
                     using (MySqlDataReader Reader = cmd.ExecuteReader())
                     {
                         while (Reader.Read())
                         {
 
-                            TStammDaten StammN = new TStammDaten();
-                            StammN.ID = int.Parse(Reader["ID"].ToString());
-                            StammN.StammName = Reader["StammName"].ToString();
+                            TStammDaten StammN = new TStammDaten
+                            {
+                                ID = int.Parse(Reader["ID"].ToString()),
+                                StammName = Reader["StammName"].ToString()
+                            };
                             StammDatenliste.Add(StammN);
                         }
                     }
@@ -92,12 +93,12 @@ namespace AufträgeOrgadata
         {
             StammdatenCs SName = new StammdatenCs();
 
-            for (int i = 0; i < SName.StammDatenliste.Count; i++)
+            foreach (TStammDaten t in SName.StammDatenliste)
             {
                 lvStammDaten.Items.Add(new TStammDaten
                 {
-                    ID = SName.StammDatenliste[i].ID,
-                    StammName = SName.StammDatenliste[i].StammName
+                    ID = t.ID,
+                    StammName = t.StammName
 
                 });
             }
@@ -105,50 +106,30 @@ namespace AufträgeOrgadata
 
         public void mDelete_Click(object sender, RoutedEventArgs e)
         {
+            var selectitem = (dynamic) lvStammDaten.SelectedItems[0];
+            var connstring = "Server = localhost; database = auftraege; uid = root ";
 
-            var selectitem = (dynamic)lvStammDaten.SelectedItems[0];
-
-            String connstring = "Server = localhost; database = auftraege; uid = root ";
-
-            MySqlConnection conn = new MySqlConnection(connstring);
-
-
-            try
+            using (MySqlConnection conn = new MySqlConnection(connstring))
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
+                    var cmd = new MySqlCommand("Delete from  stammdaten where ID = ?ItemClick");
 
-                MySqlCommand cmd = new MySqlCommand("Delete from  stammdaten where ID = ?ItemClick");
-  
+                    cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
 
-                cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
+                    MessageBox.Show(Convert.ToString(selectitem.ID));
 
-                MessageBox.Show(Convert.ToString(selectitem.ID));
+                    cmd.Connection = conn;
+                    cmd.ExecuteNonQuery();
 
-                
-                cmd.Connection = conn;
-                cmd.ExecuteNonQuery();
-
-                conn.Close();
+                    conn.Close();
+                }
+                catch (Exception e1)
+                {
+                    MessageBox.Show(e1.Message);
+                }
             }
-            catch (Exception e1)
-            {
-                MessageBox.Show(e1.Message);
-            }
-
-
         }
     }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
+}

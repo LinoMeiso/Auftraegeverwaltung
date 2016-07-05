@@ -3,9 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Programme" Height="325.53" Width="650.965" Loaded="PWindow_Loaded" WindowStartupLocation="CenterScreen" Icon="Images\costumers.ico">
+        Title="Programme" 
+        Height="325" 
+        Width="650" 
+        Loaded="PWindow_Loaded"
+        WindowStartupLocation="CenterScreen" 
+        Icon="Images\costumers.ico">
     <Grid>
         <ListView x:Name="lvProWindow" HorizontalAlignment="Left" Height="272" VerticalAlignment="Top" Width="642" Margin="1,23,0,0">
             <ListView.View>

@@ -3,9 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Kunde" Height="440.628" Width="1017.501" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Icon="Images/costumers.ico">
+        Title="Kunde" 
+        Height="440" 
+        Width="1015" 
+        Loaded="Window_Loaded" 
+        WindowStartupLocation="CenterScreen" 
+        Icon="Images/costumers.ico">
     <Window.Resources>
         <Style TargetType="{x:Type ListViewItem}">
             <Style.Triggers>

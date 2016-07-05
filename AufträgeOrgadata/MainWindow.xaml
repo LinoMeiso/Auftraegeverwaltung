@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1225.969" Width="1347" Loaded="Program_Loaded" Icon="Images/assignment.ico">
+        Title="MainWindow" 
+        Height="1225"
+        Width="1345" 
+        Loaded="Program_Loaded"
+        Icon="Images/assignment.ico">
     <Grid>
-
         <DockPanel Height="25" Width="1305" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Menu x:Name="menu" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="1305">
                 <MenuItem Header="Datei" Height="25" Width="50">
@@ -67,9 +69,6 @@
                 <CheckBox x:Name="cbtnt" Content="TNT" HorizontalAlignment="Left" Margin="35,957,0,0" VerticalAlignment="Top"/>
                 <CheckBox x:Name="cbmitarbeiter" Content="Mitarbeiter:" HorizontalAlignment="Left" Margin="35,977,0,0" VerticalAlignment="Top"/>
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="174" Margin="0,373,0,0" VerticalAlignment="Top" Width="1305"/>
-
-
-
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="190">
                     <Grid HorizontalAlignment="Left" Height="125" Margin="-1" VerticalAlignment="Top" Width="190">
                         <Grid.ColumnDefinitions>

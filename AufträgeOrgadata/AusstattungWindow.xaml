@@ -3,10 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Ausstattung" Height="325.08" Width="651.125" Loaded="AWindow_Loaded">
-    <Grid Margin="0,0,-22,-6">
+        Title="Ausstattung"
+        Height="325" 
+        Width="650" 
+        Loaded="AWindow_Loaded">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="91*"/>
             <RowDefinition Height="59*"/>
