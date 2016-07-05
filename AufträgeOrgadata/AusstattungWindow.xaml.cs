@@ -1,35 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
-
 
 namespace AufträgeOrgadata
 {
-    /// <summary>
-    /// Interaktionslogik für AusstattungWindow.xaml
-    /// </summary>
     public partial class AusstattungWindow : Window
     {
         public AusstattungWindow()
         {
             InitializeComponent();
         }
+
         public class TAusstattung
         {
             public int ID { get; set; }
             public String AusstattungName { get; set; }
         }
+
         public class AusstattungCs
         {
             public List<TAusstattung> Ausstattungsliste { get; set; }
@@ -43,16 +31,15 @@ namespace AufträgeOrgadata
             public void LoadAusstattung()
             {
                 login lgn = new login();
+                
+                string uid = lgn.lgnList[0].uid;
+                string pw = lgn.lgnList[0].pw;
+                string server = lgn.lgnList[0].server;
+                string port = lgn.lgnList[0].port;
+                string db = lgn.lgnList[0].db;
+                string table = lgn.lgnList[0].table;
 
-                string uid, pw, server, port, db, table;
-                uid = lgn.lgnList[0].uid;
-                pw = lgn.lgnList[0].pw;
-                server = lgn.lgnList[0].server;
-                port = lgn.lgnList[0].port;
-                db = lgn.lgnList[0].db;
-                table = lgn.lgnList[0].table;
-
-                String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+                var connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
                 MySqlConnection conn = new MySqlConnection(connstring);
 
                 try
@@ -84,6 +71,11 @@ namespace AufträgeOrgadata
 
         public void AWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadData();
+        }
+
+        private void LoadData()
+        {
             AusstattungCs AS = new AusstattungCs();
 
             for (int i = 0; i < AS.Ausstattungsliste.Count; i++)
@@ -96,43 +88,36 @@ namespace AufträgeOrgadata
                 });
             }
         }
+    
 
         public void mDelete_Click(object sender, RoutedEventArgs e)
         {
-
             var selectitem = (dynamic)lvAusstattung.SelectedItems[0];
-
-            String connstring = "Server = localhost; database = auftraege; uid = root ";
-
+            var connstring = "Server = localhost; database = auftraege; uid = root ";
             MySqlConnection conn = new MySqlConnection(connstring);
-
-
+            
             try
             {
                 conn.Open();
-
-                MySqlCommand cmd = new MySqlCommand("Delete from ausstattung where Ausstattung = ?ItemClick");
-
+                MySqlCommand cmd = new MySqlCommand("Delete from ausstattung where AusstattungnAME = ?ItemClick");
 
                 cmd.Parameters.AddWithValue("?ItemClick", selectitem.AusstattungName);
 
                 MessageBox.Show("Ausstattung: " + (Convert.ToString(selectitem.AusstattungName) + (" erfolgreich gelöscht!")));
 
-
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
 
                 conn.Close();
+                lvAusstattung.Items.Clear();
+                LoadData();
             }
             catch (Exception e1)
             {
                 MessageBox.Show(e1.Message);
             }
-
-
         }
-
-
+        
         private void mAdd_Click(object sender, RoutedEventArgs e)
         {
 
@@ -145,8 +130,7 @@ namespace AufträgeOrgadata
 
         private void mClose_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-
+           Close();
         }
     }
 }
