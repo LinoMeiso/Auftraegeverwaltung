@@ -8,6 +8,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows;
 
+
 namespace AufträgeOrgadata
 {
     public class TProgramm
@@ -182,20 +183,19 @@ namespace AufträgeOrgadata
 
     }
 
-    public class TAusstattung
+    public partial class Ausstattung
     {
         public int ID { get; set; }
         public string Ausstatung { get; set; }
     }
 
-    public class Ausstattung
+    public partial class Ausstattung
     {
-        public List<TAusstattung> Ausstattungsliste { get; set; }
+        public List<Ausstattung> Ausstattungsliste { get; set; }
 
         public Ausstattung()
         {
-            Ausstattungsliste = new List<TAusstattung>();
-            LoadProgramms();
+            Ausstattungsliste = new List<Ausstattung>();
         }
 
         public void LoadProgramms()
@@ -222,7 +222,7 @@ namespace AufträgeOrgadata
                 {
                     while (Reader.Read())
                     {
-                        TAusstattung Ausstattung = new TAusstattung
+                        Ausstattung Ausstattung = new Ausstattung
                         {
                             ID = int.Parse(Reader["ID"].ToString()),
                             Ausstatung = Reader["ausstattungName"].ToString()

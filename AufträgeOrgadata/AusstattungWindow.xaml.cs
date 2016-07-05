@@ -16,6 +16,7 @@ namespace AufträgeOrgadata
         {
             public int ID { get; set; }
             public String AusstattungName { get; set; }
+            public string Ausstatung { get; internal set; }
         }
 
         public class AusstattungCs
@@ -100,7 +101,7 @@ namespace AufträgeOrgadata
             {
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand("Delete from ausstattung where AusstattungnAME = ?ItemClick");
-
+                
                 cmd.Parameters.AddWithValue("?ItemClick", selectitem.AusstattungName);
 
                 cmd.Connection = conn;
@@ -118,7 +119,8 @@ namespace AufträgeOrgadata
         
         private void mAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            AddAusstattung addAusstattungWindow = new AddAusstattung();
+            addAusstattungWindow.ShowDialog();
         }
 
         private void mEdit_Click(object sender, RoutedEventArgs e)

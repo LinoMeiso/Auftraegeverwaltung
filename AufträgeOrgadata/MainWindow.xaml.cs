@@ -76,8 +76,9 @@ namespace AufträgeOrgadata
             }
 
             Ausstattung Auss = new Ausstattung();
+            Auss.LoadProgramms();
 
-            foreach (TAusstattung t in Auss.Ausstattungsliste)
+            foreach (Ausstattung t in Auss.Ausstattungsliste)
             {
                 CheckBox cb = new CheckBox
                 {
@@ -394,7 +395,7 @@ namespace AufträgeOrgadata
             Installationsart art = new Installationsart();
             setinstallart = new TInstallArt();
             setinstallart.InstallList = new List<TInstallArt>();
-            bool atChecked = false;
+
             for (int i = 0; i < art.Installationsliste.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)stackPanelInstallation.Children[i];
@@ -404,10 +405,8 @@ namespace AufträgeOrgadata
                     //Zuweisen der Installationsarten
                     setinstallart.id = Convert.ToString(art.Installationsliste[i].ID);
                     setinstallart.installart = checkbox.Content.ToString();
-
                     //Ausgelesende Daten in eine Liste hinzufügen
                     setinstallart.InstallList.Add(setinstallart);
-                    atChecked = true;
                 }
             }
 
@@ -438,11 +437,9 @@ namespace AufträgeOrgadata
             StammName daten = new StammName();
             setstamm = new Tstamm();
             setstamm.StammListUebergabe = new List<Tstamm>();
-            bool atCheckedStamm = false;
             for (int i = 0; i < daten.StammListe.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)wpanelStamm.Children[i];
-
                 if (checkbox.IsChecked == true)
                 {
                     //Zuweisen der Stammdaten
@@ -451,15 +448,14 @@ namespace AufträgeOrgadata
 
                     //Ausgelesende Daten in eine Liste hinzufügen
                     setstamm.StammListUebergabe.Add(setstamm);
-                    atCheckedStamm = true;
                 }
             }
 
             Ausstattung aus = new Ausstattung();
+            aus.LoadProgramms();
             setausstattung = new TAusstattung_Data();
             setausstattung.Ausstattung_DataList = new List<TAusstattung_Data>();
 
-            bool atCheckedAusstattung = false;
             for (int i = 0; i < aus.Ausstattungsliste.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)wpanelAusstattung.Children[i];
@@ -472,7 +468,7 @@ namespace AufträgeOrgadata
 
                     //Ausgelesende Daten in eine Liste hinzufügen
                     setausstattung.Ausstattung_DataList.Add(setausstattung);
-                    atCheckedAusstattung = true;
+
                 }
             }
 

@@ -19,7 +19,7 @@ namespace AufträgeOrgadata
         public List<TProgramm> ProgrammListe { get; set; }
         public List<TInstallationsart> Installationsliste { get; set; }
         public List<TStamm> StammdatenListe { get; set; }
-        public List<TAusstattung> Ausstattungsliste { get; set; }
+        public List<AusstattungWindow.TAusstattung> Ausstattungsliste { get; set; }
 
 
         public MYSQLRefresh()
@@ -27,7 +27,7 @@ namespace AufträgeOrgadata
             ProgrammListe = new List<TProgramm>();
             Installationsliste = new List<TInstallationsart>();
             StammdatenListe = new List<TStamm>();
-            Ausstattungsliste = new List<TAusstattung>();
+            Ausstattungsliste = new List<AusstattungWindow.TAusstattung>();
 
             LoadProgramms();
             LoadInstallation();
@@ -178,7 +178,7 @@ namespace AufträgeOrgadata
                 {
                     while (Reader.Read())
                     {
-                        TAusstattung Ausstattung = new TAusstattung
+                        AusstattungWindow.TAusstattung Ausstattung = new AusstattungWindow.TAusstattung
                         {
                             ID = int.Parse(Reader["ID"].ToString()),
                             Ausstatung = Reader["AusstattungName"].ToString()
