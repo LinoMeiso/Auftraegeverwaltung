@@ -1,8 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Windows.Threading;
 using static AufträgeOrgadata.Get_set;
 
 namespace AufträgeOrgadata
@@ -12,19 +22,19 @@ namespace AufträgeOrgadata
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string customerid;
-        private TDateTime set;
-        private TGrund setgrund;
-        private TAuftrag setauftrag;
-        private TAusgefuehrt setausgefuehrt;
-        private TAnschreiben setanschreiben;
-        private THandbuch sethandbuch;
-        private TAnAdresse setanadresse;
-        private TProgramms setpro;
-        private TInstallArt setinstallart;
-        private Twizt settwizt;
-        private TAusstattung_Data setausstattung;
-        private Tstamm setstamm;
+        public string customerid = null;
+        private TDateTime set = null;
+        private TGrund setgrund = null;
+        private TAuftrag setauftrag = null;
+        private TAusgefuehrt setausgefuehrt = null;
+        private TAnschreiben setanschreiben = null;
+        private THandbuch sethandbuch = null;
+        private TAnAdresse setanadresse = null;
+        private TProgramms setpro = null;
+        private TInstallArt setinstallart = null;
+        private Twizt settwizt = null;
+        private TAusstattung_Data setausstattung = null;
+        private Tstamm setstamm = null;
 
         public MainWindow()
         {
@@ -36,62 +46,54 @@ namespace AufträgeOrgadata
             ProgrammName programme = new ProgrammName();
             //Boolean CheckStatus;
 
-            foreach (TProgramm t in programme.ProgrammListe)
+            for (int i = 0; i < programme.ProgrammListe.Count; i++)
             {
-                CheckBox cb = new CheckBox
-                {
-                    Width = 115,
-                    Height = 15,
-                    VerticalAlignment = VerticalAlignment.Top,
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Content = t.Name
-                };
+                CheckBox cb = new CheckBox();
+                cb.Width = 115;
+                cb.Height = 15;
+                cb.VerticalAlignment = VerticalAlignment.Top;
+                cb.HorizontalAlignment = HorizontalAlignment.Left;
+                cb.Content = programme.ProgrammListe[i].Name;
                 stackPanelPrograms.Children.Add(cb);
             }
 
             Installationsart installationsart = new Installationsart();
 
-            foreach (TInstallationsart t in installationsart.Installationsliste)
+            for (int i = 0; i < installationsart.Installationsliste.Count; i++)
             {
-                CheckBox cb = new CheckBox
-                {
-                    Width = 200,
-                    Height = 15,
-                    VerticalAlignment = VerticalAlignment.Top,
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Content = t.Installationsart
-                };
+                CheckBox cb = new CheckBox();
+                cb.Width = 200;
+                cb.Height = 15;
+                cb.VerticalAlignment = VerticalAlignment.Top;
+                cb.HorizontalAlignment = HorizontalAlignment.Left;
+                cb.Content = installationsart.Installationsliste[i].Installationsart;
                 stackPanelInstallation.Children.Add(cb);
             }
 
             StammName stamm = new StammName();
 
-            foreach (TStamm t in stamm.StammListe)
+            for (int i = 0; i < stamm.StammListe.Count; i++)
             {
-                CheckBox cb = new CheckBox
-                {
-                    Width = 200,
-                    Height = 15,
-                    VerticalAlignment = VerticalAlignment.Top,
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Content = t.StammName
-                };
+                CheckBox cb = new CheckBox();
+                cb.Width = 200;
+                cb.Height = 15;
+                cb.VerticalAlignment = VerticalAlignment.Top;
+                cb.HorizontalAlignment = HorizontalAlignment.Left;
+                cb.Content = stamm.StammListe[i].StammName;
                 wpanelStamm.Children.Add(cb);
             }
 
             Ausstattung Auss = new Ausstattung();
 
-            foreach (TAusstattung t in Auss.Ausstattungsliste)
+            for (int i = 0; i < Auss.Ausstattungsliste.Count; i++)
             {
-                CheckBox cb = new CheckBox
-                {
-                    Width = 200,
-                    Height = 15,
-                    VerticalAlignment = VerticalAlignment.Top,
-                    HorizontalAlignment = HorizontalAlignment.Left,
-                    Content = t.Ausstatung
-                };
-                wpanelAusstattung.Children.Add (cb);
+                CheckBox cb = new CheckBox();
+                cb.Width = 200;
+                cb.Height = 15;
+                cb.VerticalAlignment = VerticalAlignment.Top;
+                cb.HorizontalAlignment = HorizontalAlignment.Left;
+                cb.Content = Auss.Ausstattungsliste[i].Ausstatung;
+                wpanelAusstattung.Children.Add(cb);
             }
 
         }
@@ -170,42 +172,64 @@ namespace AufträgeOrgadata
 
         private void txtGrund_TextChanged(object sender, TextChangedEventArgs e)
         {
-            cbGrund.IsChecked = txtGrund.Text.Length > 0;
+            if (txtGrund.Text.Length > 0)
+                cbGrund.IsChecked = true;
+            else
+                cbGrund.IsChecked = false;
         }
 
         private void txtAustausch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            cbAustausch.IsChecked = txtAustausch.Text.Length > 0;
+            if (txtAustausch.Text.Length > 0)
+                cbAustausch.IsChecked = true;
+            else
+                cbAustausch.IsChecked = false;
         }
 
         private void txtRn2_TextChanged(object sender, TextChangedEventArgs e)
         {
-            cbRn.IsChecked = txtRn.Text.Length > 0;
+            if (txtRn.Text.Length > 0)
+                cbRn.IsChecked = true;
+            else
+                cbRn.IsChecked = false;
         }
 
         private void textRn3_TextChanged(object sender, TextChangedEventArgs e)
         {
-            cbRn.IsChecked = txtRn.Text.Length > 0;
+            if (txtRn.Text.Length > 0)
+                cbRn.IsChecked = true;
+            else
+                cbRn.IsChecked = false;
         }
 
         private void textRn4_TextChanged(object sender, TextChangedEventArgs e)
         {
-            cbRn.IsChecked = txtRn.Text.Length > 0;
+            if (txtRn.Text.Length > 0)
+                cbRn.IsChecked = true;
+            else
+                cbRn.IsChecked = false;
         }
 
         private void textZeitDongle_TextChanged(object sender, TextChangedEventArgs e)
         {
-            cbZeitDongle.IsChecked = txtZeitDongle.Text.Length > 0;
+            if (txtZeitDongle.Text.Length > 0)
+                cbZeitDongle.IsChecked = true;
+            else
+                cbZeitDongle.IsChecked = false;
         }
 
         private void txtServerdongle_TextChanged(object sender, TextChangedEventArgs e)
         {
-            cbServerdongle.IsChecked = txtServerdongle.Text.Length > 0;
+            if (txtServerdongle.Text.Length > 0)
+                cbServerdongle.IsChecked = true;
+            else
+                cbServerdongle.IsChecked = false;
+
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            Close(); //Schließt das Fenster
+            this.Close(); //Schließt das Fenster
 
         }
 
@@ -322,9 +346,11 @@ namespace AufträgeOrgadata
             {
                 CheckBox checkbox = (CheckBox)stackPanelPrograms.Children[i];
 
-                if (checkbox.IsChecked != true) continue;
-                atleastOneChecked = true;
-                break;
+                if (checkbox.IsChecked == true)
+                {
+                    atleastOneChecked = true;
+                    break;
+                }
             }
 
             if (atleastOneChecked == false)
@@ -347,28 +373,25 @@ namespace AufträgeOrgadata
         private void mSave_Click(object sender, RoutedEventArgs e)
         {
             //Auslesen Kunden Daten
-            TKundeAdresse kdadresse = new TKundeAdresse
-            {
-                name = txtKundeName.Text,
-                str = txtKundeStr.Text,
-                ort = txtKundeOrt.Text,
-                plz = txtKundePlz.Text,
-                ansprechpartner = txtKundeAnsprechPartner.Text
-            };
+            TKundeAdresse kdadresse = new TKundeAdresse();
+            kdadresse.name = txtKundeName.Text;
+            kdadresse.str = txtKundeStr.Text;
+            kdadresse.ort = txtKundeOrt.Text;
+            kdadresse.plz = txtKundePlz.Text;
+            kdadresse.ansprechpartner = txtKundeAnsprechPartner.Text;
 
             //Auslesen An-Adresse
-            setanadresse = new TAnAdresse
-            {
-                name = txtAnAdresseName.Text,
-                str = txtAnAdresseStr.Text,
-                ort = txtAnAdresseOrt.Text,
-                plz = txtAnAdressePlz.Text,
-                ansprechpartner = txtAnAdresseAnsprechPartner.Text
-            };
+            setanadresse = new TAnAdresse();
+            setanadresse.name = txtAnAdresseName.Text;
+            setanadresse.str = txtAnAdresseStr.Text;
+            setanadresse.ort = txtAnAdresseOrt.Text;
+            setanadresse.plz = txtAnAdressePlz.Text;
+            setanadresse.ansprechpartner = txtAnAdresseAnsprechPartner.Text;
 
             //Auslesen Programm Daten ID & Name
             ProgrammName PName = new ProgrammName();
-            setpro = new TProgramms {ProList = new List<TProgramms>()};
+            setpro = new TProgramms();
+            setpro.ProList = new List<TProgramms>();
             bool atleastOneChecked = false;
 
             for (int i = 0; i < PName.ProgrammListe.Count; i++)
@@ -394,7 +417,8 @@ namespace AufträgeOrgadata
 
             //Auslesen Installationsarten ID & Name
             Installationsart art = new Installationsart();
-            setinstallart = new TInstallArt {InstallList = new List<TInstallArt>()};
+            setinstallart = new TInstallArt();
+            setinstallart.InstallList = new List<TInstallArt>();
             bool atChecked = false;
             for (int i = 0; i < art.Installationsliste.Count; i++)
             {
@@ -424,28 +448,25 @@ namespace AufträgeOrgadata
             setinstallart.server2 = cbServer2.IsChecked == true;
 
             //Auslesen der Grund Daten
-            setgrund = new TGrund
-            {
-                grund = txtGrund.Text,
-                austausch = txtAustausch.Text
-            };
+            setgrund = new TGrund();
+            setgrund.grund = txtGrund.Text;
+            setgrund.austausch = txtAustausch.Text;
 
-            TVNummer vnummer = new TVNummer
-            {
-                adkunden = cballedesKunden.IsChecked == true,
-                vnummer = txtKunden.Text + txtVertragsnummern.Text,
-                rnummer = txtRn.Text,
-                rnummer2 = txtRn2.Text,
-                rnumemr3 = txtRn3.Text,
-                serverdongle = txtServerdongle.Text,
-                zeitdongle = txtZeitDongle.Text,
-                autopro = cbAutoProl.IsChecked == true
-            };
+            TVNummer vnummer = new TVNummer();
+            vnummer.adkunden = cballedesKunden.IsChecked == true;
+            vnummer.vnummer = txtKunden.Text + txtVertragsnummern.Text;
+            vnummer.rnummer = txtRn.Text;
+            vnummer.rnummer2 = txtRn2.Text;
+            vnummer.rnumemr3 = txtRn3.Text;
+            vnummer.serverdongle = txtServerdongle.Text;
+            vnummer.zeitdongle = txtZeitDongle.Text;
+            vnummer.autopro = cbAutoProl.IsChecked == true;
 
 
             //Auslesen StammDaten ID & Name
             StammName daten = new StammName();
-            setstamm = new Tstamm {StammListUebergabe = new List<Tstamm>()};
+            setstamm = new Tstamm();
+            setstamm.StammListUebergabe = new List<Tstamm>();
             bool atCheckedStamm = false;
             for (int i = 0; i < daten.StammListe.Count; i++)
             {
@@ -468,21 +489,26 @@ namespace AufträgeOrgadata
             }
 
             Ausstattung aus = new Ausstattung();
-            setausstattung = new TAusstattung_Data {Ausstattung_DataList = new List<TAusstattung_Data>()};
+            setausstattung = new TAusstattung_Data();
+            setausstattung.Ausstattung_DataList = new List<TAusstattung_Data>();
 
             bool atCheckedAusstattung = false;
             for (int i = 0; i < aus.Ausstattungsliste.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)wpanelAusstattung.Children[i];
 
-                if (checkbox.IsChecked != true) continue;
-                //Zuweisen der Ausstattung
-                setausstattung.id = Convert.ToString(aus.Ausstattungsliste[i].ID);
-                setausstattung.name = checkbox.Content.ToString();
+                if (checkbox.IsChecked == true)
+                {
+                    //Zuweisen der Ausstattung
+                    setausstattung.id = Convert.ToString(aus.Ausstattungsliste[i].ID);
+                    setausstattung.name = checkbox.Content.ToString();
 
-                //Ausgelesende Daten in eine Liste hinzufügen
-                setausstattung.Ausstattung_DataList.Add(setausstattung);
-                atCheckedAusstattung = true;
+                    //Ausgelesende Daten in eine Liste hinzufügen
+                    setausstattung.Ausstattung_DataList.Add(setausstattung);
+                    atCheckedAusstattung = true;
+
+                }
+
             }
 
             if (atCheckedAusstattung == false)
@@ -496,46 +522,46 @@ namespace AufträgeOrgadata
             {
                 CheckBox checkbox = (CheckBox)wrapPanelsVersand.Children[i];
 
-                if (checkbox.IsChecked != true) continue;
-                settwizt.express = cbexpress.IsChecked == true;
-                settwizt.tnt = cbtnt.IsChecked == true;
-                settwizt.mitarbeiter = cbmitarbeiter.IsChecked == true;
+                if (checkbox.IsChecked == true)
+                {
+
+                    settwizt.express = cbexpress.IsChecked == true;
+                    settwizt.tnt = cbtnt.IsChecked == true;
+                    settwizt.mitarbeiter = cbmitarbeiter.IsChecked == true;
+                }
             }
 
             settwizt.anhaenger = cbanhaenger.IsChecked == true;
             settwizt.ewtest = cbewtest.IsChecked == true;
 
             //Übergabe der Kontroll Daten
-            TKontroll kontroll = new TKontroll
-            {
-                donglegepr = cbgeprueft.IsChecked == true,
-                verschickt = cbdelivered.IsChecked == true,
-                geprkuerzel = combgeprueft.Text,
-                delivkuerzel = combdelivered.Text
-            };
+            TKontroll kontroll = new TKontroll();
+            kontroll.donglegepr = cbgeprueft.IsChecked == true;
+            kontroll.verschickt = cbdelivered.IsChecked == true;
+            kontroll.geprkuerzel = combgeprueft.Text;
+            kontroll.delivkuerzel = combdelivered.Text;
 
             //Übergabe der TAuftrag Daten
-            setauftrag = new TAuftrag {kuerzel = txtauftrag.Text};
+            setauftrag = new TAuftrag();
+            setauftrag.kuerzel = txtauftrag.Text;
 
             //Übergabe der TAusgefuehrt Daten
-            setausgefuehrt = new TAusgefuehrt
-            {
-                kuerzel = txtausgefuehrt.Text,
-                date = txtausgefuehrtdate.Text
-            };
+            setausgefuehrt = new TAusgefuehrt();
+            setausgefuehrt.kuerzel = txtausgefuehrt.Text;
+            setausgefuehrt.date = txtausgefuehrtdate.Text;
 
             //Übergabe der TPost Daten
-            TPost post = new TPost
-            {
-                kuerzel = txtpost.Text,
-                date = txtpostdate.Text
-            };
+            TPost post = new TPost();
+            post.kuerzel = txtpost.Text;
+            post.date = txtpostdate.Text;
 
             //Übergabe der TAnschreiben Daten
-            setanschreiben = new TAnschreiben {anschreiben = cbanschreiben.IsChecked == true};
+            setanschreiben = new TAnschreiben();
+            setanschreiben.anschreiben = cbanschreiben.IsChecked == true;
 
             //Übergabe der THandbuch Daten
-            sethandbuch = new THandbuch {handbuch = cbhandbuch.IsChecked == true};
+            sethandbuch = new THandbuch();
+            sethandbuch.handbuch = cbhandbuch.IsChecked == true;
 
             set = new TDateTime();
             DateTime date = DateTime.Now;
@@ -560,4 +586,4 @@ namespace AufträgeOrgadata
             AusstattungWin.ShowDialog();
         }
     }
-}
+}//Ende

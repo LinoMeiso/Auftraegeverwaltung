@@ -135,13 +135,12 @@ namespace AufträgeOrgadata
 
                cmd.Parameters.AddWithValue("?ItemClick", selectitem.ID);
 
-                MessageBox.Show(Convert.ToString(selectitem.ID));
-               
-
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
             
                 conn.Close();
+                lvProWindow.Items.Clear();
+                LoadProgrammData();
             }
             catch (Exception e1)
             {
