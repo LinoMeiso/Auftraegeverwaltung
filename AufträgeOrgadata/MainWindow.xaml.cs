@@ -22,19 +22,19 @@ namespace AufträgeOrgadata
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string customerid = null;
-        private TDateTime set = null;
-        private TGrund setgrund = null;
-        private TAuftrag setauftrag = null;
-        private TAusgefuehrt setausgefuehrt = null;
-        private TAnschreiben setanschreiben = null;
-        private THandbuch sethandbuch = null;
-        private TAnAdresse setanadresse = null;
-        private TProgramms setpro = null;
-        private TInstallArt setinstallart = null;
-        private Twizt settwizt = null;
-        private TAusstattung_Data setausstattung = null;
-        private Tstamm setstamm = null;
+        public string customerid;
+        private TDateTime set;
+        private TGrund setgrund;
+        private TAuftrag setauftrag;
+        private TAusgefuehrt setausgefuehrt;
+        private TAnschreiben setanschreiben;
+        private THandbuch sethandbuch;
+        private TAnAdresse setanadresse;
+        private TProgramms setpro;
+        private TInstallArt setinstallart;
+        private Twizt settwizt;
+        private TAusstattung_Data setausstattung;
+        private Tstamm setstamm;
 
         public MainWindow()
         {
@@ -48,12 +48,14 @@ namespace AufträgeOrgadata
 
             for (int i = 0; i < programme.ProgrammListe.Count; i++)
             {
-                CheckBox cb = new CheckBox();
-                cb.Width = 115;
-                cb.Height = 15;
-                cb.VerticalAlignment = VerticalAlignment.Top;
-                cb.HorizontalAlignment = HorizontalAlignment.Left;
-                cb.Content = programme.ProgrammListe[i].Name;
+                CheckBox cb = new CheckBox
+                {
+                    Width = 115,
+                    Height = 15,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Content = programme.ProgrammListe[i].Name
+                };
                 stackPanelPrograms.Children.Add(cb);
             }
 
@@ -61,12 +63,14 @@ namespace AufträgeOrgadata
 
             for (int i = 0; i < installationsart.Installationsliste.Count; i++)
             {
-                CheckBox cb = new CheckBox();
-                cb.Width = 200;
-                cb.Height = 15;
-                cb.VerticalAlignment = VerticalAlignment.Top;
-                cb.HorizontalAlignment = HorizontalAlignment.Left;
-                cb.Content = installationsart.Installationsliste[i].Installationsart;
+                CheckBox cb = new CheckBox
+                {
+                    Width = 200,
+                    Height = 15,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Content = installationsart.Installationsliste[i].Installationsart
+                };
                 stackPanelInstallation.Children.Add(cb);
             }
 
@@ -74,12 +78,14 @@ namespace AufträgeOrgadata
 
             for (int i = 0; i < stamm.StammListe.Count; i++)
             {
-                CheckBox cb = new CheckBox();
-                cb.Width = 200;
-                cb.Height = 15;
-                cb.VerticalAlignment = VerticalAlignment.Top;
-                cb.HorizontalAlignment = HorizontalAlignment.Left;
-                cb.Content = stamm.StammListe[i].StammName;
+                CheckBox cb = new CheckBox
+                {
+                    Width = 200,
+                    Height = 15,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Content = stamm.StammListe[i].StammName
+                };
                 wpanelStamm.Children.Add(cb);
             }
 
@@ -87,13 +93,15 @@ namespace AufträgeOrgadata
 
             for (int i = 0; i < Auss.Ausstattungsliste.Count; i++)
             {
-                CheckBox cb = new CheckBox();
-                cb.Width = 200;
-                cb.Height = 15;
-                cb.VerticalAlignment = VerticalAlignment.Top;
-                cb.HorizontalAlignment = HorizontalAlignment.Left;
-                cb.Content = Auss.Ausstattungsliste[i].Ausstatung;
-                wpanelAusstattung.Children.Add(cb);
+                CheckBox cb = new CheckBox
+                {
+                    Width = 200,
+                    Height = 15,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Content = Auss.Ausstattungsliste[i].Ausstatung
+                };
+                wpanelAusstattung.Children.Add (cb);
             }
 
         }
@@ -172,64 +180,42 @@ namespace AufträgeOrgadata
 
         private void txtGrund_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtGrund.Text.Length > 0)
-                cbGrund.IsChecked = true;
-            else
-                cbGrund.IsChecked = false;
+            cbGrund.IsChecked = txtGrund.Text.Length > 0;
         }
 
         private void txtAustausch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtAustausch.Text.Length > 0)
-                cbAustausch.IsChecked = true;
-            else
-                cbAustausch.IsChecked = false;
+            cbAustausch.IsChecked = txtAustausch.Text.Length > 0;
         }
 
         private void txtRn2_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtRn.Text.Length > 0)
-                cbRn.IsChecked = true;
-            else
-                cbRn.IsChecked = false;
+            cbRn.IsChecked = txtRn.Text.Length > 0;
         }
 
         private void textRn3_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtRn.Text.Length > 0)
-                cbRn.IsChecked = true;
-            else
-                cbRn.IsChecked = false;
+            cbRn.IsChecked = txtRn.Text.Length > 0;
         }
 
         private void textRn4_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtRn.Text.Length > 0)
-                cbRn.IsChecked = true;
-            else
-                cbRn.IsChecked = false;
+            cbRn.IsChecked = txtRn.Text.Length > 0;
         }
 
         private void textZeitDongle_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtZeitDongle.Text.Length > 0)
-                cbZeitDongle.IsChecked = true;
-            else
-                cbZeitDongle.IsChecked = false;
+            cbZeitDongle.IsChecked = txtZeitDongle.Text.Length > 0;
         }
 
         private void txtServerdongle_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtServerdongle.Text.Length > 0)
-                cbServerdongle.IsChecked = true;
-            else
-                cbServerdongle.IsChecked = false;
-
+            cbServerdongle.IsChecked = txtServerdongle.Text.Length > 0;
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            this.Close(); //Schließt das Fenster
+            Close(); //Schließt das Fenster
 
         }
 
