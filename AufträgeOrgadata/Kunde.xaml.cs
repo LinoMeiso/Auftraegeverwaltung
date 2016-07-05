@@ -1,18 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
-using System.IO;
 using static AufträgeOrgadata.Get_set;
 
 namespace AufträgeOrgadata
@@ -143,16 +131,17 @@ namespace AufträgeOrgadata
         {
             var selectitem = (dynamic)lvKunde.SelectedItems[0];
 
-            TKundeEdit kdedit = new TKundeEdit();
-            kdedit.id = Convert.ToString(selectitem.ID);
+            TKundeEdit kdedit = new TKundeEdit {id = Convert.ToString(selectitem.ID)};
 
-            add_edit aded = new add_edit();
-            aded.txtName.Text = selectitem.Name;
-            aded.txtOrt.Text = selectitem.Ort;
-            aded.txtStr.Text = selectitem.Str;
-            aded.txtPLZ.Text = selectitem.PLZ;
-            aded.txtAnsrpechpartner.Text = selectitem.Ansprechpartner;
-            aded.txtVertragsNr.Text = selectitem.VertragsNr;
+            add_edit aded = new add_edit
+            {
+                txtName = {Text = selectitem.Name},
+                txtOrt = {Text = selectitem.Ort},
+                txtStr = {Text = selectitem.Str},
+                txtPLZ = {Text = selectitem.PLZ},
+                txtAnsrpechpartner = {Text = selectitem.Ansprechpartner},
+                txtVertragsNr = {Text = selectitem.VertragsNr}
+            };
 
             aded.ShowDialog();
 
@@ -192,8 +181,7 @@ namespace AufträgeOrgadata
             {
                 var selectitem = (dynamic)lvKunde.SelectedItems[0];
 
-                TKundeDelete kddel = new TKundeDelete();
-                kddel.id = Convert.ToString(selectitem.ID);
+                TKundeDelete kddel = new TKundeDelete {id = Convert.ToString(selectitem.ID)};
 
                 kundecs kdcs = new kundecs();
                 kdcs.DeleteKunde(kddel);
@@ -219,40 +207,20 @@ namespace AufträgeOrgadata
 
         private void search_Click(object sender, RoutedEventArgs e)
         {
-            add_edit aded = new add_edit();
-            aded.txtName.Clear();
-            aded.txtOrt.Clear();
-            aded.txtStr.Clear();
-            aded.txtPLZ.Clear();
-            aded.txtAnsrpechpartner.Clear();
-            aded.txtVertragsNr.Clear();
-
-            aded.ShowDialog();
-
-            TKundeSearch tkdsearch = new TKundeSearch();
-            tkdsearch.name = aded.txtName.Text;
-            tkdsearch.ort = aded.txtOrt.Text;
-            tkdsearch.str = aded.txtStr.Text;
-            tkdsearch.plz = aded.txtPLZ.Text;
-            tkdsearch.partner = aded.txtAnsrpechpartner.Text;
-            tkdsearch.vertrnr = aded.txtVertragsNr.Text;
-
-            kundecs kdcs = new kundecs();
-            kdcs.SearchKunde(tkdsearch);
-
             Kunde_search kdsearch = new Kunde_search();
+            kundecs kdcs = new kundecs();
 
-            for (int i = 0; i < kdcs.KundeFindList.Count; i++)
+            foreach (TKundeFind t in kdcs.KundeFindList)
             {
                 kdsearch.lvKundeSearch.Items.Add(new TKundeFind
                 {
-                    IDFind = kdcs.KundeFindList[i].IDFind,
-                    NameFind = kdcs.KundeFindList[i].NameFind,
-                    OrtFind = kdcs.KundeFindList[i].OrtFind,
-                    StrFind = kdcs.KundeFindList[i].StrFind,
-                    PLZFind = kdcs.KundeFindList[i].PLZFind,
-                    AnsprechpartnerFind = kdcs.KundeFindList[i].AnsprechpartnerFind,
-                    VertragsNrFind = kdcs.KundeFindList[i].VertragsNrFind
+                    IDFind = t.IDFind,
+                    NameFind = t.NameFind,
+                    OrtFind = t.OrtFind,
+                    StrFind = t.StrFind,
+                    PLZFind = t.PLZFind,
+                    AnsprechpartnerFind = t.AnsprechpartnerFind,
+                    VertragsNrFind = t.VertragsNrFind
                 });
             }
             kdsearch.ShowDialog();

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using static AufträgeOrgadata.Get_set;
 using System.Windows;
@@ -49,14 +45,13 @@ namespace AufträgeOrgadata
             
             login lgn = new login();
 
-            string uid, pw, server, port, db;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            var connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -120,14 +115,13 @@ namespace AufträgeOrgadata
 
             login lgn = new login();
 
-            string uid, pw, server, port, db;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            var connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -144,7 +138,7 @@ namespace AufträgeOrgadata
                 //VALUES(987654, NULL, NULL, '2016-07-04', 123, 1)
 
                 string sql = "INSERT INTO dongle(ReservierteNummer1, ReservierteNummer2, ReservierteNummer3, Zeit, ServerDongle, autoprolongation)" +
-                    "VALUES(?RNummer1,?RNummer2,?RNummer3,?Zeit,?ServerDongle,?autoprolo)";
+                             "VALUES(?RNummer1,?RNummer2,?RNummer3,?Zeit,?ServerDongle,?autoprolo)";
                 cmd.CommandText = sql;
                 
                 cmd.Parameters.AddWithValue("?RNummer1", vnummer.rnummer);
@@ -170,14 +164,13 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            string uid, pw, server, port, db;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            var connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -217,12 +210,11 @@ namespace AufträgeOrgadata
 
             login lgn = new login();
 
-            string uid, pw, server, port, db;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
 
             String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
