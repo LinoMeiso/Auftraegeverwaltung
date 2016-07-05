@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows;
 using static AufträgeOrgadata.Kunde;
@@ -8,6 +11,7 @@ namespace AufträgeOrgadata
 {
     public class TKunde
     {
+        // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR
         public int ID { get; set; }
         public string Name { get; set; }
         public string Ort { get; set; }
@@ -44,20 +48,22 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            var uid = lgn.lgnList[0].uid;
-            var pw = lgn.lgnList[0].pw;
-            var server = lgn.lgnList[0].server;
-            var port = lgn.lgnList[0].port;
-            var db = lgn.lgnList[0].db;
+            string uid, pw, server, port, db;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
 
-            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM kunden") {Connection = conn};
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM kunden");
+                cmd.Connection = conn;
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
                 {
@@ -87,13 +93,14 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            var uid = lgn.lgnList[0].uid;
-            var pw = lgn.lgnList[0].pw;
-            var server = lgn.lgnList[0].server;
-            var port = lgn.lgnList[0].port;
-            var db = lgn.lgnList[0].db;
+            string uid, pw, server, port, db;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
 
-            var connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -128,18 +135,20 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            var uid = lgn.lgnList[0].uid;
-            var pw = lgn.lgnList[0].pw;
-            var server = lgn.lgnList[0].server;
-            var port = lgn.lgnList[0].port;
-            var db = lgn.lgnList[0].db;
+            string uid, pw, server, port, db;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
 
-            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
             {
+                //string name, ort, str, plz, partner, vertrags;
                 conn.Open();
 
                 MySqlCommand cmd = new MySqlCommand();
@@ -168,11 +177,12 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            var uid = lgn.lgnList[0].uid;
-            var pw = lgn.lgnList[0].pw;
-            var server = lgn.lgnList[0].server;
-            var port = lgn.lgnList[0].port;
-            var db = lgn.lgnList[0].db;
+            string uid, pw, server, port, db;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
 
             String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
@@ -180,8 +190,10 @@ namespace AufträgeOrgadata
 
             try
             {
+                //string name, ort, str, plz, partner, vertrags;
                 conn.Open();
 
+                //DELETE FROM `kunden` WHERE `kunden`.`ID` = 16 
                 MySqlCommand cmd = new MySqlCommand();
                 string sql = "DELETE FROM kunden WHERE kunden.ID= ?kundenid";
                 cmd.CommandText = sql;
@@ -203,11 +215,12 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            var uid = lgn.lgnList[0].uid;
-            var pw = lgn.lgnList[0].pw;
-            var server = lgn.lgnList[0].server;
-            var port = lgn.lgnList[0].port;
-            var db = lgn.lgnList[0].db;
+            string uid, pw, server, port, db;
+            uid = lgn.lgnList[0].uid;
+            pw = lgn.lgnList[0].pw;
+            server = lgn.lgnList[0].server;
+            port = lgn.lgnList[0].port;
+            db = lgn.lgnList[0].db;
 
             var connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
@@ -215,57 +228,84 @@ namespace AufträgeOrgadata
 
             try
             {
+                //string name, ort, str, plz, partner, vertrags;
                 conn.Open();
+
+                //DELETE FROM `kunden` WHERE `kunden`.`ID` = 16 
+                // name=?Name, ort=?Ort, str=?Str, plz=?PLZ, ansprechpartner=?Ansprechpartner, vertragsnr=?VertragsNr
                 MySqlCommand cmd = new MySqlCommand();
                 string sql = "SELECT * FROM kunden WHERE name LIKE ?Name OR ort LIKE ?Ort OR str LIKE ?Str OR plz LIKE ?PLZ OR ansprechpartner LIKE ?Ansprechpartner OR vertragsnr LIKE ?VertragsNr";
                 cmd.CommandText = sql;
 
-                if (string.IsNullOrWhiteSpace(kunde.name))
-                    cmd.Parameters.AddWithValue("?Name", "");
-                else
+                if (kunde.name != "")
+                {
                     cmd.Parameters.AddWithValue("?Name", "%" + kunde.name + "%");
-
-                if (string.IsNullOrWhiteSpace(kunde.ort))
-                    cmd.Parameters.AddWithValue("?Ort", "");
+                }
                 else
+                {
+                    cmd.Parameters.AddWithValue("?Name", "");
+                }
+
+                if(kunde.ort != "")
+                {
                     cmd.Parameters.AddWithValue("?Ort", "%" + kunde.ort + "%");
-
-                if (string.IsNullOrWhiteSpace(kunde.str))
-                    cmd.Parameters.AddWithValue("?Str", "");
+                }
                 else
+                {
+                    cmd.Parameters.AddWithValue("?Ort", "");
+                }
+
+                if(kunde.str != "")
+                {
                     cmd.Parameters.AddWithValue("?Str", "%" + kunde.str + "%");
-
-                if (string.IsNullOrWhiteSpace(kunde.plz))
-                    cmd.Parameters.AddWithValue("?PLZ", "");
+                }
                 else
+                {
+                    cmd.Parameters.AddWithValue("?Str", "");
+                }
+                
+                if(kunde.plz != "")
+                {
                     cmd.Parameters.AddWithValue("?PLZ", "%" + kunde.plz + "%");
-
-                if (string.IsNullOrWhiteSpace(kunde.partner))
-                    cmd.Parameters.AddWithValue("?Ansprechpartner", "");
+                }
                 else
+                {
+                    cmd.Parameters.AddWithValue("?PLZ", "");
+                }
+
+                if(kunde.partner != "")
+                {
                     cmd.Parameters.AddWithValue("?Ansprechpartner", "%" + kunde.partner + "%");
-
-                if (string.IsNullOrWhiteSpace(kunde.vertrnr))
-                    cmd.Parameters.AddWithValue("?VertragsNr", "");
+                }
                 else
-                    cmd.Parameters.AddWithValue("?VertragsNr", "%" + kunde.vertrnr + "%");
+                {
+                    cmd.Parameters.AddWithValue("?Ansprechpartner", "");
+                }
 
+                if(kunde.vertrnr != "")
+                {
+                    cmd.Parameters.AddWithValue("?VertragsNr", "%" + kunde.vertrnr + "%");
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("?VertragsNr", "");
+                }
+                
                 cmd.Connection = conn;
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
                 {
                     while (Reader.Read())
                     {
-                        TKundeFind kdfind = new TKundeFind
-                        {
-                            IDFind = int.Parse(Reader["ID"].ToString()),
-                            NameFind = Reader["Name"].ToString(),
-                            OrtFind = Reader["Ort"].ToString(),
-                            StrFind = Reader["Str"].ToString(),
-                            PLZFind = Reader["PLZ"].ToString(),
-                            AnsprechpartnerFind = Reader["Ansprechpartner"].ToString(),
-                            VertragsNrFind = Reader["VertragsNr"].ToString()
-                        };
+                        // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR
+                        TKundeFind kdfind = new TKundeFind();
+                        kdfind.IDFind = int.Parse(Reader["ID"].ToString());
+                        kdfind.NameFind = Reader["Name"].ToString();
+                        kdfind.OrtFind = Reader["Ort"].ToString();
+                        kdfind.StrFind = Reader["Str"].ToString();
+                        kdfind.PLZFind = Reader["PLZ"].ToString();
+                        kdfind.AnsprechpartnerFind = Reader["Ansprechpartner"].ToString();
+                        kdfind.VertragsNrFind = Reader["VertragsNr"].ToString();
                         KundeFindList.Add(kdfind);
                     }
                 }

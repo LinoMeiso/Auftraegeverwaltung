@@ -18,9 +18,9 @@ namespace AufträgeOrgadata
 
         private void LoadProgrammData()
         {
-            var pg = new ProWindowCs();
+            var PG = new ProWindowCs();
 
-            foreach (var t in pg.ProgramListe)
+            foreach (var t in PG.ProgramListe)
             {
                 lvProWindow.Items.Add(new TProgram
                 {
