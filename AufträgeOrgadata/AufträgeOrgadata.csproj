@@ -66,6 +66,7 @@
     <Compile Include="Kunde_search.xaml.cs">
       <DependentUpon>Kunde_search.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MYSQLRefresh.cs" />
     <Compile Include="PAddChange.xaml.cs">
       <DependentUpon>PAddChange.xaml</DependentUpon>
     </Compile>
