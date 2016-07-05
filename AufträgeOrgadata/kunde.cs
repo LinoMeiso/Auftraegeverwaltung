@@ -222,7 +222,7 @@ namespace AufträgeOrgadata
             port = lgn.lgnList[0].port;
             db = lgn.lgnList[0].db;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            var connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
