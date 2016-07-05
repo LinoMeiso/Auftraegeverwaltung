@@ -18,7 +18,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="2" Loaded="PWindow_Loaded">
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="2">
             <MenuItem Header="Datei" Height="21" Width="60">
                 <MenuItem.Icon>
                     <Image Width="16" Height="16" Source="Images\assignment.ico"></Image>
