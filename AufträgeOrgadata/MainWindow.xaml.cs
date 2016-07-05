@@ -32,53 +32,61 @@ namespace AufträgeOrgadata
         {
             ProgrammName programme = new ProgrammName();
 
-            for (int i = 0; i < programme.ProgrammListe.Count; i++)
+            foreach (TProgramm t in programme.ProgrammListe)
             {
-                CheckBox cb = new CheckBox();
-                cb.Width = 115;
-                cb.Height = 15;
-                cb.VerticalAlignment = VerticalAlignment.Top;
-                cb.HorizontalAlignment = HorizontalAlignment.Left;
-                cb.Content = programme.ProgrammListe[i].Name;
+                CheckBox cb = new CheckBox
+                {
+                    Width = 115,
+                    Height = 15,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Content = t.Name
+                };
                 stackPanelPrograms.Children.Add(cb);
             }
 
             Installationsart installationsart = new Installationsart();
 
-            for (int i = 0; i < installationsart.Installationsliste.Count; i++)
+            foreach (TInstallationsart t in installationsart.Installationsliste)
             {
-                CheckBox cb = new CheckBox();
-                cb.Width = 200;
-                cb.Height = 15;
-                cb.VerticalAlignment = VerticalAlignment.Top;
-                cb.HorizontalAlignment = HorizontalAlignment.Left;
-                cb.Content = installationsart.Installationsliste[i].Installationsart;
+                CheckBox cb = new CheckBox
+                {
+                    Width = 200,
+                    Height = 15,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Content = t.Installationsart
+                };
                 stackPanelInstallation.Children.Add(cb);
             }
 
             StammName stamm = new StammName();
 
-            for (int i = 0; i < stamm.StammListe.Count; i++)
+            foreach (TStamm t in stamm.StammListe)
             {
-                CheckBox cb = new CheckBox();
-                cb.Width = 200;
-                cb.Height = 15;
-                cb.VerticalAlignment = VerticalAlignment.Top;
-                cb.HorizontalAlignment = HorizontalAlignment.Left;
-                cb.Content = stamm.StammListe[i].StammName;
+                CheckBox cb = new CheckBox
+                {
+                    Width = 200,
+                    Height = 15,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Content = t.StammName
+                };
                 wpanelStamm.Children.Add(cb);
             }
 
             Ausstattung Auss = new Ausstattung();
 
-            for (int i = 0; i < Auss.Ausstattungsliste.Count; i++)
+            foreach (TAusstattung t in Auss.Ausstattungsliste)
             {
-                CheckBox cb = new CheckBox();
-                cb.Width = 200;
-                cb.Height = 15;
-                cb.VerticalAlignment = VerticalAlignment.Top;
-                cb.HorizontalAlignment = HorizontalAlignment.Left;
-                cb.Content = Auss.Ausstattungsliste[i].Ausstatung;
+                CheckBox cb = new CheckBox
+                {
+                    Width = 200,
+                    Height = 15,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    Content = t.Ausstatung
+                };
                 wpanelAusstattung.Children.Add(cb);
             }
         }

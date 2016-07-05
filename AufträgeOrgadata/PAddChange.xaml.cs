@@ -1,16 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 
 namespace AufträgeOrgadata
@@ -45,32 +35,32 @@ namespace AufträgeOrgadata
             {
                 login lgn = new login();
 
-                string uid, pw, server, port, db, table;
-                uid = lgn.lgnList[0].uid;
-                pw = lgn.lgnList[0].pw;
-                server = lgn.lgnList[0].server;
-                port = lgn.lgnList[0].port;
-                db = lgn.lgnList[0].db;
-                table = lgn.lgnList[0].table;
+                var uid = lgn.lgnList[0].uid;
+                var pw = lgn.lgnList[0].pw;
+                var server = lgn.lgnList[0].server;
+                var port = lgn.lgnList[0].port;
+                var db = lgn.lgnList[0].db;
+                var table = lgn.lgnList[0].table;
 
-                String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+                string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
                 MySqlConnection conn = new MySqlConnection(connstring);
 
                 try
                 {
                     conn.Open();
 
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM programm");
-                    cmd.Connection = conn;
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM programm") {Connection = conn};
 
                     using (MySqlDataReader Reader = cmd.ExecuteReader())
                     {
                         while (Reader.Read())
                         {
 
-                            TProgram ProgramName = new TProgram();
-                            ProgramName.ID = int.Parse(Reader["ID"].ToString());
-                            ProgramName.ProgrammName = Reader["ProgrammName"].ToString();
+                            TProgram ProgramName = new TProgram
+                            {
+                                ID = int.Parse(Reader["ID"].ToString()),
+                                ProgrammName = Reader["ProgrammName"].ToString()
+                            };
                             ProgramListe.Add(ProgramName);
                         }
                     }
@@ -113,4 +103,3 @@ namespace AufträgeOrgadata
         }
     }
 }
-
