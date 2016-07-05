@@ -103,8 +103,6 @@ namespace AufträgeOrgadata
 
                 cmd.Parameters.AddWithValue("?ItemClick", selectitem.AusstattungName);
 
-                MessageBox.Show("Ausstattung: " + (Convert.ToString(selectitem.AusstattungName) + (" erfolgreich gelöscht!")));
-
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
 
