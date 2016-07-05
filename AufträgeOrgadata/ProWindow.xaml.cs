@@ -153,6 +153,7 @@ namespace AufträgeOrgadata
         {
             PAddChange EditChange = new PAddChange();
             EditChange.ShowDialog();
+            lvProWindow.Items.Clear();
             LoadProgrammData();
         }
     }
