@@ -20,16 +20,15 @@
                     <Setter Property="Background" Value="#FFFFFFFF"/>
                 </Trigger>
                 <Trigger Property="IsSelected" Value="true">
-                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                    <Setter Property="BorderBrush" Value="Black" />
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="true">
-                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                    <Setter Property="BorderBrush" Value="Black" />
                 </Trigger>
             </Style.Triggers>
         </Style>
         <Style TargetType="{x:Type GridViewColumnHeader}">
-            <Setter Property="Background" Value="#FF8C00">
-            </Setter>
+            <Setter Property="Background" Value="#FF8C00" />
         </Style>
     </Window.Resources>
 
@@ -38,28 +37,28 @@
             <MenuItem x:Name="data" Header="Datei" Height="25">
                 <MenuItem x:Name="add" Header="Eintrag Hinzufügen" Height="25" Click="add_Click">
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\add.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\add.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="edit" Header="Eintrag Bearbeiten" Height="25" Click="edit_Click">
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\edit.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\edit.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="delete" Header="Eintrag Löschen" Height="25" Click="delete_Click_1">
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\delete.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\delete.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="search" Header="Eintrag Suchen" Height="25" Click="search_Click">
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\search.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\search.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <Separator></Separator>
+                <Separator />
                 <MenuItem x:Name="close" Header="Schließen" Height="25" Click="close_Click">
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\close_red.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\close_red.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
