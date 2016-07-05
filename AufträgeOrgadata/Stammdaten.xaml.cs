@@ -5,10 +5,7 @@ using MySql.Data.MySqlClient;
 
 namespace AufträgeOrgadata
 {
-    /// <summary>
-    /// Interaktionslogik für Stammdaten.xaml
-    /// </summary>
-    public partial class Stammdaten : Window
+    public partial class Stammdaten
     {
         public Stammdaten()
         {
@@ -96,7 +93,8 @@ namespace AufträgeOrgadata
 
         public void mDelete_Click(object sender, RoutedEventArgs e)
         {
-            var selectitem = (dynamic) lvStammDaten.SelectedItems[0];
+            if (lvStammDaten.SelectedIndex < 0) return;
+            var selectitem = (dynamic)lvStammDaten.SelectedItems[0];
             var connstring = "Server = localhost; database = auftraege; uid = root ";
 
             using (MySqlConnection conn = new MySqlConnection(connstring))
