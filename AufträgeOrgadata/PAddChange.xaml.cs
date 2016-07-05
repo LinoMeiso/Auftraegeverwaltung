@@ -88,33 +88,15 @@ namespace AufträgeOrgadata
             string TextFeldProgrammName;
 
             TextFeldProgrammName = txtProgramName.Text;
-            
             string connstring = "Server = localhost; database = auftraege; uid = root ";
             MySqlConnection connection = new MySqlConnection(connstring);
-            MySqlCommand command = connection.CreateCommand();
-            command.CommandText = "INSERT INTO programm (Programmname) VALUES (?Programmname)";
-            command.Parameters.AddWithValue("?Programmname", TextFeldProgrammName);
-            connection.Open();
-            command.ExecuteNonQuery();
-
             try
             {
-                //connection.Open();
-
-              //MySqlCommand cmd = new MySqlCommand("Update programmm (?ItemClick) Values (TextFeldProgrammName) ");
-                //MySqlCommand cmd = new MySqlCommand("Delete from programm where ID = 50");
-
-                //var selectitem = (dynamic)lvProWindow.SelectedItems[0];
-                //cmd.Parameters.AddWithValue("?ItemClick", selectitem.ID);
-              
-
-//                MessageBox.Show(Convert.ToString(selectitem.ID));
-
-
-                //cmd.Connection = connection;
-                //cmd.ExecuteNonQuery();
-
-                //connection.Close();
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = "INSERT INTO programm (Programmname) VALUES (?Programmname)";
+                command.Parameters.AddWithValue("?Programmname", TextFeldProgrammName);
+                connection.Open();
+                command.ExecuteNonQuery();
             }
             catch (Exception e1)
             {
@@ -123,6 +105,7 @@ namespace AufträgeOrgadata
 
             this.Close();
         }
+
         private void mAdd_Click(object sender, RoutedEventArgs e)
         {
             PAddChange EditChange = new PAddChange();

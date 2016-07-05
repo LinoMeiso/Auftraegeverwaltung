@@ -28,6 +28,11 @@ namespace AufträgeOrgadata
 
         private void PWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            LoadProgrammData();
+        }
+
+        private void LoadProgrammData()
+        {
             ProWindowCs PG = new ProWindowCs();
 
             for (int i = 0; i < PG.ProgramListe.Count; i++)
@@ -143,11 +148,12 @@ namespace AufträgeOrgadata
                 MessageBox.Show(e1.Message);
             }
         }
-
+        
         private void mAdd_Click(object sender, RoutedEventArgs e)
         {
             PAddChange EditChange = new PAddChange();
             EditChange.ShowDialog();
+            LoadProgrammData();
         }
     }
 }
