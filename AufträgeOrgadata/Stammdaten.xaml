@@ -44,7 +44,7 @@
                         <Image Width="16" Height="16" Source="Images\search.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="mClose" Header="Close" HorizontalAlignment="Left" Width="230"  >
+                <MenuItem x:Name="mClose" Header="Close" Click="MenuItem_Click" HorizontalAlignment="Left" Width="230"  >
                     <MenuItem.Icon>
                         <Image Width="16" Height="16" Source="Images\close_red.ico" />
                     </MenuItem.Icon>
