@@ -19,16 +19,15 @@
                     <Setter Property="Background" Value="#FFFFFFFF"/>
                 </Trigger>
                 <Trigger Property="IsSelected" Value="true">
-                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                    <Setter Property="BorderBrush" Value="Black" />
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="true">
-                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                    <Setter Property="BorderBrush" Value="Black" />
                 </Trigger>
             </Style.Triggers>
         </Style>
         <Style TargetType="{x:Type GridViewColumnHeader}">
-            <Setter Property="Background" Value="#FF8C00">
-            </Setter>
+            <Setter Property="Background" Value="#FF8C00" />
         </Style>
     </Window.Resources>
     <Grid>
@@ -41,7 +40,7 @@
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="edit" Header="Eintrag Bearbeiten"/>
-                    <MenuItem x:Name="delete" Header="Eintrag Löschen" Click="delete_Click"></MenuItem>
+                    <MenuItem x:Name="delete" Header="Eintrag Löschen" Click="delete_Click" />
                 </ContextMenu>
             </ListView.ContextMenu>
             <ListView.View>

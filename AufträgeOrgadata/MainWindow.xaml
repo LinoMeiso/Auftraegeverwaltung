@@ -189,8 +189,7 @@
                 <CheckBox x:Name="cbServerdongle" Content="Serverdongle - Anzahl der User&#xA;" HorizontalAlignment="Left" Margin="282,504,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtServerdongle" HorizontalAlignment="Left" Height="23" Margin="472,504,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" />
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,745,0,0" VerticalAlignment="Top" Width="1305"/>
-                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,881,0,0" VerticalAlignment="Top" Width="1305">
-                </Border>
+                <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23" Margin="0,881,0,0" VerticalAlignment="Top" Width="1305" />
                 <Label x:Name="label" Content="Was ist zu tun ?" HorizontalAlignment="Left" Margin="0,881,0,0" VerticalAlignment="Top" Height="28"/>
 
                 <CheckBox x:Name="cbanhaenger" Content="Anhänger erstellen" HorizontalAlignment="Left" Margin="356,917,0,0" VerticalAlignment="Top"/>
@@ -235,3 +234,4 @@
         </ScrollViewer>
     </Grid>
 </Window>
+
