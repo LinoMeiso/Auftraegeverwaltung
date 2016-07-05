@@ -225,18 +225,42 @@ namespace AufträgeOrgadata
 
         private void mkunde_Click(object sender, RoutedEventArgs e)
         {
-            Kunde kd = new Kunde();
-            kd.ShowDialog();
+            OpenKunde(-1);
+        }
 
-            TGetCustomer customer = kd.GetCustomerSet();
-            if (customer != null)
+        private void OpenKunde(int Selection)
+        {
+            if (Selection == -1)
             {
-                customerid = customer.id;
-                txtKundeName.Text = customer.name;
-                txtKundeOrt.Text = customer.ort;
-                txtKundeStr.Text = customer.str;
-                txtKundePlz.Text = customer.plz;
-                txtKundeAnsprechPartner.Text = customer.partner;
+                Kunde kd = new Kunde(-1);
+                kd.ShowDialog();
+
+                TGetCustomer customer = kd.GetCustomerSet();
+                if (customer != null)
+                {
+                    customerid = customer.id;
+                    txtKundeName.Text = customer.name;
+                    txtKundeOrt.Text = customer.ort;
+                    txtKundeStr.Text = customer.str;
+                    txtKundePlz.Text = customer.plz;
+                    txtKundeAnsprechPartner.Text = customer.partner;
+                }
+            }
+            else
+            {
+                Kunde kd = new Kunde(0);
+                kd.ShowDialog();
+
+                TGetCustomer customer = kd.GetCustomerSet();
+                if (customer != null)
+                {
+                    customerid = customer.id;
+                    txtAnAdresseName.Text = customer.name;
+                    txtAnAdresseOrt.Text = customer.ort;
+                    txtAnAdresseStr.Text = customer.str;
+                    txtAnAdressePlz.Text = customer.plz;
+                    txtAnAdresseAnsprechPartner.Text = customer.partner;
+                }
             }
         }
 
@@ -365,7 +389,6 @@ namespace AufträgeOrgadata
             //Auslesen Programm Daten ID & Name
             ProgrammName PName = new ProgrammName();
             setpro = new TProgramms {ProList = new List<TProgramms>()};
-            bool atleastOneChecked = false;
 
             for (int i = 0; i < PName.ProgrammListe.Count; i++)
             {
@@ -378,7 +401,6 @@ namespace AufträgeOrgadata
 
                 //Ausgelesende Daten in eine Liste hinzufügen
                 setpro.ProList.Add(setpro);
-                atleastOneChecked = true;
             }
 
             //Auslesen Installationsarten ID & Name
@@ -531,6 +553,16 @@ namespace AufträgeOrgadata
         {
             AusstattungWindow AusstattungWin = new AusstattungWindow();
             AusstattungWin.ShowDialog();
+        }
+
+        private void txtKundeName_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            OpenKunde(-1);
+        }
+
+        private void txtAnAdresseName_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            OpenKunde(0);
         }
     }
 }

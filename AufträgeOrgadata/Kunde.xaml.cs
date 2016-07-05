@@ -11,7 +11,7 @@ namespace AufträgeOrgadata
     {
         private TGetCustomer set;
 
-        public Kunde()
+        public Kunde(int Selection)
         {
             InitializeComponent();
         }
@@ -267,7 +267,13 @@ namespace AufträgeOrgadata
 
         public void cmeintragen_Click(object sender, RoutedEventArgs e)
         {
-            var selectitem = (dynamic)lvKunde.SelectedItem;
+            SelectKunde();
+        }
+
+        public void SelectKunde()
+        {
+            if (lvKunde.SelectedIndex < 0) return;
+            var selectitem = (dynamic) lvKunde.SelectedItem;
 
             string id = Convert.ToString(selectitem.ID);
             string name = selectitem.Name;
@@ -286,6 +292,11 @@ namespace AufträgeOrgadata
                 partner = partner
             };
             Close();
+        }
+
+        private void lvKunde_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            SelectKunde();
         }
     }
 }
