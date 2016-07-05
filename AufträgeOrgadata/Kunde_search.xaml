@@ -8,7 +8,7 @@
         Height="405" 
         Width="730" 
         ResizeMode="NoResize" 
-        Icon="Images/search.ico">
+        Icon="Images/search.ico" KeyDown="Window_KeyDown">
     <Window.Resources>
         <Style TargetType="{x:Type ListViewItem}">
             <Style.Triggers>
@@ -31,9 +31,13 @@
             </Setter>
         </Style>
     </Window.Resources>
-
     <Grid>
-        <ListView x:Name="lvKundeSearch" Margin="0,0,2,0" ItemsSource="{Binding KundeFindList}" AlternationCount="2" FontSize="16" FontFamily="Time New Roman Bold">
+        <ListView 
+            x:Name="lvKundeSearch" Margin="0,0,2,0" 
+            ItemsSource="{Binding KundeFindList}" 
+            AlternationCount="2" 
+            FontSize="16" 
+            FontFamily="Time New Roman Bold">
             <ListView.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="edit" Header="Eintrag Bearbeiten"/>
@@ -51,6 +55,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
     </Grid>
 </Window>
