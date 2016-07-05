@@ -75,18 +75,17 @@ namespace AufträgeOrgadata
         {
             kundecs kd = new kundecs();
 
-            // ReSharper disable once ForCanBeConvertedToForeach
-            for (var i = 0; i < kd.KundeListe.Count; i++)
+            foreach (TKunde t in kd.KundeListe)
             {
                 lvKunde.Items.Add(new TKunde
                 {
-                    ID = kd.KundeListe[i].ID,
-                    Name = kd.KundeListe[i].Name,
-                    Ort = kd.KundeListe[i].Ort,
-                    Str = kd.KundeListe[i].Str,
-                    PLZ = kd.KundeListe[i].PLZ,
-                    Ansprechpartner = kd.KundeListe[i].Ansprechpartner,
-                    VertragsNr = kd.KundeListe[i].VertragsNr
+                    ID = t.ID,
+                    Name = t.Name,
+                    Ort = t.Ort,
+                    Str = t.Str,
+                    PLZ = t.PLZ,
+                    Ansprechpartner = t.Ansprechpartner,
+                    VertragsNr = t.VertragsNr
                 });
             }
         }

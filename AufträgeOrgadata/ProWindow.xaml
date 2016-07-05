@@ -10,7 +10,13 @@
         WindowStartupLocation="CenterScreen" 
         Icon="Images\costumers.ico">
     <Grid>
-        <ListView x:Name="lvProWindow" HorizontalAlignment="Left" Height="272" VerticalAlignment="Top" Width="642" Margin="1,23,0,0">
+        <ListView 
+            x:Name="lvProWindow" 
+            HorizontalAlignment="Left" 
+            Height="272" 
+            VerticalAlignment="Top" 
+            Width="642" 
+            Margin="1,23,0,0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>

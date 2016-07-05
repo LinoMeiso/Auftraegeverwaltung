@@ -9,11 +9,8 @@ namespace AufträgeOrgadata
     {
         //Dongle: ReservierteNummer,Zeit,ServerDongle,auto_proglongation,AuftragNR
         //donglestammdaten: DongleID,StammdatenID
-        private TLastIdentityDongle lastdongle = null;
+        private TLastIdentityDongle lastdongle;
         private Tstamm stamm = null;
-        public Main_auftrag()
-        {
-        }
 
         public Get_set.TLastIdentityDongle GetLastDongle()
         {
@@ -30,18 +27,19 @@ namespace AufträgeOrgadata
         {
             Kunde kd = Application.Current.MainWindow as Kunde;
             MainWindow main = Application.Current.MainWindow as MainWindow;
-            Get_set.TDateTime dt = main.GetDateTimeSet();
-            Get_set.TGrund grund = main.GetGrundSet();
-            Get_set.TAuftrag auftrag = main.GetAuftragSet();
-            Get_set.TAusgefuehrt ausgefuehrt = main.GetAusgefuehrtSet();
-            Get_set.TAnschreiben anschreiben = main.GetAnschreibenSet();
-            Get_set.THandbuch handbuch = main.GetHandbuchSet();
-            Get_set.TAnAdresse anadresse = main.GetAnAdresseSet();
-            Get_set.TProgramms programms = main.GetProgrammsSet();
-            Get_set.TInstallArt installart = main.GetInstallArtSet();
-            Get_set.TAusstattung_Data ausstattung = main.GetAusstattungSet();
-            Get_set.Twizt twizt = main.GetTwiztSet();
-            Get_set.TLastIdentityDongle ldongle = GetLastDongle();
+            if (main == null) return;
+            var dt = main.GetDateTimeSet();
+            var grund = main.GetGrundSet();
+            var auftrag = main.GetAuftragSet();
+            var ausgefuehrt = main.GetAusgefuehrtSet();
+            var anschreiben = main.GetAnschreibenSet();
+            var handbuch = main.GetHandbuchSet();
+            var anadresse = main.GetAnAdresseSet();
+            var programms = main.GetProgrammsSet();
+            var installart = main.GetInstallArtSet();
+            var ausstattung = main.GetAusstattungSet();
+            var twizt = main.GetTwiztSet();
+            var ldongle = GetLastDongle();
             
             login lgn = new login();
 
@@ -60,15 +58,12 @@ namespace AufträgeOrgadata
                 conn.Open();
                 
                 MySqlCommand cmd = new MySqlCommand();
-                //Datum,Time,Anliegen,Austausch,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName,
-                //AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID
-                //VersandID,AustattungID,Anhänger,Test,Geprüft,Verschickt,DongleStammdatenID
                 string sql = "INSERT INTO auftrag(Datum,Time,Anliegen,Grund,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName," +
-                    "AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID,VersandID,AusstattungsID," +
-                    "Anhänger,Test,Geprüft,Verschickt,DongleID)" +
-                    "VALUES (?Date,?Time,?Anliegen,?Grund,?Erteilt,?Ausgeführt,?Post,?Anschreiben,?Handbuch,?AnAdresseName," +
-                    "?AnAdresseLand,?AnAdresseOrt,?AnAdressePartner,?AnAdressePLZ,?KundenID,?ProgrammID,?InstallationsartID,?VersandID,?AusstattungsID," +
-                    "?Anhaenger,?Test,?Geprueft,?Verschickt,?DongleID)";
+                             "AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID,VersandID,AusstattungsID," +
+                             "Anhänger,Test,Geprüft,Verschickt,DongleID)" +
+                             "VALUES (?Date,?Time,?Anliegen,?Grund,?Erteilt,?Ausgeführt,?Post,?Anschreiben,?Handbuch,?AnAdresseName," +
+                             "?AnAdresseLand,?AnAdresseOrt,?AnAdressePartner,?AnAdressePLZ,?KundenID,?ProgrammID,?InstallationsartID,?VersandID,?AusstattungsID," +
+                             "?Anhaenger,?Test,?Geprueft,?Verschickt,?DongleID)";
                 cmd.CommandText = sql;
                 
                 TKundeAdresse kdadresse = new TKundeAdresse();
@@ -95,7 +90,7 @@ namespace AufträgeOrgadata
                 cmd.Parameters.AddWithValue("?Test", twizt.ewtest);
                 cmd.Parameters.AddWithValue("?Geprueft", 1);
                 cmd.Parameters.AddWithValue("?Verschickt", 1);
-                /* Mehrere möglich */cmd.Parameters.AddWithValue("?DongleID", ldongle.id);
+                cmd.Parameters.AddWithValue("?DongleID", ldongle.id);
 
                 cmd.Connection = conn;
                 cmd.ExecuteNonQuery();
@@ -130,13 +125,6 @@ namespace AufträgeOrgadata
                 conn.Open();
 
                 MySqlCommand cmd = new MySqlCommand();
-                //Datum,Time,Anliegen,Austausch,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName,
-                //AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID
-                //VersandID,AustattungID,Anhänger,Test,Geprüft,Verschickt,DongleStammdatenID
-
-                //INSERT INTO dongle(ReservierteNummer1, ReservierteNummer2, ReservierteNummer3, Zeit, ServerDongle, autoprolongation)
-                //VALUES(987654, NULL, NULL, '2016-07-04', 123, 1)
-
                 string sql = "INSERT INTO dongle(ReservierteNummer1, ReservierteNummer2, ReservierteNummer3, Zeit, ServerDongle, autoprolongation)" +
                              "VALUES(?RNummer1,?RNummer2,?RNummer3,?Zeit,?ServerDongle,?autoprolo)";
                 cmd.CommandText = sql;
@@ -179,9 +167,6 @@ namespace AufträgeOrgadata
                 conn.Open();
 
                 MySqlCommand cmd = new MySqlCommand();
-                //Datum,Time,Anliegen,Austausch,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName,
-                //AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID
-                //VersandID,AustattungID,Anhänger,Test,Geprüft,Verschickt,DongleStammdatenID
                 string sql = "SELECT LAST_INSERT_ID() FROM dongle";
                 cmd.CommandText = sql;
                 
@@ -190,9 +175,7 @@ namespace AufträgeOrgadata
                 {
                     while (Reader.Read())
                     {
-                        // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR
-                        lastdongle = new TLastIdentityDongle();
-                        lastdongle.id = int.Parse(Reader["ID"].ToString());
+                        lastdongle = new TLastIdentityDongle {id = int.Parse(Reader["ID"].ToString())};
                     }
                 }
                 conn.Close();
@@ -216,7 +199,7 @@ namespace AufträgeOrgadata
             var port = lgn.lgnList[0].port;
             var db = lgn.lgnList[0].db;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -225,14 +208,12 @@ namespace AufträgeOrgadata
                 conn.Open();
 
                 MySqlCommand cmd = new MySqlCommand();
-                //Datum,Time,Anliegen,Austausch,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName,
-                //AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID
-                //VersandID,AustattungID,Anhänger,Test,Geprüft,Verschickt,DongleStammdatenID
+
                 string sql = "INSERT INTO donglestammdaten(DongleID,StammdatenID,AusstattungID) VALUES (?DonlgeID,?StammdatenID,?AusstattungID)";
                 cmd.CommandText = sql;
                 
                 Get_set.TLastIdentityDongle ldongle = GetLastDongle();
-                for (int i = 0; i < stamm.StammListUebergabe.Count; i++)
+                for (var i = 0; i < stamm.StammListUebergabe.Count; i++)
                 {
                     cmd.Parameters.AddWithValue("?DongleID", ldongle.id);
                     cmd.Parameters.AddWithValue("?StammdatenID", stamm.id);
