@@ -98,7 +98,7 @@ namespace AufträgeOrgadata
             if (lvProWindow.SelectedIndex < 0) return;
             var selectitem = (dynamic) lvProWindow.SelectedItems[0];
 
-            string connstring = "Server = localhost; database = auftraege; uid = root ";
+            var connstring = "Server=localhost; database=auftraege; uid=root ";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -125,6 +125,7 @@ namespace AufträgeOrgadata
 
         private void mAdd_Click(object sender, RoutedEventArgs e)
         {
+            if (lvProWindow.SelectedIndex < 0) return;
             PAddChange EditChange = new PAddChange();
             EditChange.ShowDialog();
             lvProWindow.Items.Clear();
