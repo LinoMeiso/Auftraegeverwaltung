@@ -7,7 +7,6 @@
         Title="Programme" 
         Height="325" 
         Width="650" 
-        Loaded="PWindow_Loaded"
         WindowStartupLocation="CenterScreen" 
         Icon="Images\costumers.ico">
     <Grid>
