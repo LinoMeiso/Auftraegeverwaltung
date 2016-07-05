@@ -76,9 +76,6 @@
     <Compile Include="Stammdaten.xaml.cs">
       <DependentUpon>Stammdaten.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ausstattung.xaml.cs">
-      <DependentUpon>Ausstattung.xaml</DependentUpon>
-    </Compile>
     <Page Include="add_edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,10 +129,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Stammdaten.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Ausstattung.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -170,5 +170,3 @@ C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Stammda
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.g.resources
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.Properties.Resources.resources
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.csproj.GenerateResource.Cache
-C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Ausstattung.g.cs
-C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Ausstattung.baml
