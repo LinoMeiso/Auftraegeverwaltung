@@ -32,6 +32,10 @@ namespace AufträgeOrgadata
         {
             public string id { get; set; }
             public string name { get; set; }
+        }
+
+        public class TProgrammsList
+        {
             public List<TProgramms> ProList { get; set; }
         }
 
@@ -44,6 +48,10 @@ namespace AufträgeOrgadata
             public string stkzeit { get; set; }
             public bool server1 { get; set; }
             public bool server2 { get; set; }
+        }
+
+        public class TInstallList
+        {
             public List<TInstallArt> InstallList { get; set; }
         }
 
@@ -69,6 +77,10 @@ namespace AufträgeOrgadata
         {
             public string id { get; set; }
             public string name { get; set; }
+        }
+
+        public class TstammList
+        {
             public List<Tstamm> StammListUebergabe { get; set; }
         }
 
@@ -76,6 +88,10 @@ namespace AufträgeOrgadata
         {
             public string id { get; set; }
             public string name { get; set; }
+        }
+
+        public class TAusstattung_List
+        {
             public List<TAusstattung_Data> Ausstattung_DataList { get; set; }
         }
 

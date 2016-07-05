@@ -38,7 +38,7 @@ namespace AufträgeOrgadata
             db = lgn.lgnList[0].db;
             table = lgn.lgnList[0].table;
 
-                String connstring = "uid="+uid+";" + "password="+pw+";" + "server="+server+";" + "port="+port+";" + "database="+db+";" + "table="+table+";";
+                string connstring = "uid="+uid+";" + "password="+pw+";" + "server="+server+";" + "port="+port+";" + "database="+db+";" + "table="+table+";";
                 MySqlConnection conn = new MySqlConnection(connstring);
 
                 try
@@ -94,7 +94,7 @@ namespace AufträgeOrgadata
             db = lgn.lgnList[0].db;
             table = lgn.lgnList[0].table;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
@@ -153,7 +153,7 @@ namespace AufträgeOrgadata
             db = lgn.lgnList[0].db;
             table = lgn.lgnList[0].table;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try

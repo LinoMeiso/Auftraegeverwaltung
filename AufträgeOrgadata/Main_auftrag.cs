@@ -13,15 +13,16 @@ namespace AufträgeOrgadata
     {
         //Dongle: ReservierteNummer,Zeit,ServerDongle,auto_proglongation,AuftragNR
         //donglestammdaten: DongleID,StammdatenID
-        private TLastIdentityDongle lastdongle = null;
+        private TLastIdentityDongle ldongle = null;
         private Tstamm stamm = null;
+
         public Main_auftrag()
         {
         }
 
         public Get_set.TLastIdentityDongle GetLastDongle()
         {
-            return lastdongle;
+            return ldongle;
         }
 
         public Get_set.Tstamm GetStammSet()
@@ -56,7 +57,7 @@ namespace AufträgeOrgadata
             port = lgn.lgnList[0].port;
             db = lgn.lgnList[0].db;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -116,7 +117,8 @@ namespace AufträgeOrgadata
         //1.
         public void dongle()
         {
-            Get_set.TVNummer vnummer = null;
+            MainWindow main = Application.Current.MainWindow as MainWindow;
+            Get_set.TVNummer vnummer = main.GetVNumSet();
 
             login lgn = new login();
 
@@ -127,15 +129,21 @@ namespace AufträgeOrgadata
             port = lgn.lgnList[0].port;
             db = lgn.lgnList[0].db;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
             {
-                conn.Open();
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+                else
+                {
+                    conn.Open();
+                }
 
-                MySqlCommand cmd = new MySqlCommand();
                 //Datum,Time,Anliegen,Austausch,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName,
                 //AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID
                 //VersandID,AustattungID,Anhänger,Test,Geprüft,Verschickt,DongleStammdatenID
@@ -143,20 +151,21 @@ namespace AufträgeOrgadata
                 //INSERT INTO dongle(ReservierteNummer1, ReservierteNummer2, ReservierteNummer3, Zeit, ServerDongle, autoprolongation)
                 //VALUES(987654, NULL, NULL, '2016-07-04', 123, 1)
 
-                string sql = "INSERT INTO dongle(ReservierteNummer1, ReservierteNummer2, ReservierteNummer3, Zeit, ServerDongle, autoprolongation)" +
-                    "VALUES(?RNummer1,?RNummer2,?RNummer3,?Zeit,?ServerDongle,?autoprolo)";
+                //INSERT INTO dongle(ReservierteNummer1, ReservierteNummer2, ReservierteNummer3, Zeit, ServerDongle, autoprolongation)" +
+                //"VALUES(?RNummer1,?RNummer2,?RNummer3,?Zeit,?ServerDongle,?autoprolo)
+                MySqlCommand cmd = new MySqlCommand();
+                string sql = "INSERT INTO dongle(ReservierteNummer,Zeit,ServerDongle,autoprolongation)"+
+                    "VALUES (?RNummer,?Zeit,?ServerDongle,?autoprolo)";
                 cmd.CommandText = sql;
-                
-                cmd.Parameters.AddWithValue("?RNummer1", vnummer.rnummer);
-                cmd.Parameters.AddWithValue("?RNummer2", vnummer.rnummer2);
-                cmd.Parameters.AddWithValue("?RNummer3", vnummer.rnumemr3);
+
+                cmd.Parameters.AddWithValue("?RNummer", vnummer.rnummer);
                 cmd.Parameters.AddWithValue("?Zeit", vnummer.zeitdongle);
                 cmd.Parameters.AddWithValue("?ServerDongle", vnummer.serverdongle);
                 cmd.Parameters.AddWithValue("?autoprolo", vnummer.autopro);
                 
                 cmd.Connection = conn;
-                cmd.ExecuteNonQuery();
 
+                cmd.ExecuteNonQuery();
                 conn.Close();
             }
             catch (Exception ex)
@@ -168,6 +177,8 @@ namespace AufträgeOrgadata
         //2.
         public void dongleIndetity()
         {
+            //Get_set.TLastIdentityDongle ldongle = GetLastDongle();
+            
             login lgn = new login();
 
             string uid, pw, server, port, db;
@@ -177,7 +188,7 @@ namespace AufträgeOrgadata
             port = lgn.lgnList[0].port;
             db = lgn.lgnList[0].db;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -191,17 +202,15 @@ namespace AufträgeOrgadata
                 //VersandID,AustattungID,Anhänger,Test,Geprüft,Verschickt,DongleStammdatenID
                 string sql = "SELECT LAST_INSERT_ID() FROM dongle";
                 cmd.CommandText = sql;
-                
+
                 cmd.Connection = conn;
-                using (MySqlDataReader Reader = cmd.ExecuteReader())
-                {
-                    while (Reader.Read())
-                    {
-                        // ID 	Name 	Ort 	Str 	PLZ 	Ansprechpartner 	VertragsNR
-                        lastdongle = new TLastIdentityDongle();
-                        lastdongle.id = int.Parse(Reader["ID"].ToString());
-                    }
-                }
+                int lid = int.Parse(cmd.ExecuteScalar().ToString());
+
+                ldongle = new TLastIdentityDongle();
+                ldongle.id = lid;
+
+                MessageBox.Show(lid.ToString());
+
                 conn.Close();
             }
             catch (Exception ex)
@@ -212,8 +221,10 @@ namespace AufträgeOrgadata
         //3.
         public void donglestamm()
         {
-            Get_set.Tstamm stamm = null;
-            Get_set.TAusstattung_Data ausstattung = null;
+            MainWindow main = Application.Current.MainWindow as MainWindow;
+            Get_set.TstammList stamm = main.GetStammListSet();
+            Get_set.TAusstattung_List ausstattung = main.GetAusstattungListSet();
+            Get_set.TLastIdentityDongle ldongle = GetLastDongle();
 
             login lgn = new login();
 
@@ -224,7 +235,7 @@ namespace AufträgeOrgadata
             port = lgn.lgnList[0].port;
             db = lgn.lgnList[0].db;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";";
 
             MySqlConnection conn = new MySqlConnection(connstring);
 
@@ -236,20 +247,36 @@ namespace AufträgeOrgadata
                 //Datum,Time,Anliegen,Austausch,Erteilt,Ausgeführt,Post,Anschreiben,Handbuch,AnAdresseName,
                 //AnAdresseLand,AnAdresseOrt,AnAdressePartner,AnAdressePLZ,KundenID,ProgrammID,InstallationsartID
                 //VersandID,AustattungID,Anhänger,Test,Geprüft,Verschickt,DongleStammdatenID
-                string sql = "INSERT INTO donglestammdaten(DongleID,StammdatenID,AusstattungID) VALUES (?DonlgeID,?StammdatenID,?AusstattungID)";
+                string sql = "INSERT INTO donglestammdaten(DongleID,StammdatenID,AusstattungID) VALUES (?DongleID,?StammdatenID,?AusstattungID)";
                 cmd.CommandText = sql;
-                
-                Get_set.TLastIdentityDongle ldongle = GetLastDongle();
+
+                cmd.Parameters.AddWithValue("?DongleID", ldongle.id);
+                cmd.Parameters.AddWithValue("?StammdatenID", MySqlDbType.Int64);
+                cmd.Parameters.AddWithValue("?AusstattungID", MySqlDbType.Int64);
+
                 for (int i = 0; i < stamm.StammListUebergabe.Count; i++)
                 {
-                    cmd.Parameters.AddWithValue("?DongleID", ldongle.id);
-                    cmd.Parameters.AddWithValue("?StammdatenID", stamm.id);
-                    cmd.Parameters.AddWithValue("?AusstattungID",ausstattung.id);
-                }
+                    if (Convert.ToInt64(stamm.StammListUebergabe[i]) >= i)
+                    {
+                        cmd.Parameters["?StammdatenID"].Value = stamm.StammListUebergabe[i].id;
+                    }
+                    else
+                    {
+                        cmd.Parameters["?StammdatenID"].Value = "";
+                    }
 
-                cmd.Connection = conn;
-                cmd.ExecuteNonQuery();
-                
+                    if (Convert.ToInt64(ausstattung.Ausstattung_DataList[i]) >= i)
+                    {
+                        cmd.Parameters["?AusstattungID"].Value = ausstattung.Ausstattung_DataList[i].id;
+                    }
+                    else
+                    {
+                        cmd.Parameters["?AusstattungID"].Value = "";
+                    }
+
+                    cmd.Connection = conn;
+                    cmd.ExecuteNonQuery();
+                }
                 conn.Close();
             }
             catch (Exception ex)
