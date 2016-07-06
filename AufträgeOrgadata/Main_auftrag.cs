@@ -118,7 +118,7 @@ namespace AufträgeOrgadata
         public void dongle()
         {
             MainWindow main = Application.Current.MainWindow as MainWindow;
-            Get_set.TVNummer vnummer = main.GetVNumSet();
+            //Get_set.TVNummer vnummer = main.GetVNumSet();
 
             login lgn = new login();
 
@@ -158,10 +158,10 @@ namespace AufträgeOrgadata
                     "VALUES (?RNummer,?Zeit,?ServerDongle,?autoprolo)";
                 cmd.CommandText = sql;
 
-                cmd.Parameters.AddWithValue("?RNummer", vnummer.rnummer);
-                cmd.Parameters.AddWithValue("?Zeit", vnummer.zeitdongle);
-                cmd.Parameters.AddWithValue("?ServerDongle", vnummer.serverdongle);
-                cmd.Parameters.AddWithValue("?autoprolo", vnummer.autopro);
+                //cmd.Parameters.AddWithValue("?RNummer", vnummer.rnummer);
+                //cmd.Parameters.AddWithValue("?Zeit", vnummer.zeitdongle);
+                //cmd.Parameters.AddWithValue("?ServerDongle", vnummer.serverdongle);
+                //cmd.Parameters.AddWithValue("?autoprolo", vnummer.autopro);
                 
                 cmd.Connection = conn;
 
@@ -222,9 +222,9 @@ namespace AufträgeOrgadata
         public void donglestamm()
         {
             MainWindow main = Application.Current.MainWindow as MainWindow;
-            Get_set.TstammList stamm = main.GetStammListSet();
-            Get_set.TAusstattung_List ausstattung = main.GetAusstattungListSet();
-            Get_set.TLastIdentityDongle ldongle = GetLastDongle();
+            //TstammList stamm = main.GetStammListSet();
+            //TAusstattung_List ausstattung = main.GetAusstattungListSet();
+            TLastIdentityDongle ldongle = GetLastDongle();
 
             login lgn = new login();
 
@@ -254,29 +254,29 @@ namespace AufträgeOrgadata
                 cmd.Parameters.AddWithValue("?StammdatenID", MySqlDbType.Int64);
                 cmd.Parameters.AddWithValue("?AusstattungID", MySqlDbType.Int64);
 
-                for (int i = 0; i < stamm.StammListUebergabe.Count; i++)
-                {
-                    if (Convert.ToInt64(stamm.StammListUebergabe[i]) >= i)
-                    {
-                        cmd.Parameters["?StammdatenID"].Value = stamm.StammListUebergabe[i].id;
-                    }
-                    else
-                    {
-                        cmd.Parameters["?StammdatenID"].Value = "";
-                    }
+                //for (int i = 0; i < stamm.StammListUebergabe.Count; i++)
+                //{
+                //    if (Convert.ToInt64(stamm.StammListUebergabe[i]) >= i)
+                //    {
+                //        cmd.Parameters["?StammdatenID"].Value = stamm.StammListUebergabe[i].id;
+                //    }
+                //    else
+                //    {
+                //        cmd.Parameters["?StammdatenID"].Value = "";
+                //    }
 
-                    if (Convert.ToInt64(ausstattung.Ausstattung_DataList[i]) >= i)
-                    {
-                        cmd.Parameters["?AusstattungID"].Value = ausstattung.Ausstattung_DataList[i].id;
-                    }
-                    else
-                    {
-                        cmd.Parameters["?AusstattungID"].Value = "";
-                    }
+                //    if (Convert.ToInt64(ausstattung.Ausstattung_DataList[i]) >= i)
+                //    {
+                //        cmd.Parameters["?AusstattungID"].Value = ausstattung.Ausstattung_DataList[i].id;
+                //    }
+                //    else
+                //    {
+                //        cmd.Parameters["?AusstattungID"].Value = "";
+                //    }
 
-                    cmd.Connection = conn;
-                    cmd.ExecuteNonQuery();
-                }
+                //    cmd.Connection = conn;
+                //    cmd.ExecuteNonQuery();
+                //}
                 conn.Close();
             }
             catch (Exception ex)

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Praktikant\Documents\Auftrag\AufträgeOrgadata\obj\Debug\
+C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\
 AufträgeOrgadata
 none
 false
 DEBUG;TRACE
-C:\Users\Praktikant\Documents\Auftrag\AufträgeOrgadata\App.xaml
-9-2085988507
+C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\App.xaml
+10-748536753
 
-21-1663237731
+22-1393122141
 151820578654
-add_edit.xaml;AusstattungWindow.xaml;database.xaml;Kunde.xaml;Kunde_search.xaml;MainWindow.xaml;PAddChange.xaml;ProWindow.xaml;Stammdaten.xaml;
+AddAusstattung.xaml;add_edit.xaml;AusstattungWindow.xaml;database.xaml;Kunde.xaml;Kunde_search.xaml;MainWindow.xaml;PAddChange.xaml;ProWindow.xaml;Stammdaten.xaml;
 
 False
 

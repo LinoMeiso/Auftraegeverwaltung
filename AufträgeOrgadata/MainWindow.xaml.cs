@@ -9,26 +9,6 @@ namespace AufträgeOrgadata
 {
     public partial class MainWindow
     {
-<<<<<<< HEAD
-        public string customerid = null;
-        private TDateTime set = null;
-        private TGrund setgrund = null;
-        private TAuftrag setauftrag = null;
-        private TAusgefuehrt setausgefuehrt = null;
-        private TAnschreiben setanschreiben = null;
-        private THandbuch sethandbuch = null;
-        private TAnAdresse setanadresse = null;
-        private TProgramms setpro = null;
-        private TProgrammsList setprolist = null;
-        private TInstallArt setinstallart = null;
-        private TInstallList setinstalllist = null;
-        private Twizt settwizt = null;
-        private TAusstattung_Data setausstattung = null;
-        private TAusstattung_List setausstattunglist = null;
-        private Tstamm setstamm = null;
-        private TstammList setstammlist = null;
-        private TVNummer setvnum = null;
-=======
         public string customerid;
         private TDateTime set;
         private TGrund setgrund;
@@ -42,7 +22,6 @@ namespace AufträgeOrgadata
         private Twizt settwizt;
         private TAusstattung_Data setausstattung;
         private Tstamm setstamm;
->>>>>>> e4e498a759ddf54ed91ffe4829d0459dac433a16
 
         public MainWindow()
         {
@@ -155,19 +134,9 @@ namespace AufträgeOrgadata
             return setpro;
         }
 
-        public Get_set.TProgrammsList GetProgrammListSet()
-        {
-            return setprolist;
-        }
-
         public Get_set.TInstallArt GetInstallArtSet()
         {
             return setinstallart;
-        }
-
-        public Get_set.TInstallList GetInstallListSet()
-        {
-            return setinstalllist;
         }
 
         public Get_set.Twizt GetTwiztSet()
@@ -180,22 +149,9 @@ namespace AufträgeOrgadata
             return setausstattung;
         }
 
-        public Get_set.TAusstattung_List GetAusstattungListSet()
-        {
-            return setausstattunglist;
-        }
         public Get_set.Tstamm GetStammSet()
         {
             return setstamm;
-        }
-
-        public Get_set.TstammList GetStammListSet()
-        {
-            return setstammlist;
-        }
-        public Get_set.TVNummer GetVNumSet()
-        {
-            return setvnum;
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -434,55 +390,25 @@ namespace AufträgeOrgadata
 
             //Auslesen Programm Daten ID & Name
             ProgrammName PName = new ProgrammName();
-<<<<<<< HEAD
-            setprolist = new TProgrammsList();
-            setprolist.ProList = new List<TProgramms>();
-            bool atleastOneChecked = false;
-=======
-            setpro = new TProgramms {ProList = new List<TProgramms>()};
->>>>>>> e4e498a759ddf54ed91ffe4829d0459dac433a16
+            //setpro = new TProgramms {ProList = new List<TProgramms>()};
 
             for (int i = 0; i < PName.ProgrammListe.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)stackPanelPrograms.Children[i];
 
-<<<<<<< HEAD
-                if (checkbox.IsChecked == true)
-                {
-                    //Zuweisen der Programm Daten
-                    setpro = new TProgramms();
-                    setpro.id = Convert.ToString(PName.ProgrammListe[i].ID);
-                    setpro.name = checkbox.Content.ToString();
-
-                    //Ausgelesende Daten in eine Liste hinzufügen
-                    setprolist.ProList.Add(setpro);
-                    atleastOneChecked = true;
-                }
-            }
-
-            if (atleastOneChecked == false)
-            {
-=======
                 if (checkbox.IsChecked != true) continue;
                 //Zuweisen der Programm Daten
                 setpro.id = Convert.ToString(PName.ProgrammListe[i].ID);
                 setpro.name = checkbox.Content.ToString();
->>>>>>> e4e498a759ddf54ed91ffe4829d0459dac433a16
 
                 //Ausgelesende Daten in eine Liste hinzufügen
-                setpro.ProList.Add(setpro);
+                //setpro.ProList.Add(setpro);
             }
 
             //Auslesen Installationsarten ID & Name
             Installationsart art = new Installationsart();
-<<<<<<< HEAD
-            setinstalllist = new TInstallList();
-            setinstalllist.InstallList = new List<TInstallArt>();
-            bool atChecked = false;
-=======
-            setinstallart = new TInstallArt {InstallList = new List<TInstallArt>()};
+            //setinstallart = new TInstallArt {InstallList = new List<TInstallArt>()};
 
->>>>>>> e4e498a759ddf54ed91ffe4829d0459dac433a16
             for (int i = 0; i < art.Installationsliste.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)stackPanelInstallation.Children[i];
@@ -490,18 +416,10 @@ namespace AufträgeOrgadata
                 if (checkbox.IsChecked == true)
                 {
                     //Zuweisen der Installationsarten
-                    setinstallart = new TInstallArt();
                     setinstallart.id = Convert.ToString(art.Installationsliste[i].ID);
                     setinstallart.installart = checkbox.Content.ToString();
-<<<<<<< HEAD
-                    setinstalllist.InstallList.Add(setinstallart);
-
                     //Ausgelesende Daten in eine Liste hinzufügen
-                    atChecked = true;
-=======
-                    //Ausgelesende Daten in eine Liste hinzufügen
-                    setinstallart.InstallList.Add(setinstallart);
->>>>>>> e4e498a759ddf54ed91ffe4829d0459dac433a16
+                    //setinstallart.InstallList.Add(setinstallart);
                 }
             }
 
@@ -519,15 +437,6 @@ namespace AufträgeOrgadata
                 austausch = txtAustausch.Text
             };
 
-<<<<<<< HEAD
-            setvnum = new TVNummer();
-            setvnum.adkunden = cballedesKunden.IsChecked == true;
-            setvnum.vnummer = txtKunden.Text + txtVertragsnummern.Text;
-            setvnum.rnummer = txtRn.Text;
-            setvnum.serverdongle = txtServerdongle.Text;
-            setvnum.zeitdongle = txtZeitDongle.Text;
-            setvnum.autopro = cbAutoProl.IsChecked == true;
-=======
             TVNummer vnummer = new TVNummer
             {
                 adkunden = cballedesKunden.IsChecked == true,
@@ -539,46 +448,28 @@ namespace AufträgeOrgadata
                 zeitdongle = txtZeitDongle.Text,
                 autopro = cbAutoProl.IsChecked == true
             };
->>>>>>> e4e498a759ddf54ed91ffe4829d0459dac433a16
 
 
             //Auslesen StammDaten ID & Name
             StammName daten = new StammName();
-<<<<<<< HEAD
-            setstammlist = new TstammList();
-            setstammlist.StammListUebergabe = new List<Tstamm>();
-            bool atCheckedStamm = false;
-=======
-            setstamm = new Tstamm {StammListUebergabe = new List<Tstamm>()};
->>>>>>> e4e498a759ddf54ed91ffe4829d0459dac433a16
+            //setstamm = new Tstamm {StammListUebergabe = new List<Tstamm>()};
             for (int i = 0; i < daten.StammListe.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)wpanelStamm.Children[i];
                 if (checkbox.IsChecked == true)
                 {
                     //Zuweisen der Stammdaten
-                    setstamm = new Tstamm();
                     setstamm.id = Convert.ToString(daten.StammListe[i].ID);
                     setstamm.name = checkbox.Content.ToString();
 
                     //Ausgelesende Daten in eine Liste hinzufügen
-<<<<<<< HEAD
-                    setstammlist.StammListUebergabe.Add(setstamm);
-                    atCheckedStamm = true;
-=======
-                    setstamm.StammListUebergabe.Add(setstamm);
->>>>>>> e4e498a759ddf54ed91ffe4829d0459dac433a16
+                    //setstamm.StammListUebergabe.Add(setstamm);
                 }
             }
 
             Ausstattung aus = new Ausstattung();
-<<<<<<< HEAD
-            setausstattunglist = new TAusstattung_List();
-            setausstattunglist.Ausstattung_DataList = new List<TAusstattung_Data>();
-=======
             aus.LoadProgramms();
-            setausstattung = new TAusstattung_Data {Ausstattung_DataList = new List<TAusstattung_Data>()};
->>>>>>> e4e498a759ddf54ed91ffe4829d0459dac433a16
+            //setausstattung = new TAusstattung_Data {Ausstattung_DataList = new List<TAusstattung_Data>()};
 
             for (int i = 0; i < aus.Ausstattungsliste.Count; i++)
             {
@@ -587,17 +478,11 @@ namespace AufträgeOrgadata
                 if (checkbox.IsChecked == true)
                 {
                     //Zuweisen der Ausstattung
-                    setausstattung = new TAusstattung_Data();
                     setausstattung.id = Convert.ToString(aus.Ausstattungsliste[i].ID);
                     setausstattung.name = checkbox.Content.ToString();
 
                     //Ausgelesende Daten in eine Liste hinzufügen
-<<<<<<< HEAD
-                    setausstattunglist.Ausstattung_DataList.Add(setausstattung);
-                    atCheckedAusstattung = true;
-=======
-                    setausstattung.Ausstattung_DataList.Add(setausstattung);
->>>>>>> e4e498a759ddf54ed91ffe4829d0459dac433a16
+                    //setausstattung.Ausstattung_DataList.Add(setausstattung);
 
                 }
             }
@@ -660,8 +545,8 @@ namespace AufträgeOrgadata
 
             Main_auftrag mainauftrag = new Main_auftrag();
             mainauftrag.dongle();
-            mainauftrag.dongleIndetity();
 
+            mainauftrag.dongleIndetity();
             mainauftrag.donglestamm();
             mainauftrag.Kunde();
         }
@@ -682,8 +567,4 @@ namespace AufträgeOrgadata
             OpenKunde(0);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e4e498a759ddf54ed91ffe4829d0459dac433a16
