@@ -17,11 +17,11 @@ namespace AufträgeOrgadata
         private TAnschreiben setanschreiben;
         private THandbuch sethandbuch;
         private TAnAdresse setanadresse;
-        private TProgramms setpro;
-        private TInstallArt setinstallart;
+        private TProgramms setpro = null;
+        private TInstallArt setinstallart = null;
         private Twizt settwizt;
-        private TAusstattung_Data setausstattung;
-        private Tstamm setstamm;
+        private TAusstattung_Data setausstattung = null;
+        private Tstamm setstamm = null;
 
         public MainWindow()
         {
