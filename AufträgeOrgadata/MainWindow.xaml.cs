@@ -352,11 +352,11 @@ namespace AufträgeOrgadata
             }
 
             if (atleastOneChecked != false)
-                ProgrammGrid.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                cbAutoProl.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             else
             {
                 MessageBox.Show("Kein Programm ausgewählt");
-                ProgrammGrid.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                cbAutoProl.Background  = new SolidColorBrush(Color.FromRgb(255, 0, 0));
             }
         }
 
