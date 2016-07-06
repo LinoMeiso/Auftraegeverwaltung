@@ -26,6 +26,8 @@ namespace AufträgeOrgadata
         public MainWindow()
         {
             InitializeComponent();
+            Left = 0;
+            Top = 0;
         }
 
         private void Program_Loaded(object sender, RoutedEventArgs e)
