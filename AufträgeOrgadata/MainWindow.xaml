@@ -227,7 +227,7 @@
                 </Border>
                 <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="115"
                         Margin="0,767,0,0" VerticalAlignment="Top" Width="1305">
-                    <TextBox x:Name="textBox" TextWrapping="Wrap" Text="TextBox"/>
+                    <WrapPanel x:Name="wpanelAusstattung" HorizontalAlignment="Left" VerticalAlignment="Top" Height="114" Width="1285"/>
                 </Border>
                 <CheckBox x:Name="cbVertragsnummer" Content="Vertragsnummer(n)" HorizontalAlignment="Left"
                           Margin="10,438,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.127,-0.467" Width="127" />
