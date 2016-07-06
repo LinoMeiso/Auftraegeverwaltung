@@ -93,6 +93,7 @@ namespace AufträgeOrgadata
 
         public void mDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (lvAusstattung.SelectedIndex < 0) return;
             var selectitem = (dynamic)lvAusstattung.SelectedItems[0];
             var connstring = "Server = localhost; database = auftraege; uid = root ";
             MySqlConnection conn = new MySqlConnection(connstring);
