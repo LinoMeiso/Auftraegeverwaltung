@@ -3,10 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Ausstattung" Height="325.08" Width="651.125" Loaded="AWindow_Loaded">
-    <Grid Margin="0,0,-22,-6">
+        Title="Ausstattung"
+        Height="325" 
+        Width="650" 
+        Loaded="AWindow_Loaded">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="91*"/>
             <RowDefinition Height="59*"/>
@@ -23,26 +25,26 @@
         <Menu x:Name="menu2" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="2">
             <MenuItem Header="Datei" Height="21" Width="60">
                 <MenuItem.Icon>
-                    <Image Width="16" Height="16" Source="Images\assignment.ico"></Image>
+                    <Image Width="16" Height="16" Source="Images\assignment.ico" />
                 </MenuItem.Icon>
                 <MenuItem x:Name="mDelete" Header="Ausstatung löschen" HorizontalAlignment="Left" Width="210" Click="mDelete_Click" >
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\delete.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\delete.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mAdd" Header="Ausstatung hinzufügen" HorizontalAlignment="Left" Width="210" Click="mAdd_Click"  >
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\add.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\add.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mEdit" Header="Ausstatung bearbeiten" HorizontalAlignment="Left" Width="210" Click="mEdit_Click"  >
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\edit.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\edit.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mClose" Header="Close" HorizontalAlignment="Left" Width="211" Margin="0,0,-1,0" Click="mClose_Click"  >
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\close_red.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\close_red.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>

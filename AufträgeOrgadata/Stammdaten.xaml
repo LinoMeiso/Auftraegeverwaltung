@@ -3,9 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AufträgeOrgadata"
         mc:Ignorable="d"
-        Title="Stammdaten" Height="325.08" Width="651.125" WindowStartupLocation="CenterScreen" Icon="Images\costumers.ico">
+        Title="Stammdaten" 
+        Height="325" 
+        Width="650" 
+        WindowStartupLocation="CenterScreen" 
+        Icon="Images\costumers.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="17*"/>
@@ -23,31 +26,93 @@
             <MenuItem Header="Datei" Height="21" Width="39">
                 <MenuItem x:Name="mAdd" Header="Stammdaten hinzufügen" HorizontalAlignment="Left" Width="230"  >
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\add.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\add.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mChange" Header="Stammdaten bearbeiten" HorizontalAlignment="Left" Width="230"  >
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\edit.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\edit.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mDelete" Header="Stammdaten löschen" HorizontalAlignment="Left" Width="230" Click="mDelete_Click" >
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\delete.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\delete.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="mSearch" Header="Stammdaten Search" HorizontalAlignment="Left" Width="230"  >
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\search.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\search.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="mClose" Header="Close" HorizontalAlignment="Left" Width="230"  >
+                <MenuItem x:Name="mClose" Header="Close" Click="MenuItem_Click" HorizontalAlignment="Left" Width="230"  >
                     <MenuItem.Icon>
-                        <Image Width="16" Height="16" Source="Images\close_red.ico"></Image>
+                        <Image Width="16" Height="16" Source="Images\close_red.ico" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
         </Menu>
     </Grid>
 </Window>
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
+   
+
    

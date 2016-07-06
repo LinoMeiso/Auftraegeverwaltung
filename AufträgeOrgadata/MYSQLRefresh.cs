@@ -19,7 +19,7 @@ namespace AufträgeOrgadata
         public List<TProgramm> ProgrammListe { get; set; }
         public List<TInstallationsart> Installationsliste { get; set; }
         public List<TStamm> StammdatenListe { get; set; }
-        public List<TAusstattung> Ausstattungsliste { get; set; }
+        public List<AusstattungWindow.TAusstattung> Ausstattungsliste { get; set; }
 
 
         public MYSQLRefresh()
@@ -27,7 +27,7 @@ namespace AufträgeOrgadata
             ProgrammListe = new List<TProgramm>();
             Installationsliste = new List<TInstallationsart>();
             StammdatenListe = new List<TStamm>();
-            Ausstattungsliste = new List<TAusstattung>();
+            Ausstattungsliste = new List<AusstattungWindow.TAusstattung>();
 
             LoadProgramms();
             LoadInstallation();
@@ -40,31 +40,31 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            string uid, pw, server, port, db, table;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
-            table = lgn.lgnList[0].table;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
+            var table = lgn.lgnList[0].table;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM programm");
-                cmd.Connection = conn;
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM programm") {Connection = conn};
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
                 {
                     while (Reader.Read())
                     {
-                        TProgramm programm = new TProgramm();
-                        programm.ID = int.Parse(Reader["ID"].ToString());
-                        programm.Name = Reader["ProgrammName"].ToString();
+                        TProgramm programm = new TProgramm
+                        {
+                            ID = int.Parse(Reader["ID"].ToString()),
+                            Name = Reader["ProgrammName"].ToString()
+                        };
                         ProgrammListe.Add(programm);
                     }
                 }
@@ -79,31 +79,31 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            string uid, pw, server, port, db, table;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
-            table = lgn.lgnList[0].table;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
+            var table = lgn.lgnList[0].table;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Installationsart");
-                cmd.Connection = conn;
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Installationsart") {Connection = conn};
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
                 {
                     while (Reader.Read())
                     {
-                        TInstallationsart Install = new TInstallationsart();
-                        Install.ID = int.Parse(Reader["ID"].ToString());
-                        Install.Installationsart = Reader["Installationsart"].ToString();
+                        TInstallationsart Install = new TInstallationsart
+                        {
+                            ID = int.Parse(Reader["ID"].ToString()),
+                            Installationsart = Reader["Installationsart"].ToString()
+                        };
                         Installationsliste.Add(Install);
                     }
                 }
@@ -118,31 +118,31 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            string uid, pw, server, port, db, table;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
-            table = lgn.lgnList[0].table;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
+            var table = lgn.lgnList[0].table;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Stammdaten");
-                cmd.Connection = conn;
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Stammdaten") {Connection = conn};
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
                 {
                     while (Reader.Read())
                     {
-                        TStamm Stamm = new TStamm();
-                        Stamm.ID = int.Parse(Reader["ID"].ToString());
-                        Stamm.StammName = Reader["StammName"].ToString();
+                        TStamm Stamm = new TStamm
+                        {
+                            ID = int.Parse(Reader["ID"].ToString()),
+                            StammName = Reader["StammName"].ToString()
+                        };
                         StammdatenListe.Add(Stamm);
                     }
                 }
@@ -158,31 +158,31 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            string uid, pw, server, port, db, table;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
-            table = lgn.lgnList[0].table;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
+            var table = lgn.lgnList[0].table;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Ausstattung");
-                cmd.Connection = conn;
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Ausstattung") {Connection = conn};
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
                 {
                     while (Reader.Read())
                     {
-                        TAusstattung Ausstattung = new TAusstattung();
-                        Ausstattung.ID = int.Parse(Reader["ID"].ToString());
-                        Ausstattung.Ausstatung = Reader["AusstattungName"].ToString();
+                        AusstattungWindow.TAusstattung Ausstattung = new AusstattungWindow.TAusstattung
+                        {
+                            ID = int.Parse(Reader["ID"].ToString()),
+                            Ausstatung = Reader["AusstattungName"].ToString()
+                        };
                         Ausstattungsliste.Add(Ausstattung);
                     }
                 }
@@ -193,9 +193,5 @@ namespace AufträgeOrgadata
                 MessageBox.Show(e.Message);
             }
         }
-
-
-
-
     }
 }

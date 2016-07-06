@@ -8,6 +8,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows;
 
+
 namespace AufträgeOrgadata
 {
     public class TProgramm
@@ -30,13 +31,12 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            string uid, pw, server, port, db, table;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
-            table = lgn.lgnList[0].table;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
+            var table = lgn.lgnList[0].table;
 
                 string connstring = "uid="+uid+";" + "password="+pw+";" + "server="+server+";" + "port="+port+";" + "database="+db+";" + "table="+table+";";
                 MySqlConnection conn = new MySqlConnection(connstring);
@@ -45,16 +45,17 @@ namespace AufträgeOrgadata
                 {
                     conn.Open();
 
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM programm");
-                    cmd.Connection = conn;
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM programm") {Connection = conn};
 
                     using (MySqlDataReader Reader = cmd.ExecuteReader())
                     {
                         while (Reader.Read())
                         {
-                            TProgramm programm = new TProgramm();
-                            programm.ID = int.Parse(Reader["ID"].ToString());
-                            programm.Name = Reader["ProgrammName"].ToString();
+                            TProgramm programm = new TProgramm
+                            {
+                                ID = int.Parse(Reader["ID"].ToString()),
+                                Name = Reader["ProgrammName"].ToString()
+                            };
                             ProgrammListe.Add(programm);
                         }
                     }
@@ -66,6 +67,7 @@ namespace AufträgeOrgadata
                 }
         }
     }
+
     public class TInstallationsart
     {
         public int ID { get; set; }
@@ -86,13 +88,12 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            string uid, pw, server, port, db, table;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
-            table = lgn.lgnList[0].table;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
+            var table = lgn.lgnList[0].table;
 
             string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
@@ -101,16 +102,17 @@ namespace AufträgeOrgadata
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM installationsart");
-                cmd.Connection = conn;
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM installationsart") {Connection = conn};
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
                 {
                     while (Reader.Read())
                     {
-                        TInstallationsart installationsart = new TInstallationsart();
-                        installationsart.ID = int.Parse(Reader["ID"].ToString());
-                        installationsart.Installationsart = Reader["installationsart"].ToString();
+                        TInstallationsart installationsart = new TInstallationsart
+                        {
+                            ID = int.Parse(Reader["ID"].ToString()),
+                            Installationsart = Reader["installationsart"].ToString()
+                        };
                         Installationsliste.Add(installationsart);
                     }
                 }
@@ -120,8 +122,6 @@ namespace AufträgeOrgadata
             {
                 MessageBox.Show(e.Message);
             }
-
-
         }
     }
 
@@ -145,13 +145,12 @@ namespace AufträgeOrgadata
         {
             login lgn = new login();
 
-            string uid, pw, server, port, db, table;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
-            table = lgn.lgnList[0].table;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
+            var table = lgn.lgnList[0].table;
 
             string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
@@ -160,16 +159,17 @@ namespace AufträgeOrgadata
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM stammdaten");
-                cmd.Connection = conn;
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM stammdaten") {Connection = conn};
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
                 {
                     while (Reader.Read())
                     {
-                        TStamm stamm = new TStamm();
-                        stamm.ID = int.Parse(Reader["ID"].ToString());
-                        stamm.StammName = Reader["StammName"].ToString();
+                        TStamm stamm = new TStamm
+                        {
+                            ID = int.Parse(Reader["ID"].ToString()),
+                            StammName = Reader["StammName"].ToString()
+                        };
                         StammListe.Add(stamm);
                     }
                 }
@@ -179,56 +179,54 @@ namespace AufträgeOrgadata
             {
                 MessageBox.Show(e.Message);
             }
-
-
         }
 
     }
-    public class TAusstattung
+
+    public partial class Ausstattung
     {
         public int ID { get; set; }
         public string Ausstatung { get; set; }
     }
 
-    public class Ausstattung
+    public partial class Ausstattung
     {
-        public List<TAusstattung> Ausstattungsliste { get; set; }
+        public List<Ausstattung> Ausstattungsliste { get; set; }
 
         public Ausstattung()
         {
-            Ausstattungsliste = new List<TAusstattung>();
-            LoadProgramms();
+            Ausstattungsliste = new List<Ausstattung>();
         }
 
         public void LoadProgramms()
         {
             login lgn = new login();
 
-            string uid, pw, server, port, db, table;
-            uid = lgn.lgnList[0].uid;
-            pw = lgn.lgnList[0].pw;
-            server = lgn.lgnList[0].server;
-            port = lgn.lgnList[0].port;
-            db = lgn.lgnList[0].db;
-            table = lgn.lgnList[0].table;
+            var uid = lgn.lgnList[0].uid;
+            var pw = lgn.lgnList[0].pw;
+            var server = lgn.lgnList[0].server;
+            var port = lgn.lgnList[0].port;
+            var db = lgn.lgnList[0].db;
+            var table = lgn.lgnList[0].table;
 
-            String connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
+            string connstring = "uid=" + uid + ";" + "password=" + pw + ";" + "server=" + server + ";" + "port=" + port + ";" + "database=" + db + ";" + "table=" + table + ";";
             MySqlConnection conn = new MySqlConnection(connstring);
 
             try
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM ausstattung");
-                cmd.Connection = conn;
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM ausstattung") {Connection = conn};
 
                 using (MySqlDataReader Reader = cmd.ExecuteReader())
                 {
                     while (Reader.Read())
                     {
-                        TAusstattung Ausstattung = new TAusstattung();
-                        Ausstattung.ID = int.Parse(Reader["ID"].ToString());
-                        Ausstattung.Ausstatung = Reader["ausstattungName"].ToString();
+                        Ausstattung Ausstattung = new Ausstattung
+                        {
+                            ID = int.Parse(Reader["ID"].ToString()),
+                            Ausstatung = Reader["ausstattungName"].ToString()
+                        };
                         Ausstattungsliste.Add(Ausstattung);
                     }
                 }
@@ -238,8 +236,6 @@ namespace AufträgeOrgadata
             {
                 MessageBox.Show(e.Message);
             }
-
-
         }
     }
 }

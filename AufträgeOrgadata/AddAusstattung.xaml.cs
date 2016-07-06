@@ -1,37 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 
 namespace AufträgeOrgadata
 {
     /// <summary>
-    /// Interaktionslogik für Kunde.xaml
+    /// Interaction logic for AddAusstattung.xaml
     /// </summary>
-    public partial class PAddChange : Window
+    public partial class AddAusstattung : Window
     {
-        public PAddChange()
+        public AddAusstattung()
         {
             InitializeComponent();
         }
-        public class TProgram
+        public class TAusstattung
         {
             public int ID { get; set; }
-            public string ProgrammName { get; set; }
-
+            public string Ausstattung { get; set; }
         }
 
-        public class PAddChangeCs
+        public class AusstatungChange
         {
-            public List<TProgram> ProgramListe { get; set; }
+            public List<TAusstattung> ausstattungliste { get; set; }
 
-            public PAddChangeCs()
+            public AusstatungChange()
             {
-                ProgramListe = new List<TProgram>();
-                LoadProgram();
+                ausstattungliste = new List<TAusstattung>();
+                LoadAusstattung();
             }
 
-            public void LoadProgram()
+            public void LoadAusstattung()
             {
                 login lgn = new login();
 
@@ -49,19 +48,19 @@ namespace AufträgeOrgadata
                 {
                     conn.Open();
 
-                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM programm") {Connection = conn};
+                    MySqlCommand cmd = new MySqlCommand("SELECT * FROM programm") { Connection = conn };
 
                     using (MySqlDataReader Reader = cmd.ExecuteReader())
                     {
                         while (Reader.Read())
                         {
 
-                            TProgram ProgramName = new TProgram
+                            TAusstattung ProgramName = new TAusstattung
                             {
                                 ID = int.Parse(Reader["ID"].ToString()),
-                                ProgrammName = Reader["ProgrammName"].ToString()
+                                Ausstattung = Reader["ProgrammName"].ToString()
                             };
-                            ProgramListe.Add(ProgramName);
+                            ausstattungliste.Add(ProgramName);
                         }
                     }
                     conn.Close();
@@ -72,34 +71,31 @@ namespace AufträgeOrgadata
                 }
             }
         }
+
         private void btnEditChange_Click(object sender, RoutedEventArgs e)
-
         {
-            string TextFeldProgrammName;
+            string TextAusstattung;
 
-            TextFeldProgrammName = txtProgramName.Text;
+            TextAusstattung = txtAusstattung.Text;
             string connstring = "Server = localhost; database = auftraege; uid = root ";
             MySqlConnection connection = new MySqlConnection(connstring);
             try
             {
                 MySqlCommand command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO programm (Programmname) VALUES (?Programmname)";
-                command.Parameters.AddWithValue("?Programmname", TextFeldProgrammName);
+                command.CommandText = "INSERT INTO ausstattung (Ausstattungname) VALUES (?Ausstattungsnamename)";
+                command.Parameters.AddWithValue("?Ausstattungsnamename", TextAusstattung);
                 connection.Open();
                 command.ExecuteNonQuery();
+
+                AusstatungChange AddChange = new AusstatungChange();
+                AddChange.LoadAusstattung();
             }
             catch (Exception e1)
             {
                 MessageBox.Show(e1.Message);
             }
 
-            this.Close();
-        }
-
-        private void mAdd_Click(object sender, RoutedEventArgs e)
-        {
-            PAddChange EditChange = new PAddChange();
-            EditChange.ShowDialog();
+            Close();
         }
     }
 }
