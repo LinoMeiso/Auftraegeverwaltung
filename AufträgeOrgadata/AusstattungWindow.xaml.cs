@@ -119,8 +119,10 @@ namespace AufträgeOrgadata
         
         private void mAdd_Click(object sender, RoutedEventArgs e)
         {
+            lvAusstattung.Items.Clear();
             AddAusstattung addAusstattungWindow = new AddAusstattung();
             addAusstattungWindow.ShowDialog();
+            LoadData();
         }
 
         private void mEdit_Click(object sender, RoutedEventArgs e)
