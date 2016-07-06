@@ -390,7 +390,7 @@ namespace AufträgeOrgadata
 
             //Auslesen Programm Daten ID & Name
             ProgrammName PName = new ProgrammName();
-            setpro = new TProgramms {ProList = new List<TProgramms>()};
+            //setpro = new TProgramms {ProList = new List<TProgramms>()};
 
             for (int i = 0; i < PName.ProgrammListe.Count; i++)
             {
@@ -402,12 +402,12 @@ namespace AufträgeOrgadata
                 setpro.name = checkbox.Content.ToString();
 
                 //Ausgelesende Daten in eine Liste hinzufügen
-                setpro.ProList.Add(setpro);
+                //setpro.ProList.Add(setpro);
             }
 
             //Auslesen Installationsarten ID & Name
             Installationsart art = new Installationsart();
-            setinstallart = new TInstallArt {InstallList = new List<TInstallArt>()};
+            //setinstallart = new TInstallArt {InstallList = new List<TInstallArt>()};
 
             for (int i = 0; i < art.Installationsliste.Count; i++)
             {
@@ -419,7 +419,7 @@ namespace AufträgeOrgadata
                     setinstallart.id = Convert.ToString(art.Installationsliste[i].ID);
                     setinstallart.installart = checkbox.Content.ToString();
                     //Ausgelesende Daten in eine Liste hinzufügen
-                    setinstallart.InstallList.Add(setinstallart);
+                    //setinstallart.InstallList.Add(setinstallart);
                 }
             }
 
@@ -452,7 +452,7 @@ namespace AufträgeOrgadata
 
             //Auslesen StammDaten ID & Name
             StammName daten = new StammName();
-            setstamm = new Tstamm {StammListUebergabe = new List<Tstamm>()};
+            //setstamm = new Tstamm {StammListUebergabe = new List<Tstamm>()};
             for (int i = 0; i < daten.StammListe.Count; i++)
             {
                 CheckBox checkbox = (CheckBox)wpanelStamm.Children[i];
@@ -463,13 +463,13 @@ namespace AufträgeOrgadata
                     setstamm.name = checkbox.Content.ToString();
 
                     //Ausgelesende Daten in eine Liste hinzufügen
-                    setstamm.StammListUebergabe.Add(setstamm);
+                    //setstamm.StammListUebergabe.Add(setstamm);
                 }
             }
 
             Ausstattung aus = new Ausstattung();
             aus.LoadProgramms();
-            setausstattung = new TAusstattung_Data {Ausstattung_DataList = new List<TAusstattung_Data>()};
+            //setausstattung = new TAusstattung_Data {Ausstattung_DataList = new List<TAusstattung_Data>()};
 
             for (int i = 0; i < aus.Ausstattungsliste.Count; i++)
             {
@@ -482,7 +482,7 @@ namespace AufträgeOrgadata
                     setausstattung.name = checkbox.Content.ToString();
 
                     //Ausgelesende Daten in eine Liste hinzufügen
-                    setausstattung.Ausstattung_DataList.Add(setausstattung);
+                    //setausstattung.Ausstattung_DataList.Add(setausstattung);
 
                 }
             }
