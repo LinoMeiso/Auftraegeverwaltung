@@ -47,7 +47,7 @@
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Settings" Height="25" Width="90">
+                <MenuItem Header="Settings" Height="25">
                     <MenuItem Header="Datenbank" Height="25" Width="150" Click="MenuItem_Click_2">
                         <MenuItem.Icon>
                             <Image Width="16" Height="16" Source="Images\database.ico" />
@@ -218,7 +218,7 @@
                         <ColumnDefinition Width="677*" />
                         <ColumnDefinition Width="628*" />
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="lblStammdaten" Content="Stammdaten" Height="28" Width="100" Margin="0,0,577,172" />
+                    <Label x:Name="lblStammdaten" Content="Stammdaten" Height="28" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,0,0,0" />
                     <Line Height="1" Margin="0,27,-10,172" X2="1310" Stroke="Black" Grid.ColumnSpan="2" />
                     <WrapPanel x:Name="wpanelStamm" HorizontalAlignment="Left" Height="120" Margin="5,30,0,0"
                                    VerticalAlignment="Top" Width="1300" Grid.ColumnSpan="2" />
@@ -255,12 +255,11 @@
                          TextWrapping="Wrap" VerticalAlignment="Top" Width="137" />
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="21"
                         Margin="0,704,0,0" VerticalAlignment="Top" Width="1305" >
-                <TextBox x:Name="tbxAusstattung" TextWrapping="Wrap" Text="Ausstattung"/>
+                <Label x:Name="tbxAusstattung" Content="Ausstattung" Width="120" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5 -3"/>
             </Border>
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="23"
                         Margin="0,791,0,0" VerticalAlignment="Top" Width="1305" />
-            <Label x:Name="label" Content="Was ist zu tun ?" HorizontalAlignment="Left" Margin="0,791,0,0"
-                       VerticalAlignment="Top" Height="28" />
+            <Label x:Name="lblWasIstZuTun" Content="Was ist zu tun ?" HorizontalAlignment="Left" Margin="5,790,0,0" VerticalAlignment="Top" Height="28" />
 
             <CheckBox x:Name="cbanhaenger" Content="Anhänger erstellen" HorizontalAlignment="Left"
                           Margin="356,827,0,0" VerticalAlignment="Top" />
@@ -288,7 +287,7 @@
                         Margin="324,907,0,0" VerticalAlignment="Top" Width="426" />
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="18"
                         Margin="749,907,0,0" VerticalAlignment="Top" Width="556" />
-            <Label x:Name="label4" Content="Auftrag&#xD;&#xA;" HorizontalAlignment="Left" Margin="3,902,0,0"
+            <Label x:Name="label4" Content="Auftrag&#xD;&#xA;" HorizontalAlignment="Left" Margin="5,902,0,0"
                        VerticalAlignment="Top" Height="30"/>
             <Label x:Name="label5" Content="Ausgeführt" HorizontalAlignment="Left" Margin="329,902,0,0"
                        VerticalAlignment="Top" />
