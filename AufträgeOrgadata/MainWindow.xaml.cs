@@ -338,7 +338,72 @@ namespace AufträgeOrgadata
                 txtAnAdressePlz.Background = Brushes.Red;
             else
                 txtAnAdressePlz.Background = Brushes.White;
-            
+
+            if (string.IsNullOrWhiteSpace(txtGrund.Text) && (cbGrund.IsChecked == true) || (txtGrund.Text.Length < 3) && (cbGrund.IsChecked == true))
+                txtGrund.Background = Brushes.Red;
+            else
+                txtGrund.Background = Brushes.White;
+
+            if (string.IsNullOrWhiteSpace(txtAustausch.Text) && (cbAustausch.IsChecked == true) || (txtAustausch.Text.Length < 3) && (cbAustausch.IsChecked == true))
+                txtAustausch.Background = Brushes.Red;
+            else
+                txtAustausch.Background = Brushes.White;
+
+            if (cbGrund.IsChecked == false && (cbAustausch.IsChecked == false))
+            {
+                txtGrund.Background = Brushes.Red;
+                txtAustausch.Background = Brushes.Red;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtRn.Text) && (cbRn.IsChecked == true) || (txtRn.Text.Length < 3) && (cbRn.IsChecked == true))
+                txtRn.Background = Brushes.Red;
+            else
+                txtRn.Background = Brushes.White;
+
+            if (string.IsNullOrWhiteSpace(txtKunden.Text) && (cbVertragsnummer.IsChecked == true) || (txtKunden.Text.Length < 3) && (cbVertragsnummer.IsChecked == true))
+                txtKunden.Background = Brushes.Red;
+            else
+                txtKunden.Background = Brushes.White;
+
+            if (string.IsNullOrWhiteSpace(txtZeitDongle.Text) && (cbZeitDongle.IsChecked == true) || (txtZeitDongle.Text.Length < 3) && (cbZeitDongle.IsChecked == true))
+                txtZeitDongle.Background = Brushes.Red;
+            else
+                txtZeitDongle.Background = Brushes.White;
+
+            if (string.IsNullOrWhiteSpace(txtServerdongle.Text) && (cbServerdongle.IsChecked == true) || (txtServerdongle.Text.Length < 3) && (cbServerdongle.IsChecked == true))
+                txtServerdongle.Background = Brushes.Red;
+            else
+                txtServerdongle.Background = Brushes.White;
+
+            if (string.IsNullOrWhiteSpace(txtauftrag.Text) || txtauftrag.Text.Length < 3)
+                txtauftrag.Background = Brushes.Red;
+            else
+                txtauftrag.Background = Brushes.White;
+
+            if (string.IsNullOrWhiteSpace(txtpost.Text) || txtpost.Text.Length < 3)
+                txtpost.Background = Brushes.Red;
+            else
+                txtpost.Background = Brushes.White;
+
+            if (string.IsNullOrWhiteSpace(txtpostdate.Text) || txtpostdate.Text.Length < 3)
+                txtpostdate.Background = Brushes.Red;
+            else
+                txtpostdate.Background = Brushes.White;
+
+            if (string.IsNullOrWhiteSpace(txtStk_USB.Text) && (string.IsNullOrWhiteSpace(txtStk_Zeit.Text) && (string.IsNullOrWhiteSpace(txtAustausch_Dongle.Text))))
+            {
+                txtStk_USB.Background = Brushes.Red;
+                txtStk_Zeit.Background = Brushes.Red;
+                txtAustausch_Dongle.Background = Brushes.Red;
+            }
+            else
+            {
+                txtStk_USB.Background = Brushes.White;
+                txtStk_Zeit.Background = Brushes.White;
+                txtAustausch_Dongle.Background = Brushes.White;
+            }
+
+
             ProgrammName PName = new ProgrammName();
             bool atleastOneChecked = false;
 
@@ -352,11 +417,11 @@ namespace AufträgeOrgadata
             }
 
             if (atleastOneChecked != false)
-                cbAutoProl.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                stackPanelPrograms.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             else
             {
                 MessageBox.Show("Kein Programm ausgewählt");
-                cbAutoProl.Background  = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                stackPanelPrograms.Background = new SolidColorBrush(Color.FromRgb(255, 0, 0));
             }
         }
 
@@ -513,7 +578,7 @@ namespace AufträgeOrgadata
             };
 
             //Übergabe der TAuftrag Daten
-            setauftrag = new TAuftrag {kuerzel = txtauftrag.Text};
+            setauftrag = new TAuftrag { kuerzel = txtauftrag.Text };
 
             //Übergabe der TAusgefuehrt Daten
             setausgefuehrt = new TAusgefuehrt
@@ -530,10 +595,10 @@ namespace AufträgeOrgadata
             };
 
             //Übergabe der TAnschreiben Daten
-            setanschreiben = new TAnschreiben {anschreiben = cbanschreiben.IsChecked == true};
+            setanschreiben = new TAnschreiben { anschreiben = cbanschreiben.IsChecked == true };
 
             //Übergabe der THandbuch Daten
-            sethandbuch = new THandbuch {handbuch = cbhandbuch.IsChecked == true};
+            sethandbuch = new THandbuch { handbuch = cbhandbuch.IsChecked == true };
 
             set = new TDateTime();
             DateTime date = DateTime.Now;
@@ -566,5 +631,17 @@ namespace AufträgeOrgadata
         {
             OpenKunde(0);
         }
+
+        private void cbLiefer_Checked(object sender, RoutedEventArgs e)
+        {
+            txtAnAdresseName.Text = txtKundeName.Text;
+            txtAnAdresseStr.Text = txtKundeStr.Text;
+            txtAnAdresseOrt.Text = txtKundeOrt.Text;
+            txtAnAdressePlz.Text = txtKundePlz.Text;
+            txtAnAdresseAnsprechPartner.Text = txtKundeAnsprechPartner.Text;
+
+
+        }
+
     }
 }

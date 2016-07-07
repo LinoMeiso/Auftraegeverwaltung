@@ -105,9 +105,6 @@ namespace AufträgeOrgadata
                     var cmd = new MySqlCommand("Delete from  stammdaten where ID = ?ItemClick");
 
                     cmd.Parameters.AddWithValue("?ItemClick", selectitem.StammName);
-
-                    MessageBox.Show(Convert.ToString(selectitem.ID));
-
                     cmd.Connection = conn;
                     cmd.ExecuteNonQuery();
 

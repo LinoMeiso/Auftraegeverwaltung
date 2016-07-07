@@ -141,7 +141,6 @@ C:\Users\Praktikant\Documents\Auftrag\AufträgeOrgadata\obj\Debug\AufträgeOrgad
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\bin\Debug\AufträgeOrgadata.exe.config
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.exe
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.pdb
-C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.csprojResolveAssemblyReference.cache
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\add_edit.g.cs
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AusstattungWindow.g.cs
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\database.g.cs
@@ -172,3 +171,4 @@ C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Aufträ
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.csproj.GenerateResource.Cache
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AddAusstattung.baml
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AddAusstattung.g.cs
+C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.csprojResolveAssemblyReference.cache

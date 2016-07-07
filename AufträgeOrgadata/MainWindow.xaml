@@ -76,7 +76,7 @@
             <CheckBox x:Name="cbmitarbeiter" Content="Mitarbeiter:" HorizontalAlignment="Left" Margin="35,880,0,0"
                           VerticalAlignment="Top" />
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="174"
-                        Margin="0,373,0,0" VerticalAlignment="Top" Width="1305" />
+                        Margin="3,372,-3,0" VerticalAlignment="Top" Width="1305" />
             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="125"
                         VerticalAlignment="Top" Width="190">
                 <Grid HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="190">
@@ -110,7 +110,7 @@
                     <Label x:Name="lblKundePlz" Content="PLZ:" HorizontalAlignment="Left" Height="28"
                                Margin="160,62,0,0" VerticalAlignment="Top" Width="100" />
                     <TextBox x:Name="txtKundePlz" HorizontalAlignment="Left" Height="28" Margin="265,60,0,0"
-                                 VerticalAlignment="Top" Width="115" RenderTransformOrigin="1.487,0.524" />
+                                 VerticalAlignment="Top" Width="115" RenderTransformOrigin="1.487,0.524"/>
                     <Label x:Name="lblKundeOrt" Content="Ort:" HorizontalAlignment="Left" Height="28"
                                Margin="0,90,0,0" VerticalAlignment="Top" Width="50" />
                     <TextBox x:Name="txtKundeOrt" HorizontalAlignment="Left" Height="28" Margin="50,90,0,0"
@@ -123,6 +123,8 @@
                                 Margin="383,0,-383,0" VerticalAlignment="Top" Width="384">
                         <Grid HorizontalAlignment="Left" Height="125" Margin="-1" VerticalAlignment="Top"
                                   Width="384">
+                            <CheckBox x:Name="cbLiefer" Content="Wie links:" HorizontalAlignment="Left"
+                                Margin="100,6,0,0" VerticalAlignment="Top" Width="212" Checked="cbLiefer_Checked" />
                             <Label x:Name="lblAnAdresse" Content="An - Adresse" HorizontalAlignment="Left"
                                        Height="28" Margin="5,0,0,0" VerticalAlignment="Top" Width="100" />
                             <Line Width="400" Height="1" Margin="0,-74,0,0" X2="384" Stroke="Black" />
@@ -134,7 +136,7 @@
                             <Label x:Name="lblAnAdresseStr" Content="Straße:" HorizontalAlignment="Left"
                                        Height="28" Margin="0,60,0,0" VerticalAlignment="Top" Width="100" />
                             <TextBox x:Name="txtAnAdresseStr" HorizontalAlignment="Left" Height="28"
-                                         Margin="50,60,0,0" VerticalAlignment="Top" Width="100" />
+                                         Margin="50,60,0,0" VerticalAlignment="Top" Width="100"/>
                             <Label x:Name="lblAnAdressePlz" Content="PLZ:" HorizontalAlignment="Left" Height="28"
                                        Margin="160,60,0,0" VerticalAlignment="Top" Width="50" />
                             <TextBox x:Name="txtAnAdressePlz" HorizontalAlignment="Left" Height="28"
@@ -142,7 +144,7 @@
                             <Label x:Name="lblAnAdresseOrt" Content="Ort:" HorizontalAlignment="Left" Height="28"
                                        Margin="0,90,0,0" VerticalAlignment="Top" Width="50" />
                             <TextBox x:Name="txtAnAdresseOrt" HorizontalAlignment="Left" Height="28"
-                                         Margin="50,90,0,0" VerticalAlignment="Top" Width="100" />
+                                         Margin="50,90,0,0" VerticalAlignment="Top" Width="100"/>
                             <Label x:Name="lblAnAdresseAnsprechPartner" Content="Ansprechpartner:"
                                        HorizontalAlignment="Left" Height="28" Margin="160,90,0,0"
                                        VerticalAlignment="Top" Width="100" />
@@ -156,8 +158,8 @@
                         Margin="955,0,0,0" VerticalAlignment="Top" Width="350">
                 <Grid x:Name="ProgrammGrid" HorizontalAlignment="Left" Height="125" Margin="-1"
                           VerticalAlignment="Top" Width="350">
-                    <WrapPanel x:Name="stackPanelPrograms" HorizontalAlignment="Left" Height="93" Margin="24,30,0,0"
-                                   VerticalAlignment="Top" Width="325" />
+                    <WrapPanel x:Name="stackPanelPrograms" HorizontalAlignment="Left" Height="93" Margin="0,30,0,0"
+                                   VerticalAlignment="Top" Width="349" />
                     <Label x:Name="lblProgramme" Content="Programme:" HorizontalAlignment="Left" Height="28"
                                Margin="20,0,0,0" VerticalAlignment="Top" Width="100" />
                     <Line Width="575" Height="1" Margin="0,-74,0,0" X2="575" Stroke="Black" />
@@ -231,7 +233,7 @@
             <CheckBox x:Name="cbVertragsnummer" Content="Vertragsnummer(n)" HorizontalAlignment="Left"
                           Margin="10,438,0,0" VerticalAlignment="Top" Width="127" />
             <TextBox x:Name="txtKunden" HorizontalAlignment="Left" Height="23" Margin="10,467,0,0"
-                         TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="120" />
+                         TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
             <TextBox x:Name="txtVertragsnummern" HorizontalAlignment="Left" Height="23" Margin="10,504,0,0"
                          TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
             <CheckBox x:Name="cbRn" Content="Reservierte Nummern:&#xA;" HorizontalAlignment="Left"
