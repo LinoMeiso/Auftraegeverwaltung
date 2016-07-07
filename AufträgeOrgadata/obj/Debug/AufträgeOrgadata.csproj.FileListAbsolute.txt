@@ -172,3 +172,5 @@ C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\Aufträ
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AddAusstattung.baml
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AddAusstattung.g.cs
 C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\AufträgeOrgadata.csprojResolveAssemblyReference.cache
+C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\ADDStammdaten.baml
+C:\Users\pra10\Documents\Auftraegeverwaltung\AufträgeOrgadata\obj\Debug\ADDStammdaten.g.cs

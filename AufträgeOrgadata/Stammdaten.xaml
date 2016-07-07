@@ -24,7 +24,7 @@
         </ListView>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="643" Grid.ColumnSpan="2" Loaded="PWindow_Loaded" >
             <MenuItem Header="Datei" Height="21" Width="39">
-                <MenuItem x:Name="mAdd" Header="Stammdaten hinzufügen" HorizontalAlignment="Left" Width="230"  >
+                <MenuItem x:Name="mAdd" Header="Stammdaten hinzufügen" HorizontalAlignment="Left" Width="230" Click="mAdd_Click"  >
                     <MenuItem.Icon>
                         <Image Width="16" Height="16" Source="Images\add.ico" />
                     </MenuItem.Icon>

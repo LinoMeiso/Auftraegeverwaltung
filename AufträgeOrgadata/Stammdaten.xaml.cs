@@ -116,5 +116,14 @@ namespace AufträgeOrgadata
                 }
             }
         }
-    }
+
+        private void mAdd_Click(object sender, RoutedEventArgs e)
+        {
+            lvStammDaten.Items.Clear();
+            ADDStammdaten ADDStammdaten = new ADDStammdaten();
+            ADDStammdaten.ShowDialog();
+            StammdatenCs sDaten = new StammdatenCs();
+            sDaten.LoadStammdaten();
+        }
+}
 }

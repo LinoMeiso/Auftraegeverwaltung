@@ -631,17 +631,25 @@ namespace AufträgeOrgadata
         {
             OpenKunde(0);
         }
-
-        private void cbLiefer_Checked(object sender, RoutedEventArgs e)
+  
+        private void cbLiefer_Click(object sender, RoutedEventArgs e)
         {
-            txtAnAdresseName.Text = txtKundeName.Text;
-            txtAnAdresseStr.Text = txtKundeStr.Text;
-            txtAnAdresseOrt.Text = txtKundeOrt.Text;
-            txtAnAdressePlz.Text = txtKundePlz.Text;
-            txtAnAdresseAnsprechPartner.Text = txtKundeAnsprechPartner.Text;
-
-
+            if (cbLiefer.IsChecked == true)
+            {
+                txtAnAdresseName.Text = txtKundeName.Text;
+                txtAnAdresseStr.Text = txtKundeStr.Text;
+                txtAnAdresseOrt.Text = txtKundeOrt.Text;
+                txtAnAdressePlz.Text = txtKundePlz.Text;
+                txtAnAdresseAnsprechPartner.Text = txtKundeAnsprechPartner.Text;
+            }
+            else
+            {
+                txtAnAdresseName.Clear();
+                txtAnAdresseStr.Clear();
+                txtAnAdressePlz.Clear();
+                txtAnAdresseAnsprechPartner.Clear();
+                txtAnAdresseOrt.Clear();
+            }
         }
-
     }
 }
